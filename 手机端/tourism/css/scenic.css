@@ -1,0 +1,148 @@
+@import './head.css';
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.search {
+  height: 16vw;
+  background-color: #fff;
+  text-align: center;
+  line-height: 16vw;
+}
+.search > input {
+  width: 92vw;
+  height: 9.0666666667vw;
+  background: #F3F4F6;
+  border-radius: 17px;
+  border: none;
+  text-align: center;
+  font-size: 3.2vw;
+  font-family: PingFangSC-Regular;
+  color: #999999;
+  outline: none;
+}
+
+.bj {
+  height: 2.6666666667vw;
+  background: #F5F5F5;
+}
+
+.banner {
+  padding-top: 2.1333333333vw;
+  padding-bottom: 4vw;
+  background-color: #fff;
+  position: relative;
+}
+.banner > img {
+  display: block;
+  margin: 0 auto;
+  width: 92vw;
+  height: 40vw;
+  border-radius: 4px;
+}
+.banner > span {
+  font-family: PingFangSC-Semibold;
+  font-size: 6.6666666667vw;
+  color: #FFFFFF;
+  line-height: 9.6vw;
+  position: absolute;
+  top: 15.2vw;
+  right: 36vw;
+}
+
+.icon {
+  padding-top: 6.6666666667vw;
+  padding-left: 4vw;
+  padding-bottom: 0.8vw;
+  box-sizing: border-box;
+}
+.icon > ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+.icon > ul > li {
+  margin-bottom: 0vw;
+}
+.icon > ul > li > a {
+  width: 23.4666666667vw;
+  height: 23.4666666667vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.icon > ul > li > a > img {
+  width: 13.3333333333vw;
+  height: 13.3333333333vw;
+}
+.icon > ul > li > a > span {
+  font-family: PingFangSC-Regular;
+  font-size: 3.4666666667vw;
+  color: #333333;
+  line-height: 4.8vw;
+}
+
+.list {
+  padding-top: 4vw;
+  padding-left: 4vw;
+  padding-right: 2.9333333333vw;
+  box-sizing: border-box;
+}
+.list .list_info {
+  margin-bottom: 6.4vw;
+}
+.list .list_info .top {
+  margin-bottom: 2.4vw;
+  display: flex;
+  justify-content: space-between;
+}
+.list .list_info .top > span {
+  font-family: PingFangSC-Medium;
+  font-size: 4.5333333333vw;
+  color: #333333;
+  line-height: 6.4vw;
+  font-weight: bold;
+}
+.list .list_info .top > div > span {
+  font-family: PingFangSC-Regular;
+  font-size: 3.4666666667vw;
+  color: #999999;
+  line-height: 4.8vw;
+}
+.list .list_info .top > div > img {
+  width: 2.6666666667vw;
+  height: 2.6666666667vw;
+}
+.list .list_info .img_1 > ul {
+  display: flex;
+  justify-content: space-between;
+}
+.list .list_info .img_1 > ul > li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #FFFFFF;
+  box-shadow: 1px 4px 10px 0 rgba(0, 0, 0, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.list .list_info .img_1 > ul > li > img {
+  width: 28.8vw;
+  height: 17.6vw;
+}
+.list .list_info .img_1 > ul > li > span {
+  display: inline-block;
+  height: 8.5333333333vw;
+  font-family: PingFangSC-Regular;
+  font-size: 3.2vw;
+  color: #000000;
+  line-height: 8.5333333333vw;
+}/*# sourceMappingURL=scenic.css.map */

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            屏幕尺寸<=max-width时css生效
+            屏幕尺寸>=min-width时css生效
+
+            orientation:portrait 设置手机纵向效果
+            orientation:landscape 设置手机横向效果
+        */
+        @media (orientation:portrait){
+            p{
+                font-size: 24px;
+                border: solid;
+                background-color: red;
+            }       
+        }
+        @media (orientation:landscape){
+            p{
+                font-size: 24px;
+                border: solid;
+                background-color: blue;
+            }       
+        }
+        
+    </style>
+</head>
+<body>
+    <p>hello</p>
+</body>
+</html>

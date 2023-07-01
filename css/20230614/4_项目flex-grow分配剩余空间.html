@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border: solid;
+        }
+        /* 容器 */
+        .main{
+            width: 600px;
+            height: 600px;
+            display: flex;
+            flex-direction: row;
+        }
+        /* 项目 */
+        .main>div{
+            width: 100px;
+            height: 100px;
+        }
+        /* 
+            flex-grow 设置项目分配剩余空间（有剩余空间该属性才会生效）
+            属性值是整数，将所有项目的属性值加在一起做分母，每个项目的值都是分子
+        */
+        .main>div:nth-child(1){
+            flex-grow:1;
+        }
+        .main>div:nth-child(2){
+            flex-grow:2;
+        }
+        .main>div:nth-child(3){
+            flex-grow:2;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+</body>
+</html>

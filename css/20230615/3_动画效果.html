@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            animation-name  设置动画名称
+            @keyframes 动画名称{
+                for{}
+                to{}
+            }
+            animation-duration  设置动画时间（必须）
+            animation-delay     设置动画的延迟时间（负值提前）
+            animation-direction 设置动画运行的方向（正着运行还是反着运行）
+            animation-fill-mode 设置动画的执行之前和之后的样式
+            animation-timing-function   设置动画的运行轨迹
+            animation-iteration-count   设置动画运行次数（infinite无限次）
+            animation-play-state        设置动画是否运行或者暂停
+            animation是动画的简写属性，多个属性值空格隔开
+            动画是自动播放
+        */
+        div{
+            position: absolute;
+            width:200px;
+            height:200px;
+            background-color: red;
+            animation-name: dh;
+            animation-duration: 5s;
+            animation-iteration-count:3;
+            animation-timing-function: linear;
+            animation-delay: 2s;
+            animation-direction: normal;
+            animation-fill-mode: forwards;
+        }
+        div:hover{
+            animation-play-state: paused;
+        }
+        @keyframes dh{
+            /* 0%{
+                top: 0;
+                left: 0;
+            }
+            25%{
+                top: 0;
+                left: 200px;
+                background-color: blue;
+            }
+            50%{
+                top: 200px;
+                left: 200px;
+                background-color: orange;
+            }
+            75%{
+                top: 200px;
+                left: 0px;
+                background-color: green;
+            }
+            100%{
+                top: 0;
+                left: 0;
+            } */
+            for{
+                width:500px;
+                height:500px;
+                background-color: red;
+                border-radius: 50%;
+            }
+            to{
+                width:500px;
+                height:500px;
+                background-color: red;
+                border-radius: 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

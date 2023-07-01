@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            /* 
+                word-break 设置单词在行内是否打断换行
+                normal 不打断（默认）
+                break-all 打断
+                keep-all 中日韩文字不打断（保持每一句的完整性）
+            */
+            width:200px;
+            height: 200px;
+            border: solid;
+            word-break: break-all;
+        }
+        p{
+            width:200px;
+            height: 200px;
+            border: solid;
+            word-break: keep-all;
+        }
+    </style>
+</head>
+<body>
+    <p>撒大声地撒大声 地撒打算大萨 达撒打撒 洒出撒擦拭擦 拭吃撒擦拭 擦时擦是阿萨德驱蚊器五点前未到期伟大</p>
+    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui dolorum blanditiis cupiditate exercitationem corrupti facilis vel pariatur ipsam similique cumque, sed incidunt sapiente fugit, repellat sit. Eligendi alias earum quam?</div>
+</body>
+</html>

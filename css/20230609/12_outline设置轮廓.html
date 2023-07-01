@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            /* 
+                outline-width 设置轮廓的大小
+                outline-style 设置轮廓的样式
+                outline-color 设置轮廓的颜色
+                简写属性outline 属性值用空格隔开
+                元素设置了边框，轮廓就出现在边框的外面
+            */
+            width: 100px;
+            height: 100px;
+            border: 10px solid red;
+            outline: 10px solid blue;
+        }
+        /* 清除input点击时的边框 */
+        input{
+            /* border:none; */
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+
+    </div>
+    <input type="text">
+</body>
+</html>

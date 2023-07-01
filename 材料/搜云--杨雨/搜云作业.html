@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-size: 14px;
+
+        }
+
+        .souyun {
+            width: 1020px;
+            margin: 0 auto;
+            padding: 10px;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .fixed{
+            width: 55px;
+            height: 178px;      
+            position: fixed;
+            top: 260px;
+            right: 0px;
+        }
+
+        .headerbg {
+            width: 100%;
+            height: 31px;   
+            background-image: url(./images/top.jpg);
+            line-height: 31px;
+           
+            color: rgb(168, 152, 137);
+            
+        }
+        .head{
+            width: 1000px;
+            height: 31px;
+        
+            margin: 0 auto;
+        }
+
+        .head #a1 {
+            text-decoration: none;
+            color: rgb(168, 152, 137);
+            float: right;
+            margin-right: 10px;
+        
+          
+        }
+
+        .top {
+            width: 1000px;
+            height: 60px;
+           
+        }
+
+        .href {
+            width: 600px;
+            height: 50px;
+            float: right;
+            display: flex;
+            justify-content: space-around;
+
+        }
+
+        .href a {
+            line-height: 50px;
+            color: black;
+            text-decoration: none;
+        }
+
+        .banner1 {
+            width: 1000px;
+            height: 250px;
+        
+            margin-top: 10px;
+        }
+
+        .banbtm {
+            width: 1000px;
+            height: 370px;
+         
+            margin-top: 10px;
+
+
+        }
+
+        .banbtm ul li {
+            width: 220px;
+            height: 340px;
+            border: 1px solid orangered;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .banbtm ul {
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-around;
+            list-style: none;
+
+        }
+
+        .banbtm ul img {
+            padding-top: 40px;
+            
+        }
+
+        .banbtm ul li h3 {
+            line-height: 50px;
+          
+        }
+
+        .banbtm ul li p {
+            line-height: 20px;
+            color: gray;
+            padding-top: 20px;
+        }
+        .banbtm ul button{
+            width: 100px;height: 30px;
+            margin-top: 30px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: 1px solid gray;
+            color: gray;
+        }
+
+       
+
+        .nav1 {
+            width: 1000px;
+            height: 60px;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .nav1 p {
+            line-height: 30px;
+
+        }
+
+        .navbtm {
+            width: 1000px;
+            height: 210px;
+            margin-top: 10px;
+        }
+
+        .navbtm ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .navbtm ul li:first-of-type {
+            width: 310px;
+            height: 202px;
+            border: 1px solid rgb(151, 220, 10);
+            padding: 10px;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .navbtm ul li:nth-of-type(2) {
+            padding: 10px;
+            width: 310px;
+            height: 180px;
+            border: 1px solid blue;
+            position: relative;
+
+        }
+
+        .navbtm ul li:nth-of-type(3) {
+            padding: 10px;
+            width: 310px;
+            height: 180px;
+            border: 1px solid orangered;
+            position: relative;
+
+        }
+
+        .navbtm ul li img {
+            position: absolute;
+            right: 10px;
+            top: 50px;
+        }
+
+        .navbtm ul li h4 {
+            line-height: 50px;
+        }
+
+        .navbtm ul li p {
+            line-height: 26px;
+            color: red;
+        }
+
+        .nav2 {
+            width: 1000px;
+            height: 60px;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .nav2 h1 {
+            font-size: 26px;
+        }
+
+        .nav2 a {
+            line-height: 30px;
+
+            color: rgb(0, 87, 159);
+        }
+
+        .banbtm2 {
+            width: 1000px;
+            height: 320px;
+            margin-top: 10px;
+        }
+
+        .banbtm2 ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .banbtm2 img {
+            border: 1px solid gray;
+            box-sizing: border-box;
+            padding: 2px;
+        }
+
+        .banbtm2 ul li p {
+            display: flex;
+            justify-content: space-evenly;
+
+        }
+
+        .nav3 {
+            width: 1000px;
+            height: 60px;
+            margin-top: 10px;
+            text-align: center;
+            background-color: rgb(241, 241, 241);
+        }
+
+        .nav3 h1 {
+            font-size: 26px;
+        }
+
+        .nav3 p {
+            line-height: 30px;
+        }
+        .banner2{
+            width: 1000px;
+            height: 195px;
+        }
+        .nav4 {
+            width: 1000px;
+            height: 60px;
+            margin-top: 10px;
+            text-align: center;
+          
+        }
+
+        .nav4 h1 {
+            font-size: 26px;
+        }
+
+        .nav4 p {
+            line-height: 30px;
+        }
+        .banbtm3{
+            width: 1000px;
+            height: 320px;
+            margin-top: 10px;
+        }
+        .banbtm3 ul{
+            display: flex;
+            justify-content: space-evenly;
+            list-style: none;
+            
+        }
+        .banbtm3 li{
+            width: 300px;height: 320px;
+            border: 1px solid black;
+        }
+        .banbtm3 li h4{
+           line-height: 30px;
+            border-bottom: 1px solid black;
+            padding: 0 10px;
+           
+        }
+        .banbtm3 li a{
+            float: right;      
+            text-decoration: none;
+        }
+        .banbtm3 ul li p{
+            padding-left: 20px;
+            border-bottom: 1px dotted black;
+            line-height: 30px;
+        }
+.banner3{
+    width: 1000px;height: 150px;
+}
+.foot{
+    width: 1000px;
+    height: 145px;
+    background-color: rgb(243,243,243);
+    position: relative;
+}
+.foot a{
+    text-decoration: none;
+    color: gray;
+    line-height: 40px;
+    padding-left: 20px;
+   
+}
+.foot p{
+    color: gray;
+    line-height: 40px;
+    padding-left: 20px;
+}
+.ftlogo{
+    position: absolute;
+    right: 40px;top: 10px;
+
+}
+.ftlogo p{
+    padding: 0;
+    line-height: 26px;
+}
+    </style>
+</head>
+
+<body>
+    <div class="headerbg">
+        <div class="head">
+        <img src="./images/topico.png" alt="">
+        <span>专业网络建设，搜云网络 欢迎您！</span>
+        <a href="" id="a1">登录</a></div>
+    </div>
+    <div class="souyun">
+        <div class="fixed">
+            <img src="./images/kefuqq.jpg" alt="">
+            <img src="./images/kefuwx.jpg" alt="">
+            <img src="./images/kefutel.jpg" alt="">
+        </div>
+        <div class="top">
+            <img src="./images/logo.png" alt="">
+            <div class="href">
+                <a href="">首页</a>
+                <a href="">网页建设</a>
+                <a href="">主机域名</a>
+                <a href="">客户案例</a>
+                <a href="">新闻资讯</a>
+                <a href="">视频教学</a>
+                <a href="">关于搜云</a>
+            </div>
+        </div>
+        <div class="banner1">
+            <img src="./images/banner.jpg" alt="">
+        </div>
+        <div class="banbtm">
+            <ul>
+                <li><img src="./images/first1.jpg" alt="">
+                    <h3>企业建站服务</h3>
+                    <hr>
+                    <p>一对一定制解决方案，专业从事企业管网建设，专业的建站经验是您的首选。为您量身订做网站建设方案。13929258708</p><button> 查看详情>></button>
+                </li>
+                <li><img src="./images/second1.jpg" alt="">
+                    <h3>手机网站建设</h3>
+                    <hr>
+                    <p>讲解各式建筑模型制作及渲染、后期的处理方法，包含了丝路核心产品三维动画所有基础及高级建筑动画、插件、影视等。</p><button> 查看详情>></button>
+                </li>
+                <li><img src="./images/third1.jpg" alt="">
+                    <h3>网站SEO</h3>
+                    <hr>
+                    <p>讲解各式建筑模型制作及渲染、后期的处理方法，包含了丝路核心产品三维动画所有基础及高级建筑动画、插件、影视等。</p><button> 查看详情>></button>
+                </li>
+                <li><img src="./images/last1.jpg" alt="">
+                    <h3>企业邮箱</h3>
+                    <hr>
+                    <p>讲解各式建筑模型制作及渲染、后期的处理方法，包含了丝路核心产品三维动画所有基础及高级建筑动画、插件、影视等。</p><button> 查看详情>></button>
+                </li>
+            </ul>
+        </div>
+        <div class="nav1">
+            <h1>更多互联网建站服务</h1>
+            <p>成就客户，搜云网络将为您提供互联网一站式服务</p>
+        </div>
+        <div class="navbtm">
+            <ul>
+                <li>
+                    <h4>高端设计服务</h4>
+                    <p>提升品牌形象</p>
+                    <p>提升品牌形象</p>
+                    <p>提升品牌形象</p>
+                    <p>提升品牌形象</p> <img src="./images/div1.jpg" alt="">
+                </li>
+                <li>
+                    <h4>高端设计服务</h4>
+                    <p>提升品牌形象</p>
+                    <p>提升品牌形象</p>
+                    <p>提升品牌形象</p>
+                    <p>提升品牌形象</p> <img src="./images/div1.jpg" alt="">
+                </li>
+                <li>
+                    <h4>高端设计服务</h4>
+                    <p>提升品牌形象</p>
+                    <p>提升品牌形象</p>
+                    <p>提升品牌形象</p>
+                    <p>提升品牌形象</p> <img src="./images/div1.jpg" alt="">
+                </li>
+            </ul>
+        </div>
+        <div class="nav2">
+            <h1>互联网建站成功案例</h1>
+            <a href=""> 案例展现实力，查看更多网站建设案例>></a>
+        </div>
+        <div class="banbtm2">
+            <ul>
+                <li><img src="./images/88.jpg" alt="">
+                    <p>啄木鸟服饰</p>
+                </li>
+                <li><img src="./images/88.jpg" alt="">
+                    <p>啄木鸟服饰</p>
+                </li>
+                <li><img src="./images/88.jpg" alt="">
+                    <p>啄木鸟服饰</p>
+                </li>
+                <li><img src="./images/88.jpg" alt="">
+                    <p>啄木鸟服饰</p>
+                </li>
+            </ul>
+        </div>
+        <div class="nav3">
+            <h1>为什么选择我们</h1>
+            <p>专业的团队，为您提供针对性、个性化的企业网站建设解决方案</p>
+        </div>
+        <div class="banner2">
+            <img src="./images/99.jpg" alt="">
+        </div>
+        <div class="nav4">
+            <h1>互联网资讯</h1>
+            <p>始终坚持以用户需求为导向，提供安全、稳定、快速的产品和服务</p>
+    </div>
+    <div class="banbtm3">
+        <ul>
+            <li> <h4>新闻资讯 <a href="">更多>></a></h4>
+                <img src="./images/zx.png" alt="">
+                <p> <img src="./images/tu.gif" alt=""> 提升品牌形象</p> 
+                <p><img src="./images/tu.gif" alt=""> 提升品牌形象</p> 
+                <p><img src="./images/tu.gif" alt=""> 提升品牌形象</p> 
+                <p><img src="./images/tu.gif" alt=""> 提升品牌形象</p> 
+                <p><img src="./images/tu.gif" alt=""> 提升品牌形象</p> 
+                <p><img src="./images/tu.gif" alt=""> 提升品牌形象</p> 
+            </li>
+            <li> <h4>新闻资讯 <a href="">更多>></a></h4>
+                <img src="./images/zx.png" alt="">
+                <p> <img src="./images/tu.gif" alt=""> 提升品牌形象</p> 
+                <p><img src="./images/tu.gif" alt=""> 提升品牌形象</p> 
+                <p><img src="./images/tu.gif" alt=""> 提升品牌形象</p> 
+                <p><img src="./images/tu.gif" alt=""> 提升品牌形象</p> 
+                <p><img src="./images/tu.gif" alt=""> 提升品牌形象</p> 
+                <p><img src="./images/tu.gif" alt=""> 提升品牌形象</p> 
+            </li>
+            <li> <h4>新闻资讯 <a href="">更多>></a></h4>
+                <img src="./images/zx.png" alt="">
+                <p> <img src="./images/tu.gif" alt=""> 提升品牌形象</p> 
+                <p><img src="./images/tu.gif" alt=""> 提升品牌形象</p> 
+                <p><img src="./images/tu.gif" alt=""> 提升品牌形象</p> 
+                <p><img src="./images/tu.gif" alt=""> 提升品牌形象</p> 
+                <p><img src="./images/tu.gif" alt=""> 提升品牌形象</p> 
+                <p><img src="./images/tu.gif" alt=""> 提升品牌形象</p> 
+            </li>
+
+        </ul>
+    </div>
+    <div class="banner3">
+        <img src="./images/foot.jpg" alt="">
+    </div>
+    <div class="foot">
+        <a href="">关于我们&nbsp;|&nbsp;关于我们&nbsp;|关于我们&nbsp;|关于我们&nbsp;|关于我们&nbsp;|关于我们 </a>
+        <p>版权所有&copy;2008-2016搜云网络Copyright&copy;nzhuo.com All Rights Reserved </p>
+        <p>京公网安备110301000300号 未经许可，严禁复制仿冒</p>
+     <div class="ftlogo">
+         <img src="./images/logo.png" alt="">
+         <p>客服电话：13929258708</p>
+         <p>QQ/微信：59675526</p>
+     </div>
+
+
+
+    </div>
+
+</body>
+
+</html>

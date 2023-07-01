@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            font-size:3rem;
+        }
+        /* 
+            vertical-align 设置文本垂直方向的对齐方式
+            baseline 和父元素的基线对齐（默认）
+            sub      和父元素的下标基线对齐
+            super    和父元素的上标基线对齐
+            middle   元素的中部与父元素的基线加上父元素xheight的一半对齐
+            top      在顶部对齐
+            bottom   在底部对齐
+            可以用px em rem %设置,可以是负值
+        */
+        div span{
+            /* vertical-align: baseline; */
+            /* vertical-align: sub; */
+            /* vertical-align: super; */
+            /* vertical-align: middle; */
+            /* vertical-align: top; */
+            /* vertical-align: bottom; */
+            /* vertical-align: 10px;
+            vertical-align: 1em;
+            vertical-align: 1rem; */
+            vertical-align: 10%;
+            font-size:1rem;
+        }
+        .s1{
+            vertical-align:baseline;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        Sphinx <span>jack</span> <span class="s1">hello</span>
+    </div>
+</body>
+</html>

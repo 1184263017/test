@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,td{
+            border: solid;
+            /* visibility: collapse; */
+        }
+        /* td{
+            width: 50px;
+            height: 50px;
+        } */
+    </style>
+</head>
+<body>
+    <!-- 
+        visibility 设置元素的隐藏和现实，元素隐藏以后文档流位置会保留
+        hidden 隐藏
+        visible 正常显示
+        collapse 隐藏
+     -->
+    <span style="visibility: visible;">111</span>
+    <span>222</span>
+    <div style="visibility: hidden;">333</div>
+    <div style="visibility: collapse;">444</div>
+    <table>
+        <tr>
+            <td style="display: none;">1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+    </table>
+</body>
+</html>

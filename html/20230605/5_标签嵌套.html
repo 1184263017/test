@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        1.块级元素与块级元素同级、行元素与行元素同级。
+     -->
+     <h1>块标签</h1>
+     <p>块标签</p>
+     <div>
+        <span>行标签</span>
+        <b>行标签</b>
+     </div>
+     <hr>
+     <!-- 
+        2.块元素可以嵌套块元素，行元素可以嵌套行元素
+          块元素可以嵌套行元素，不要使用行元素去嵌套块元素
+      -->
+      <div>
+        <div>123</div>
+      </div>
+      <b><em>456</em></b>
+      <div>
+        <span>789</span>
+      </div>
+      <span>00<div>99</div>00</span>
+      <hr>
+
+      <!-- 
+        3.使用div标签去嵌套块标签，不要使用其他标签去嵌套块标签
+       -->
+        <h1>
+            <div>111</div>
+        </h1>
+        <p>
+            <div>111</div>
+        </p>
+</body>
+</html>

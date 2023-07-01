@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>&lt;div&gt;：内容划分元素 - HTML（超文本标记语言） | MDN</title>
+    <link rel="stylesheet" href="./Test.css">
+</head>
+<body>
+    <div class="main_div">
+        <h1>&#60;div&#62;：内容划分元素</h1>
+        <div>
+            <p>
+                <a href="">HTML</a><code>&lt;div&gt;</code>元素 (或 HTML 文档分区元素) 是一个通用型的流内容容器，在不使用
+                <a href="">CSS</a>的情况下，其对内容或布局没有任何影响。
+            </p>
+        </div>
+        <h2><a href="">尝试一下</a></h2>
+        <div>
+            <table class="try_code" style="background-color: rgb(27,27,27);" cellpadding="0px" cellspacing="0px">
+                <thead>
+                    <tr>
+                        <th>HTML Demo:&lt;div&gt; </th>
+                        <th><div style="text-align: right;">RESET</div></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="" class="try_code_title">
+                            <div style="background-color: rgb(52,52,52);">
+                                <span class="try_code_span_button">HTML</span>&nbsp;<span class="try_code_span_button">CSS</span>
+                                <table class="try_code_child_table">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="try_code_list">
+                                                    <div>1</div>
+                                                    <div>2</div>
+                                                    <div>3</div>
+                                                    <div>4</div>
+                                                    <div>5</div>
+                                                    <div>6</div>
+                                                    <div>7</div>
+                                                    <div>8</div>
+                                                    <div>9</div>
+                                                    <div>10</div>
+                                                    <div>11</div>
+                                                    <div>12</div>
+                                                    <div>13</div>
+                                                    <div>14</div>
+                                                    <div>15</div>
+                                                    <div>16</div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <code>
+<pre >
+.warning {
+    border: 10px ridge #f00;
+    background-color: #ff0;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.warning img {
+    width: 100%;
+}
+
+.warning p {
+    font: small-caps bold 1.2rem sans-serif;
+    text-align: center;
+}
+</pre>
+                                                </code>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                            </div>
+                        </td>
+                        <td><img src="./output_img.png" alt=""></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p>作为一个“纯粹的”容器，<code>&lt;div&gt;</code> 元素在语义上不表示任何特定类型的内容。然而，其可以将内容分组，从而可以使用
+            <a href=""><code>class</code></a>或是
+            <a href=""><code>id</code></a>
+            属性方便的定义内容的格式，也可以在一段文档中划分标记出使用另一种语言书写的内容（使用
+            <a href=""><code>lang</code></a> 属性）等等。</p>
+        <table id="t1" cellspacing="0px">
+            <tbody>
+            <tr>
+                <th scope="row"><a href="">所属内容分类</a>(
+                    <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Content_categories#flow_content">Content categories</a>)
+                </th>
+                <td>
+                    <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Content_categories#flow_content">Flow content</a>
+                    ,palpable content
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">允许的子元素</th>
+                <td>
+                    <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Content_categories#flow_content">Flow content</a>.
+                    <br>
+                    Or (in <a href="">WHATWG</a> HTML): If the parent is a 
+                    <a href=""><code>&lt;dl&gt;</code></a> 
+                    element: one or more 
+                    <a href=""><code>&lt;dt&gt;</code></a> 
+                    elements followed by one or more <a href=""><code>&lt;dd&gt;</code></a> 
+                    elements, optionally intermixed with <a href=""><code>&lt;script&gt;</code></a> 
+                    and <a href=""><code>&lt;template&gt;</code></a> elements.
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Tag omission</th>
+                <td>不允许，开始标签和结束标签都不能省略。</td>
+            </tr>
+            <tr>
+                <th scope="row">允许的父元素</th>
+                <td>
+                    Any element that accepts <a href="">flow content</a>.<br>Or (in <a href="">WHATWG</a> HTML): 
+                    <a href=""><code>&lt;dl&gt;</code></a> element.
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Permitted ARIA roles</th>
+                <td>Any</td>
+            </tr>
+            <tr>
+                <th scope="row">所使用的 DOM API 接口</th>
+                <td><a href=""><code>HTMLDivElement</code></a></td>
+            </tr>
+            </tbody>
+        </table>
+        <h2><a href="">属性</a></h2>
+        <p>该元素支持所有<a href="">全局属性</a>。</p>
+        <div>
+            <table id="note_only">
+                <tr>
+                    <td><img src="./icon.png" style="height: 35px;" alt=""></td>
+                    <td><p><strong>备注：</strong> <code>align</code> 属性已废弃；不要再使用它了。你应当使用 
+                        <a href="">CSS Grid</a> 或 <a href="">CSS Flexbox</a> 来对齐、定位页面上的 <code>&lt;div&gt;</code> 元素。</p></td>
+                </tr>
+            </table>
+        </div>
+        <h2><a href="">使用说明</a></h2>
+        <ul><li><code>&lt;div&gt;</code> 元素应当仅在没有任何其他语义元素（比如 <a href=""><code>&lt;article&gt;</code></a> 或 <a href=""><code>&lt;nav&gt;</code></a>）可用时使用。</li></ul>
+        <h2><a href="">示例</a></h2>
+        <h3><a href="">一个简单的示例</a></h3>
+        <div class="code_view">
+<pre>
+    <code>
+        <span>&lt;<span class="code_t_green">div</span>&gt;</span>
+            <span>&lt;<span class="code_t_green">p</span>&gt;这里可以是任何内容，比如 &amp;lt;p&amp;gt;,</span>
+            <span>&amp;lt;table&amp;gt;,一切由你作主！&lt;/<span class="code_t_green">p</span>&gt;</span>
+        <span>&lt;/<span class="code_t_green">div</span>&gt;</span>
+    </code>
+</pre>
+        </div>
+        <p>结果看起来像这样：</p>
+        <div id="result">
+            <pre><span>&nbsp;这里可以是任何内容，比如 &lt;p&gt;,&lt;table&gt;，一切由你作主！</span></pre>
+        </div>
+        <h3><a href="">样式实例</a></h3>
+        <div class="">
+            <p>本例使用 CSS 将样式应用于&lt;div&gt;，从而创建一个阴影框。注意使用&lt;div&gt;上的 
+                <a href=""><code>class</code></a>
+                属性将名为“shadowbox”的样式应用于元素。</p>
+            <h4 id="html">HTML</h4>
+                <div class="code_view">
+<pre>
+    <code>
+        <span>&lt;<span class="code_t_green">div</span>&nbsp;<span class="code_t_red">class</span>="<span class="code_t_green">shadowbox</span>"&gt;</span>
+            <span>&lt;<span class="code_t_green">p</span>&gt;Here's a very interesting note displayed in a</span>
+            <span>lovely shadowed box.&lt;<span class="code_t_green">/p</span>&gt;</span>
+        <span>&lt;<span class="code_t_green">/div</span>&gt;</span>
+    </code>
+</pre>
+                </div>
+            
+            <h4 id="css">CSS</h4>
+                <div class="code_view">
+<pre>
+    <code>
+        <span><span style="color: rgb(188,166,251);">.shadowbox</span>&nbsp;&#123;</span>
+            <span><span class="code_t_red">width</span>:&nbsp;15em;</span>
+            <span><span class="code_t_red">border</span>:&nbsp;1px solid #333;</span>
+            <span><span class="code_t_red">box-shadow</span>:&nbsp;8px 8px 5px #444;</span>
+            <span><span class="code_t_red">padding</span>:&nbsp;8px 12px;</span>
+            <span><span class="code_t_red">background-image</span>:&nbsp;<span class="code_t_red">linear-gradient</span>(180deg, #fff, #ddd 40%, #ccc);</span>
+        <span>&#125;</span>
+    </code>
+</pre>
+                </div>
+            
+            <h4 id="结果">结果</h4>
+            <div>
+                <iframe  style="background-color: white; border-radius: 6px;" width="650" height="120" src="https://live-samples.mdn.mozilla.net/zh-CN/docs/Web/HTML/Element/div/_sample_.%E6%A0%B7%E5%BC%8F%E5%AE%9E%E4%BE%8B.html" loading="lazy"></iframe>
+            </div>
+        </div>
+        <h2 id="规范"><a href="#规范">规范</a></h2>
+        <table id="gf">
+            <thead>
+                <tr>
+                    <th >Specification</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <a href="">
+                            HTML Standard<br><small>#the-div-element</small>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2><a href="">浏览器兼容性</a></h2>
+        <a href="https://github.com/mdn/browser-compat-data/issues/new?mdn-url=https%3A%2F%2Fdeveloper.mozilla.org%2Fzh-CN%2Fdocs%2FWeb%2FHTML%2FElement%2Fdiv&amp;metadata=%3C%21--+Do+not+make+changes+below+this+line+--%3E%0A%3Cdetails%3E%0A%3Csummary%3EMDN+page+report+details%3C%2Fsummary%3E%0A%0A*+Query%3A+%60html.elements.div%60%0A*+Report+started%3A+2023-06-08T09%3A45%3A52.047Z%0A%0A%3C%2Fdetails%3E&amp;title=html.elements.div+-+%3CSUMMARIZE+THE+PROBLEM%3E&amp;template=data-problem.yml" 
+        target="_blank">Report problems with this compatibility data on GitHub</a>
+        <br>
+        <br>
+        <table class="icon_table" cellpadding="0px" cellspacing="0px">
+            <tr>
+                <td rowspan="2"></td>
+                <td colspan="5"><img src="./computer.png" alt="" class="img_title_icon"></td>
+                <td colspan="6"><img src="./phone.png" alt="" class="img_title_icon"></td>
+            </tr>
+            <tr>
+                <td><img src="./t1.png" alt="" class="icon_height_width"></td>
+                <td><img src="./t2.png" alt="" class="icon_height_width"></td>
+                <td><img src="./t3.png" alt="" class="icon_height_width"></td>
+                <td><img src="./t4.png" alt="" class="icon_height_width"></td>
+                <td><img src="./t5.png" alt="" class="icon_height_width"></td>
+                <td><img src="./t6.png" alt="" class="icon_height_width"></td>
+                <td><img src="./t7.png" alt="" class="icon_height_width"></td>
+                <td><img src="./t8.png" alt="" class="icon_height_width"></td>
+                <td><img src="./t9.png" alt="" class="icon_height_width"></td>
+                <td><img src="./t10.png" alt="" class="icon_height_width"></td>
+                <td><img src="./t11.png" alt="" class="icon_height_width"></td>
+            </tr>
+            <tr style="text-align: center;">
+                <td style="text-align: left;"><code>div</code></td>
+                <td>√<br><span class="icon_table_span">1</span></td>
+                <td>√<br><span class="icon_table_span">12</span></td>
+                <td>√<br><span class="icon_table_span">1</span></td>
+                <td>√<br><span class="icon_table_span">15</span></td>
+                <td>√<br><span class="icon_table_span">1</span></td>
+                <td>√<br><span class="icon_table_span">18</span></td>
+                <td>√<br><span class="icon_table_span">4</span></td>
+                <td>√<br><span class="icon_table_span">14</span></td>
+                <td>√<br><span class="icon_table_span">1</span></td>
+                <td>√<br><span class="icon_table_span">1.0</span></td>
+                <td>√<br><span class="icon_table_span">4.4</span></td>
+            </tr>
+            <tr style="text-align: center;">
+                <td style="text-align: left;"><code>align</code></td>
+                <td>√<br><span class="icon_table_span">1</span></td>
+                <td>√<br><span class="icon_table_span">12</span></td>
+                <td>√<br><span class="icon_table_span">1</span></td>
+                <td>√<br><span class="icon_table_span">15</span></td>
+                <td>√<br><span class="icon_table_span">3</span></td>
+                <td>√<br><span class="icon_table_span">18</span></td>
+                <td>√<br><span class="icon_table_span">4</span></td>
+                <td>√<br><span class="icon_table_span">14</span></td>
+                <td>√<br><span class="icon_table_span">2</span></td>
+                <td>√<br><span class="icon_table_span">1.0</span></td>
+                <td>√<br><span class="icon_table_span">4.4</span></td>
+            </tr>
+        </table>
+        <p>Tip: you can click/tap on a cell for more information.</p>
+        <div>
+            <span>Full support</span>
+            <span>-----</span>
+            <span>Non-standard. Check cross-browser support before using.</span>
+        </div>
+        <div>
+            <span>Deprecated. Not for use in new websites.</span>
+        </div>
+        <h2><a href="">参见</a></h2>
+
+        <div class="">
+            <ul>
+                <li>Semantic sectioning elements: 
+                    <a href=""><code>&lt;section&gt;</code></a>, <a href=""><code>&lt;article&gt;</code></a>, <a href="">
+                    <code>&lt;nav&gt;</code></a>, <a href=""><code>&lt;header&gt;</code></a>, <a href="">
+                    <code>&lt;footer&gt;</code></a>
+                </li>
+                <li><a href=""><code>&lt;span&gt;</code></a> element for styling of phrasing content</li>
+            </ul>
+        </div>
+
+        <div class="Found_a_content_problem">
+            <div>
+                <h3>Found a content problem with this page?</h3>
+                <ul>
+                    <li>
+                        <a href="">Edit the page on GitHub</a>.
+                    </li>
+                    <li>
+                        <a href="">Report the content issue</a>.
+                    </li>
+                    <li>
+                        <a href="">View the source on GitHub</a>.
+                    </li>
+                </ul>
+                Want to get more involved? <a href="">Learn how to contribute</a>.
+            </div>
+            <p>This page was last modified on 2023年5月30日 by 
+                <a href="">MDN contributors</a>.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

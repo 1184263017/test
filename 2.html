@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .slider {
+            position: relative;
+            overflow: hidden;
+            width: 400px;
+            height: 300px;
+        }
+
+        .slide {
+            /* display: none; */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s, transform 0.5s;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .prev-btn,.next-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 10px;
+            font-size: 18px;
+        }
+
+        .prev-btn {
+            left: 10px;
+        }
+
+        .next-btn {
+            right: 10px;
+        }
+        .slide.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <div class="slide">
+          <img src="./京东项目/image/68d66bc28302749a.jpg" alt="Image 1" id="img">
+        </div>
+      </div>
+      <button class="prev-btn">Previous</button>
+      <button class="next-btn">Next</button>
+      
+</body>
+<script>
+// 获取轮播图容器和按钮元素
+var slider = document.querySelector('.slider');
+var prevBtn = document.querySelector('.prev-btn');
+var nextBtn = document.querySelector('.next-btn');
+var img = document.getElementById('img')
+
+var currentIndex = 0; // 当前显示的图片索引
+var slideInterval = setInterval(nextSlide, 3000); // 设置自动播放间隔为 3 秒
+var arr = [
+        './京东项目/image/68d66bc28302749a.jpg',
+        './京东项目/image/0afdc5457b307ea7.jpg',
+        './京东项目/image/6f2704239b25b51b.jpg',
+    ];
+
+// 显示指定索引的图片
+function showSlide(index) {
+    img.src = arr[index];
+    currentIndex = index;
+}
+
+// 切换到上一张图片
+function prevSlide() {
+    var newIndex = currentIndex - 1;
+    if (newIndex < 0) {
+        newIndex = arr.length-1;
+    }
+    showSlide(newIndex);
+};
+
+// 切换到下一张图片
+function nextSlide() {
+    var newIndex = currentIndex + 1;
+    if (newIndex >= arr.length) {
+        newIndex = 0;
+    }
+    showSlide(newIndex);
+};
+
+
+// 上一张按钮点击事件
+prevBtn.addEventListener('click', function() {
+  prevSlide();
+  clearInterval(slideInterval); // 清除自动播放定时器
+  slideInterval = setInterval(nextSlide, 3000); // 重新设置自动播放定时器
+});
+
+// 下一张按钮点击事件
+nextBtn.addEventListener('click', function() {
+  nextSlide();
+  clearInterval(slideInterval); // 清除自动播放定时器
+  slideInterval = setInterval(nextSlide, 3000); // 重新设置自动播放定时器
+});
+
+
+// 初始化显示第一张图片
+showSlide(0);
+
+</script>
+</html>

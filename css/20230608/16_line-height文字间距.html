@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            line-height 设置元素中每行的高度
+            单位可以是数字 px em rem %
+        */
+        div{
+            width: 100px;
+            height: 100px;
+            border: solid;
+            line-height: 16px;
+        }
+        /* 
+            将line-height设置的和height一致，元素只有一行文字时，可以垂直居中
+        */
+        ul li{
+            width: 80px;
+            height: 50px;
+            border: solid;
+            line-height: 50px;
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        内容 <br>
+        内容 <br>
+        内容 <br>
+    </div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+</body>
+</html>

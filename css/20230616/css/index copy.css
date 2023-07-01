@@ -1,0 +1,109 @@
+@charset "UTF-8";
+.head {
+  height: 100px;
+  background-color: orange;
+}
+
+h1 {
+  color: red;
+}
+
+.d1 > span {
+  color: blue;
+}
+.d1 p span {
+  color: orange;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.search {
+  width: 490px;
+  height: 36px;
+  border: 2px solid #e2231a;
+  display: flex;
+}
+.search .left {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+}
+.search .left .left-input {
+  flex: 1;
+  padding: 5px 20px;
+  display: flex;
+}
+.search .left .left-input input {
+  flex: 1;
+  border: none;
+  outline: none;
+}
+.search .left .left-span {
+  width: 55px;
+  height: 36px;
+  font-size: 20px;
+  text-align: center;
+  line-height: 36px;
+}
+.search .left .left-span span {
+  font-size: 20px;
+}
+.search .right {
+  width: 58px;
+  height: 36px;
+  background-color: #e1251b;
+  text-align: center;
+  line-height: 36px;
+}
+.search .right span {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.d2 {
+  width: 100px;
+  height: 100px;
+  border-color: red;
+  border-style: solid;
+  border-width: 2px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.d2:hover {
+  background-color: red;
+}
+
+/*
+    多行注释
+*/
+/*!
+    重要注释
+*/
+.border, .d3, .d4 {
+  border: 2px solid red;
+}
+
+.d3, .d4 {
+  width: 100px;
+  height: 100px;
+}
+
+.d4 {
+  height: 200px;
+}
+
+.d5 {
+  width: 100px;
+  height: 100px;
+  border: 1px solid red;
+}
+
+.d6 {
+  width: 100px;
+  height: 100px;
+  border: 5px solid orange;
+}/*# sourceMappingURL=index copy.css.map */

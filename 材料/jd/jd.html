@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东购物头部代码</title>
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/style.css">
+ 
+<style>
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font: 12px/1.5 Microsoft YaHei,Heiti SC,tahoma,arial,Hiragino Sans GB,"\5B8B\4F53",sans-serif;
+	color: #666;
+}
+ul{
+	list-style-type: none;
+}
+a{
+	text-decoration: none;
+}
+ 
+.shortcut{
+	background-color: #E3E4E5;
+	border-bottom: 1px solid #DDD;
+}
+.shortcut a{
+	color: #999;
+}
+.shortcut a:hover{
+	color: #E33333;
+}
+.shortcut .topbar{
+	height: 30px;
+	line-height: 30px;
+	color: #999;
+	width: 1190px;
+	margin: auto;
+}
+ 
+.shortcut .dropdown_btn_link{
+	float: left;
+}
+.dropdown_btn_link{
+	height: 28px;
+	line-height: 28px;
+	padding-left: 7px;
+	padding-right: 7px;
+	border: 1px solid #E3E4E5;
+	position: relative;
+	z-index: 1;
+}
+.fa-map-marker{
+	font-size: 14px;
+	margin-right: 2px;
+	color: #E10215;
+}
+.dropdown_btn:hover .dropdown_btn_link{
+	padding-bottom: 2px;
+	border-color: #CCC;
+	border-bottom: none;
+	background-color: #FFF;
+}
+.dropdown_btn{
+	position: relative;
+}
+.dropdown-layer{
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 30px;
+	width: 300px;
+	padding: 10px;
+	line-height: 24px;
+	border: 1px solid #CCC;
+	box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.1);
+}
+.dropdown_btn:hover .dropdown-layer,
+.dropdown_btn:hover .dropdown-layer-info,
+.dropdown_btn:hover .dropdown-layer-corder{
+	display: block;
+}
+ 
+.area-content-list{
+	overflow: hidden;
+}
+ 
+.item{
+	float: left;
+	width: 60px;
+	padding: 2px 0;
+}
+.item a{
+	float: left;
+	padding: 0 8px;
+}
+.item a:hover{
+	background-color: #F4F4F4;
+}
+a.selected{
+	background-color: #F10215;
+	color: #FFF;
+}
+a.selected:hover{
+	background-color: #F10215;
+	color: #FFF;
+}
+ 
+.area_inter::before,
+.area_inter::after{
+	content: '';
+	display: table;
+	clear: both;
+}
+.area_inter{
+	margin: 10px 0 10px 10px;
+}
+.area_spliter{
+	width: 262px;
+	height: 0;
+	border-bottom: 1px dotted #CCC;
+}
+.area_dis{
+	margin: 9px 0;
+	color: #8F8F8F;
+}
+.area_item{
+	width: 145px;
+	height: 26px;
+	line-height: 26px;
+	float: left;
+}
+ 
+.fr{
+	float: right;
+}
+.fr li{
+	float: left;
+}
+.sp1{
+	margin-right: 8px;
+}
+li.spacer{
+	width: 1px;
+	height: 10px;
+	margin: 11px 5px 0;
+	background-color: #CCC;
+}
+a.link_regist, a.link_corder{
+	color: #F10215;
+}
+.sp{
+	padding-left: 7px;
+	padding-right: 7px;
+}
+a.dropdown_btn_link .fa-angle-down,
+a.dropdown_btn_link .fas,
+a.link_corder .fa-angle-down,
+a.link_corder .fas,
+a.fa-angle-down:hover{
+	color: #999;
+}
+ 
+.dropdown-layer-info{
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 30px;
+	width: 260px;
+	padding: 10px;
+	line-height: 24px;
+	border: 1px solid #CCC;
+	box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.1);
+}
+ 
+.info-list{
+	margin: 5px 0 8px 8px;
+	overflow: hidden;
+}
+.info-item{
+	width: 126px;
+	float: left;
+}
+ 
+.dropdown-layer-corder{
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 30px;
+	width: 130px;
+	padding: 10px;
+	line-height: 24px;
+	border: 1px solid #CCC;
+	box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.1);
+}
+.corder-list{
+	margin: 5px 0;
+}
+.corder-item{
+	float: left;
+}
+.corder-item .corder-link{
+	padding: 0 5px;
+	float: left;
+}
+ 
+ 
+.dropdown_btnc{
+	float: left;
+	position: relative;
+}
+.link_service{
+	padding-left: 7px;
+	padding-right: 7px;
+	border: 1px solid #E3E4E5;
+	float: left;
+	position: relative;
+	height: 28px;
+	line-height: 28px;
+	z-index: 1;
+}
+.dropdown_btnc:hover .link_service{
+	border: 1px solid #CCC;
+	padding-bottom: 2px;
+	border-bottom: none;
+	background-color: #FFF;
+}
+.dropdown-layer-service{
+	display: none;
+	padding: 5px 8px;
+	position: absolute;
+	top: 30px;
+	right: 0;
+	border: 1px solid #CCC;
+	box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.1);
+	width: 150px;
+}
+ 
+.dropdown_btnc:hover .dropdown-layer-service{
+	display: block;
+}
+ 
+h3::before,
+h3::after{
+	content: '';
+	display: table;
+	clear: both;
+}
+.h3{
+	font-size: 14px;
+	font-weight: bold;
+}
+ 
+.service-item{
+	float: left;
+	width: 70px;
+}
+ 
+a.service-link{
+	margin-left: 5px;
+}
+ 
+.topbar_btn_nav{
+	float: left;
+	position: relative;
+}
+.link_nav{
+	float:left;
+	height: 28px;
+	line-height: 28px;
+	border: 1px solid #E3E4E5;
+	position: relative;
+	padding-left: 7px;
+	padding-right: 7px;
+	z-index: 1;
+}
+.topbar_btn_nav:hover .link_nav{
+	border: 1px solid #CCC;
+	border-bottom: none;
+	padding-bottom: 2px;
+	background-color: #FFF;
+}
+.dropdown-layer-nav{
+	display: none;
+	position: absolute;
+	top: 30px;
+	width: 1188px;
+	right: -75px;
+	line-height: 24px;
+	padding: 15px 0;
+	border: 1px solid #CCC;
+	box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.1);
+}
+.topbar_btn_nav:hover .dropdown-layer-nav{
+	display: block;
+}
+.col1{
+	float: left;
+	width: 340px;
+	padding-left: 20px;
+}
+.dropdown-layer-nav h3{
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 2em;
+}
+.nav-item{
+	float: left;
+	width: 85px;
+}
+.nav-link{
+	float: left;
+}
+ 
+.col2, .col3, .col4{
+	float: left;
+	width: 255px;
+	padding-left: 20px;
+	border-left: 1px solid #EEE;
+}
+ 
+.dropdown-phone-jd{
+	position: relative;
+	padding-left: 7px;
+	padding-right: 7px;
+}
+.link_phonejd{
+	position: relative
+}
+.dropdown-phone-jd:hover .dropdown-layer-phone{
+	display: block;
+}
+.dropdown-layer-phone{
+	display: none;
+	position: absolute;
+	right: 0;
+	width: 140px;
+	padding: 15px 10px;
+	border: 1px solid #CCC;
+	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1)
+}
+</style>
+ 
+</head>
+<body>
+	<div class="shortcut">
+		<div class="topbar">
+ 
+			<div class="location">
+				<div class="dropdown_btn">
+					<a href="javascript:;" class="dropdown_btn_link">
+						<i class="fa fa-map-marker"></i>
+						<span class="this_location_name">广东</span>
+					</a>
+ 
+					<div class="dropdown-layer">
+ 
+						<div class="area-content-wrap">
+							<div class="area-content">
+								<div class="area-content-list">
+									<div class="item">
+										<a href="javascript:;">北京</a>
+									</div>
+									<div class="item">
+										<a href="javascript:;">上海</a>
+									</div>
+									<div class="item">
+										<a href="javascript:;">天津</a>
+									</div>
+									<div class="item">
+										<a href="javascript:;">重庆</a>
+									</div>
+									<div class="item">
+										<a href="javascript:;">河北</a>
+									</div>
+									<div class="item">
+										<a href="javascript:;">山西</a>
+									</div>
+									<div class="item">
+										<a href="javascript:;">河南</a>
+									</div>
+									<div class="item">
+										<a href="javascript:;">辽宁</a>
+									</div>
+									<div class="item">
+										<a href="javascript:;">吉林</a>
+									</div>
+									<div class="item">
+										<a href="javascript:;">黑龙江</a>
+									</div>
+									<div class="item">
+										<a href="javascript:;">内蒙古</a>
+									</div>
+									<div class="item">
+										<a href="javascript:;">江苏</a>
+									</div>
+									<div class="item">
+										<a href="javascript:;">山东</a>
+									</div>
+									<div class="item">
+										<a href="javascript:;">安徽</a>
+									</div>
+									<div class="item">
+										<a href="javascript:;">浙江</a>
+									</div>
+									<div class="item">
+										<a href="javascript:;">福建</a>
+									</div>
+									<div class="item">
+										<a href="javascript:;">湖北</a>
+									</div>
+									<div class="item">
+										<a href="javascript:;">湖南</a>
+									</div>
+									<div class="item">
+										<a class="selected" href="javascript:;">广东</a>
+									</div>
+									<div class="item">
+										<a href="javascript:;">广西</a>
+									</div>
+									<div class="item">
+										<a href="javascript:;">江西</a>
+									</div>
+									<div class="item">
+										<a href="javascript:;">四川</a>
+									</div>
+									<div class="item">
+										<a href="javascript:;">海南</a>
+									</div>
+									<div class="item">
+										<a href="javascript:;">贵州</a>
+									</div>
+									<div class="item">
+										<a href="javascript:;">云南</a>
+									</div>
+									<div class="item">
+										<a href="javascript:;">陕西</a>
+									</div>
+									<div class="item">
+										<a href="javascript:;">甘肃</a>
+									</div>
+									<div class="item">
+										<a href="javascript:;">贵州</a>
+									</div>
+									<div class="item">
+										<a href="javascript:;">宁夏</a>
+									</div>
+									<div class="item">
+										<a href="javascript:;">哈尔滨</a>
+									</div>
+									<div class="item">
+										<a href="javascript:;">昆明</a>
+									</div>
+									<div class="item">
+										<a href="javascript:;">南宁</a>
+									</div>
+									<div class="item">
+										<a href="javascript:;">澳门</a>
+									</div>
+									<div class="item">
+										<a href="javascript:;">桂林</a>
+									</div>
+									<div class="item">
+										<a href="javascript:;">衡阳</a>
+									</div>
+								</div>
+							</div>
+						</div>
+ 
+						<div class="area_inter">
+							<div class="area_spliter"></div>
+							<p class="area_dis">地区专享版</p>
+							<ul class="area_list">
+								<li class="area_item">
+									<a href="javascript:;" class="area_item_lk">中国港澳</a>
+								</li>
+								<li class="area_item">
+									<a href="javascript:;" class="area_item_lk">东南亚</a>
+								</li>
+								<li class="area_item">
+									<a href="javascript:;" class="area_item_lk">京东全球</a>
+								</li>
+							</ul>
+						</div>
+ 
+						<div class="area_inter">
+							<div class="area_spliter"></div>
+							<p class="area_dis">Available Sites</p>
+							<ul class="area_list">
+								<li class="area_item">
+									<a href="javascript:;" class="area_item_lk">Global Site</a>
+								</li>
+								<li class="area_item">
+									<a href="javascript:;" class="area_item_lk">เว็บไซต์ประเทศไทย</a>
+								</li>
+								<li class="area_item">
+									<a href="javascript:;" class="area_item_lk">Сайт России</a>
+								</li>
+								<li class="area_item">
+									<a href="javascript:;" class="area_item_lk">Situs Indonesia</a>
+								</li>
+								<li class="area_item">
+									<a href="javascript:;" class="area_item_lk">Sitio de España</a>
+								</li>
+							</ul>
+						</div>
+ 
+					</div>
+				</div>
+			</div>
+ 
+			<ul class="fr">
+				<li class="topbar_btn sp1">
+					<a href="javascript:;" class="link_login">你好，请登录</a>
+					&nbsp;&nbsp;
+					<a href="javascript:;" class="link_regist">免费注册</a>
+				</li>
+				<li class="spacer"></li>
+				<li class="topbar_btn sp">
+					<a href="javascript:;" class="link_order">我的订单</a>
+				</li>
+				<li class="spacer"></li>
+				<li class="dropdown_btn">
+					<a href="javascript:;" class="dropdown_btn_link">
+						<span>我的京东</span>
+						<i class="fas fa-angle-down"></i>
+					</a>
+ 
+					<div class="dropdown-layer-info">
+						<ul class="info-list">
+							<li class="info-item">
+								<a href="javascript:;" class="link-info">待处理订单</a>
+							</li>
+							<li class="info-item">
+								<a href="javascript:;" class="link-info">消息</a>
+							</li>
+							<li class="info-item">
+								<a href="javascript:;" class="link-info">返修退换货</a>
+							</li>
+							<li class="info-item">
+								<a href="javascript:;" class="link-info">我的问答</a>
+							</li>
+							<li class="info-item">
+								<a href="javascript:;" class="link-info">降价商品</a>
+							</li>
+							<li class="info-item">
+								<a href="javascript:;" class="link-info">我的关注</a>
+							</li>
+						</ul>
+ 
+						<div class="area_spliter"></div>
+ 
+						<ul class="info-list">
+							<li class="info-item">
+								<a href="javascript:;" class="link-info">我的京豆</a>
+							</li>
+							<li class="info-item">
+								<a href="javascript:;" class="link-info">我的优惠券</a>
+							</li>
+							<li class="info-item">
+								<a href="javascript:;" class="link-info">我的白条</a>
+							</li>
+							<li class="info-item">
+								<a href="javascript:;" class="link-info">我的理财</a>
+							</li>
+						</ul>
+ 
+					</div>
+					
+				</li>
+				<li class="spacer"></li>
+				<li class="topbar_btn sp">
+					<a href="javascript:;" class="link_jdvip">京东会员</a>
+				</li>
+				<li class="spacer"></li>
+				<li class="dropdown_btn">
+					<a href="javascript:;" class="dropdown_btn_link">
+						<span>企业采购</span>
+						<i class="fas fa-angle-down"></i>
+					</a>
+					<div class="dropdown-layer-corder">
+						<ul class="corder-list">
+							<li class="corder-item">
+								<a href="javascript:;" class="corder-link">企业购</a>
+							</li>
+							<li class="corder-item">
+								<a href="javascript:;" class="corder-link">商用场景观</a>
+							</li>
+							<li class="corder-item">
+								<a href="javascript:;" class="corder-link">工业品</a>
+							</li>
+							<li class="corder-item">
+								<a href="javascript:;" class="corder-link">丰客多商城</a>
+							</li>
+							<li class="corder-item">
+								<a href="javascript:;" class="corder-link">礼品卡</a>
+							</li>
+							<li class="corder-item">
+								<a href="javascript:;" class="corder-link">微信企业购</a>
+							</li>
+							<li class="corder-item">
+								<a href="javascript:;" class="corder-link">大中型企业采购</a>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li class="spacer"></li>
+				<li class="topbar_btn dropdown_btnc">
+					<div class="link_service">
+						<span>客户服务</span>
+						<i class="fas fa-angle-down"></i>
+					</div>
+					<div class="dropdown-layer-service">
+						<h3>客户</h3>
+						<ul class="service-list">
+							<li class="service-item">
+								<a href="javascript:;" class="service-link">帮助中心</a>
+							</li>
+							<li class="service-item">
+								<a href="javascript:;" class="service-link">售后服务</a>
+							</li>
+							<li class="service-item">
+								<a href="javascript:;" class="service-link">在线客服</a>
+							</li>
+							<li class="service-item">
+								<a href="javascript:;" class="service-link">意见建议</a>
+							</li>
+							<li class="service-item">
+								<a href="javascript:;" class="service-link">电话客服</a>
+							</li>
+							<li class="service-item">
+								<a href="javascript:;" class="service-link">客服邮箱</a>
+							</li>
+							<li class="service-item">
+								<a href="javascript:;" class="service-link">金融咨询</a>
+							</li>
+							<li class="service-item">
+								<a href="javascript:;" class="service-link">全球售客服</a>
+							</li>
+							<li class="service-item">
+								<a href="javascript:;" class="service-link">企业客服</a>
+							</li>
+						</ul>
+ 
+						<h3>商户</h3>
+						<ul class="service-list">
+							<li class="service-item">
+								<a href="javascript:;" class="service-link">合作招商</a>
+							</li>
+							<li class="service-item">
+								<a href="javascript:;" class="service-link">成长中心</a>
+							</li>
+							<li class="service-item">
+								<a href="javascript:;" class="service-link">商家后台</a>
+							</li>
+							<li class="service-item">
+								<a href="javascript:;" class="service-link">京麦工作台</a>
+							</li>
+							<li class="service-item">
+								<a href="javascript:;" class="service-link">商家帮助</a>
+							</li>
+							<li class="service-item">
+								<a href="javascript:;" class="service-link">规则平台</a>
+							</li>
+						</ul>
+ 
+					</div>
+				</li>
+				<li class="spacer"></li>
+				<li class="topbar_btn_nav">
+					<div class="link_nav">
+						<span>网站导航</span>
+						<i class="fas fa-angle-down"></i>
+					</div>
+					<div class="dropdown-layer-nav">
+						<div class="col1">
+							<h3>特色主题</h3>
+							<ul class="nav-list">
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">新品首发</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">京东金融</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">全球售</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">国际站</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">京东会员</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">京东预售</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">台湾售</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">俄语售</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">装机大师</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">0元评测</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">港澳售</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">优惠券</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">秒杀</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">闪购</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">印尼站</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">陪伴计划</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">出海招商</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">拍拍二手</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">买什么</a>
+								</li>
+							</ul>
+						</div>
+ 
+						<div class="col2">
+							<h3>行业频道</h3>
+							<ul class="nav-list">
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">手机</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">智能数码</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">玩3C</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">电脑办公</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">家用电器</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">京鱼座智能</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">京东服饰</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">京东生鲜</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">家装城</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">母婴</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">食品</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">农资频道</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">整车</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">图书</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">劳动防护</a>
+								</li>
+							</ul>
+						</div>
+ 
+						<div class="col3">
+							<h3>生活服务</h3>
+							<ul class="nav-list">
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">京东众筹</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">白条</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">京东金融App</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">京东小金库</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">理财</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">话费</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">水电煤</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">彩票</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">旅行</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">机票酒店</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">电影票</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">京东到家</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">游戏</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">拍拍回收</a>
+								</li>
+							</ul>
+						</div>
+ 
+						<div class="col4">
+							<h3>更多精选</h3>
+							<ul class="nav-list">
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">合作招商</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">京东通讯</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">京东E卡</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">企业采购</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">服务市场</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">办公生活馆</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">校园加盟</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">京东社区</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">游戏社区</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;" class="nav-link">知识产权维护权</a>
+								</li>
+							</ul>
+						</div>
+ 
+					</div>
+				</li>
+				<li class="spacer"></li>
+				<li class="dropdown-phone-jd">
+					<span class="link_phonejd">手机京东</span>
+					<div class="dropdown-layer-phone">
+						<img src="images/p.png" alt="">
+						<img src="images/u.jpg" alt="">
+					</div>
+				</li>
+			</ul>
+ 
+		</div>
+	</div>
+</body>
+</html>

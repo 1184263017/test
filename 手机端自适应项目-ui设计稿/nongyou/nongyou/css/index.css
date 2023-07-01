@@ -1,0 +1,40 @@
+body, ul, li, a {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+div {
+  border: solid;
+}
+
+.wrap .top-bar {
+  height: 11.7333333333vw;
+}
+.wrap .carousel {
+  height: 40vw;
+}
+.wrap .banner-nav {
+  margin-top: -2.6666666667vw;
+  border-radius: 2.6666666667vw 2.6666666667vw 0 0;
+}
+.wrap .banner-nav .banner {
+  height: 24vw;
+}
+.wrap .banner-nav .nav {
+  height: 53.3333333333vw;
+  display: flex;
+}
+.wrap .banner-nav .nav .list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.8vw;
+  justify-content: space-evenly;
+  align-content: space-evenly;
+}
+.wrap .banner-nav .nav .list > li {
+  border: solid;
+  width: 21.8666666667vw;
+  height: 15.2vw;
+}/*# sourceMappingURL=index.css.map */

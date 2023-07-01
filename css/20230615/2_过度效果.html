@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            transition-property 设置过度的属性一般使用all
+            transition-duration 设置过度的时间，单位是s（秒）ms(毫秒) 1s=1000ms
+            transition-timing-function 设置过度的运行轨迹（通过贝塞尔曲线）
+            transition-delay    设置过度的延迟时间（负值是提前）
+            过度最简单的设置transition
+            过度需要通过hover或者active触发，过度属性可以设置在元素类，也可以设置在hover里面
+        */
+        div{
+            width:200px;
+            height:200px;
+            background-color: red;
+            /* transition-property: all;
+            transition-duration: 2s;
+            transition-delay: 2s; */
+            /* transition-timing-function: cubic-bezier(5,10,10,100); */
+            /* transition-timing-function: ease-in-out;
+            transition-timing-function: ease-in;
+            transition-timing-function: ease-out;
+            transition-timing-function: ease; */
+
+            transition: 3s 5s;
+        }
+        div:hover{
+            width: 500px;
+            height: 500px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

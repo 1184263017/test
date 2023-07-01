@@ -1,0 +1,15 @@
+/* 
+    css文件中只可以写css代码
+    选择器{属性:属性值;属性:属性值;}
+    选择器{属性:属性值;属性:属性值;}
+*/
+div{
+    color: orange;
+}
+span{
+    color:yellow;
+    font-size:20px;
+    text-align: right;
+    width: 200px;
+    display: inline-block;
+}

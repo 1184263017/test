@@ -1,0 +1,294 @@
+@import './head.css';
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+@function vw($size){
+    @return $size/375*100vw;
+}
+@mixin kuangao($width:0,$height:0){
+    width: #{vw($width)};
+    height: #{vw($height)};
+}
+@mixin ziti($size){
+    @if $size<12{
+        display: inline-block;
+        font-size: #{vw($size)};
+        transform: scale(.6);
+    } @else{
+        font-size: #{vw($size)};
+    }
+}
+.banner{
+    height: vw(150);
+    position: relative;
+    >img{
+        @include kuangao(375, 150);
+    }
+    .page{
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: vw(30);
+        // border: solid;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        >span{
+            margin-right: vw(5);
+            display: inline-block;
+            @include kuangao(10, 3);
+            background: rgba(255,255,255,0.70);
+            border-radius: vw(1.5);
+            border: vw(1) solid;
+            background-color: #FFFFFF;
+            &:nth-child(1){
+                background-color: #E52F17;
+            }
+        }
+    }
+}
+.special_column{
+    background-color: #F5F5F5;
+    position: relative;
+    z-index: 2;
+    margin-top: vw(-9);
+    border-radius: vw(10) vw(10) 0 0;
+    border: vw(1) solid white;
+    padding-bottom: vw(10);
+    .special_column_img{
+        box-sizing: border-box;
+        border-radius: vw(10) vw(10) 0 0;
+        border: vw(1) solid white;
+        background-color: #F5F5F5;
+        height: vw(90);
+        width: 100%;
+        padding: vw(4) 0 vw(0) vw(6.5);
+        >img{
+            @include kuangao(368.5,85.5 );
+        }
+    }
+    .special_column_center{
+        background-color: #FBFBFB;
+        >ul{
+            margin-left:vw(7);
+            display: flex;
+            flex-wrap: wrap;
+            >li{
+                position: relative;
+                background: #FFFFFF;
+                box-shadow: 0 vw(2) vw(8) 0 rgba(0,0,0,0.08);
+                border-radius: vw(2);
+                border: vw(1) solid white;
+                background-color: #fff;
+                @include kuangao(82,57 );
+                // border: solid;
+                margin: vw(5) vw(6) vw(10) 0;
+                text-align: center;
+                >a{
+                    display: block;
+                    @include kuangao(82,57 );
+                    font-family: PingFangSC-Semibold;
+                    font-size: vw(14);
+                    color: #333333;
+                    font-weight: bold;
+                }
+                >div{
+                    @include kuangao(17,11 );
+                    position: absolute;
+                    top:0;
+                    background-color: #FA6448;
+                    border-radius: vw(2) 0 vw(6) 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    >span{
+                        font-family: PingFangSC-Semibold;
+                        color: #fff;
+                        @include ziti(8);
+                    }
+                }
+                border-radius: 0 0 0 0;
+            }
+            .special_column_center_item_1{
+                >a{
+                    line-height: vw(57);
+                }
+            }
+            .special_column_center_item{
+                // line-height: vw(0);
+                >a{
+                    @include kuangao(82,57 );
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    >span{
+                        font-family: PingFangSC-Semibold;
+                        font-size: vw(14);
+                        color: #333333;
+                        // &:nth-child(1){
+                            // @include kuangao(56,20 );
+                        // }
+                        &:nth-child(2){
+                            color: #BBBBBB;
+                            @include ziti(11);
+                            transform: scale(.9);
+                            // @include kuangao(55,16 );
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.introduce{
+    height: vw(95);
+    // border: solid;
+    .introduce_main{
+        background-color: #FDFDFD;
+        @include kuangao(345,65 );
+        margin: vw(15);
+        display: flex;
+        border: vw(1) solid #F0F0F0;
+        border-radius: vw(4);
+        .introduce_img{
+            margin: vw(14) vw(12);
+            >a{
+                >img{
+                    @include kuangao(35,36.7 )
+                }
+            }
+            
+        }
+        .introduce_more{
+            >a{
+                display: block;
+                @include kuangao(50,64 );
+                background-color: #F6F6F6;
+                text-align: center;
+                line-height: vw(64);
+                >span{
+                    font-family: PingFangSC-Regular;
+                    font-size: vw(12);
+                    color: #666666;
+                }
+            }
+        }
+        .introduce_center{
+            flex:1;
+            >p{
+                @include kuangao(216,20 );
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                >a{
+                    color: #333333;
+                    font-family: 'PingFangSC-Regular';
+                    @include ziti(12);
+                }
+            }
+        }
+    }
+}
+.bj{
+    height: vw(10);
+    background: #F5F5F5;
+}
+.bj1{
+    height: vw(70);
+    background: #F5F5F5;
+}
+.classification{
+    height: vw(182);
+    box-sizing: border-box;
+    // border: solid;
+    display: flex;
+    flex-wrap: wrap;
+    >div{
+        margin-bottom: vw(12);
+        border-radius: vw(4);
+        margin-left: vw(15);
+        >a{
+            display: flex;
+            justify-content: space-between;
+            @include kuangao(165,70);
+            >span{
+                margin-left: vw(15);
+                margin-top: vw(15);
+                font-family: PingFangSC-Medium;
+                font-size: vw(17);
+                color: #333333;
+            }
+            >img{
+                margin-right: vw(5.1);
+                margin-top: vw(7.6);
+                @include kuangao(59.3,49.5 );
+            }
+        }
+        &:nth-child(1){
+            background:rgb(243,247,250);
+            border: vw(1) solid #CFEAFF;
+            margin-top: vw(15);
+        }
+        &:nth-child(2){
+            background:rgb(248,251,245);
+            border: vw(1) solid #DAF5BF;
+            margin-top: vw(15);
+        }
+        &:nth-child(3){
+            // background:rgb(25,245,249);
+            background:rgb(243,247,250);
+            border: vw(1) solid #F9EAFF;
+        }
+        &:nth-child(4){
+            background:rgb(250,246,241);
+            border: vw(1) solid #FFEAD2;
+        }
+    }
+}
+.img{
+    height: vw(378);
+    // border: solid;
+    >ul{
+        display: flex;
+        flex-wrap: wrap;
+        padding: vw(11);
+        box-sizing: border-box;
+        >li{
+            position: relative;
+            border-radius: vw(4);
+            overflow: hidden;
+            margin-bottom: vw(2);
+            margin-right: vw(2);
+            >a{
+                display: block;
+                @include kuangao(114,114 );
+                >img{
+                    @include kuangao(114,114 );
+                }
+            }
+            >div{
+                @include kuangao(45,27 );
+                background-image: linear-gradient(-180deg, #6281C3 2%, #424B65 100%);
+                border-radius: vw(0) vw(8) vw(0) vw(4);
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                text-align: center;
+                line-height: vw(27);
+                >span{
+                    font-family: PingFangSC-Semibold;
+                    font-size: vw(16);
+                    color: #FFFFFF;
+                }
+            }
+        }
+    }
+}

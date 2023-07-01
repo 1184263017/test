@@ -1,0 +1,194 @@
+@import './head.css';
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+@function vw($size){
+    @return $size/375*100vw;
+}
+@mixin kuangao($width:0,$height:0){
+    width: #{vw($width)};
+    height: #{vw($height)};
+}
+@mixin ziti($size,$num:.6){
+    @if $size<12{
+        display: inline-block;
+        font-size: #{vw($size)};
+        transform: scale($num);
+    } @else{
+        font-size: #{vw($size)};
+    }
+}
+
+
+
+.search{
+    height: vw(60);
+    // border: solid;
+    background-color: #fff;
+    text-align: center;
+    line-height: vw(60);
+    >input{
+        @include kuangao(345,34);
+        background: #F3F4F6;
+        border-radius: 17px;
+        border: none;
+        text-align: center;
+        font-size: vw(12);
+        font-family: PingFangSC-Regular;
+        color: #999999;
+        outline: none;
+    }
+}
+.info{
+    padding: vw(26) vw(15) 0;
+    >p{
+        width: vw(355);
+    }
+    .item{
+        font-family: PingFangSC-Semibold;
+        font-size: vw(24);
+        color: #333333;
+        font-weight: bold;
+    }
+    .tiem{
+        margin-top: vw(12);
+        margin-bottom: vw(17);
+        font-family: PingFangSC-Regular;
+        font-size: 12px;
+        color: #9DA3B4;
+    }
+    .center{
+        font-family: PingFangSC-Regular;
+        font-size: 17px;
+        color: #333333;
+        text-indent: vw(20);
+        line-height: vw(25);
+        margin-bottom: vw(15);
+    }
+    >video{
+        @include kuangao(355,194);
+        margin-bottom: vw(15);
+    }
+    >img{
+        @include kuangao(355,300);
+        margin-bottom: vw(15);
+    }
+    .share{
+        display: flex;
+        margin-top: vw(60);
+        margin-bottom: vw(43);
+        >div{
+            &:nth-child(1){
+                margin-right: vw(40);
+                >span{
+                    font-family: PingFangSC-Medium;
+                    font-size: 18px;
+                    color: #5B5B5B; 
+                }
+            }
+            &:nth-child(2){
+                >img{
+                    margin-right: vw(37);
+                    @include kuangao(30,30); 
+                }
+            }
+        }
+    }
+}
+.bj1{
+    height: vw(70);
+    background: #F5F5F5;
+    position: relative;
+    z-index: 1;
+}
+.cover{
+    display: none;
+    // display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    position: fixed;
+    bottom: 0;
+    z-index: 999;
+    .shadow{
+        flex:1;
+        background-color: rgba(0,0,0,0.5);
+        border: solid;
+    }
+    .heid{
+        width: 100%;
+        z-index: 2;
+        height: vw(221);
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        border: 1px solid #999;
+        .fx{
+            height: vw(30);
+            // border: solid;
+            text-align: center;
+            line-height: vw(30);
+            position: relative;
+            >P{
+                // border: solid;
+                display: inline-block;
+                position: relative;
+                font-size: vw(12);
+                color: #999;
+                padding: 0 vw(10);
+                background-color: #fff;
+                z-index: 2;
+            }
+            >span{
+                position: absolute;
+                z-index: 1;
+                left: 0;
+                right: 0;
+                top: vw(14);
+                height: vw(1);
+                background: #f2f2f2;
+            }
+        }
+        .button{
+            height: vw(50);
+            // border: solid;
+            >button{
+                height: vw(50);
+                width: 100%;
+                font-size: vw(16);
+                background-color: #fff;
+                border: none;
+                border-top: 1px solid #f2f2f2;;
+            }
+        }
+        .icon{
+            flex: 1;
+            // border: solid;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            >div{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                >img{
+                    @include kuangao(50,50); 
+                }
+                >span{
+                    font-size: vw(12);
+                    color:#999;
+                }
+            }
+        }
+    }
+}
+

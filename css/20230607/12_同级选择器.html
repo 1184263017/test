@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            一般兄弟选择器
+            选择器1~选择器2{属性:属性值;属性:属性值;}
+            1.选择器1和选择器2选中的元素有相同的父元素
+            2.选择器2选中的元素必须出现在选择器1选中的元素后面
+            3.不必紧紧跟随
+        */
+        div~span{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <span>11111</span>
+    <div>
+        <span>22222</span>
+        <p id="p1">
+            <span>33333</span>
+        </p>
+        <span>
+            <p>55555</p>
+            <h1>66666</h1>
+        </span>
+        <div>
+            <span>77777</span>
+        </div>
+        <span>88888</span>
+    </div>
+    <span>44444</span>
+    <br>
+    <span>99999</span>
+</body>
+</html>

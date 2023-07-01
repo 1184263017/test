@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        ul 无序列表
+        li 列表项，有几个列表项就写几个li标签
+        内容必须写在li标签中
+        无序列表中的type属性
+        disc 默认值，实心圆
+        circle 空心圆
+        square 实心方块
+        可以在ul标签和li标签中同时设置
+        li的效果覆盖ul的效果
+     -->
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>
+            <ol type="A">
+                <li>5</li>
+                <li>6</li>
+            </ol>
+        </li>
+    </ul>
+    
+    <!-- 
+        ol 有序列表
+        li 列表项，有几个列表项就写几个li标签
+        内容必须写在li标签中
+        有序列表中的type属性
+        1 默认，十进制数字(1, 2, 3, 4)
+        a 小写(a, b, c, d)
+        A 大写(A, B, C, D)
+        i 小写罗马数字
+        I 大写罗马数字
+     -->
+    <ol>
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+        <li>d</li>
+        <li>
+            <ul type="square">
+                <li>1</li>
+                <li>2</li>
+            </ul>
+        </li>
+    </ol>
+
+    <!-- 
+        dl 定义描述列表
+        dt 定义列表标题
+        dd 定义列表描述
+        dd紧跟在dt标签后面设置不需要嵌套设置
+     -->
+     <dl>
+        <dt>电脑</dt>
+            <dd>联想</dd>
+            <dd>戴尔</dd>
+        <dt>手机</dt>
+            <dd>苹果</dd>
+            <dd>华为</dd>
+     </dl>
+</body>
+</html>

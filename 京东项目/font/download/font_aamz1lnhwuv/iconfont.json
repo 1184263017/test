@@ -1,0 +1,72 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "630085",
+      "name": "向上箭头",
+      "font_class": "xiangshangjiantou",
+      "unicode": "e65d",
+      "unicode_decimal": 58973
+    },
+    {
+      "icon_id": "630128",
+      "name": "照相机",
+      "font_class": "zhaoxiangji",
+      "unicode": "e663",
+      "unicode_decimal": 58979
+    },
+    {
+      "icon_id": "999120",
+      "name": "放大镜",
+      "font_class": "ai219",
+      "unicode": "e6cf",
+      "unicode_decimal": 59087
+    },
+    {
+      "icon_id": "1240740",
+      "name": "笔",
+      "font_class": "bi",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "2674476",
+      "name": "客服",
+      "font_class": "kefu",
+      "unicode": "e625",
+      "unicode_decimal": 58917
+    },
+    {
+      "icon_id": "3456452",
+      "name": "购物车",
+      "font_class": "gouwuche",
+      "unicode": "e70b",
+      "unicode_decimal": 59147
+    },
+    {
+      "icon_id": "11372763",
+      "name": "定位",
+      "font_class": "dingwei",
+      "unicode": "e8c4",
+      "unicode_decimal": 59588
+    },
+    {
+      "icon_id": "21167612",
+      "name": "右箭头",
+      "font_class": "youjiantou",
+      "unicode": "e622",
+      "unicode_decimal": 58914
+    },
+    {
+      "icon_id": "29865221",
+      "name": "左箭头",
+      "font_class": "zuojiantou",
+      "unicode": "e686",
+      "unicode_decimal": 59014
+    }
+  ]
+}

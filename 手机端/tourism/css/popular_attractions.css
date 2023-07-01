@@ -1,0 +1,95 @@
+@import './head.css';
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.search {
+  height: 16vw;
+  background-color: #fff;
+  text-align: center;
+  line-height: 16vw;
+}
+.search > input {
+  width: 92vw;
+  height: 9.0666666667vw;
+  background: #F3F4F6;
+  border-radius: 17px;
+  border: none;
+  outline: none;
+  text-align: center;
+  font-size: 3.2vw;
+  font-family: PingFangSC-Regular;
+  color: #999999;
+}
+
+.search_list > a .center {
+  width: 92vw;
+  height: 70.4vw;
+  padding: 4vw;
+  padding-bottom: 0;
+  box-sizing: border-box;
+  margin: 0 auto;
+  background-color: #fff;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+  margin-bottom: 4vw;
+  border-radius: 1.0666666667vw;
+}
+.search_list > a .center .img {
+  overflow: hidden;
+  border-radius: 1.0666666667vw;
+}
+.search_list > a .center .img > img {
+  width: 84vw;
+  height: 44.8vw;
+}
+.search_list > a .center .price {
+  display: flex;
+  justify-content: space-between;
+}
+.search_list > a .center .price > span:nth-child(1) {
+  margin-top: 3.4666666667vw;
+  font-family: PingFangSC-Medium;
+  font-size: 4.8vw;
+  color: #333333;
+  font-weight: bold;
+}
+.search_list > a .center .price > div {
+  margin-top: 3.4666666667vw;
+  display: flex;
+}
+.search_list > a .center .price > div > span:nth-child(1) {
+  font-family: PingFangSC-Semibold;
+  font-size: 4.5333333333vw;
+  color: #E52F17;
+  font-weight: bold;
+}
+.search_list > a .center .price > div > span:nth-child(2) {
+  margin-top: 1.3333333333vw;
+  margin-left: 0.5333333333vw;
+  font-family: PingFangSC-Regular;
+  font-size: 3.2vw;
+  color: #151515;
+}
+.search_list > a .center .arr {
+  margin-top: 1.3333333333vw;
+}
+.search_list > a .center .arr > img {
+  width: 3.8666666667vw;
+  height: 4.16vw;
+  vertical-align: middle;
+}
+.search_list > a .center .arr > span {
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  color: #BBBBBB;
+  vertical-align: middle;
+}/*# sourceMappingURL=popular_attractions.css.map */

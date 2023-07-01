@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border: solid;
+        }
+        /* 容器 */
+        .main{
+            width: 600px;
+            height: 600px;
+            display: flex;
+            flex-direction: row;
+        }
+        /* 项目 */
+        .main>div{
+            width: 100px;
+            height: 100px;
+        }
+        /* 
+            flex-shrink 设置项目分配自己的空间给新添加的项目（没有剩余空间，不能换行）
+            属性值是整数，默认值是1，将所有项目的属性值加在一起做分母，每个项目的值都是分子，可以设置0不参与分配
+        */
+        .main>div:nth-child(1){
+            flex-shrink: 0;
+        }
+        .main>div:nth-child(2){
+            flex-shrink: 10;
+        }
+        .main>div:nth-child(3){
+            flex-shrink: 15;
+        }
+        .main>div:nth-child(4){
+            flex-shrink: 200;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            属性选择器 只要标签中定义了的该属性都可以被选中
+            [html属性]{属性:属性值;属性:属性值;}
+        */
+        /* [href],[abc]{
+            color:red;
+        } */
+
+        /* 
+            [属性=值] 标签中除了定义属性，还需要属性值和选择器当中的一样
+            [属性=值]{属性:属性值;属性:属性值;}
+        */
+        /* [title=ceshi]{
+            color:red;
+        } */
+
+        /* 
+            [属性~=值] 标签中除了定义属性，还需要属性值中包含该值，匹配内容以空格作为分隔
+        */
+        /* [title~=ceshi]{
+            color: red;
+        } */
+
+        /* 
+            [属性|=值] 标签中除了定义属性，还需要属性值作为前缀(-之前)
+        */
+        /* [title|=ceshi]{
+            color: red;
+        } */
+
+        /* 
+            [属性^=值] 标签中除了定义属性，还需要属性值作为开头
+        */
+        /* [title^=t]{
+            color: red;
+        } */
+
+        /* 
+            [属性$=值] 标签中除了定义属性，还需要属性值作为结尾
+        */
+        /* [title$=ceshi]{
+            color: red;
+        } */
+
+        /* 
+            [属性*=值] 标签中除了定义属性，还需要属性值中包含该值
+        */
+        [title*=S i]{
+            color: red;
+        }
+
+        /* 在属性选择器中使用字母i可以忽略大小写 */
+    </style>
+</head>
+<body>
+    <a href="" title="ceshi">css</a>
+    <p href="" title="ceshi a1">css</p>
+    <div href="" title="test">123</div>
+    <span abc="" title="ceshi-a1">456</span>
+</body>
+</html>

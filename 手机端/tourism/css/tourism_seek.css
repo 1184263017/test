@@ -1,0 +1,66 @@
+@import './head.css';
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.search {
+  height: 16vw;
+  background-color: #fff;
+  text-align: center;
+  line-height: 16vw;
+}
+.search > input {
+  width: 92vw;
+  height: 9.0666666667vw;
+  background: #F3F4F6;
+  border-radius: 17px;
+  border: none;
+  text-align: center;
+  font-size: 3.2vw;
+  font-family: PingFangSC-Regular;
+  color: #999999;
+  outline: none;
+}
+
+.news_list > a .news_center {
+  background: #FFFFFF;
+  box-shadow: 0 0 0 0 #EEEEEE;
+  padding: 3.2vw 2.6666666667vw;
+  box-sizing: border-box;
+  height: 26.6666666667vw;
+  border-bottom: 1px solid #EFEFEF;
+  display: flex;
+}
+.news_list > a .news_center .img > img {
+  width: 30.6666666667vw;
+  height: 20vw;
+}
+.news_list > a .news_center .center {
+  height: 20vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 2.6666666667vw;
+}
+.news_list > a .news_center .center > span:nth-child(1) {
+  font-family: PingFangSC-Regular;
+  font-size: 4.5333333333vw;
+  color: #333333;
+}
+.news_list > a .news_center .center > span:nth-child(2) {
+  margin-left: -3.2vw;
+  font-family: PingFangSC-Regular;
+  color: #9DA3B4;
+  display: inline-block;
+  font-size: 2.9333333333vw;
+  transform: scale(0.9);
+}/*# sourceMappingURL=tourism_seek.css.map */

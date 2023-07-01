@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            white-space 设置元素中内容的空白显示
+            normal 多个空白合并为一个，换行符显示成一个空白（默认）
+            nowrap 文本全部显示在一行，碰到<br>才会换行
+            设置单行文本省略号需要同时设置三个属性
+            white-space: nowrap; 将所有文本显示在一行
+            overflow: hidden;   将溢出元素的文本隐藏
+            text-overflow: ellipsis;    设置省略号
+
+        */
+        div{
+            width:200px;
+            height:300px;
+            border: solid;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima inventore obcaecati neque soluta optio debitis quae quia commodi. Ducimus id reprehenderit quas illum iusto odit a et ipsa nisi assumenda?
+    </div>
+</body>
+</html>

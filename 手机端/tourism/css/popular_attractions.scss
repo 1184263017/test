@@ -1,0 +1,120 @@
+@import './head.css';
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+@function vw($size){
+    @return $size/375*100vw;
+}
+@mixin kuangao($width:0,$height:0){
+    width: #{vw($width)};
+    height: #{vw($height)};
+}
+@mixin ziti($size){
+    @if $size<12{
+        display: inline-block;
+        font-size: #{vw($size)};
+        transform: scale(.6);
+    } @else{
+        font-size: #{vw($size)};
+    }
+}
+
+
+
+.search{
+    height: vw(60);
+    // border: solid;
+    background-color: #fff;
+    text-align: center;
+    line-height: vw(60);
+    >input{
+        @include kuangao(345,34);
+        background: #F3F4F6;
+        border-radius: 17px;
+        border: none;
+        outline: none;
+        text-align: center;
+        font-size: vw(12);
+        font-family: PingFangSC-Regular;
+        color: #999999;
+    }
+}
+
+.search_list{
+    >a{
+        .center{
+            @include kuangao(345,264);
+            // border: solid;
+            padding: vw(15);
+            padding-bottom: 0;
+            box-sizing: border-box;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 0 15px 0 rgba(0,0,0,0.10);
+            margin-bottom: vw(15);
+            border-radius: vw(4);
+            .img{
+                overflow: hidden;
+                border-radius: vw(4);
+                >img{
+                    @include kuangao(315,168);
+                }
+            }
+            .price{
+                display: flex;
+                justify-content: space-between;
+                >span{
+                    &:nth-child(1){
+                        margin-top: vw(13);
+                        font-family: PingFangSC-Medium;
+                        font-size: vw(18);
+                        color: #333333;
+                        font-weight: bold;
+                    }
+                }
+                >div{
+                    margin-top: vw(13);
+                    display: flex;
+                    >span{
+                        &:nth-child(1){
+                            font-family: PingFangSC-Semibold;
+                            font-size: vw(17);
+                            color: #E52F17;
+                            font-weight: bold;
+                        }
+                        &:nth-child(2){
+                            margin-top: vw(5);
+                            margin-left: vw(2);
+                            font-family: PingFangSC-Regular;
+                            font-size: vw(12);
+                            color: #151515;
+                        }
+                    }
+                }
+            }
+            .arr{
+                margin-top: vw(5);
+                >img{
+                    @include kuangao(14.5,15.6);
+                    vertical-align: middle;
+                }
+                >span{
+                    font-family: PingFangSC-Regular;
+                    font-size: 14px;
+                    color: #BBBBBB;
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+   
+}

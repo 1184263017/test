@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            background-clip 设置背景颜色出现的位置
+            border-box 出现在边框的下边
+            padding-box 出现在内补白中
+            content-box 出现在内容中
+            text        设置背景颜色为文字的颜色
+            需要再属性前加上-webkit(谷歌浏览器前缀)
+            还需要将文字的颜色设置为透明色
+        */
+        div{
+            width: 200px;
+            height: 200px;
+            padding: 10px;
+            border: 5px dashed red;
+            background-color: orange;
+            /* background-clip: border-box; */
+            /* background-clip: padding-box; */
+            /* background-clip: content-box; */
+            background-clip: text;
+            -webkit-background-clip: text;
+            color:transparent;
+        }
+    </style>
+</head>
+<body>
+    <div>hello</div>
+</body>
+</html>

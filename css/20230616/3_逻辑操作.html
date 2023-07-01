@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            and  设备类型和设备特性都满足css才生效
+            not  只要不是not后面的设备css就会生效
+            only 只要是only后面的设备css就会生效
+
+        */
+        @media print and (max-width:600px){
+            p{
+                font-size: 24px;
+                border: solid;
+                background-color: red;
+            }       
+        }   
+        
+        @media not screen {
+            p{
+                font-size: 24px;
+                border: solid;
+                background-color: red;
+            }       
+        } 
+
+        @media only screen {
+            p{
+                font-size: 24px;
+                border: solid;
+                background-color: red;
+            }       
+        } 
+    </style>
+</head>
+<body>
+    <p>hello</p>
+</body>
+</html>

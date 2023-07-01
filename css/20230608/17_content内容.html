@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            content 设置伪元素选择器添加的内容
+            1.用引号包裹起来的字符串(string)
+            2.none 空白
+            3.url()函数引入图片资源
+            4.attr(属性)函数获取元素设置的属性值，可以使用多次中间使用空格隔开
+        */
+        li::after{
+            /* content: none; */
+            content: "|";
+        }
+        li:last-child::after{
+            content: none;
+        }
+        div::after{
+            content:attr(name) attr(age) attr(sex);
+            /* content:url(./../../html/20230606/725368f266bc149c152eeab3971afbb0.jpg) */
+        }
+        div::before{
+            content:url(../../html/20230606/1686041846305.png)
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>11111111</li>
+        <li>22222222</li>
+        <li>33333333</li>
+        <li>44444444</li>
+    </ul>
+    <div name="d1" age="18" sex="男">
+        你好啊
+    </div>
+</body>
+</html>

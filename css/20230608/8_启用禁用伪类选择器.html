@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            :enabled表单控件启用状态时触发的伪类(一般表单控件默认都是启用)
+            :disabled表单控件禁用状态时触发的伪类(对元素设置disabled)
+        */
+        input:enabled{
+            color: red;
+        }
+        input:disabled{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" value="html">
+    <input type="text" value="100" disabled>
+</body>
+</html>

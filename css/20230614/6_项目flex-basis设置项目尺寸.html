@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border: solid;
+        }
+        /* 容器 */
+        .main{
+            width: 600px;
+            height: 600px;
+            display: flex;
+            flex-direction: row;
+        }
+        /* 项目 */
+        .main>div{
+            /* width: 100px; */
+            height: 100px;
+        }
+        /* 
+            flex-basis 设置项目在主轴上的尺寸
+            主轴是水平方向就是宽度，垂直方向就是高度
+            项目不能参与剩余空间分配，否则该属性无效
+
+            flex 是flex-grow flex-shrink flex-basis 三个属性的简写
+            属性值可以设置一个也可以设置三个，中间使用空格隔开
+            auto 是属性值1 1 auto的简写 none是 0 0 auto的简写
+            flex：1就等于flex-grow：1
+        */
+        .main>div:nth-child(1){
+            flex-basis: 100px;
+        }
+        .main>div:nth-child(2){
+            flex-basis: 120px;
+            flex:1;
+        }
+        .main>div:nth-child(3){
+            /* flex-basis: 80px;
+            flex-grow: 1; */
+            flex:auto;
+            flex:1;
+            
+        }
+        .main>div:nth-child(4){
+            /* flex-grow: 1;
+            flex-basis: 200px; */
+            flex:none;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* 
+            absolute    绝对定位
+            1.绝对定位的元素在文档流中不占位置
+            2.必须是定位的元素才可以使用top bottom left right改变元素的位置
+            3.绝对定位移动以后的位置是通过参照物的
+            4.参照物必须是定位的元素,一般对元素设置position:relative
+        */
+        .d1{
+            width: 100px;
+            height: 100px;
+            border: solid;
+            /* position: absolute;
+            top:50px;
+            left: 50px; */
+        }
+        .box{
+            width: 400px;
+            height: 400px;
+            border: solid;
+            margin: 0 auto;
+            position: relative;
+        }
+        .son{
+            width: 100px;
+            height: 100px;
+            border: solid;
+            position: absolute;
+            right: 0px;
+            bottom: 0px;
+        }
+        img{
+            width: 100px;
+            height: 100px;
+            border: solid;
+            position: absolute;
+            right: 0px;
+            bottom: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="d1"></div>
+    <h3>hello</h3>
+    <div class="box">
+        <!-- <div class="son"></div> -->
+        <img src="./cc1d8d291ea917c0.png" alt="">
+    </div>
+</body>
+</html>

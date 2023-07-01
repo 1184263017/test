@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            border: solid;
+        }
+        .main{
+            /* width: 800px;
+            height: 800px;
+            position: relative; */
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom:0;
+            right: 0;
+        }
+        .left{
+            position: absolute;
+            width: 100px;
+            top:0;
+            bottom:0;
+            left: 0;
+            background-color: red;
+        }
+        .right{
+            position:absolute;
+            width: 100px;
+            top:0;
+            bottom:0;
+            right:0;
+            background-color: blue;
+        }
+        .center{
+            position: absolute;
+            left: 100px;
+            top: 0;
+            bottom:0;
+            right: 100px;
+        }
+        .top{
+            position: absolute;
+            height: 200px;
+            left: 0;
+            top: 0;
+            right: 0;
+            background-color: orange;
+        }
+        .bottom{
+            position: absolute;
+            height: 200px;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-color: green;
+        }
+        .middle{
+            position: absolute;
+            left: 0;
+            bottom: 200px;
+            right: 0;
+            top: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="left">left</div>
+        <div class="center">
+            <div class="top">top</div>
+            <div class="middle">middle</div>
+            <div class="bottom">bottom</div>
+        </div>
+        <div class="right">right</div>
+    </div>
+</body>
+</html>

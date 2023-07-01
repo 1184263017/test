@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+@function vw($size){
+    @return $size/375*100vw;
+}
+@mixin kuangao($width:0,$height:0){
+    width: #{vw($width)};
+    height: #{vw($height)};
+}
+@mixin ziti($size){
+    @if $size<12{
+        display: inline-block;
+        font-size: #{vw($size)};
+        transform: scale(.6);
+    } @else{
+        font-size: #{vw($size)};
+    }
+}
+.head{
+    height: vw(44);
+    // border: solid;
+    // text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #F9F9F9;
+    .recover{
+        @include kuangao(30,30);
+        margin-left: vw(10);
+    }
+    .share{
+        @include kuangao(30,30);
+        margin-right: vw(10);
+    }
+    >span{
+        font-family: PingFangSC-Regular;
+        font-size: vw(17);
+        color: #333333;
+        letter-spacing: 0;
+    }
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            background-position 设置背景图片出现的位置
+            英文关键字
+            水平方向 left center right
+            垂直方向 top center bottom
+            只设置一个值的时候，第二个值默认为center
+            px
+            第一个值设置水平方向，正值向右移动，负值向左
+            第二个值设置垂直方向，正值向下移动，负值向上
+            只设置一个值就是水平方向，垂直方向的值为center
+        */
+        .d1{
+            width: 200px;
+            height:200px;
+            border: solid;
+            padding: 10px;
+            background-image:url(../../微信图片_20230610152212.png);
+            background-repeat: no-repeat;
+            /* background-position: center bottom; */
+            /* background-position: 10px 10px; */
+            /* background-position: 10% 20%; */
+            background-position: 1em 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="d1">
+
+    </div>
+</body>
+</html>

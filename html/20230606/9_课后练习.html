@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            margin:0 auto;
+            width: 850px;
+            border: 1px solid red;
+        }
+        .main{
+            margin: 6px 0;
+        }
+        .str{
+            color: #FF8F1F;
+        }
+        .icon{
+            color: red;
+        }
+        .tit_box{
+            display: inline-block;
+            width: 180px;
+            text-align: right;
+        }
+        .tit{
+            /* display: inline; */
+            margin-left: 4px;
+        }
+        .input{
+            min-width: 180px;
+            border: 1px solid #ccc;
+            margin: 0 6px;
+            padding: 6px 8px;
+        }
+        .input1{
+            width: 63px;
+            min-width: 63px;
+        }
+        select{
+            padding: 6px 8px;
+            margin: 0 6px;
+            width: 198px;
+        }
+        .select1{
+            padding: 6px 8px;
+            margin: 0 6px;
+            width: 100px;
+        }
+        .line_gray {
+            border-top: #ccc 2px dotted;
+            margin: 12px 0;
+        }
+        a{
+            text-decoration: none;
+        }
+        button{
+            color: white;
+            background-color: #FF8F1F;
+            width: 100px;
+            height: 40px;
+            border-radius: 6px;
+            border: none;
+            margin: 40px 60px;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <div class="box">
+            <div class="main">
+                <span class="tit_box">
+                    <span class="icon">*</span>
+                    <span class="tit">用户名:</span>
+                </span>
+                <input class="input" type="text" name="" id="username" placeholder="用户名设置成功后不可修改">&nbsp;
+                <span class="str">6-30位字母、数字或”_"字母开头</span>
+            </div>
+            <div class="main">
+                <span class="tit_box">
+                    <span class="icon">*</span>
+                    <span class="tit">登录密码:</span>
+                </span>
+                <input class="input" type="text" name="" id="username" placeholder="6-20字母数字或符号">&nbsp;
+                <img src="./1686041846305.png" alt="" width="100px" height="10px">
+            </div>
+            <div class="main">
+                <span class="tit_box">
+                    <span class="icon">*</span>
+                    <span class="tit">确认密码:</span>
+                </span>
+                <input class="input" type="password" name="" id="qrpassword" placeholder="再次输入您的登录密码">
+            </div>
+            <div class="main">
+                <span class="tit_box">
+                    <span class="icon">*</span>
+                    <span class="tit">证件类型:</span>
+                </span>
+                <select name="" id="document">
+                    <option value="">身份证</option>
+                    <option value="">港澳通行证</option>
+                    <option value="">护照</option>
+                </select>&nbsp;
+                <span class="str"><ins>证件填写规则</ins></span>
+            </div>
+            <div class="main">
+                <span class="tit_box">
+                    <span class="icon">*</span>
+                    <span class="tit">姓名:</span>
+                </span>
+                <input class="input" type="text" name="" id="full_name" placeholder="请输入证件上的中文姓名">&nbsp;
+                <span class="str"><ins>姓名填写规则</ins> (用于身份核验，请正确填写)</span>
+            </div>
+            <div class="main">
+                <span class="tit_box">
+                    <span class="icon">*</span>
+                    <span class="tit">证件号码:</span>
+                </span>
+                <input class="input" type="text" name="" id="id_on" placeholder="请输入您的证件号码">&nbsp;
+                <span class="str">(用于身份核验，请正确填写)</span>
+            </div>
+            <div class="main">
+                <span class="tit_box">
+                    <span class="icon">*</span>
+                    <span class="tit">证件有效期截止日期:</span>
+                </span>
+                <input class="input" type="date" name="" id="end_time">
+                <span class="str">(用于身份核验，请正确填写)</span>
+            </div>
+            <div class="main">
+                <span class="tit_box">
+                    <span class="icon">*</span>
+                    <span class="tit">出生日期:</span>
+                </span>
+                <input class="input" type="date" name="" id="date_of_birth">&nbsp;
+                <span class="str">(用于身份核验，请正确填写)</span>
+            </div>
+            <div class="main">
+                <span class="tit_box">
+                    <span class="icon">*</span>
+                    <span class="tit">性别:</span>
+                </span>
+                <input type="radio" name="sex" id="boy">
+                <label for="boy">男</label>
+                <input type="radio" name="sex" id="girl">
+                <label for="girl">女</label>
+            </div>
+            <div class="main">
+                <span class="tit_box">
+                    <span class="icon">*</span>
+                    <span class="tit">优惠(待)类型:</span>
+                </span>
+                <select name="" id="preferential">
+                    <option value="">成人</option>
+                    <option value="">儿童</option>
+                </select>
+            </div>
+            <div class="line_gray"></div>
+            <div class="main">
+                <span class="tit_box">
+                    <span class="icon">*</span>
+                    <span class="tit">邮箱:</span>
+                </span>
+                <input class="input" type="text" name="" id="email" placeholder="请正确填写邮箱地址">&nbsp;
+            </div>
+            <div class="main">
+                <span class="tit_box">
+                    <span class="icon">*</span>
+                    <span class="tit">手机号码:</span>
+                </span>
+                <select  class="select1" name="" id="">
+                    <option value="">+86 中国</option>
+                    <option value="">+99 其他</option>
+                </select>
+                <input class="input input1" type="text" name="" id="phone" placeholder="手机号码">&nbsp;
+                <span class="str">请正确填写手机号码，稍后将向该手机号码发送短信验证码</span>
+            </div>
+            <div class="main">
+                <span class="tit_box">
+        
+                </span>
+                <input type="checkbox">
+                <span>我已阅读并同意遵守</span>
+                <a href="http://www.baidu.com">《中国铁路客户服务中心网站服务条款》</a>
+                <a href="http://www.baidu.com">《隐私权政策》</a>
+            </div>
+            <div class="main">
+                <span class="tit_box">
+                </span>
+                <button>下一步</button>
+            </div>
+            <!-- <input style="background-color:#FF8F1F;display: block;width: 100px;height: 40px;color:white;" type="submit" value="下一步" width="500px" height="20px"> -->
+        </div>
+    </form>
+</body>
+</html>

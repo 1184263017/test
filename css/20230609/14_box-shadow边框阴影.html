@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .d1{
+            /* 
+                box-shadow 设置边框阴影
+                水平方向的位置 正值在右边负值在左边（必填）
+                垂直方向的位置 正值在下边负值在上边（必填）
+                阴影模糊程度   值越大越模糊（可选）
+                阴影的大小     值越大阴影越大（可选）
+                阴影的颜色（可选）
+                多个属性值中间用空格隔开
+                多个阴影用逗号隔开
+
+            */
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            margin:40px auto;
+            box-shadow:10px 10px 2px 5px red,
+                        -10px -10px 2px 5px blue;
+        }
+        .d2{
+            width: 100px;
+            height: 100px;
+            /* 
+                可以通过设置边框的阴影来设置更细的边框
+            */
+            box-shadow: 0 0 0 0.09px red;
+        }
+    </style>
+</head>
+<body>
+    <div class="d1"></div>
+    <div class="d2"></div>
+</body>
+</html>

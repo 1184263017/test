@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            ::after和::before伪元素选择器
+            内容设置在content属性中
+            伪元素选择器的样式是用来修饰content设置的内容的
+        */
+        /* div::after{
+            content: '>';
+            color: red;
+        }
+        div::before{
+            content: '<';
+            color: red;
+        } */
+        .d3 div{
+            float:left;
+        }
+        .d3::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        /* 
+            :selection元素中的内容在浏览器中被选中时触发的伪类
+        */
+        div::selection{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<!-- /    <div>html</div>
+    <div>css</div>
+    <div>js</div> -->
+    <div class="d3">
+        <div>html</div>
+        <div>css</div>
+        <div>js</div>
+    </div>
+    
+    <div>hh</div>
+</body>
+</html>

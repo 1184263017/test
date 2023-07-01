@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            清除浮动的四种方式
+            1.在具有块元素特点的标签中设置clear:both 
+            2.使用伪元素选择器设置clear:both 
+            3.对属性设置
+            4.高度法
+        */
+        p{
+            margin: 0;
+            background: orange;
+        }
+        p>img{
+            float: left;
+            width: 200px;
+        }
+        span{
+            display: block;
+            clear: both;
+        }
+        .p2::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        /* .p2::before{
+            content: "";
+            display: block;
+            clear: both;
+        } */
+        .p3{
+            overflow: hidden;
+        }
+        .p4{
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <p class="p1">
+        <img src="./cc1d8d291ea917c0.png" alt="">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas vel ullam repellendus culpa cum dolore odio et consequuntur aspernatur perferendis tenetur vitae nihil, error dignissimos sit provident harum eveniet omnis!
+    </p>
+    <span></span>
+    <p class="p2">
+        <img src="./cc1d8d291ea917c0.png" alt="">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas vel ullam repellendus culpa cum dolore odio et consequuntur aspernatur perferendis tenetur vitae nihil, error dignissimos sit provident harum eveniet omnis!
+    </p>
+    <p class="p3">
+        <img src="./cc1d8d291ea917c0.png" alt="">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas vel ullam repellendus culpa cum dolore odio et consequuntur aspernatur perferendis tenetur vitae nihil, error dignissimos sit provident harum eveniet omnis!
+    </p>
+    <p class="p4">
+        <img src="./cc1d8d291ea917c0.png" alt="">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas vel ullam repellendus culpa cum dolore odio et consequuntur aspernatur perferendis tenetur vitae nihil, error dignissimos sit provident harum eveniet omnis!
+    </p>
+</body>
+</html>

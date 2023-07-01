@@ -1,0 +1,382 @@
+@import './head.css';
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+@function vw($size){
+    @return $size/375*100vw;
+}
+@mixin kuangao($width:0,$height:0){
+    width: #{vw($width)};
+    height: #{vw($height)};
+}
+@mixin ziti($size,$num:.6){
+    @if $size<12{
+        display: inline-block;
+        font-size: #{vw($size)};
+        transform: scale($num);
+    } @else{
+        font-size: #{vw($size)};
+    }
+}
+
+.img{
+    >img{
+        @include kuangao(375,150 );
+    }
+}
+
+.search{
+    height: vw(30);
+    // border: solid;
+    background-color: #fff;
+    text-align: center;
+    line-height: vw(60);
+    >input{
+        box-shadow: 0 2px 15px 0 rgba(0,0,0,0.10);
+        position: relative;
+        z-index: 2;
+        top:vw(-35);
+        @include kuangao(343,40);
+        background: #fff;
+        border-radius: vw(20);
+        border: none;
+        text-align: center;
+        font-size: vw(12);
+        font-family: PingFangSC-Regular;
+        color: #999999;
+        outline: none;
+    }
+}
+
+.list{
+    >a{
+        .center{
+            @include kuangao(345,264);
+            // border: solid;
+            padding: vw(15);
+            padding-bottom: 0;
+            box-sizing: border-box;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 0 15px 0 rgba(0,0,0,0.10);
+            margin-bottom: vw(15);
+            border-radius: vw(4);
+            .img{
+                overflow: hidden;
+                border-radius: vw(4);
+                >img{
+                    @include kuangao(315,168);
+                }
+            }
+            .price{
+                display: flex;
+                justify-content: space-between;
+                >span{
+                    &:nth-child(1){
+                        margin-top: vw(13);
+                        font-family: PingFangSC-Medium;
+                        font-size: vw(18);
+                        color: #333333;
+                        font-weight: bold;
+                    }
+                }
+                >div{
+                    margin-top: vw(13);
+                    display: flex;
+                    >span{
+                        &:nth-child(1){
+                            font-family: PingFangSC-Semibold;
+                            font-size: vw(17);
+                            color: #E52F17;
+                            font-weight: bold;
+                        }
+                        &:nth-child(2){
+                            margin-top: vw(5);
+                            margin-left: vw(2);
+                            font-family: PingFangSC-Regular;
+                            font-size: vw(12);
+                            color: #151515;
+                        }
+                    }
+                }
+            }
+            .arr{
+                margin-top: vw(5);
+                >img{
+                    @include kuangao(14.5,15.6);
+                    vertical-align: middle;
+                }
+                >span{
+                    font-family: PingFangSC-Regular;
+                    font-size: 14px;
+                    color: #BBBBBB;
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+   
+}
+
+.list_delicacy{
+    >a{
+        .center{
+            @include kuangao(345,120);
+            // border: solid;
+            padding: vw(15) vw(20);
+            box-sizing: border-box;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 0 15px 0 rgba(0,0,0,0.10);
+            margin-bottom: vw(15);
+            border-radius: vw(4);
+            display: flex;
+            .left{
+                >img{
+                    border-radius: vw(4);
+                    @include kuangao(90,90);
+                }
+            }
+            .right{
+                height: vw(90);
+                // border: solid;
+                padding-left: vw(10);
+                >div{
+                    &:nth-child(1){
+                        >span{
+                            display: inline-block;
+                            max-width: vw(160);
+                            height: vw(24);
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            font-family: PingFangSC-Semibold;
+                            font-size: 17px;
+                            color: #333333;
+                            font-weight: bold;
+                            vertical-align: middle;
+                        }
+                        >img{
+                            margin-left: vw(3);
+                            @include kuangao(34,16);
+                            vertical-align: middle;
+                        }
+                    }
+                    &:nth-child(2){
+                        height: vw(34);
+                        line-height: vw(14);
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                        >span{
+                            font-family: PingFangSC-Regular;
+                            font-size: 12px;
+                            color: #BBBBBB;
+                        }
+                    }
+                    &:nth-child(3){
+                        margin-top: vw(5);
+                        >span{
+                            font-family: PingFangSC-Regular;
+                            font-size: 12px;
+                            color: #BBBBBB;
+                            &:nth-child(1){
+                                font-family: PingFangSC-Regular;
+                                font-size: vw(12);
+                                color: #333;
+                            }
+                            &:nth-child(2){
+                                font-family: PingFangSC-Regular;
+                                font-size: vw(17);
+                                color: #E52F17;
+                                font-weight: bold;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+}
+
+.list_hotel{
+    >a{
+        .center{
+            @include kuangao(345,120);
+            // border: solid;
+            padding: vw(15) vw(20);
+            box-sizing: border-box;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 0 15px 0 rgba(0,0,0,0.10);
+            margin-bottom: vw(15);
+            border-radius: vw(4);
+            display: flex;
+            .left{
+                >img{
+                    border-radius: vw(4);
+                    @include kuangao(90,90);
+                }
+            }
+            .right{
+                height: vw(90);
+                // border: solid;
+                padding-left: vw(10);
+                >div{
+                    &:nth-child(1){
+                        >span{
+                            display: inline-block;
+                            max-width: vw(160);
+                            height: vw(24);
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            font-family: PingFangSC-Semibold;
+                            font-size: 17px;
+                            color: #333333;
+                            font-weight: bold;
+                            vertical-align: middle;
+                        }
+                        >img{
+                            margin-left: vw(3);
+                            @include kuangao(34,16);
+                            vertical-align: middle;
+                        }
+                    }
+                    &:nth-child(2){
+                        height: vw(34);
+                        line-height: vw(14);
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                        >span{
+                            font-family: PingFangSC-Regular;
+                            font-size: 12px;
+                            color: #BBBBBB;
+                        }
+                    }
+                    &:nth-child(3){
+                        margin-top: vw(5);
+                        >span{
+                            font-family: PingFangSC-Regular;
+                            font-size: 12px;
+                            color: #BBBBBB;
+                            &:nth-child(2){
+                                font-family: PingFangSC-Regular;
+                                font-size: vw(12);
+                                color: #151515;
+                                // font-weight: bold;
+                                margin-left: vw(2);
+                            }
+                            &:nth-child(1){
+                                font-family: PingFangSC-Regular;
+                                font-size: vw(17);
+                                color: #E52F17;
+                                font-weight: bold;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+}
+
+.list_characteristic{
+    >a{
+        .center{
+            @include kuangao(345,120);
+            // border: solid;
+            padding: vw(15) vw(20);
+            box-sizing: border-box;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 0 15px 0 rgba(0,0,0,0.10);
+            margin-bottom: vw(15);
+            border-radius: vw(4);
+            display: flex;
+            .left{
+                >img{
+                    border-radius: vw(4);
+                    @include kuangao(90,90);
+                }
+            }
+            .right{
+                height: vw(90);
+                // border: solid;
+                padding-left: vw(10);
+                >div{
+                    &:nth-child(1){
+                        >span{
+                            display: inline-block;
+                            max-width: vw(160);
+                            height: vw(24);
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            font-family: PingFangSC-Semibold;
+                            font-size: 17px;
+                            color: #333333;
+                            font-weight: bold;
+                            vertical-align: middle;
+                        }
+                        >img{
+                            margin-left: vw(3);
+                            @include kuangao(34,16);
+                            vertical-align: middle;
+                        }
+                    }
+                    &:nth-child(2){
+                        height: vw(34);
+                        line-height: vw(14);
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                        >span{
+                            font-family: PingFangSC-Regular;
+                            font-size: 12px;
+                            color: #BBBBBB;
+                        }
+                    }
+                    &:nth-child(3){
+                        margin-top: vw(5);
+                        >span{
+                            font-family: PingFangSC-Regular;
+                            font-size: 12px;
+                            color: #BBBBBB;
+                            &:nth-child(2){
+                                font-family: PingFangSC-Regular;
+                                font-size: vw(12);
+                                color: #151515;
+                                // font-weight: bold;
+                                margin-left: vw(2);
+                            }
+                            &:nth-child(1){
+                                font-family: PingFangSC-Regular;
+                                font-size: vw(17);
+                                color: #E52F17;
+                                font-weight: bold;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+}

@@ -1,0 +1,127 @@
+@import "./head.scss";
+h1{
+    color:red;
+}
+
+.d1{
+    >span{
+        color: blue;
+    }
+    p{
+        span{
+            color: orange;
+        }
+    }
+}
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.search{
+    width: 490px;
+    height: 36px;
+    border: 2px solid #e2231a;
+    display: flex;
+
+    .left{
+        flex:1;
+        display: flex;
+        justify-content: space-between;
+
+        .left-input{
+            flex:1;
+            padding: 5px 20px;
+            display: flex;
+
+            input{
+                flex:1;
+                border: none;
+                outline: none;
+            }
+        }
+
+        .left-span{
+            width: 55px;
+            height: 36px;
+            font-size: 20px;
+            text-align: center;
+            line-height: 36px;
+
+            span{
+                font-size: 20px;
+            }
+        }
+    }
+
+
+    .right{
+        width: 58px;
+        height: 36px;
+        background-color: #e1251b;
+        text-align: center;
+        line-height: 36px;
+
+        span{
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    }
+}
+
+.d2{
+    width: 100px;
+    height: 100px;
+    border: {
+        color: red;
+        style: solid;
+        width: 2px;
+        top:{
+            left:{
+                radius:10px
+            }
+            right:{
+                radius:10px
+            }
+        }
+    }
+    &:hover{
+        background-color: red;
+    }
+} 
+//单行注释
+/*
+    多行注释
+*/
+/*!
+    重要注释
+*/
+.border{
+    border: 2px solid red;
+}
+.d3{
+    width: 100px;
+    height: 100px;
+    @extend .border;
+}
+.d4{
+    //继承的是选择器
+    @extend .d3;
+    height:200px;
+}
+
+@mixin mx($color:red,$bor_width:1px){
+    width: 100px;
+    height: 100px;
+    border:$bor_width solid $color;
+}
+.d5{
+    @include mx;
+}
+.d6{
+    @include mx(orange,5px);
+}

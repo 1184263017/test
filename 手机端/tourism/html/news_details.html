@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/news_details.css">
+</head>
+<body>
+    <div class="head" id="head">
+        <a href="../index.html">
+            <img class="recover" src="../image/返回@2x.png" alt="">
+        </a>
+        <span>详情</span>
+        <img class="share" src="../image/分享.png" alt="" onclick="heid()">
+    </div>
+    <div class="info" id="info">
+        <p class="item">李强出席2023年夏季达沃斯论坛开幕式并致辞</p>
+        <p class="tiem">2023.06.27 18:33</p>
+        <p class="center">中新社天津6月27日电 (记者 梁晓辉)中国国务院总理李强6月27日上午在天津出席2023年夏季达沃斯论坛开幕式并致辞。世界经济论坛主席施瓦布和巴巴多斯总理莫特利、蒙古国总理奥云额尔登、新西兰总理希普金斯、越南总理范明政、世界贸易组织总干事伊维拉，以及来自90多个国家和地区的约1500名各界代表出席。</p>
+        <video muted autoplay src="../image/b272d827352f4fe2d12f81774889e652.mp4"></video>
+        <p class="center">李强表示，过去几年，世纪疫情和百年变局交织叠加，我们身处的世界发生了很大变化。经历过有形无形的阻隔，我们应当更加珍视沟通与交流，推动不同国家、不同民族、不同文明加深对彼此的了解，进一步加强对话、弥合分歧、增进共识。经历过全球性危机的冲击，我们应当更加珍视团结与合作，进一步树立合作共赢的理念，携手应对全球性挑战，共同推动人类文明进步。经历过经济全球化的波折，我们应当更加珍视开放与共享，坚定不移构建开放型世界经济，使经济全球化发展成果更加公平惠及不同国家、不同人群。经历过冲突和动荡带来的不安，我们应当更加珍视和平与稳定。</p>
+        <img src="../image/QJ9121950192.jpg" alt="">
+        <p class="center">李强指出，当今世界，缺的是交流、而不是隔阂，缺的是合作、而不是对抗，缺的是开放、而不是封闭，缺的是和平、而不是冲突。我们要在习近平主席提出的构建人类命运共同体理念引领下，共同落实全球发展倡议、全球安全倡议、全球文明倡议，更好地在历史前进的逻辑中前进、在时代发展的潮流中发展，努力建设一个更加美好的世界。</p>
+        <div class="share">
+            <div>
+                <span>分享至</span>
+            </div>
+            <div>
+                <img src="../image/weixin@2x.png" alt="">
+                <img src="../image/pengyouquan@2x.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="bj1"></div>
+    <div class="cover" id="heid">
+        <div class="shadow">
+
+        </div>
+        <div class="heid">
+            <div class="fx">
+                <p>分享到</p>
+                <span></span>
+            </div>
+            <div class="icon">
+                <div>
+                    <img src="../image/weixin@3x.png" alt="">
+                    <span>微信好友</span>
+                </div>
+                <div>
+                    <img src="../image/朋友圈.png" alt="">
+                    <span>朋友圈</span>
+                </div>
+            </div>
+            <div class="button">
+                <button onclick="quxiao()">取消</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    function heid(){
+        var obj = document.getElementById("heid");
+        obj.style.cssText = "display:flex;"
+    }
+    function quxiao(){
+        var obj = document.getElementById("heid");
+        obj.style.cssText = "display:none;"
+    }
+</script>
+</html>

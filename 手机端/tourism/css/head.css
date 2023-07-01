@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.head {
+  height: 11.7333333333vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #F9F9F9;
+}
+.head .recover {
+  width: 8vw;
+  height: 8vw;
+  margin-left: 2.6666666667vw;
+}
+.head .share {
+  width: 8vw;
+  height: 8vw;
+  margin-right: 2.6666666667vw;
+}
+.head > span {
+  font-family: PingFangSC-Regular;
+  font-size: 4.5333333333vw;
+  color: #333333;
+  letter-spacing: 0;
+}/*# sourceMappingURL=head.css.map */

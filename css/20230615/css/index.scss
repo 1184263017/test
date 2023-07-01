@@ -1,0 +1,22 @@
+$red : red;
+$side : top-left;
+$number : 50;
+$fangxiang:top;
+$juli:40;
+h1{
+    color:$red;
+}
+.d1{
+    width: 100px;
+    height: 100px;
+    border: solid;
+    border-#{$side}-radius: #{$number}px;
+    margin-#{$fangxiang}: #{$number}px;
+    margin-left: $juli + 50px;
+    margin-right: 1 * 50px;
+    margin-bottom: (20px/10);
+    padding-top: $number + $juli + px;
+    padding-bottom: $number - $juli + px;
+    padding-left: $number * $juli + px;
+    padding-right: $number / $juli + px;
+}

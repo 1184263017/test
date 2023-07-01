@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border: solid;
+        }
+        /* 容器 */
+        .main{
+            width: 600px;
+            height: 600px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        /* 项目 */
+        .main>div{
+            width: 100px;
+            /* height: 100px; */
+        }
+        
+        /* 
+            align-self      单独设置项目在侧轴的对齐方式，容器设置了align-items，项目中设置的align-self会覆盖容器中的值
+            1.stretch       主轴是水平方向时，没有设置高度或者高度auto时，项目的高度会自动撑满容器
+            2.flex-start    侧轴开始位置
+            3.flex-end      侧轴结束位置
+            4.center        侧轴中间位置
+            5.baseline      基线对齐
+            6.auto          自动（容器中设置了align-items就用这个效果，没有就默认效果）
+        */
+        .main>div:nth-child(1){
+            height: 80px;
+            font-size: 2em;
+            align-self: flex-start;
+        }
+        .main>div:nth-child(2){
+            height: 100px;
+            font-size: 3em;
+            align-self: flex-end;
+        }
+        .main>div:nth-child(3){
+            height: 120px;
+            align-self: center;
+        }
+        .main>div:nth-child(4){
+            height: 100%;
+            align-self: stretch;
+        }
+        .main>div:nth-child(5){
+            height: auto;
+            align-self: baseline;
+        }
+        .main>div:nth-child(6){
+            /* height: 80px; */
+            align-self: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+    </div>
+</body>
+</html>

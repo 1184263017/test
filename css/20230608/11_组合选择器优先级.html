@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            1.组合选择器的权重是将所有标签的权重加在一起计算
+            2.权重相同时，采用就近原则（css代码离html代码越近的生效)
+            3.内联样式不计算权重优先级最高
+            4.分组选择器中的选择器优先级是分别计算的
+            5.!important 例外规则,属性生效
+        */
+        .d1 span{
+            color: red;
+        }
+        div .s1{
+            color: blue;
+        }
+        #p1,span{
+            color: orange !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="d1">
+        <span class="s1">111</span>
+        <p>
+            <span>222</span>
+        </p>
+    </div>
+    <p id="p1">333</p>
+    <span>444</span>
+</body>
+</html>

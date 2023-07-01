@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            float 对元素设置浮动
+            none  不浮动(默认)
+            left  向左浮动
+            right 向右浮动
+            1.浮动元素在文档流中不占位置
+            2.元素在浮动过程中遇到障碍物就停止浮动
+            3.对行元素设置浮动过后，行元素的宽高属性就可以正常设置
+        */
+        .d3{
+            width: 100px;
+            height: 100px;
+            border: solid;
+            float:right;
+        }
+        .d1{
+            width: 100px;
+            height: 100px;
+            border: solid;
+            margin: 0 auto;
+        }
+        .d2{
+            width: 50px;
+            height: 50px;
+            border: solid;
+            float: right;
+        }
+        span{
+            width: 100px;
+            height: 100px;
+            border: solid;
+        }
+        span:nth-of-type(1){
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="d3">1</div>
+    <!-- <p>hello</p> -->
+    <div class="d1">
+        <div class="d2"></div>
+    </div>
+    <span>11</span>
+    <span>22</span>
+</body>
+</html>

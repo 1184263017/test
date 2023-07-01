@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        表单form标签 收集用户信息
+        1.form标签
+        2.表单控件
+        3.按钮
+     -->
+    <form action="" method="">
+        <!-- 
+            文本输入框<input type="text"> 
+            placeholder 提示信息（文本框内容为空时才显示）
+            value 设置文本框的默认值
+            一般情况下新增时使用placeholder修改时使用value
+            文字绑定表单控件
+            1.对文字设置label标签
+            2.在表单控件中设置id属性
+            3.在label标签在将for属性值设置的和id属性值相同
+        -->
+        <p>
+            <label for="username">账号:</label>
+            <input 
+                id="username"
+                type="text" 
+                placeholder="请输入用户名" 
+                value="jack"
+                autofocus
+                required
+                disabled
+                readonly
+            >
+        </p>
+
+        <!-- 
+            密码输入框<input type="password"> 
+            属性和文本输入框相同
+         -->
+         <p>
+            <label for="password">密码:</label>
+            <input 
+                type="password"
+                placeholder="6到12位"
+                value="123"
+                id="password"
+            >
+        </p>
+
+        <!-- 
+            数字输入框<input type="number"> 
+            属性和文本输入框相同
+            默认值只能是数字否则无效
+         -->
+        <p>
+            <label for="age">年龄:</label>
+            <input 
+                type="number"
+                placeholder="输入数字"
+                value="123"
+                id="age"
+            >
+        </p>
+
+        <!-- 
+            单选按钮<input type="radio">
+            设置相同的name属性值将单选按钮进行分组
+            checked属性设置默认选中
+            当属性名和属性值相同时可以只写属性名
+         -->
+         <p>
+            性别:
+            <input type="radio" name="sex" id="boy">
+            <label for="boy">男</label>
+            <input type="radio" name="sex" id="girl">
+            <label for="girl">女</label>
+            <input type="radio" name="sex" id="bm" checked>
+            <label for="bm">保密</label>
+        </p>
+
+        <!-- 
+            复选按钮<input type="checkbox">
+            设置相同的name属性值将复选按钮进行分组
+            checked属性设置默认选中
+            当属性名和属性值相同时可以只写属性名
+         -->
+         <p>
+            爱好:
+            <input type="checkbox" name="hobby[]" id="html">
+            <label for="html">html</label>
+            <input type="checkbox" name="hobby[]" id="css" checked>
+            <label for="css">css</label>
+            <input type="checkbox" name="hobby[]" id="js" checked>
+            <label for="js">js</label>
+        </p>
+
+        <!-- 
+            下拉框<select></select>
+            下拉选项<option></option>
+            有几个下拉选项就写几对option标签，内容写在option标签中
+            selected默认选中
+         -->
+         <p>
+            学历:
+            <select>
+                <option value="">高中</option>
+                <option value="" selected>本科</option>
+                <option value="">大专</option>
+                <option value="">硕士研究生</option>
+            </select>
+        </p>
+
+        <!-- 
+            文本域 <textarea></textarea>
+            rows 设置行数
+            cols 设置列数
+            placeholder 设置提示信息
+            默认值写在标签中间
+         -->
+        <p>
+            简介:<textarea cols="20" rows="5" placeholder="个人信息">159</textarea>
+        </p>
+
+        <!-- 
+            普通按钮<input type="button">
+            不具有提交功能
+            默认显示的文字为空，通过设置value属性设置
+
+            提交按钮<input type="submit">
+            具有提交功能
+            默认显示的文字提交，通过设置value属性设置
+
+            重置按钮<input type="reset">
+            将页面的数据重置到刚加载完的状态
+            默认显示的文字重置，通过设置value属性设置
+
+            按钮标签<button></button>
+            具有提交功能
+            默认显示的文字为空，在标签内添加内容设置
+         -->
+         <!-- 
+            fieldset 对表单控件进行分组
+            legend 设置分组的名称，必须结合fieldset一起使用
+          -->
+        <fieldset>
+            <legend>提交按钮</legend>
+            <input type="button" value="提交">
+            <input type="submit">
+            <input type="reset">
+            <button>提交</button>
+        </fieldset>
+
+
+        <fieldset>
+            <legend>扩展</legend>
+            <input type="color" name="" id="">
+            <input type="month" name="" id="">
+            <input type="datetime-local" name="" id="">
+            <input type="email" name="" id="">
+            <input type="file" name="" id="">
+            <input type="hidden" name="" id="">
+        </fieldset>
+    </form>
+</body>
+</html>

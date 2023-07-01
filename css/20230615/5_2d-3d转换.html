@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border: solid;
+        }
+        .box{
+            width: 300px;
+            height:300px;
+            margin: 0 auto;
+            display: flex;
+
+            /* 
+                显示3D效果必须在父元素中设置透视距离
+            */
+            perspective: 100px;
+            /* 
+                perspective-origin 设置元素消失的点
+                第一个值X轴 left center right
+                第二个值Y轴 top center bottom
+                默认值是center center
+                只写一个值第二个值默认就是center
+                单位还可以是px %
+            */
+            perspective-origin: 10px 10%;
+        }
+        .son{
+            margin: auto;
+            width: 100px;
+            height:100px;
+            transition: 2s;
+            
+            
+        }
+        .son:hover{
+            /* 
+                倾斜    单位是角度 deg
+                skewX   X轴倾斜
+                skewY   Y轴倾斜
+                skew    只设置一个值是在X轴上倾斜
+                        设置两个值，第一个值时X轴上倾斜的角度，第二个值时Y轴上倾斜的角度
+                注意值可以是负数
+            */
+            /* transform: skewX(-45deg);
+            transform: skewY(-45deg);
+            transform: skew(-45deg,45deg); */
+
+
+            /* 
+                平移    单位是px em rem %
+                translateX   X轴平移
+                translateY   Y轴平移
+                translateZ   Z轴平移
+                translate    第一个值时X轴，第二个值时Y轴
+                translate3d  必须设置三个值，X,Y,Z
+                注意值可以是负数
+
+            */
+            /* transform: translateX(45px);
+            transform: translateY(45px);
+            transform: translateZ(-100px);
+            transform: translate(45px,45px);
+            transform: translate3d(45px,45px,45px); */
+
+
+            /* 
+                缩放    单位是整数可以是小数
+                scaleX   X轴缩放
+                scaleY   Y轴缩放
+                scaleZ   Z轴缩放（看不出效果）
+                scale    只有一个值的时候同时在XY轴上缩放
+                         设置两个值就是第一个X第二个Y
+                scale3d  必须设置三个值，X,Y,Z
+            
+            */
+            /* transform: scaleX(2);
+            transform: scaleY(2);
+            transform: scaleZ(2);
+            transform: scale(2);
+            transform: scale3d(2,2,3); */
+
+
+            /* 
+                旋转    单位是角度 deg
+                rotateX   X轴旋转
+                rotateY   Y轴旋转
+                rotateZ   Z轴旋转
+                rotate    Z轴旋转
+                注意值可以是负数
+
+            */
+            /* transform: rotateX(45deg);
+            transform: rotateY(45deg); */
+            transform: rotateZ(45deg);
+            /* transform: rotate(180deg);
+            transform: rotate3d(1,1,1,360deg); */
+            
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="son">hello</div>
+    </div>
+</body>
+</html>

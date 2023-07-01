@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            nth-of-type() 正着数
+            n可填0 1 2 3数字代表节点
+            nth-last-of-type() 倒着数
+            n可填0 1 2 3数字代表节点
+            针对具有一组兄弟节点的标签, 用 n 来筛选出在一组兄弟节点的位置。
+        */
+        ul li:nth-of-type(1){
+            color: red;
+        }
+        ul li:nth-last-of-type(1){
+            color: red;
+        }
+        span:nth-of-type(2n+1){
+            color: red;
+        }
+        span:first-of-type{
+            color: yellow;
+        }
+        span:last-of-type{
+            color: yellow;
+        }
+        .c1:last-child{
+            color:orange;
+        }
+        .c1:first-child{
+            color:orange;
+        }
+    </style>
+</head>
+<body>
+    <span>666</span>
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+        <li>444</li>
+        <li>555</li>
+    </ul>
+    <span>666</span>
+    <div>777</div>
+    <span>888</span>
+    <div>777</div>
+    <span>888</span>
+    <span class="c1">cccc</span>
+    <span class="c1">cccc</span>
+    <span class="c1">cccc</span>
+    <span class="c1">cccc</span>
+    <span class="c1">cccc</span>
+    <span class="c1">cccc</span>
+</body>
+</html>

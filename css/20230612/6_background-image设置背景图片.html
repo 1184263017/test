@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            background-image 设置元素的背景图片
+            1.图片比元素小的时候，背景图片会重复出现铺满元素
+            2.图片比元素大的时候，只会撑满元素不会溢出
+            url(图片资源路径)引入背景图片
+
+            linear-gradient() 设置线性渐变背景图片
+            deg 角度单位
+
+            radial-gradient() 设置径向渐变背景图片
+        */
+        .d1{
+            width: 200px;
+            height:200px;
+            border: solid;
+            background-image:url(../../微信图片_20230610152212.png)
+        }
+        .d2{
+            width: 200px;
+            height:200px;
+            border: solid;
+            background-image:url(../../微信图片_20230610153601.png)
+        }
+        .d3{
+            width: 200px;
+            height:200px;
+            border: solid;
+            /* background-image:linear-gradient(red,green,blue); */
+            /* background-image:linear-gradient(45deg, blue, red); */
+            background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+                        linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+                        linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+                        
+        }
+        .d4{
+            width: 200px;
+            height:200px;
+            border: solid;
+            background-image:radial-gradient(red,green,blue);
+                        
+        }
+    </style>
+</head>
+<body>
+    <div class="d1">
+
+    </div>
+    <div class="d2">
+
+    </div>
+    <div class="d3">
+
+    </div>
+    <div class="d4">
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,183 @@
+html{
+    background: rgb(27, 27, 27);
+    color: rgb(255, 255, 255);
+    /* font-family: 宋体; */
+}
+body{
+    font-family: Inter,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+}
+.main_div{
+    max-width: 720px;
+    margin: 40px auto; 
+    text-align: left;
+}
+table{
+    background-color: rgb(52, 52, 52);
+    /* border: none; */
+
+}
+code{
+    background: rgb(52,52,52);
+    border-radius: 3px;
+    
+}
+table[id=t1] td,table[id=t1] th{    
+    border: 1px solid rgb(133,133,133);
+    border-right: 1px solid transparent;
+    border-left: 1px solid transparent;
+}
+/* .try_code tr th:first-child{
+    width: 400px;
+}
+
+*/
+
+
+/* 
+    尝试一下 下方表格 使用css样式
+*/
+
+/* 
+    表格表头样式
+*/
+
+.try_code thead{
+    height: 40px;
+    background: rgb(27, 27, 27);
+}
+
+/* 将表头中间内边框去除，并且添加边框圆角 */
+
+.try_code thead th:nth-child(1){
+    border-right: transparent;
+    border-top-left-radius: 7px;
+}
+.try_code thead th:nth-child(2){
+    border-left: transparent;
+    border-top-right-radius: 7px;
+}
+
+.try_code>tbody>tr>td:nth-child(1){
+    border-bottom-left-radius: 7px;
+}
+.try_code>tbody>tr>td:nth-child(2){
+    border-bottom-right-radius: 7px;
+}
+
+
+.try_code_title{
+    width: 80px;
+}
+
+.try_code_list{
+    text-align: right;
+    font-size: 16px;
+    /* color: rgb(52, 52, 52); */
+}
+
+
+
+.try_code_child_table td:nth-child(2){
+    background: rgb(27, 27, 27);
+}
+
+.try_code td,.try_code th{
+    border: solid 1px rgb(133,133,133);
+}
+
+.try_code_title pre{
+    font-size: 15px;
+}
+
+.try_code_span_button:hover{
+    background: rgb(78, 78, 78);
+}
+
+/* .try_code ul{
+    list-style: none;
+} */
+.try_code img{
+    width: 240px;
+}
+
+
+
+
+table[id=t1] tr:nth-child(2n){
+    background-color: rgb(27, 27, 27);
+}
+
+
+h2 a,h3 a{
+    color: white;
+    text-decoration: none;
+}
+
+h2 a:hover,h3 a:hover{
+    text-decoration: underline;
+}
+
+h2 a:hover::before,h3 a:hover::before{
+    content: "# ";
+    text-decoration: none !important; 
+    color: rgb(142, 142, 142);
+}
+.code_view{
+    background-color: rgb(52, 52, 52);
+    border-radius: 7px;
+}
+a,a:link{
+    color: rgb(142,180,251);
+}
+.code_t_green{
+    color: rgb(60,206,105);
+}
+.code_t_red{
+    color: rgb(250,154,137);
+}
+#note_only{
+    background-color: rgb(27,38,48);
+    border: rgb(62, 62, 62) solid;
+    border-left: solid 4px rgb(99,158,251);
+    border-radius: 5px;
+}
+table[id=gf]{
+    width: 630px;
+}
+table[id=gf] th{
+    text-align: left;
+}
+.Found_a_content_problem{
+    background-color: rgb(52, 52, 52);
+    border: rgb(79, 78, 78) solid;
+    border-radius: 7px;
+}
+#result{
+    background-color: white;
+    border-radius: 7px;
+    height: 80px;
+    line-height: 80px;
+}
+#result span{
+    color: black;
+    font-size: 16px;
+}
+
+.icon_table{
+    background: rgb(27, 27, 27);
+}
+.icon_table td{
+    border-left: 1px solid rgb(133, 133, 133);
+    border-top: 1px solid rgb(133, 133, 133);
+    border: 1px solid rgb(133, 133, 133);
+}
+.icon_table_span{
+    color: rgb(60,206,105);
+}
+.icon_height_width{
+    height: 220px;
+}
+.img_title_icon{
+    width: 350px;
+    height: 40px;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        文档流
+        display
+        none         元素不再显示，同时失去文档流中的位置
+        block        将元素转换为块元素
+        inline       将元素转换为行元素
+        inline-block 将元素转换为行内块元素，可以和其他内容共处一行，同时又可以设置宽高
+     -->
+     <span style="display:none">span1</span>
+     <span>span2</span>
+     <div style="display:none">div1</div>
+     <div>div2</div>
+     <hr>
+     span1<span style="width:50px;height: 30px;border: solid; display:block">span2</span>span3
+     div1 <div style="display: inline;">div2</div> div3
+     div1 <div style="display: inline-block;">div2</div> div3
+    
+
+    </body>
+</html>

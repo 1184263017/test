@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            :empty元素内容为空时触发
+            元素中有其他元素或者空格都不为空
+        */
+        p:empty{
+            height: 50px;
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <p>1</p>
+    <p> </p>
+    <p><b></b></p>
+    <p></p>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            :first-child选择器选中的元素必须是父元素的第一个子元素才能被选中
+            :last-child选择器选中的元素必须是父元素的最后一个子元素才能被选中
+        */
+        ul li:first-child{
+            color:red;
+        }
+        ul li:last-child{
+            color: red;
+        }
+        span:first-child{
+            color:blue;
+        }
+        span:last-child{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+        <li>444</li>
+        <li>555</li>
+    </ul>
+    <span>666</span>
+    <div>777</div>
+    <span>888</span>
+</body>
+</html>

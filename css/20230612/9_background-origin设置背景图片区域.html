@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            background-origin 设置背景图片出现位置
+            padding-box（默认值） 内补白区域
+            border-box           边框下边
+            content-box          内容区域
+        */
+        .d1{
+            width: 200px;
+            height:200px;
+            border: solid;
+            padding: 10px;
+            background-image:url(../../微信图片_20230610152212.png);
+            background-repeat: no-repeat;
+            /* background-origin: padding-box; */
+            /* background-origin: border-box; */
+            background-origin: content-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="d1">
+
+    </div>
+</body>
+</html>

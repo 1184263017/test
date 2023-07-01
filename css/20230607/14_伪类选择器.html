@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            :link 链接是没有访问过的才会触发的伪类
+            :visited 链接是访问过的才会触发的伪类
+            :hover 鼠标放在标签上面时触发的伪类
+            :active 鼠标放在标签上面并且点击时时触发的伪类
+            一般按照link>visited>hover>active的顺序去设置
+        */
+        a:link{
+            color: red;
+        }
+
+        a:visited{
+            color: blue;
+        }
+
+        a:hover{
+            color: yellow;
+        }
+
+        a:active{
+            color: orange;
+        }
+        a{
+            cursor:hand
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            line-height: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        哈哈哈
+    </div>
+    <a href="http://www.baidu.com" target="_blank">测试</a>
+    <a href="http://www.baidu22222.com" target="_blank">测试</a>
+</body>
+</html>

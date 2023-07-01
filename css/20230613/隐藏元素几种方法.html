@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            隐藏元素的四种方式
+            1.display:none  元素隐藏以后会失去文档流的位置
+            2.visibility:hidden 元素隐藏以后会保留文档流的位置
+            3.visibility:collapse 元素隐藏以后会保留文档流的位置
+            4.在标签中直接设置hidden属性  元素隐藏以后会失去文档流的位置
+        */
+        span{
+            display: none;
+        }
+        div{
+            visibility: hidden;
+        }
+        p{
+            visibility: collapse;
+        }
+
+    </style>
+</head>
+<body>
+    <span>111</span>
+    <div>222</div>
+    <p>333</p>
+    <h3 hidden>444</h3>
+    <h4>555</h4>
+</body>
+</html>

@@ -1,0 +1,700 @@
+@import './head.css';
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.banner {
+  height: 40vw;
+  position: relative;
+}
+.banner > img {
+  width: 100vw;
+  height: 40vw;
+}
+.banner .page {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 8vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.banner .page > span {
+  margin-right: 1.3333333333vw;
+  display: inline-block;
+  width: 2.6666666667vw;
+  height: 0.8vw;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 0.4vw;
+  border: 0.2666666667vw solid;
+  background-color: #FFFFFF;
+}
+.banner .page > span:nth-child(1) {
+  background-color: #E52F17;
+}
+
+.introduce {
+  padding-bottom: 5.3333333333vw;
+  background-color: #fff;
+}
+.introduce > div:nth-child(1) {
+  margin-top: 4vw;
+  margin-left: 4vw;
+  margin-bottom: 2.6666666667vw;
+}
+.introduce > div:nth-child(1) > p {
+  font-family: PingFangSC-Medium;
+  font-size: 5.8666666667vw;
+  color: #333333;
+}
+.introduce > div:nth-child(2) {
+  margin-left: 4vw;
+  width: 92vw;
+  height: 9.6vw;
+  position: relative;
+}
+.introduce > div:nth-child(2) > span {
+  font-family: PingFangSC-Light;
+  font-size: 3.4666666667vw;
+  color: #151515;
+}
+.introduce > div:nth-child(2) .item {
+  font-weight: bold;
+}
+.introduce > div:nth-child(2) > a > span {
+  font-family: PingFangSC-Regular;
+  font-size: 3.4666666667vw;
+  color: #25A8FC;
+}
+
+.bj {
+  height: 2.6666666667vw;
+  background: #F5F5F5;
+}
+
+.time {
+  padding-bottom: 3.8666666667vw;
+}
+.time .weekday {
+  padding-top: 3.7333333333vw;
+  padding-bottom: 3.7333333333vw;
+}
+.time .weekday > img {
+  margin-left: 4vw;
+  margin-right: 2.6666666667vw;
+  width: 4.2666666667vw;
+  height: 4.2666666667vw;
+  vertical-align: middle;
+}
+.time .weekday > span {
+  font-weight: bold;
+  vertical-align: middle;
+  line-height: 5.6vw;
+  font-family: PingFangSC-Semibold;
+  font-size: 4vw;
+  color: #333333;
+}
+.time .address {
+  padding-top: 3.7333333333vw;
+  padding-bottom: 3.0666666667vw;
+  position: relative;
+}
+.time .address > div:nth-child(1) > img {
+  margin-left: 4vw;
+  margin-right: 2.6666666667vw;
+  width: 4.2666666667vw;
+  height: 4.2666666667vw;
+  vertical-align: middle;
+}
+.time .address > div:nth-child(1) > span {
+  vertical-align: middle;
+  line-height: 5.3333333333vw;
+  font-family: PingFangSC-Regular;
+  font-size: 3.7333333333vw;
+  color: #333333;
+}
+.time .address > div:nth-child(2) > span {
+  margin-left: 12.2666666667vw;
+  line-height: 4.8vw;
+  font-family: PingFangSC-Light;
+  font-size: 3.4666666667vw;
+  color: #999999;
+}
+.time .address > img {
+  position: absolute;
+}
+.time .address .icon_1 {
+  top: 7.2vw;
+  right: 20.5333333333vw;
+  width: 4.2666666667vw;
+  height: 4.2666666667vw;
+}
+.time .address .icon_2 {
+  top: 6.4vw;
+  right: 4.8vw;
+  width: 5.8666666667vw;
+  height: 5.8666666667vw;
+}
+.time .address > span {
+  position: absolute;
+  top: 5.92vw;
+  right: 15.8666666667vw;
+  display: inline-block;
+  width: 0.2666666667vw;
+  height: 6.4vw;
+  background-color: #cccccc;
+}
+.time .x {
+  margin: 0 auto;
+  width: 92vw;
+  height: 0.2666666667vw;
+  background-color: #eee;
+}
+
+.activity {
+  padding: 3.7333333333vw 0 4vw 4vw;
+}
+.activity > span:nth-child(1) {
+  margin-right: 3.4666666667vw;
+  font-family: PingFangSC-Semibold;
+  font-size: 4vw;
+  color: #000000;
+  line-height: 5.6vw;
+  font-weight: bold;
+}
+.activity > span:nth-child(2) {
+  font-family: PingFangSC-Light;
+  font-size: 4vw;
+  color: #333;
+  line-height: 5.6vw;
+}
+
+.admission {
+  padding-left: 4vw;
+}
+.admission .title {
+  padding-top: 4vw;
+  padding-bottom: 2.9333333333vw;
+}
+.admission .title > span {
+  line-height: 6.4vw;
+  font-family: PingFangSC-Semibold;
+  font-size: 4.5333333333vw;
+  color: #333333;
+  font-weight: bold;
+}
+.admission .info {
+  padding-top: 4.8vw;
+  padding-bottom: 5.3333333333vw;
+  position: relative;
+}
+.admission .info > div:nth-child(1) > img {
+  margin-right: 1.3333333333vw;
+  width: 8vw;
+  height: 4.2666666667vw;
+  vertical-align: middle;
+}
+.admission .info > div:nth-child(1) > span {
+  vertical-align: middle;
+  line-height: 5.6vw;
+  font-family: PingFangSC-Semibold;
+  font-size: 4vw;
+  color: #333333;
+  font-weight: bold;
+}
+.admission .info > div:nth-child(2) > span {
+  line-height: 4.8vw;
+  font-family: PingFangSC-Light;
+  font-size: 3.4666666667vw;
+  color: #999999;
+}
+.admission .info > div:nth-child(3) {
+  position: absolute;
+  top: 4.5333333333vw;
+  right: 5.8666666667vw;
+}
+.admission .info > div:nth-child(3) > span:nth-child(1) {
+  line-height: 5.3333333333vw;
+  font-family: PingFangSC-Semibold;
+  font-size: 4.5333333333vw;
+  color: #E52F17;
+  font-weight: bold;
+}
+.admission .info > div:nth-child(3) > span:nth-child(2) {
+  line-height: 5.3333333333vw;
+  font-family: PingFangSC-Regular;
+  font-size: 3.2vw;
+  color: #151515;
+  margin-left: -1.0666666667vw;
+}
+.admission .info > img {
+  position: absolute;
+  bottom: 4.2666666667vw;
+  right: 4vw;
+  width: 14.9333333333vw;
+  height: 6.4vw;
+}
+.admission .x {
+  margin: 0 auto;
+  width: 92vw;
+  height: 0.2666666667vw;
+  background-color: #eee;
+}
+
+.recommend {
+  padding-left: 4vw;
+}
+.recommend .title {
+  padding-top: 4vw;
+  padding-bottom: 2.9333333333vw;
+}
+.recommend .title > span {
+  line-height: 6.4vw;
+  font-family: PingFangSC-Semibold;
+  font-size: 4.5333333333vw;
+  color: #333333;
+  font-weight: bold;
+}
+.recommend .classification > ul {
+  display: flex;
+  margin-bottom: 4.6666666667vw;
+}
+.recommend .classification > ul > li {
+  margin-top: 3.7333333333vw;
+  margin-right: 4vw;
+  text-align: center;
+  width: 13.8666666667vw;
+  height: 6.4vw;
+  background-color: #eee;
+  border-radius: 14px;
+}
+.recommend .classification > ul > li > span {
+  font-family: PingFangSC-Semibold;
+  font-size: 3.4666666667vw;
+  line-height: 4.8vw;
+  color: #333;
+}
+.recommend .classification > ul > li:nth-child(1) {
+  background-color: #FF7B55;
+}
+.recommend .classification > ul > li:nth-child(1) > span {
+  color: #fff;
+}
+.recommend .classification .classification_info_1, .recommend .classification .classification_info_3, .recommend .classification .classification_info_2 {
+  display: block;
+}
+.recommend .classification .classification_info_1 .commodity, .recommend .classification .classification_info_3 .commodity, .recommend .classification .classification_info_2 .commodity {
+  width: 92vw;
+  height: 50.6666666667vw;
+  padding-left: 4vw;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 1.0666666667vw;
+  margin-bottom: 4vw;
+}
+.recommend .classification .classification_info_1 .commodity .top, .recommend .classification .classification_info_3 .commodity .top, .recommend .classification .classification_info_2 .commodity .top {
+  width: 84vw;
+  padding-bottom: 3.0666666667vw;
+  padding-top: 3.2vw;
+  border-bottom: 1px solid #eee;
+}
+.recommend .classification .classification_info_1 .commodity .top .img_1, .recommend .classification .classification_info_1 .commodity .top .recommend_delicacy .img_3, .recommend_delicacy .recommend .classification .classification_info_1 .commodity .top .img_3, .recommend .classification .classification_info_1 .commodity .top .recommend_delicacy .img_2, .recommend_delicacy .recommend .classification .classification_info_1 .commodity .top .img_2, .recommend .classification .classification_info_3 .commodity .top .img_1, .recommend .classification .classification_info_3 .commodity .top .recommend_delicacy .img_3, .recommend_delicacy .recommend .classification .classification_info_3 .commodity .top .img_3, .recommend .classification .classification_info_3 .commodity .top .recommend_delicacy .img_2, .recommend_delicacy .recommend .classification .classification_info_3 .commodity .top .img_2, .recommend .classification .classification_info_2 .commodity .top .img_1, .recommend .classification .classification_info_2 .commodity .top .recommend_delicacy .img_3, .recommend_delicacy .recommend .classification .classification_info_2 .commodity .top .img_3, .recommend .classification .classification_info_2 .commodity .top .recommend_delicacy .img_2, .recommend_delicacy .recommend .classification .classification_info_2 .commodity .top .img_2 {
+  width: 8vw;
+  height: 8vw;
+  vertical-align: middle;
+  border-radius: 0.5333333333vw;
+  margin-right: 1.3333333333vw;
+}
+.recommend .classification .classification_info_1 .commodity .top .img_2, .recommend .classification .classification_info_3 .commodity .top .img_2, .recommend .classification .classification_info_2 .commodity .top .img_2 {
+  width: 9.0666666667vw;
+  height: 4.2666666667vw;
+  vertical-align: middle;
+}
+.recommend .classification .classification_info_1 .commodity .top > span, .recommend .classification .classification_info_3 .commodity .top > span, .recommend .classification .classification_info_2 .commodity .top > span {
+  line-height: 5.6vw;
+  font-family: PingFangSC-Semibold;
+  font-size: 4vw;
+  color: #333333;
+  vertical-align: middle;
+  font-weight: bold;
+  margin-right: 0vw;
+}
+.recommend .classification .classification_info_1 .commodity .center, .recommend .classification .classification_info_3 .commodity .center, .recommend .classification .classification_info_2 .commodity .center {
+  width: 84vw;
+  padding-bottom: 5.8666666667vw;
+  padding-top: 2.5333333333vw;
+  border-bottom: 1px solid #eee;
+  display: flex;
+}
+.recommend .classification .classification_info_1 .commodity .center > img, .recommend .classification .classification_info_3 .commodity .center > img, .recommend .classification .classification_info_2 .commodity .center > img {
+  width: 26.6666666667vw;
+  height: 16vw;
+  border-radius: 1.0666666667vw;
+  margin-right: 2.6666666667vw;
+}
+.recommend .classification .classification_info_1 .commodity .center > div, .recommend .classification .classification_info_3 .commodity .center > div, .recommend .classification .classification_info_2 .commodity .center > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.recommend .classification .classification_info_1 .commodity .center > div > span, .recommend .classification .classification_info_3 .commodity .center > div > span, .recommend .classification .classification_info_2 .commodity .center > div > span {
+  font-family: PingFangSC-Semibold;
+  font-size: 4vw;
+  color: #333333;
+  line-height: 5.6vw;
+  font-weight: bold;
+}
+.recommend .classification .classification_info_1 .commodity .center > div > div > span:nth-child(1), .recommend .classification .classification_info_3 .commodity .center > div > div > span:nth-child(1), .recommend .classification .classification_info_2 .commodity .center > div > div > span:nth-child(1) {
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #333333;
+}
+.recommend .classification .classification_info_1 .commodity .center > div > div > span:nth-child(2), .recommend .classification .classification_info_3 .commodity .center > div > div > span:nth-child(2), .recommend .classification .classification_info_2 .commodity .center > div > div > span:nth-child(2) {
+  font-family: PingFangSC-Semibold;
+  font-size: 17px;
+  color: rgb(229, 47, 23);
+  font-weight: bold;
+}
+.recommend .classification .classification_info_1 .commodity .addr, .recommend .classification .classification_info_3 .commodity .addr, .recommend .classification .classification_info_2 .commodity .addr {
+  width: 84vw;
+  padding-bottom: 3.7333333333vw;
+  padding-top: 2.9333333333vw;
+}
+.recommend .classification .classification_info_1 .commodity .addr > img, .recommend .classification .classification_info_3 .commodity .addr > img, .recommend .classification .classification_info_2 .commodity .addr > img {
+  width: 3.8666666667vw;
+  height: 4.16vw;
+  vertical-align: middle;
+}
+.recommend .classification .classification_info_1 .commodity .addr > span, .recommend .classification .classification_info_3 .commodity .addr > span, .recommend .classification .classification_info_2 .commodity .addr > span {
+  display: inline-block;
+  width: 77.3333333333vw;
+  height: 4.8vw;
+  font-family: PingFangSC-Regular;
+  font-size: 3.4666666667vw;
+  line-height: 4.8vw;
+  vertical-align: middle;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.recommend .classification .classification_info_2 {
+  display: none;
+}
+.recommend .classification .classification_info_2 .commodity .center > div > div > span:nth-child(2) {
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #333333;
+}
+.recommend .classification .classification_info_2 .commodity .center > div > div > span:nth-child(1) {
+  font-family: PingFangSC-Semibold;
+  font-size: 17px;
+  color: rgb(229, 47, 23);
+  font-weight: bold;
+}
+.recommend .classification .classification_info_3 {
+  display: none;
+}
+.recommend .classification .classification_info_3 .commodity .center > div > div > span:nth-child(2) {
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #333333;
+}
+.recommend .classification .classification_info_3 .commodity .center > div > div > span:nth-child(1) {
+  font-family: PingFangSC-Semibold;
+  font-size: 17px;
+  color: rgb(229, 47, 23);
+  font-weight: bold;
+}
+.recommend .x {
+  margin: 0 auto;
+  width: 92vw;
+  height: 0.2666666667vw;
+  background-color: #eee;
+}
+
+.x {
+  margin: 0 auto;
+  width: 92vw;
+  height: 0.2666666667vw;
+  background-color: #eee;
+}
+
+.introduce_delicacy, .introduce_hotel {
+  padding-bottom: 5.0666666667vw;
+  background-color: #fff;
+}
+.introduce_delicacy .title, .introduce_hotel .title {
+  padding-bottom: 2.1333333333vw;
+}
+.introduce_delicacy .title:nth-child(1), .introduce_hotel .title:nth-child(1) {
+  margin-top: 4vw;
+  margin-left: 4vw;
+  margin-bottom: 2.6666666667vw;
+}
+.introduce_delicacy .title:nth-child(1) .p1, .introduce_hotel .title:nth-child(1) .p1 {
+  display: inline-block;
+  font-family: PingFangSC-Medium;
+  font-size: 5.8666666667vw;
+  color: #333333;
+}
+.introduce_delicacy .title:nth-child(1) > span, .introduce_hotel .title:nth-child(1) > span {
+  margin-left: 2.1333333333vw;
+  font-family: PingFangSC-Regular;
+  font-size: 3.2vw;
+  color: #bbb;
+}
+.introduce_delicacy .title:nth-child(1) .p2, .introduce_hotel .title:nth-child(1) .p2 {
+  margin-top: 1.3333333333vw;
+  font-family: PingFangSC-Regular;
+  font-size: 3.2vw;
+  color: #FF416A;
+  line-height: 4.8vw;
+}
+.introduce_delicacy .address, .introduce_hotel .address {
+  padding-top: 3.7333333333vw;
+  padding-bottom: 3.4666666667vw;
+  position: relative;
+}
+.introduce_delicacy .address > div:nth-child(1) > img, .introduce_hotel .address > div:nth-child(1) > img {
+  margin-left: 4vw;
+  margin-right: 2.6666666667vw;
+  width: 4.2666666667vw;
+  height: 4.2666666667vw;
+  vertical-align: top;
+}
+.introduce_delicacy .address > div:nth-child(1) > span, .introduce_hotel .address > div:nth-child(1) > span {
+  display: inline-block;
+  width: 63.4666666667vw;
+  height: 10.6666666667vw;
+  vertical-align: top;
+  line-height: 5.3333333333vw;
+  font-family: PingFangSC-Regular;
+  font-size: 3.7333333333vw;
+  color: #333333;
+}
+.introduce_delicacy .address > img, .introduce_hotel .address > img {
+  position: absolute;
+}
+.introduce_delicacy .address .icon_2, .introduce_hotel .address .icon_2 {
+  top: 6.5066666667vw;
+  right: 6.88vw;
+  width: 4.9066666667vw;
+  height: 5.2vw;
+}
+.introduce_delicacy .address > span, .introduce_hotel .address > span {
+  position: absolute;
+  top: 5.6vw;
+  right: 16.8vw;
+  display: inline-block;
+  width: 0.2666666667vw;
+  height: 6.6666666667vw;
+  background-color: #cccccc;
+}
+.introduce_delicacy .but, .introduce_hotel .but {
+  width: 92vw;
+  height: 12vw;
+  margin-left: 4vw;
+  margin-top: 4.5333333333vw;
+  border: 0.2666666667vw solid #E52F17;
+  border-radius: 1.0666666667vw;
+  overflow: hidden;
+}
+.introduce_delicacy .but > button, .introduce_hotel .but > button {
+  border: none;
+  width: 92vw;
+  height: 12vw;
+  font-family: PingFangSC-Semibold;
+  font-size: 4vw;
+  color: #E52F17;
+  background-color: #fff;
+}
+
+.characteristic_delicacy {
+  padding-top: 4vw;
+  padding-left: 4vw;
+  padding-bottom: 4.5333333333vw;
+  box-sizing: border-box;
+}
+.characteristic_delicacy .title {
+  padding-bottom: 2.1333333333vw;
+  margin-bottom: 2.4vw;
+}
+.characteristic_delicacy .title > span {
+  font-family: PingFangSC-Medium;
+  font-size: 4.5333333333vw;
+  color: #333333;
+  font-weight: bold;
+}
+.characteristic_delicacy > ul {
+  display: flex;
+}
+.characteristic_delicacy > ul > li {
+  margin-right: 1.0666666667vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.characteristic_delicacy > ul > li > img {
+  width: 21.3333333333vw;
+  height: 14.4vw;
+  border-radius: 0.5333333333vw;
+  margin-bottom: 1.0666666667vw;
+}
+.characteristic_delicacy > ul > li > span {
+  font-family: PingFangSC-Regular;
+  font-size: 3.2vw;
+  color: #333333;
+  line-height: 4.5333333333vw;
+}
+
+.recommend_delicacy .title {
+  padding-left: 4vw;
+  padding-top: 3.7333333333vw;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+.recommend_delicacy .title > div > span {
+  font-family: PingFangSC-Semibold;
+  font-size: 4.5333333333vw;
+  color: #333333;
+  line-height: 6.4vw;
+  font-weight: bold;
+}
+.recommend_delicacy .title > ul {
+  display: flex;
+  margin-bottom: 4.6666666667vw;
+}
+.recommend_delicacy .title > ul > li {
+  margin-right: 4vw;
+  text-align: center;
+  width: 13.8666666667vw;
+  height: 6.4vw;
+  background-color: #eee;
+  border-radius: 14px;
+}
+.recommend_delicacy .title > ul > li > span {
+  font-family: PingFangSC-Semibold;
+  font-size: 3.4666666667vw;
+  line-height: 4.8vw;
+  color: #333;
+}
+.recommend_delicacy .title > ul > li:nth-child(1) {
+  background-color: #FF7B55;
+}
+.recommend_delicacy .title > ul > li:nth-child(1) > span {
+  color: #fff;
+}
+.recommend_delicacy .img_1, .recommend_delicacy .img_3, .recommend_delicacy .img_2 {
+  display: block;
+  padding-left: 4vw;
+  padding-top: 4vw;
+  padding-bottom: 4vw;
+  box-sizing: border-box;
+}
+.recommend_delicacy .img_1 > ul, .recommend_delicacy .img_3 > ul, .recommend_delicacy .img_2 > ul {
+  display: flex;
+}
+.recommend_delicacy .img_1 > ul > li, .recommend_delicacy .img_3 > ul > li, .recommend_delicacy .img_2 > ul > li {
+  margin-right: 2.9333333333vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #FFFFFF;
+  box-shadow: 1px 4px 10px 0 rgba(0, 0, 0, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.recommend_delicacy .img_1 > ul > li > img, .recommend_delicacy .img_3 > ul > li > img, .recommend_delicacy .img_2 > ul > li > img {
+  width: 28.8vw;
+  height: 17.6vw;
+}
+.recommend_delicacy .img_1 > ul > li > span, .recommend_delicacy .img_3 > ul > li > span, .recommend_delicacy .img_2 > ul > li > span {
+  display: inline-block;
+  height: 8.5333333333vw;
+  font-family: PingFangSC-Regular;
+  font-size: 3.2vw;
+  color: #000000;
+  line-height: 8.5333333333vw;
+}
+.recommend_delicacy .img_2 {
+  display: none;
+}
+.recommend_delicacy .img_3 {
+  display: none;
+}
+
+.image_text .title {
+  text-align: center;
+  padding-top: 2.9333333333vw;
+  padding-bottom: 2.6666666667vw;
+  box-sizing: border-box;
+  position: relative;
+}
+.image_text .title > span:nth-child(1) {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  width: 18.1333333333vw;
+  height: 6.4vw;
+  font-family: PingFangSC-Medium;
+  font-size: 17px;
+  color: #333333;
+  line-height: 6.6666666667vw;
+  padding: 0 2.4vw;
+  background-color: #fff;
+}
+.image_text .title > span:nth-child(2) {
+  position: absolute;
+  z-index: 1;
+  top: 5.7333333333vw;
+  left: 5.0666666667vw;
+  display: inline-block;
+  width: 90.1333333333vw;
+  height: 0.2666666667vw;
+  background-color: #EEEEEE;
+}
+.image_text > img {
+  width: 100vw;
+  display: block;
+}
+
+.introduce_hotel {
+  padding-bottom: 4.5333333333vw;
+}
+.introduce_hotel .title {
+  position: relative;
+}
+.introduce_hotel .title > div {
+  position: absolute;
+  top: 2.1333333333vw;
+  right: 4vw;
+}
+.introduce_hotel .title > div > span:nth-child(1) {
+  font-family: PingFangSC-Semibold;
+  font-size: 3.4666666667vw;
+  color: #E52F17;
+}
+.introduce_hotel .title > div > span:nth-child(2) {
+  font-family: PingFangSC-Semibold;
+  font-size: 6.4vw;
+  color: #E52F17;
+  font-weight: bold;
+}
+.introduce_hotel .title > div > span:nth-child(3) {
+  font-family: PingFangSC-Semibold;
+  font-size: 3.4666666667vw;
+  color: #333;
+}/*# sourceMappingURL=attractions_details.css.map */

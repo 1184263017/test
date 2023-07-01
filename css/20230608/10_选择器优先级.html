@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            选择器的优先级体现在不同选择器选中同一个元素时
+            相同属性之间的覆盖，不同属性叠加显示
+            id选择器>class选择器>标签选择器
+             100    >   10     >     1
+        */
+        div{
+            color: red;
+            font-size: 20px;
+        }
+        .d1{
+            color: blue;
+        }
+        #d2{
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div class="d1" id="d2">html</div>
+</body>
+</html>

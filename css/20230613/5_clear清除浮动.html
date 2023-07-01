@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            clear 清除浮动
+            left  清除左边浮动
+            right  清除右边浮动
+            both  清除两边浮动
+            从清除浮动的位置开始恢复后面元素文档流的位置
+            属性必须设置在具有块元素特点的标签中才有效
+        */
+        .d1,.d2,.d3,.d4{
+            width: 200px;
+            height: 200px;
+            border: solid;
+        }
+        .d1{
+            float:left;
+        }
+        .d2{
+            float:right;
+        }
+        /* .d2::after{
+            content: "";
+            display: block;
+            clear: both;
+        } */
+        .d3{
+            float:left;
+        }
+        .d4{
+            float:right;
+        }
+        .clear{
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+     <div class="d1">1</div>
+     <div class="d2">2</div>
+     <p class="clear"></p>
+     <div class="d3">3</div>
+     <div class="d4">4</div>
+</body>
+</html>

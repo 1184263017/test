@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border: solid;
+        }
+        /* 容器 */
+        .main{
+            width: 600px;
+            height: 600px;
+            display: flex;
+            /* 
+                flex-direction  设置主轴方向
+                row(默认)       主轴是水平方向，从左向右排练
+                row-reverse     主轴是水平方向，从右向左排练
+                column          主轴是垂直方向，从上向下排练
+                column-reverse  主轴是垂直方向，从下向上排练
+            */
+            /* flex-direction: row; */
+            /* flex-direction: row-reverse; */
+            flex-direction: column;
+            /* flex-direction: column-reverse; */
+
+            /* 
+                flex-wrap  当容器剩余的空白不足新添加的项目的宽度时，设置项目是否换行显示
+                nowrap(默认)    不换行
+                wrap            换行
+                wrap-reverse    换行，第一行在侧轴的底部
+            */
+            /* flex-wrap: wrap; */
+            flex-wrap: wrap-reverse;
+
+
+            /* 
+                flex-flow 是flex-wrap和flex-direction的简写形式
+                属性值可以是一个也可以是两个，没有前后顺序规定
+            */
+            flex-flow: wrap;
+
+
+            /* 
+                justify-content 设置项目在主轴上的排列方式
+                flex-start      主轴开始的位置
+                flex-end        主轴结束的位置
+                center         主轴中间的位置
+                space-around    环绕（左右或上下，看主轴的方向）每个项目的空白相同
+                space-between   项目在主轴两端，每个项目中间的空白相同
+                space-evenly    项目间隙的空白相同
+                注意该属性对单行项目和多行项目都有效
+            */
+            /* justify-content: end;
+            justify-content: center;
+            justify-content: start;
+            justify-content: space-around;
+            justify-content: space-between;
+            justify-content: space-evenly;
+            justify-content: center; */
+
+            /* 
+                align-items     设置项目在侧轴的对齐方式
+                1.stretch       主轴是水平方向时，没有设置高度或者高度auto时，项目的高度会自动撑满容器
+                2.flex-start    侧轴开始位置
+                3.flex-end      侧轴结束位置
+                4.center        侧轴中间位置
+                4.baseline      基线对齐
+            */
+            align-items: stretch;
+            align-items: flex-end;
+            /* align-items: flex-start;
+            align-items: center;
+            align-items: baseline; */
+
+
+            /* 
+                align-content   设置多行项目在侧轴上的排列方式
+                stretch（默认）  每行项目下面的空白相同
+                flex-start      侧轴开始的位置
+                flex-end        侧轴结束的位置
+                center          侧轴中间的位置
+                space-around    环绕（左右或上下，看侧轴的方向）每个项目的空白相同
+                space-between   项目在侧轴两端，每个项目中间的空白相同
+                space-evenly    项目间隙的空白相同
+                注意该属性对多行项目有效
+            */
+            /* align-content: flex-start;
+            align-content: flex-end;
+            align-content: center;
+            align-content: space-around;
+            align-content: space-between;
+            align-content: space-evenly;
+            align-content: stretch; */
+        }
+        /* 项目 */
+        .main>div{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        
+        <!-- <div style="height: 80px;font-size: 2em;">1</div>
+        <div style="height: 100px;font-size: 3rem;">2</div>
+        <div style="height: 120px;">3</div>
+        <div style="height: auto;">4</div>
+        <div style="height: auto;">5</div>
+        <div>6</div>
+        <div style="height: 80px;font-size: 2em;">6</div>
+        <div>6</div> -->
+    </div>
+</body>
+</html>
