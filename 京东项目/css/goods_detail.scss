@@ -14,6 +14,19 @@
     width: $width;
     height: $height;
 }
+@mixin item_size($width:50,$height:50){
+    width: #{$width}+px;
+    height: #{$height}+px;
+}
+@mixin border{
+    border: 1px solid blue;
+}
+@mixin line_height_and_height($line_height,$height_t:0){
+    @if $height_t > 0{
+        height: $height_t + px;
+    }
+    line-height: $line_height + px;
+}
 *{
     margin: 0;
     padding: 0;
@@ -2936,6 +2949,95 @@ ul{
         }   
     }
 }
+//右边浮动栏
+.float_div{
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 0;
+    border-right: 6px solid #7a6e6e;
+    // transition: right .3s ease-in-out 0s;
+
+    .float_top{
+        @include item_size(35, 144);
+        position: absolute;
+        top: 36%;
+        right: -6px;
+        display: flex;
+        flex-direction: column;
+        .icon_link{
+            position: relative;
+            @include item_size(35, 35);
+            margin-bottom: 1px;
+            cursor: pointer;
+            background-color: #7a6e6e;
+            border-radius: 3px 0 0 3px;
+            &:hover{
+                >.icon{
+                    background-color: #c81623;
+                }
+                .text{
+                    transition: all 2s;
+                    right: 35px;
+                    z-index: 5;
+                    background-color: #c81623;
+                }
+            }
+            >.icon{
+                display: inline-block;
+                @include item_size(35, 35);
+                position: relative;
+                z-index: 6;
+            }
+            .text{
+                font-size: 12px;
+                position: absolute;
+                @include item_size(62, 35);
+                @include line_height_and_height(35, 35);
+                color: white;
+                text-align: center;
+                border-radius: 3px 0 0 3px;
+                top: 0;
+                right: -35px;
+                z-index: -1;
+            }
+            .t1{
+                background: url(../image/fixed_top1.png) no-repeat center center;
+            }
+            .t2{
+                background-image: url(../image/fixed_top2_4.png);
+                background-position: -88px -175px;
+            }
+            .t3{
+                background-image: url(../image/fixed_top2_4.png);
+                background-position: -50px 0;
+            }
+            .t4{
+                background-image: url(../image/fixed_top2_4.png);
+                background-position: -190px -100px;
+            }
+
+        }   
+    }
+    .float_bottom{
+        @extend .float_top;
+        top: 86.8%;
+        bottom: 0;
+        .t5{
+            background: url(../image/QR_ICON_FIXED.gif) no-repeat center center;
+        }
+        .t6{
+            background-image: url(../image/fixed_top2_4.png);
+            background-position: -50px -300px;
+        }
+        .t7{
+            background-image: url(../image/fixed_top2_4.png);
+            background-position: -50px -250px;
+        }
+    }
+}
+
 //重写底部样式
 .footer{
     .help{

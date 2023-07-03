@@ -2830,6 +2830,93 @@ ul {
   background: #f7f7f7;
 }
 
+.float_div {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 0;
+  border-right: 6px solid #7a6e6e;
+}
+.float_div .float_top, .float_div .float_bottom {
+  width: 35px;
+  height: 144px;
+  position: absolute;
+  top: 36%;
+  right: -6px;
+  display: flex;
+  flex-direction: column;
+}
+.float_div .float_top .icon_link, .float_div .float_bottom .icon_link {
+  position: relative;
+  width: 35px;
+  height: 35px;
+  margin-bottom: 1px;
+  cursor: pointer;
+  background-color: #7a6e6e;
+  border-radius: 3px 0 0 3px;
+}
+.float_div .float_top .icon_link:hover > .icon, .float_div .float_bottom .icon_link:hover > .icon {
+  background-color: #c81623;
+}
+.float_div .float_top .icon_link:hover .text, .float_div .float_bottom .icon_link:hover .text {
+  transition: all 2s;
+  right: 35px;
+  z-index: 5;
+  background-color: #c81623;
+}
+.float_div .float_top .icon_link > .icon, .float_div .float_bottom .icon_link > .icon {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  position: relative;
+  z-index: 6;
+}
+.float_div .float_top .icon_link .text, .float_div .float_bottom .icon_link .text {
+  font-size: 12px;
+  position: absolute;
+  width: 62px;
+  height: 35px;
+  height: 35px;
+  line-height: 35px;
+  color: white;
+  text-align: center;
+  border-radius: 3px 0 0 3px;
+  top: 0;
+  right: -35px;
+  z-index: -1;
+}
+.float_div .float_top .icon_link .t1, .float_div .float_bottom .icon_link .t1 {
+  background: url(../image/fixed_top1.png) no-repeat center center;
+}
+.float_div .float_top .icon_link .t2, .float_div .float_bottom .icon_link .t2 {
+  background-image: url(../image/fixed_top2_4.png);
+  background-position: -88px -175px;
+}
+.float_div .float_top .icon_link .t3, .float_div .float_bottom .icon_link .t3 {
+  background-image: url(../image/fixed_top2_4.png);
+  background-position: -50px 0;
+}
+.float_div .float_top .icon_link .t4, .float_div .float_bottom .icon_link .t4 {
+  background-image: url(../image/fixed_top2_4.png);
+  background-position: -190px -100px;
+}
+.float_div .float_bottom {
+  top: 86.8%;
+  bottom: 0;
+}
+.float_div .float_bottom .t5 {
+  background: url(../image/QR_ICON_FIXED.gif) no-repeat center center;
+}
+.float_div .float_bottom .t6 {
+  background-image: url(../image/fixed_top2_4.png);
+  background-position: -50px -300px;
+}
+.float_div .float_bottom .t7 {
+  background-image: url(../image/fixed_top2_4.png);
+  background-position: -50px -250px;
+}
+
 .footer .help {
   width: 1285px;
   padding-left: 65px;
