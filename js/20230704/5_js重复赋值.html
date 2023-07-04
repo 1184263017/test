@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let message = 'hello';
+        message = 'haode';//重复赋值（变量原来的值被删除）
+        console.log(message);
+
+        // 同一个变量名被重复声明时会报错
+        // Uncaught SyntaxError: Identifier 'msg' has already been declared
+        // let msg = 'xixi';
+        // let msg = 'haha';
+        // console.log(msg);
+    </script>
+</body>
+</html>
