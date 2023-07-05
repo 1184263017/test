@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            Boolean(值) 显示转换为Boolean类型
+            数字0，空字符串，null,undefined,NaN转换为false
+            其他值都转换为true
+        */
+        let a = 0;
+        console.log(typeof a, typeof Boolean(a)+'---'+Boolean(a));//number boolean---false
+        
+        let b = '';
+        console.log(typeof b, typeof Boolean(b)+'---'+Boolean(b));//string boolean---false
+
+        let c = null;
+        console.log(typeof c, typeof Boolean(c)+'---'+Boolean(c));//object boolean---false
+
+        let d = undefined;
+        console.log(typeof d, typeof Boolean(d)+'---'+Boolean(d));//undefined boolean---false
+
+        let e = NaN;
+        console.log(typeof e, typeof Boolean(e)+'---'+Boolean(e));//number boolean---false
+
+        let f = '0';
+        console.log(typeof f, typeof Boolean(f)+'---'+Boolean(f));//string boolean---true
+
+
+        let num = '012';
+        console.log(typeof num, typeof Number(num)+'---'+Number(num));//string boolean---true
+    </script>
+</body>
+</html>

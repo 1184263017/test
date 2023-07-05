@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    document.write('要写出的内容');
+    document.write('<h1>泰裤辣</h1>');
+
+    let a1 = 3;
+    console.log(2 - 'a1');
+
+    return false;
+
+    let jia = 2 + '2';
+    let jian = 2 - '2';
+    console.log(typeof(jian));
+
+    // let money = prompt('给我钱');
+    // console.log(money);
+
+    let arr = [1,5,8,6,88,4,25,64];
+    let new_arr = [];
+    let num = '';
+    for(i = 0;i<=arr.length;i++){
+        for(j = i+1;j<=arr.length;j++){
+            if(arr[i]>arr[j]){
+                num = arr[i];
+                arr[i] = arr[j];
+                arr[j] = num;
+            }
+        }
+    }
+    // console.log(arr[0]);
+    console.log(arr);
+</script>
+</html>

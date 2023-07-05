@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /* 
+        Number(数字)类型
+        整数 小数 正数 负数
+    */
+   let num1 = 10;
+   let num2 = '10';
+   let num3 = -10;
+   let num4 = 10.09;
+   console.log(num1);
+   console.log(num2);
+   console.log(num3);
+   console.log(num4);
+
+   /* 
+        Infinity是number类型的特殊值
+   */
+   console.log(1/0);
+   console.log(typeof(Infinity));//还是Number
+
+
+   /* 
+        NaN(not a number)是number类型的特殊值
+   */
+   let a = 3;
+   console.log(2 - 'a');//NaN
+   console.log(typeof(2 - 'a'));//还是Number
+</script>
+</html>

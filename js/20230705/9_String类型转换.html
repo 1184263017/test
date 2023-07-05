@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            String(值) 显式转换为string类型
+            任意类型都可以转换位string类型
+        */
+        console.log(typeof 10,10);//number 10
+        console.log(typeof String(10),String(10));//string 10
+        
+        console.log(typeof false,false);//boolean false
+        console.log(typeof String(false),String(false));//string false
+
+        console.log(typeof 100n,100n);//bigint 100n
+        console.log(typeof String(100n),String(100n));//string 100
+
+        console.log(typeof null,null);//object null
+        console.log(typeof String(null),String(null));//string null
+
+        console.log(typeof {},{});//object {}
+        console.log(typeof String({}),String({}));//string [object Object]
+
+        console.log(typeof Symbol(),Symbol());//symbol Symbol()
+        console.log(typeof String(Symbol()),String(Symbol()));//string Symbol()
+
+        console.log(typeof undefined,undefined);//undefined undefined
+        console.log(typeof String(undefined),String(undefined));//string undefined
+    </script>
+</body>
+</html>

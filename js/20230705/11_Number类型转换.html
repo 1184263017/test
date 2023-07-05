@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            Number(值) 将值显式转换为number类型
+        */
+
+        //纯数字字符串
+        let a = '100';
+        console.log(typeof Number(a),Number(a));//number 100
+
+        let num = '012';
+        console.log(typeof Number(num), Number(num));//number 12
+
+        //字符串左右出现空格在转换时会忽略空格
+        let a1 = '  100  ';
+        console.log(typeof Number(a1),Number(a1));//number 100
+
+        //小数字符串转换为number,但是多个小数点的字符串无法转换为number,只能转换为nan
+        let b = '13.14';
+        console.log(typeof Number(b),Number(b));//number 13.14
+        let d = '13.14.15';
+        console.log(typeof Number(d),Number(d));//number NaN
+
+        //不是纯数字的字符串
+        let c = '100a';
+        console.log(typeof Number(c),Number(c));//number NaN
+
+        //空字符串转换0
+        let c1 = '';
+        console.log(typeof Number(c1),Number(c1),'----');//number 0
+
+        //null转换为0
+        let e = null;
+        console.log(typeof Number(e),Number(e));//number 0
+
+        //undefined转换为nan
+        let f = undefined;
+        console.log(typeof Number(f),Number(f));//number NaN
+
+        //true转换为1
+        let i = true;
+        console.log(typeof Number(i),Number(i));//number 1
+
+        //false转换为0
+        let j = false;
+        console.log(typeof Number(j),Number(j));//number 0
+
+        let g = {};
+        console.log(typeof Number(g),Number(g));//number NaN
+
+        let h = Symbol();
+        console.log(typeof Number(h),Number(h));//Uncaught TypeError: Cannot convert a Symbol value to a number at Number
+    </script>
+</body>
+</html>
