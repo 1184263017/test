@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            自增 变量++ ++变量
+            自减 变量-- --变量
+            单独使用时没有区别
+        */
+        let n = 10;
+        n = n + 1;
+        console.log(n);
+        n += 1;
+        console.log(n);
+        n++;
+        console.log(n);//13
+        n = n - 1;
+        console.log(n);
+        n -= 1;
+        console.log(n);
+        n--;
+        console.log(n);
+        console.log('---------');
+
+
+
+
+        let a = 10;
+        let m = a++;//后置：先赋值在计算,存储新值，用旧值（上一个值）来计算，也就是输出旧值
+        // let m = ++a;//前置：先计算在赋值,存储新值，用新值（当前的值）来计算，也就是输出新值
+        console.log(a);
+        console.log(m);
+    </script>
+</body>
+</html>

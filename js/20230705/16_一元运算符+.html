@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*  
+            +值，可以将值强制转换为number类型
+            和Number函数的结果相同
+        */
+       let a = '10';
+    //    console.log(typeof(Number(a)),Number(a));
+
+    //    console.log(typeof(+a),+a);
+
+
+       let b = prompt('b?');
+       let bt = +b;
+        b = isNaN(b) ? b:bt;
+       console.log(b);
+    //    typeof +b == number?
+    //    console.log(typeof b);
+
+
+
+    //    let b = +prompt('b?');
+    //    let c = +prompt('c?');
+    //    let res = Number(b)+Number(c);
+    //    let res = +b + +c;
+    //    let res = b+c;
+    //    console.log(res);
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            除了+以外的运算符在做运算时
+            字符串类型会自动转换为number类型计算
+        */
+       let a = '6';
+       let b = 4;
+       console.log(a-b);//number
+       console.log(typeof(a-b));//number
+       console.log(a/b);//number
+       console.log(a*b);//number
+       console.log(a%b);//number
+       console.log(a**b);//number
+
+       let c = 'a1';
+       let d = 'b1';
+       console.log(c-d);//NAN
+    </script>
+</body>
+</html>

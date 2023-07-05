@@ -15,7 +15,7 @@
     let a1 = 3;
     console.log(2 - 'a1');
 
-    return false;
+    // return false;
 
     let jia = 2 + '2';
     let jian = 2 - '2';
@@ -38,5 +38,55 @@
     }
     // console.log(arr[0]);
     console.log(arr);
+
+
+
+
+    let arr1 = [1,2,3,'pink',true];
+    let arr2 = new Array(1,2,3,4);
+    console.log(arr2);
+
+    let sum = 0;
+    for(i=0;i<arr2.length;i++){
+        sum += arr2[i];
+        console.log(sum);
+    }
+    // console.log(typeof sum);
+    console.log(sum/arr2.length);
+
+
+    let a;
+    a = a + 1;
+    console.log(a);
+
+
+    let arr3 = [2,5,12,4,6,13,67];
+    let max = arr3[0];
+    for(i=1;i<arr3.length;i++){
+        if(max<arr3[i]){
+            max = arr3[i];
+        }
+    }
+    console.log(max);
+
+    //数组尾部插入
+    arr3.push(1,3,'hahah');//返回值是数组的长度
+    console.log(arr3);
+    //数组头部插入  
+    arr3.unshift('xixi','heihei');//返回值是数组的长度
+    console.log(arr3);
+
+    //删除数组最后一个值，并返回该值
+    console.log(arr3.pop());
+    console.log(arr3);
+
+    //删除数组第一个值，并返回该值
+    console.log(arr3.shift());
+    console.log(arr3);
+
+    //删除数组指定元素 splice(起始位置,删除几个元素)
+    // console.log(arr3.splice(1));//从第一个元素之后开始删除
+    console.log(arr3.splice(0,1));//从数组索引1的位置开始往后删除1个元素
+    console.log(arr3);
 </script>
 </html>
