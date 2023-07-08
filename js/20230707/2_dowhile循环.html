@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            初始值
+            do{
+                循环体
+                初始值改变
+            }while(条件)
+            先执行循环体的代码，在进行条件的判断
+            循环体内的代码至少执行一次
+        */
+        let num = 0;
+        do{
+            console.log(num);
+            num++;
+        }while(num<1)
+        console.log('-----');
+        do{
+            console.log(num);
+            num++;
+        }while(num<10)
+        console.log('-----');
+        num = 10;
+        do{
+            console.log(num);
+            num--;
+        }while(num)
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        if(1){
+            console.log(1);
+            if(true){
+                console.log(2);
+            }
+        }else{
+            console.log(3);
+        }
+
+
+
+        let num = +prompt('请输入年份判断是否是闰年');
+        if(num % 100 == 0){
+            if(num % 400 == 0){
+                alert('闰年')
+            }else{
+                alert('平年')
+            }
+        }else{
+            if(num % 4 == 0){
+                alert('闰年')
+            }else{
+                alert('平年')
+            }
+        }
+    </script>
+</body>
+</html>

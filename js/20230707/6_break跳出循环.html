@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=q, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            break 在循环中执行break,循环就终止了
+            continue 循环中执行到continue就结束本次循环，进入下次循环
+        */
+       for (let i = 0; i < 10; i++) {
+            console.log(i);
+            break;
+       }
+
+
+        // let sum = 0;
+        // while(true){
+        //     let num = prompt('1');
+        //     sum += +num;
+        //     if(sum > 100){
+        //         document.write(`当前值为${sum}`)
+        //         break;
+        //     }
+        // }
+
+        for (let i = 0; i <= 10; i++) {
+            if(i%2!=0){
+                continue;
+            }
+            console.log(i);
+        }
+        console.log('---------');
+        let num = 1;
+        while (num <= 10) {
+            if(num % 2 != 0){
+                console.log(num);
+            }
+            num++;
+        }
+        console.log('---------');
+        let num1 = 1;
+        do {
+            if(num1 % 2 != 0){
+                console.log(num1);
+            }
+            num1++;
+        } while (num1 <= 10);
+    </script>
+</body>
+</html>

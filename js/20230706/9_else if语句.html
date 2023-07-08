@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            if(条件){
+                代码1
+            }else if(条件){
+                代码2
+            }else if(条件){
+                代码3
+            }else{
+                代码4
+            }
+            第一个条件为true时，执行代码1，分支结束
+            当前条件为false时，在去判断下一个条件
+            所有条件都为false时，有else就执行else里面代码，没有就不执行然后代码块
+        */
+
+        let date = '6-1';
+        if(date === '1-1'){
+            console.log(1);
+        }else if(date === '5-1'){
+            console.log(2);
+        }else if(date === '6-1'){
+            console.log(3);
+        }else{
+            console.log(4);
+        }
+
+        let level = '及格';
+        if(level === '优'){
+            console.log(`90-100`);
+        }else if(level === '良'){
+            console.log(`80-89`);
+        }else if(level === '中'){
+            console.log(`70-79`);
+        }else if(level === '及格'){
+            console.log(`60-69`);
+        }else{
+            console.log(`成绩出错`);
+        }
+    </script>
+</body>
+</html>

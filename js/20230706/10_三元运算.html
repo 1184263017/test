@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            三元运算符
+            条件 ? 值1 : 值2
+            条件为true时，结果为值1，false是结果为值2 
+        */
+       console.log(false?1:2);
+
+       console.log(null % 2);
+
+       let age = 18;
+       let res = age > 18 ? '成年' : '未成年';
+       console.log(res);
+
+    //    let num = prompt('第一个值');
+    //    let num1 = prompt('第二个值');
+    //    num > num1 ? 
+    //    num % 2 == 0 ? alert(`最大值为：${num},偶数`):alert(`最大值为：${num},奇数`) 
+    //    : 
+    //    num1 % 2 == 0 ? alert(`最大值为：${num1},偶数`):alert(`最大值为：${num1},奇数`);
+
+    //    let num2 = prompt('判断奇数偶数');
+    //    num2 % 2 == 0 ? alert('偶数'):alert('奇数')
+
+    let level = '中';
+    let res1 =  level === '优'?'90-100'
+    :level === '良'?'80-89'
+    :level === '中'?'70-79'
+    :level === '及格'?'60-69'
+    :'不及格'
+    console.log(res1);
+    </script>
+</body>
+</html>

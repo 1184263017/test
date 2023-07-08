@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            有真值结果为第一个真值（返回值）
+            没有真值结果为最后一个假值（返回值）
+        */
+        console.log( 1 || 0 ); // 1（1 是真值）
+        console.log( null || 1 ); // 1（1 是第一个真值）
+        console.log( null || 0 || 1 ); // 1（第一个真值）
+        console.log( undefined || null || 0 ); // 0（都是假值，返回最后一个值）
+
+        let n = 10;
+        //逻辑运算符中只要有一个表达式值为真值，后面的代码不在执行
+        console.log(1 || n++);
+        console.log(0 || n++);
+        console.log(n);
+
+        let age = 20;
+        age > 18 || console.log('未成年');
+        age <= 18 || console.log('成年');
+    </script>
+</body>
+</html>

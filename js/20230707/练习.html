@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 当输入的值比num大就提示大了，比num小就提示小了，直到猜对为止
+        // 1-100的和，奇数和，偶数和
+        // 2000-3000一共有多少个闰年
+        // 1/2 - 1/3 + 1/4 - 1/5 .... - 1/99
+
+        let sum = 0;
+        let sum_j = 0;
+        let sum_o = 0;
+        for (let i = 0; i <= 100; i++) {
+            sum += i;
+            if(i % 2 != 0){
+                sum_j += i;
+            }else{
+                sum_o += i;
+            }
+        }
+        console.log(sum,sum_j,sum_o);
+        console.log('--------');
+
+        let sum_n = 0;
+        for (let i = 2000; i <= 3000; i++) {
+           if (i%400==0 || (i%100==0 && i%4==0)) {
+             sum_n++;
+           }
+        }
+        console.log(sum_n);
+        console.log('--------');
+
+        let sum_x = 0;
+        for (let i = 2; i < 100; i++) {
+             if(i%2 != 0){
+                sum_x -= 1/i;
+             }else{
+                sum_x += 1/i;
+             }
+        }
+        console.log(sum_x);
+    </script>
+</body>
+</html>

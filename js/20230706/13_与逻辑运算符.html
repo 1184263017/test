@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            &&与 逻辑运算符
+            所有表达式值都为真，结果才为真值
+            有一个假值，结果为假值
+        */
+        console.log(true && false);//false
+        console.log(true && true);//true
+        console.log(false && true);//false
+        console.log(false && false);//false
+
+        let num = prompt('输入')
+        if(num < 10 && num % 2 == 0){
+            console.log(1);
+        }else{
+            console.log(2);
+        }
+
+        let num1 = prompt('输入')
+        if(num1 < 80 && num1 > 18){
+            console.log(1);
+        }else{
+            console.log(2);
+        }
+    </script>
+</body>
+</html>

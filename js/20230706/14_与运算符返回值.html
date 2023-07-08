@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            表达式中有假值，返回结果为第一个假值
+            全部为真值，返回结果为最后一个真值
+        */
+       console.log(true && 0 && false);
+       console.log(1 && 2 && 3);
+
+       let n = 10;
+       //逻辑运算符与中，只要表达式结果为假值，后面的代码不在执行
+       console.log(0 && ++n);
+       console.log(1 && ++n);
+       console.log(n);
+    </script>
+</body>
+</html>

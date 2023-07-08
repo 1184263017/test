@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            || 逻辑运算符 或
+            表达式中只要有一个true值，结果就为true值
+            全部都是false值时，结果采薇false值
+            有真值结果为第一个真值（返回值）
+            没有真值结果为最后一个假值（返回值）
+        */
+       console.log(true || false);//true
+       console.log(true || true);//true
+       console.log(false || true);//true
+       console.log(false || false);//false
+
+        console.log( 1 || 0 ); // 1（1 是真值）
+        console.log( null || 1 ); // 1（1 是第一个真值）
+        console.log( null || 0 || 1 ); // 1（第一个真值）
+        console.log( undefined || null || 0 ); // 0（都是假值，返回最后一个值）
+
+       let num = prompt('输入')
+       if(num > 10 || num % 2 == 1){
+            console.log(1);
+       }else{
+            console.log(2);
+       }
+    </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .p1{
+            text-align: right;
+        }
+        td{
+            border: solid;
+            
+        }
+        div{
+            /* border:solid; */
+            width: 100%;
+            height: 30px;
+        }
+        span{
+            display: inline-block;
+            border:solid;
+            width: 63px;
+            text-align: center;
+        }
+        .d1{
+            background-color: orange;
+            width: 90px;
+            height:40px;
+            border-radius:4px;
+            border: 2px solid red;
+            position: fixed;
+            top:20%;
+            right:0;
+            font-size: 14px;
+            text-align: center;
+            line-height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="d1" onclick="qiehuan()">
+        奇数/偶数
+    </div>
+    <script>
+        var num = 1;
+        function qiehuan(){
+            let ste = 'c'+num;
+            if(num == 1){
+                let name = document.getElementsByClassName(ste);
+                let name1 = document.getElementsByClassName('c2');
+                for (let i = 0; i < name.length; i++) {
+                    name[i].style.cssText='background-color: pink;';
+                    // console.log(name[i]);
+                }
+                for (let i = 0; i < name1.length; i++) {
+                    name1[i].style.cssText='background-color: white;';
+                    // console.log(name[i]);
+                }
+                num =  2;
+            }else{
+                let ste = 'c'+num;
+                let name = document.getElementsByClassName(ste);
+                let name1 = document.getElementsByClassName('c1');
+                for (let i = 0; i < name.length; i++) {
+                    name[i].style.cssText='background-color: skyblue;';
+                    // console.log(name[i]);
+                }
+                for (let i = 0; i < name1.length; i++) {
+                    name1[i].style.cssText='background-color: white;';
+                   
+                }
+                num =  1;
+            }
+    }
+
+        for (let i = 1; i <= 9; i++) {
+            document.write(`<div>`)
+            for (let j = i; j <= 9; j++) {
+                let name = '';
+                if((i*j) % 2 == 0){
+                    name = 'c2';
+                }else{
+                    name = 'c1';
+                }
+                document.write(`<span class=${name}>${i}*${j}=${i*j}</span>`)
+            }
+            document.write(`</div>`)
+        }
+        for (let i = 1; i <= 9; i++) {
+            document.write(`<div>`)
+            for (let j = 1; j <= i; j++) {
+                let name = '';
+                if((i*j) % 2 == 0){
+                    name = 'c2';
+                }else{
+                    name = 'c1';
+                }
+                document.write(`<span class=${name}>${i}*${j}=${i*j}</span>`)
+            }
+            document.write(`</div>`)
+        }
+        for (let i = 9; i != 0; i--) {
+            document.write(`<div>`)
+            for (let j = 9; j >= i; j--) {
+                let name = '';
+                if((i*j) % 2 == 0){
+                    name = 'c2';
+                }else{
+                    name = 'c1';
+                }
+                document.write(`<span class=${name}>${i}*${j}=${i*j}</span>`)
+            }
+            document.write(`</div>`)
+        }
+        for (let i = 9; i != 0; i--) {
+            document.write(`<div>`)
+            for (let j = 1; j <= i; j++) {
+                let name = '';
+                if((i*j) % 2 == 0){
+                    name = 'c2';
+                }else{
+                    name = 'c1';
+                }
+                document.write(`<span class=${name}>${i}*${j}=${i*j}</span>`)
+            }
+            document.write(`</div>`)
+        }
+    </script>
+</body>
+</html>

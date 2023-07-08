@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            switch (值) {
+                case 值1:
+                    代码块1
+                    break;
+                case 值2:
+                    代码块2
+                    break;
+                ....
+                default:
+                    代码块n
+                    break;
+            }
+            从第一个值开始和（）里面的值进行比较，值相等就执行代码块
+            有break就终止执行，没有会从匹配到的代码块开始一直执行到switch语句的最后
+            除非碰到break才终止执行
+            没有值相等，有default就执行default里面的代码，没有就不执行任何代码
+            值的匹配是严格相等（===）
+        */
+       let date = '7/7';
+        switch (date) {
+            case '7/7':
+                console.log('7/7');
+                break;
+            case '8/7':
+                console.log('8/7');
+                break;
+            default:
+                console.log('全都对不上');
+                break;
+        }
+
+        let num = +prompt('请输入分数判断级别');
+        switch (true) {
+            case (num < 0 || num > 100):
+                alert('输入分数有误')
+                break;
+            case (num >= 90):
+                alert('优')
+                break;
+            case (num >= 80):
+                alert('良')
+                break;
+            case (num >= 70):
+                alert('中')
+                break;
+            case (num >= 60):
+                alert('及格')
+                break;
+            default:
+                alert('不及格')
+                break;
+        }
+    </script>
+</body>
+</html>
