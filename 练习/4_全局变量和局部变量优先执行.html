@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            在能访问到的情况下先查找局部，局部没有在查找全局，
+            采取就近原则来查找变量最终值，如果自身没有则一层一层往上查找
+        */
+        
+        let num = 10;
+        function fn(){
+            let num = 20;
+            // console.log(num);
+            function fun(){
+                // let num = 30;
+                console.log(num);
+            }
+            fun()
+        }
+        fn()
+    </script>
+</body>
+</html>

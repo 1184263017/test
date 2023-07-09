@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function a(){
+        //     var i=0;
+        //     function b(){
+        //         alert(++i);
+        //     }
+        //     return b;
+        // }
+        // // console.log(a());
+        // var c=a();
+        // c();
+
+        function outerFunction() {
+            var outerVariable = 'I am outside!';
+            let num = 0;
+            function innerFunction() {
+                console.log(outerVariable,++num);
+            }
+
+            return innerFunction;
+        }
+        var closure = outerFunction();  // 调用外部函数，将内部函数赋值给变量closure
+        closure();  // 执行内部函数，输出 "I am outside!"
+        closure();
+        closure();
+
+
+
+        
+    </script>
+    
+</body>
+</html>

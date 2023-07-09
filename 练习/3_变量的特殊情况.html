@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    
+        function fn(){
+            num = 10 //全局变量,不允许这样写
+        }
+        fn();
+        console.log(num);//10
+
+        function fun(x,y){
+            //形参可以看做是函数的局部变量
+            console.log(x);
+        }
+        fun(1,2)
+        console.log(x);//x is not defined
+    </script>
+</body>
+</html>

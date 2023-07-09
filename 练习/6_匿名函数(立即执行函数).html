@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            立即执行函数
+            可以解决变量let污染问题
+            需要加;才可以，不加会报错
+            后面的括号就是调用函数，括号里面填实参
+            两种写法
+            (function(){})()
+            (function(){}())
+        */
+        // (function(){
+        //     let num = 10;
+        //     console.log(11);
+        // })();
+        // (function(){
+        //     let num = 20;
+        //     console.log(11);
+        // })()
+
+
+        (function (x,y) {
+            console.log(x+y);
+        })(1,2)
+
+
+
+        
+    </script>
+</body>
+</html>

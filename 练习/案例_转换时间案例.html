@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num = +prompt('输入数字转换为时分秒')
+        function getTime(num=0){
+            let h = 0;
+            let i = 0;
+            let s = 0;
+            if(num>=3600){
+               h = (num - (num % (3600)))/3600;//小时
+               i = ((num % (3600))-((num % (3600))%60))/60;//分钟
+               s = (num % (3600))%60;//秒
+            }else{
+                h = 0;//小时
+                i = ((num % (3600))-((num % (3600))%60))/60;//分钟
+                s = (num % (3600))%60;//秒
+            }
+            h = h<10?'0'+h:h;
+            i = i<10?'0'+i:i;
+            s = s<10?'0'+s:s;
+            document.write(`输入的数字转化为时间为:${h}时 ${i}分 ${s}秒`)
+        }
+        getTime(num)
+    </script>
+</body>
+</html>
