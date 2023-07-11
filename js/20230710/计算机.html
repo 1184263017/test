@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            width:200px;
+            border:solid 1px #999;
+            border-radius:5px;
+            margin:0 auto;
+            margin-top:50px;
+        }
+        .top{
+            height: 100px;
+            text-align: right;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .s2{
+            /* border:solid; */
+            width: 100%;
+            height: 46px;
+            line-height: 50px;
+        }
+        .d1{
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .s1{
+            border: solid 1px #666;
+            width: 40px;
+            height: 30px;
+            line-height:30px;
+            text-align: center;
+            border-radius: 4px;
+        }
+        .s1:hover{
+            background-color: #999;
+        }
+        .i1{
+            width: 100%;
+            height: 46px;
+            border: none;
+            outline: none;
+            text-align: right;
+            font-size: 26px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="top">
+            <span class="s2" id="num"></span>
+            <input onkeydown="getInput(this.value)" type="text" placeholder="0" class="i1" id="res">
+        </div>
+        <div class="footr">
+            <div class="d1">
+                <span class="s1" onclick="getOperation('%')">%</span>
+                <span class="s1" onclick="del()">CE</span>
+                <span class="s1" onclick="del()">C</span>
+                <span class="s1" onclick="del()">del</span>
+            </div>
+            <div class="d1">
+                <span class="s1">1/x</span>
+                <span class="s1">x^2</span>
+                <span class="s1">2√x</span>
+                <span class="s1" onclick="getOperation('/')">÷</span>
+            </div>
+            <div class="d1">
+                <span class="s1" onclick="getNum(7)">7</span>
+                <span class="s1" onclick="getNum(8)">8</span>
+                <span class="s1" onclick="getNum(9)">9</span>
+                <span class="s1" onclick="getOperation('*')">*</span>
+            </div>
+            <div class="d1">
+                <span class="s1" onclick="getNum(4)">4</span>
+                <span class="s1" onclick="getNum(5)">5</span>
+                <span class="s1" onclick="getNum(6)">6</span>
+                <span class="s1" onclick="getOperation('-')">-</span>
+            </div>
+            <div class="d1">
+                <span class="s1" onclick="getNum(1)">1</span>
+                <span class="s1" onclick="getNum(2)">2</span>
+                <span class="s1" onclick="getNum(3)">3</span>
+                <span class="s1" onclick="getOperation('+')">+</span>
+            </div>
+            <div class="d1">
+                <span class="s1">+/-</span>
+                <span class="s1" onclick="getNum(0)">0</span>
+                <span class="s1" onclick="getOperation('.')">.</span>
+                <span class="s1" style="background-color: skyblue;" onclick="getSum()">=</span>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let arr = [];
+    function getOperation(str){
+        if(arr.length == 0){
+            alert('请先输入需要运算的数字')
+            return false
+        }
+        if(arr.length == 1){
+            arr.push(str);
+        }
+        switch(arr[arr.length-1]){
+            case '*':
+            case '-':
+            case '/':
+            case '+':
+            case '%':
+            case '.':
+                arr[arr.length-1] = str;
+                break;
+            default :
+                arr.push(str);
+                break;
+        }
+        // console.log(arr);
+        let count = '';
+        for (let i = 0; i < arr.length; i++) {
+            count += arr[i];
+        }
+        // console.log(count);
+        document.getElementById('num').innerHTML = count;
+    }
+
+    function getNum(str){
+        arr.push(str);
+        let count = '';
+        for (let i = 0; i < arr.length; i++) {
+            count += arr[i];
+        }
+        // console.log(count);
+        document.getElementById('num').innerHTML = count;
+    }
+
+    function del(){
+        arr.splice(0)
+        document.getElementById('num').innerHTML = '';
+        document.getElementById('res').value  = '';
+    }
+
+    function getSum(){
+        if(arr.length == 0){
+            alert('请先输入在计算')
+            return false
+        }
+
+        switch(arr[arr.length-1]){
+            case '*':
+            case '-':
+            case '/':
+            case '+':
+            case '%':
+            case '.':
+                arr.splice(arr.length-1,1);
+                break;
+        }
+
+        let count = '';
+        for (let i = 0; i < arr.length; i++) {
+            count += arr[i];
+        }
+        let sum = 0;
+        sum = eval(count);
+        count = count + '='
+        document.getElementById('num').innerHTML = count;
+        document.getElementById('res').value  = sum;
+    }
+
+    function getInput(value){
+        var event = arguments.callee.caller.arguments[0] || window.event;
+        if(event.keyCode == 13){//判断是否按了回车，enter的keycode代码是13
+            let sum = 0;
+            sum = eval(value);
+            count = value + '='
+            document.getElementById('num').innerHTML = count;
+            document.getElementById('res').value  = sum;
+        }
+    }
+</script>
+</html>

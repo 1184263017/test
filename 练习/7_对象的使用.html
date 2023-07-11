@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>   
+        // let obj = {
+        //     username:'pink',
+        //     age:18,
+        //     gender:'女'
+        // }
+        // console.log(obj);
+        // console.log(typeof obj);
+
+        /* 
+            对象的两种查询方式
+            对象名.属性
+            对象名['属性']
+        */
+
+        let obj = {
+            name:'小米10',
+            num:'1231321231',
+            weight:'0.55kg',
+            address:'中国',
+            "goods-name":'cs'
+        }
+        console.log(obj.name);
+
+        //改
+        obj.name = '小米30';
+        console.log(obj.name);
+        //增
+        obj.price = '2999';
+        console.log(obj);
+        //删
+        delete obj.name;
+        console.log(obj);
+
+        console.log(obj['goods-name']);
+        console.log(obj['num']);
+    </script>
+</body>
+</html>

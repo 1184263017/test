@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //不推荐遍历数组，因为索引号是字符串类型，容易出现问题
+        // let arr = [1,2,3];
+        // for (let k in arr) {
+        //     console.log(k); //数组下标，索引号，字符串类型
+        //     console.log(arr[k]);
+        // }
+
+
+        
+        // let obj = {
+        //     username:'pink',
+        //     age:18,
+        //     gender:'男'
+        // }
+        // for (const k in obj) {
+        //     console.log(k);//属性名 'uswename' 'age' 'gender'
+        //     console.log(obj[k]);
+        // }
+
+        // for (const iterator of object) {
+            
+        // }
+
+        // array.forEach(element => {
+            
+        // });
+
+
+        
+        var obj = {a:1,b:2,c:3}  //对象
+
+        var obj2 = Object.keys(obj) //用Object.key()属性转化为数组类型
+        console.log(obj2);
+        
+        var arr = [1,2,3];
+        arr.forEach(function(v,k){
+            console.log(v);
+            v = 99;
+        });
+        console.log(arr);
+    </script>
+</body>
+</html>

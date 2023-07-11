@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict'
+        let b;
+        console.log(b);
+        //函数表达式声明的函数不可以在声明之前使用
+        // console.log( a);
+        let a = 10;
+
+        //函数声明的函数可以在声明之前使用
+        fn();
+        function fn(){
+            console.log(1);
+        }
+
+        //函数表达式只可在代码块内部使用，不可在外部调用
+        //函数声明在代码块内外部都可使用，但开启严格模式则无法再外部使用
+        {
+            let a = function(){
+                console.log('ok');
+            }
+            a()
+
+            fun()
+            function fun(){
+                console.log('yes');
+            }
+        }
+        // a()//Uncaught TypeError: a is not a function
+        // fun()//yes
+
+        // 严格模式下，代码块内声明的函数在代码块外无法调用
+        // fun()//Uncaught ReferenceError: fun is not defined
+    </script>
+</body>
+</html>

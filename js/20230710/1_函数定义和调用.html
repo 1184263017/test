@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            function 函数名(参数列表){
+                函数体
+            }
+            1.function 关键字必不可少
+            2.函数名命名规则和变量名相同
+            3.() 必不可少，参数数量可以是0个，也可以是多个，中间用逗号隔开
+            4.{} 必不可少，里面是函数的代码
+            5.函数类的代码只有在函数被调用时才会执行
+            6.自定义函数只能在当前脚本使用
+        */
+        function getSum(){
+            let num = 0;
+            for (let i = 0; i <= 100; i++) {
+                num += i;
+            }
+            return num;
+        }
+        //调用函数 函数名() 同一个函数可以调用多次
+        console.log(getSum());
+        console.log(getSum());
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn(){
+            // 局部变量:函数内部声明的变量
+            let a = 10;
+
+            // 局部变量只能在函数内使用
+            console.log(a);
+        }
+        fn();
+
+        // 外部变量:函数外部声明的变量
+        let b = 20;
+        function fun(){
+            // 在函数内可以访问和修改外部变量
+            b = 30;
+            console.log(b);
+        }
+        console.log(b);
+        fun()
+        console.log(b);
+
+        let name = 'a';
+        function cs(){
+            //局部变量和外部变量名称相同时，那么函数内使用的是局部变量，只有局部变量不存在才会使用外部
+            // console.log(name);
+            let name = 'b'
+            console.log(name);
+        }
+        cs();
+    </script>
+</body>
+</html>

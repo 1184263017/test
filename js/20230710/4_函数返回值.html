@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            1.函数默认返回值是undefined
+            2.函数的返回值只能通过return设置
+            3.函数只有一个返回值，代码执行到return就终止
+            4.return空值和没有设置return都是undefined
+            5.函数只有一个返回值，但是可以出现多次return
+            6.一般return出现在函数最后
+            7.返回值需要换行或者有多个表达式进行计算时，可以使用括号包裹起来
+        */
+        function fn(a=10,b=20){
+            // console.log(a+b);
+            return 10;
+        }
+        let a = fn();
+        console.log(a);
+
+        let sum = 0;
+        for (let i = 0; i <= fn(); i++) {
+            sum += i
+        }
+        console.log(sum);
+
+
+        function fun(age){
+            let res;
+            if(age>18){
+                res = 'ok'
+                // return 'ok';
+            }else{
+                res = 'no'
+                // return 'no';
+            }
+            return res;
+        }
+        console.log(fun(15));
+        console.log(fun(20));
+
+        function cs(num){
+            if(num < 20){
+                return;
+            }
+            return num * 2;
+        }
+        console.log(cs(10));
+        console.log(cs(20));
+
+        
+    </script>
+</body>
+</html>

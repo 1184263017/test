@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 箭头函数时es6新增的
+
+        // 1.箭头函数就是将function省略加上=>
+        //function(){ console.log('ok') }
+        let a = ()=>{
+            console.log('ok');
+        }
+        a();
+
+        // 2. 当代码块只有一行时可以省略{}
+        //function(){ console.log('ok') }
+        let b = () => console.log('ok');
+        b();
+
+        // 3.当代码块代码只有一行并且是return语句时，可以省略{}和return
+        //function(a,b){ return a + b }
+        let c = (a,b) => a+b;
+        console.log(c(1,1));
+
+        // 4.当参数只有一个时，可以省略()
+        //function(a){ return a * x }
+        let d = a => a *2
+        console.log(d(10));
+    </script>
+</body>
+</html>

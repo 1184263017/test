@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getSum(a=10,b=20){
+            console.log(a+b);
+        }
+        getSum();
+        getSum(1,2);
+
+        function forSum(n){
+            let num = 0;
+            for (let i = 0; i <= n; i++) {
+                num += i;
+            }
+            return num;
+        }
+        console.log(forSum(10));
+        console.log(forSum(100));
+        //形参：形式上的参数(函数声明时定义的参数)
+        //形参的默认值是undefinde
+        //有默认值的参数，一般放在参数列表的最后
+        function userInfo(name,age,addr,sex='女'){
+            age = 22; // 参数重复赋值
+            console.log(`姓名${name},年龄${age},性别${sex},地址${addr}`);
+        }
+        let name = 'jack'
+        let age = 18
+        let addr = '南京'
+        let sex = '男'
+        //实参:实际上的参数(函数调用时使用的参数)
+        //实参在传值给形参时，是按照顺序依次传值
+        userInfo(name,age,addr,sex);
+        userInfo(name,age,addr);
+        // userInfo('tom',20,'女','上海');
+
+        //形参的值发生改变不会影响外部的值
+        console.log(age);
+
+
+        function foo(num = +prompt('1'),num2 = +prompt('2')){
+            console.log(num + num2);
+        }
+        foo();
+
+        function cs(){
+            console.log(1);
+        }
+        function cs(){
+            console.log(2);
+        }
+        //函数名可以重复，不会报错，后定义的覆盖前面的
+        cs()
+    </script>
+</body>
+</html>

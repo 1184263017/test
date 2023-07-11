@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            变量的值是一个函数就是函数表达式
+            变量名称加上()来调用函数表达式
+        */
+        let a = function (){
+            console.log('ok');
+        }
+        console.log(a);
+        a()
+
+        let fun = function (){
+            return 100;
+        }
+        let foo = fun;
+        console.log(fun());
+        console.log(foo());
+
+        function fun1(){
+            return 20;
+        }
+        let fun2 = fun1;
+        console.log(fun1());
+        console.log(fun2());
+    </script>
+</body>
+</html>

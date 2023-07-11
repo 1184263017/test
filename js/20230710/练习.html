@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn(num=0){
+            // return num>18?true:false;
+
+          return num>18 || false;            
+        }
+        console.log(fn(10));
+
+        function min(a,b){
+            return a>b? a : b;
+        }
+        console.log(min(5,-6));
+
+        function pow(a,b){
+            if(b<=1){
+                return a;
+            }
+            let sum = 0;
+            for (let i = 1; i <= b; i++) {
+                sum = sum == 0?a*a:sum*a;
+            }
+            return sum
+        }
+        console.log(pow(3,1));
+
+        // 封装一个计算机，实现任意两个数的计算
+    </script>
+</body>
+</html>
