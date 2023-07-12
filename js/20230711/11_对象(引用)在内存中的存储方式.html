@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const a = {
+            name:'jack',
+            age:18
+        }
+        let b = a;// 地址引用(a对象将自己的内存地址复制给b一份)
+        b.name = 'tom';
+        console.log(a); //tom
+        console.log(b); //tom
+    </script>
+</body>
+</html>

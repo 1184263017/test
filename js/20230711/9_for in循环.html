@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            遍历对象
+            循环次数就是对象中属性的个数
+        */
+        const obj = {
+            name:'jack',
+            age:18,
+            sex:'男',
+            test:undefined
+        }
+        // key 是表示对象中属性名的一个变量
+        for (const k in obj) {
+            console.log(k);
+            console.log(obj[k]);
+        }
+    </script>
+</body>
+</html>

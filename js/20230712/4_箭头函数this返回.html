@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict"
+        let f1 = function(){
+            console.log(this);
+        }
+        f1();
+
+        let f2 = () => console.log(this);
+        f2();
+
+        const obj = {
+            name:'jack',
+            f3(){
+                console.log(this);
+                function f3_1(){
+                    console.log(this);
+                }
+                f3_1();//undefined
+
+                let f3_2 = () => console.log(this);
+                f3_2();
+            },
+            //箭头函数没有this 所以向外部查找this并使用
+            f4:()=> console.log(this)
+        }
+        obj.f3();
+        obj.f4();
+    </script>
+</body>
+</html>

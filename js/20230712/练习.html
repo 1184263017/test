@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict'
+        const calculator = {
+            num1:0,
+            num2:0,
+            read(){
+                this.num1 = +prompt('1');
+                this.num2 = +prompt('2');
+            },
+            sum(){
+                return this.num1+this.num2;
+            },
+            mul(){
+                return this.num1*this.num2;
+            }
+        }
+        // calculator.read();
+        // console.log(calculator.sum());
+        // console.log(calculator.mul());
+
+
+
+        const obj = {
+            step:0,
+            up(){
+                this.step ++;
+                return this;
+            },
+            down(){
+                this.step --;
+                return this;
+            },
+            showStep(){
+                console.log(this.step);
+            }
+        }
+        obj.up().up().down().showStep();
+
+
+        const object = {}
+        function A(){
+            // let this
+            // this = {}
+            return object;
+            // return this
+        }
+
+        function B(){
+            // let this
+            // this = {}
+            return object;
+            // return this
+        }
+
+        let a = new A()
+        let b = new B()
+        console.log(a == b);//false 没返回相同对象时
+        console.log(a == b);//true 返回相同对象时
+
+
+        function Calculator(){
+            this.num1=0
+            this.num2=0
+            this.read = function(){
+                this.num1 = +prompt('1');
+                this.num2 = +prompt('2');
+            },
+            this.sum = function(){
+                return this.num1+this.num2;
+            },
+            this.mul = function(){
+                return this.num1*this.num2;
+            }
+        }
+        let calculator1 = new Calculator();
+        // calculator1.read();
+        console.log( "Sum=" + calculator1.sum() );
+        console.log( "Mul=" + calculator1.mul() );
+
+
+        function Accumulator(startingValue){
+            this.value = startingValue
+            this.read = function(){
+                this.value += +prompt('1');
+            }
+        }
+        let accumulator = new Accumulator(1);
+        // accumulator.read();
+        // accumulator.read();
+        console.log(accumulator.value);
+
+        console.log(true || true && false);//true
+    </script>
+</body>
+</html>

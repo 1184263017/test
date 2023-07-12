@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person(){
+            // let this
+            // this = {}
+            // return this
+
+            const obj = {
+                name : 'jack'
+            }
+            this.name = 'tom'
+            // 被new影响的函数只有返回值是对象时才有效（可覆盖this对象），其他类型无效返回类型还是this对象
+            return obj
+        }
+        console.log(new Person());
+
+        let obj1 = new Person();
+        console.log(obj1);
+        // 构造器没有参数时，在new的时候可以省略()
+        let obj2 = new Person;
+        console.log(obj2);
+    </script>
+</body>
+</html>

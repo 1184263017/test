@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const jackInfo = {
+            // 属性：属性值
+            name:'jack',
+            age:18,
+            sex:'男'
+        }
+        console.log(jackInfo);
+      
+        // 对象外操作对象的属性
+        // 1.访问 对象名.属性
+        console.log(jackInfo.age);
+
+        // 2.新增:给对象中不存在的属性赋值就是新增
+        jackInfo.addr = '南京';
+        console.log(jackInfo.addr);
+        console.log(jackInfo);
+
+        // 3.修改:对象中已经存在的属性再次赋值
+        jackInfo.age = 20;
+        console.log(jackInfo.age);
+
+        // 4.删除: delete 对象.属性
+        delete jackInfo.addr;
+        console.log(jackInfo);
+    </script>
+</body>
+</html>

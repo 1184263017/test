@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const user = {};
+        user.name = 'John';
+        user.surname = 'Smith';
+        // console.log(user);
+        user.name = 'Pete';
+        // console.log(user);
+        delete user.name;
+        console.log(user);
+
+
+        function isEmpty(obj){
+            // let res = 0;
+            // for (const k in obj) {
+            //     res++
+            // }
+            // return res == 0? false:true;
+            let res = Object.keys(obj);
+            return res.length == 0? false:true;
+        }   
+        let schedule = {}
+        schedule.name = 'hahah';
+        console.log(isEmpty(schedule));
+
+        function getMoney(obj){
+            let sum = 0;
+            for (const k in obj) {
+                sum += obj[k]
+            }
+            return sum;
+        }
+        let salaries = {
+                John: 100,
+                Ann: 160,
+                Pete:130
+            }
+        console.log(getMoney(salaries));
+
+        let menu = {
+            width: 200, height: 300,
+            title: "My menu"
+        };
+        function multiplyNumeric(obj){
+            for (const k in obj) {
+                let value = obj[k] * 2;
+                if (!isNaN(value)) {
+                    obj[k] = obj[k]*2;
+                }
+            }
+            return obj;
+        }
+        console.log(multiplyNumeric(menu));
+    </script>
+</body>
+</html>

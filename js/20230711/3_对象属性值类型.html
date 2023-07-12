@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        /* 
+            1.所有的属性都可以通过             对象['属性名']来访问
+            2.属性名是数字的可以省略引号        对象[属性名]来访问
+            3.属性名符合变量命名规则的可以使用  对象.属性名来访问
+        */
+
+        // 对象的属性值可以是任意类型
+        const info = {
+            name:'jack',
+            age:18,
+            size:100n,
+            vip:true,
+            money:null,
+            nickname:undefined,
+            width:{},
+            height:Symbol(),
+            say:function(a,b){
+                return a+b
+            },
+            1:1,
+            'user name':'tom',
+            '+':100,
+            'sex':'男'
+        }
+        console.log(info.say(1,2));
+
+        console.log(info);
+        console.log(info.name);
+        // 访问：用引号包裹起来的属性名用 对象['属性名'] 数字可以不加引号
+        console.log(info[1]);
+        console.log(info['user name']);
+
+        //新增:
+        info['hahh'] = 20;
+        console.log(info['hahh']);
+
+        //修改
+        info['hahh'] = 30;
+        console.log(info['hahh']);
+
+        delete info['hahh'];
+        console.log(info);
+    </script>
+</body>
+</html>

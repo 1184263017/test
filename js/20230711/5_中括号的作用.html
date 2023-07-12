@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const user = {};
+        let sex = 'gender';
+        // 1.可以解析变量
+        user[sex] = 'nan';
+        // 2.可以做计算
+        user[3+2] = 100;
+        user['nick' + 'name'] = 'jack';
+        // 3.可以运行函数
+        function fun(){
+            return 'age';
+        }
+        user[fun()] = 20;
+
+        let key = prompt('123')
+        user[key] = 999
+        console.log(user);
+    </script>
+</body>
+</html>

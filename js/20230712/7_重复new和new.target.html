@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict'
+        function Preson(){
+            // let this
+            // this = {}
+            // return this
+        }
+        let obj1 = new Preson();
+        let obj2 = new Preson();
+        console.log(obj1);
+        console.log(obj2);
+        // 每new一次创建一个新对象，引用地址不相同
+        console.log(obj1 === obj2);
+        
+        // 代码只希望执行一次可以直接new不需要再创建
+        let obj3 = new function(){
+
+        }
+        console.log(obj3);
+
+        // 函数直接调用是new.target的值是undefined
+        // new调用时返回该函数的整体
+        // 所以可根据返回值判断是直接调用还是new操作
+        function Info(){
+            // console.log(new.target);
+            if(new.target !== undefined){
+                this.name = 'jack'
+            }
+        }
+        Info();//报错
+        console.log(new Info());
+    </script>
+</body>
+</html>

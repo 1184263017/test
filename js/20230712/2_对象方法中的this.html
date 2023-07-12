@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict"
+        // this 没有确切的值，是用过代码的运算计算出来的
+        // this 不可以定义和赋值
+        // console.log(this); // window对象
+
+        function fn(a) {
+            // let this
+            // 严格模式下，函数内部的this值是undefined
+            console.log(this);//undefined
+        }
+        // fn();
+
+
+
+        function f1(){
+            // console.log(this);
+        }
+        const obj = {
+            f1,
+            age:18,
+            // this_t:this,
+            fo(){
+                console.log(this === obj);
+                console.log(this.age);
+                this.jump();
+            },
+            jump(){
+                console.log('ok');
+            },
+            fun(){
+                console.log(this);
+                let fn = () =>{
+                    console.log(this);
+                }
+                fn();
+            },
+            f3:function(){
+                console.log(this);
+            },
+            f:()=>{
+                console.log(this);
+            }
+        }
+        // 方法中的this值就是调用该方法的对象
+        obj.fo();
+        obj.f1();
+        // obj.fun();
+        obj.f();
+        obj.f3();
+    </script>
+</body>
+</html>

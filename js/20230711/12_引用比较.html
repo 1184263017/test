@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = {};
+        let b = a;//复制地址
+        console.log(a == b);//true
+        console.log(a === b);//true
+
+
+        let c = {
+            name:'jack'
+        };
+        let d = {
+            name:'jack'
+        };
+        // 对象之间比较的是内存地址
+        console.log(c == d);//false
+        console.log(c === d);//false
+    </script>
+</body>
+</html>

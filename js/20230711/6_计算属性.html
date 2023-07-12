@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let sex = 'gender';
+        let fun = a => a;
+        let key = prompt('qwe');
+        const obj = {
+            sex : '女',
+            // 在对象中使用[]的属性叫做计算属性
+            [sex] : '男',
+            [3 * 3] : 100,
+            ['nick' + 'name']:'tom',
+            [fun('hahah')]:50,
+            [key]:key,
+        }
+        console.log(obj);
+    </script>
+</body>
+</html>

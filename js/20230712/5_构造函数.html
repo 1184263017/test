@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict'
+        /* 
+            当一个函数被使用 new 操作符执行时，它按照以下步骤：
+            1. 一个新的空对象被创建并分配给 this 。         this = {}
+            2. 函数体执行。修改 this ，为其添加新的属性。   this.属性 = 属性值
+            3. 返回 this 的值。                           return this
+        */
+        // 构造器
+        function Person(name,age){
+            // let this
+            // 1.this = {};
+            this.age = age;
+            this.name = name;
+            // 2.return this;
+        }
+        // console.log(Person());// undefined
+        // console.log(new Person());// {}
+        let obj = new Person('jack',18);
+        console.log(obj);
+    </script>
+</body>
+</html>

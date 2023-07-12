@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fo(){
+            console.log(5);
+        }
+        const obj = {
+            name:'jack',
+            age:18,
+            // 属性值是函数的属性称为属性方法
+            fn:function(){
+                console.log(1);
+            },
+            //简写形式,只可在对象内部定义方法是可以省略:function直接写方法名(){}就可
+            fun(){
+                console.log(2);
+            },
+            jiantou(){
+                let arrow = ()=>console.log(this.name);
+                arrow();
+            },
+            //箭头函数
+            cs:()=>console.log(this),
+            //引用外部函数
+            fo:fo,
+        }
+        //函数表达式
+        obj.f = function(){
+            console.log(3);
+        }
+
+        //函数声明
+        function fc(name) {
+            console.log(4);
+        }
+        obj.fc = fc;
+
+
+        console.log(obj);
+        obj.fn()
+        obj['fun']()
+        obj['fc']()
+        obj.f()
+        obj.jiantou()
+        obj.cs()
+
+        console.log(console);
+    </script>
+</body>
+</html>

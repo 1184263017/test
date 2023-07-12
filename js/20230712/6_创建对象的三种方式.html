@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 字面量创建
+        const user ={
+            name:'jack',
+            age:18
+        };
+        console.log(user);
+
+        // 函数工厂
+        function getObj(name,age){
+            return {
+                name,
+                age
+            }
+        };
+        console.log(getObj('tom',19));
+
+        // new操作符
+        function Person(name,age){
+            // let this
+            // this = {}
+            this.name = name;
+            this.age = age
+            // return this
+        };
+        console.log(new Person('lili',20));
+    </script>
+</body>
+</html>
