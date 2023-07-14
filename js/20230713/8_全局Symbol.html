@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            全局symbol 通过symbol.for()创建
+            标识符相同值就相同
+            全局symbol注册表
+            id      value1
+            uid     value2
+            标识符注册表中不存在就创建，存在就读取该标识符的值
+        */
+       let id1 = Symbol.for('id');
+       let id2 = Symbol.for('id');
+       console.log(id1 === id2);//true
+       let id3 = Symbol.for('uid');
+       console.log(id1 === id3);//false
+       let id4 = Symbol.for('uid');
+       console.log(id3 === id4);//true
+
+        //普通Symbol无法获取标识符
+        let id5 = Symbol('name')
+        console.log(Symbol.keyFor(id5));//undefined
+
+        // 只能获取全局Symbol的标识符
+       console.log(Symbol.keyFor(id1)); // id
+
+        // description全局和普通都可以用
+       console.log(id5.description);//name
+       console.log(id3.description);//uid
+
+
+       /* 
+            系统Symbol 
+            Symbol.hasInstance
+            Symbol.isConcatSpreadable
+            Symbol.iterator
+            Symbol.toPrimitive
+       */
+    </script>
+</body>
+</html>

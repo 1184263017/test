@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const obj = {
+            name:'jack',
+            age:18,
+            // 相同属性名，后设置的会覆盖先设置的
+            sex:'男',
+            sex:'女',
+            [Symbol('age')]:18,
+            [Symbol('age')]:20,
+        }
+        console.log(obj);
+        console.log(obj.sex);//女
+        console.log(obj[Symbol('age')]);//undefined
+        console.log(Symbol('age') === Symbol('age'));//false
+
+
+        let a = 10
+        let b = 10
+        console.log(a === b);//true
+
+        let c = {}
+        let d = {}
+        console.log(c === d);//false
+
+        // Symbol的值时唯一的
+        let e = Symbol()
+        let f = Symbol()
+        console.log(e === f);//false
+
+        // Symbol括号中是标识符,标识符相同值也不相同,一般标识符和变量名相同
+        let id1 = Symbol('id');
+        let id2 = Symbol('id');
+        let id3 = id1
+        console.log(id1 === id2);//false
+        console.log(id1 === id3);//false
+
+        // 要想使用先赋值给变量然后变量在给属性名就可调用
+        let uid = Symbol('uid');
+    </script>
+</body>
+</html>

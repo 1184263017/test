@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let id = Symbol('id')
+        console.log(id.toString(),typeof id.toString());//Symbol(id) string
+
+        let bool = true;
+        console.log(bool.toString(),typeof bool.toString());//true string
+
+        let num = 255;
+        console.log(num.toString(),typeof num.toString());//255 string
+
+        /* 
+            toString(base) 可以将10进制的值转换为其他进制的值
+            base参数值的范围是2-36，默认值是10
+            返回值都是string类型
+        */
+       console.log(num.toString(10),typeof num.toString(10));//255 string
+
+
+       let er = num.toString(2);
+       let ba = num.toString(8);
+       let shiliu = num.toString(16);
+       console.log(er,typeof er);//11111111 string
+       console.log(ba,typeof ba);//377 string
+       console.log(shiliu,typeof shiliu);//ff string
+    </script>
+</body>
+</html>

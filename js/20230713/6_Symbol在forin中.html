@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let id = Symbol('id')
+        const user = {
+            name:'jack',
+            age:18,
+            sex:'nan',
+            [Symbol('uid')]:111,
+            [id]:222
+        }
+        // const info = user; // 复制引用地址
+        // info.name = 'tom'
+        // console.log(info);
+        // console.log(user);
+
+        // let a = 10;
+        // let b = a; // 复制值
+        // a = 20;
+        // console.log(a);
+        // console.log(b);
+
+
+        const info = {}
+        // Symbol属性不参与forin循环
+        for (const k in user) {
+            info[k] = user[k]
+        }
+        // info['name'] = user.name;
+        // info['age'] = user.age;
+        // info['sex'] = user.sex;
+        // info.name = user.name;
+        // info.age = user.age;
+        // info.sex = user.sex;
+        info.name = 'tom'
+        console.log(info);
+        console.log(user);
+    </script>
+</body>
+</html>

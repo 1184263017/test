@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Math.floor()向下取整,得到的是整数比参数中的小数要小
+        console.log(Math.floor(3.9));//3
+        console.log(Math.floor(3.1));//3
+        console.log(Math.floor(-3.1));//-4
+        console.log(Math.floor(-3.9));//-4
+        console.log(Math.floor(-3));//-3
+        console.log('--------------------');
+
+        // Math.ceil()向上取整,得到的是整数比参数中的小数要大
+        console.log(Math.ceil(3.1));//4
+        console.log(Math.ceil(3.9));//4
+        console.log(Math.ceil(-3.1));//-3
+        console.log(Math.ceil(-3.9));//-3
+        console.log(Math.ceil(-3));//-3
+        console.log('--------------------');
+
+        // Math.round()四舍五入,根据小数点后面的数字的值进行四舍五入
+        console.log(Math.round(3.1));//3
+        console.log(Math.round(3.5));//4
+        console.log(Math.round(-3.5));//-3
+        console.log(Math.round(-3.6));//-4
+    </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const obj = {
+            name:'jack',
+            money:1000,
+            /* 
+                Symbol.toPrimitive对象在向原始类型转换时自动调用的方法
+                往string转换 参数值就是string
+                往number转换 参数值就是number
+                往不确定类型转换 参数值就是default
+                返回值不能是对象
+            */
+            [Symbol.toPrimitive](hint){
+                // console.log('ok');
+                // console.log(hint);
+                switch(hint){
+                    case 'string':
+                        console.log('string');
+                        return this.name;
+                        break;
+                    case 'number':
+                        console.log('number');
+                        return this.money;
+                        break;
+                    default:
+                        console.log('default');
+                        return this.name;
+                        break;
+                }
+            },
+            /* 
+                tostring方法和valueOf方法必须在没有设置[Symbol.toPrimitive](hint)才生效
+                tostring方法和valueOf方法同时设置
+                往string类型转使用tostring方法
+                往number类型和不确定类型转使用valueOf方法
+                只设置了toString时，对象在向这三种类型转换时都调用该方法
+                只设置了valueOf时，对象在向number类型和不确定类型转时调用该方法
+                这三个方法的返回值都不能是对象
+            */
+            // toString(){
+            //     // 返回值会自动转换为string类型
+            //     // console.log('hello');
+            //     return 200
+            // },
+            // valueOf(){
+            //     // 返回值会自动转换为number类型
+            //     // console.log(100);
+            //     return 'hello'
+            // }
+        }
+        // obj[Symbol.toPrimitive]()
+        String(obj)         //ok        string
+        console.log(String(obj));
+        console.log('-------');
+        Number(obj)         //ok        number
+        console.log(Number(obj));
+        console.log('-------');
+        Boolean(obj)        //没调用     
+        obj - 100           //ok         number
+        obj + 'abc'         //ok         default
+        obj + obj           //2次ok      default
+
+        console.log('+++++++++');
+
+        // console.log(String(obj));
+        // console.log(+obj);
+        // console.log('hello' + obj);
+        // console.log(obj * 2);
+
+        // 1.Number(obj)
+        // 2.valueOf()
+        // 3.result
+        // 4.Number(result)
+
+        console.log(String(obj));
+
+        console.log(Number(obj));
+        console.log('-----');
+        console.log(+obj);
+
+        console.log(obj + 'abc');
+
+
+
+        const info = {
+            name:'tom'
+        }
+        console.log(Number(info));
+        // 对象手动调用valueOf时结果为对象本身
+        console.log(info.valueOf() === info);//true
+        console.log(info.valueOf());//true
+    </script>
+</body>
+</html>

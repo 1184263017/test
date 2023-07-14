@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">我是文字内容</div>
+    <script>
+        // 获取元素
+        const box = document.querySelector('.box');
+        // 修改文字内容,对象.innerText 属性
+        // console.log(box.innerText);
+        // 添加纯文本，不解析标签
+        // box.innerText = '<h1>我是哈哈哈</h1>';
+
+
+        console.log(box.innerHTML);
+        // 可以解析标签
+        box.innerHTML = '<h1>我是哈哈哈</h1>';
+
+        document.body.style.backgroundImage = '../';
+        document.body.className = 'action'//替换class名称
+    </script>
+</body>
+</html>

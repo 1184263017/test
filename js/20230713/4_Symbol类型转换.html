@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num = 10;
+        console.log(String(num));//强制转换
+        console.log(typeof(String(num)));//强制转换
+
+        let res = num + 'abc';
+        console.log(res);
+        console.log(typeof res);
+
+
+
+        let id = Symbol('id');
+        // Symbol类型不能自动转换为string类型
+        // console.log(id + 'abc');
+        console.log(String(id));//可以强制转换
+        console.log(id.toString());//可以强制转换为string
+        // 获取Symbol标识符
+        console.log(id.description);
+    </script>
+</body>
+</html>

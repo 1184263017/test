@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const obj = {
+            name:'jack'
+        }
+        // 对象转换成string类型值为[object Object]，number类型值为NaN
+        console.log(String(obj));           //[object Object]
+        console.log(typeof String(obj));    //string
+        console.log(Number(obj));           //NaN
+        console.log(typeof Number(obj));    //number
+        console.log(obj - 100);             //NaN - 100 = NaN
+        console.log(obj + 'abc');           //[object Object]abc
+        console.log(Boolean(obj));          //true
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width:100px;
+            height:200px;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        /* 
+            对象包装器 将原始类型（null undefined除外）包装成对象
+            调用完属性或者方法后仍然是原始类型
+        */
+        let str = ''
+        console.log(typeof str);         //string
+        // 英文转换为大写
+        console.log(str.toUpperCase());  //ABC
+        console.log(str);                //abc
+        console.log(typeof str);         //string
+        // 返回字符串的长度，中文也算一个字符
+        console.log(str.length);         //6
+
+    </script>
+</body>
+</html>

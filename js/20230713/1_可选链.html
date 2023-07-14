@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = {
+            name:'jack',
+            // size:{
+            //     width:200,
+            //     height:200
+            // }
+        }
+        // 可选链?.在调用属性时用.来调用，会省略一个点
+        // 可选链会一步一步校验链式操作上的每个步骤，有值则返回当前值的属性继续下一步校验
+        // 没值则返回undefined
+        // ?前面的内容不存在时返回undefined,存在就继续调用属性
+        console.log(obj.size);
+        // console.log(obj.size.width);
+        console.log(obj.size?.width);
+
+        obj = null;
+        // ?前面的变量必须存在，不存在就报错
+        console.log(obj?.size);
+
+
+        let n = 10;
+        let infp = {
+            say(){
+                n ++;
+            }
+        }
+        info = null;
+        info?.say();
+        console.log(n);
+    </script>
+</body>
+</html>

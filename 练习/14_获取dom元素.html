@@ -12,13 +12,33 @@
     </style>
 </head>
 <body>
-    <div class="box">
-
-    </div>
+    <div class="box">123</div>
+    <div class="box">abc</div>
+    <p id="nav">导航栏</p>
+    <ul class="nav">
+        <li>测试1</li>
+        <li>测试2</li>
+        <li>测试3</li>
+    </ul>
 </body>
 <script>
-    // 获取匹配的第一个元素
-    const div = document.querySelector('box');
-    console.log(div);
+    // 获取匹配的第一个元素 获取过来的元素可以直接修改
+    // const box = document.querySelector('div');
+    const box = document.querySelector('.box');
+    console.log(box);
+
+    const nav = document.querySelector('#nav')
+    console.log(nav);
+
+    //获取第一个li
+    const first_li = document.querySelector('ul li:first-child');
+    console.log(first_li);
+
+    // 获取匹配的多个元素 获取过来的元素不可以直接修改，因为返回的是数组，需要循环修改
+    const all_li = document.querySelectorAll('.nav li');
+    console.log(all_li);
+    for (let i = 0; i < all_li.length; i++) {
+        all_li[i].style.color = 'red';
+    }
 </script>
 </html>

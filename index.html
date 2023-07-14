@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .list{
+            position: fixed;
+            right: 20px;
+            top: 10%;
+            display: flex;
+            flex-direction: column;
+            background: rgba(23,23,23, .8);
+            border-radius: 8px;
+            text-align: center;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+            padding: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="list">
+        <span href="" id="a1" onclick="dianji(event)">1.js</span>
+        <span href="" id="a2" onclick="dianji(event)">2.js</span>
+        <span href="" id="a3" onclick="dianji(event)">3.js</span>
+    </div>
+
+
+</body>
+<script>
+    let src = localStorage.getItem('src');
+    if(src !== undefined){
+        var script = document.createElement('script');
+        script.src = './'+src;
+        document.head.appendChild(script);
+    }
+    function dianji(event){
+        localStorage.setItem('src',event.target.innerHTML);
+        location.reload();
+    }
+</script>
+</html>
