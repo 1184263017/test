@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getMax(m,n){
+            return Math.round((Math.random() * (m-n))+n)
+        }
+
+        function geFloat(m,n){
+            return (Math.random() * (m-n))+n
+        }
+        // console.log(geFloat(1,5));
+        // for (let i = 0; i < 100; i++) {
+        //     let a = getMax(1,10);
+        //     if(a == 1){
+        //         console.log(a);
+        //         break
+        //     }
+            
+        // }
+
+        function readNumber() {
+            let res1 = false;
+            let num1;
+            while(!res1){
+                num1 =  prompt(1);
+                if(num1 !== null){
+                    num1 = num1.trim();
+                    if(isFinite(num1) && num1 != ''){
+                        res1 = true;
+                    }else{
+                        res1 = false;
+                    }
+                }
+            }
+
+            let res2 = false;
+            let num2;
+            while(!res2){
+                num2 =  prompt(2);
+                if(num2 !== null){
+                    num2 = num2.trim();
+                    if(isFinite(num2) && num2 != ''){
+                        res2 = true;
+                    }else{
+                        res2 = false;
+                    }
+                }
+            }
+
+            alert(+num1+(+num2));
+        }
+        
+        console.log(readNumber());
+    </script>
+</body>
+</html>

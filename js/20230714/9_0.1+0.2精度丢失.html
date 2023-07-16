@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num1 = 0.1;
+        let num2 = 0.2;
+        // 计算机在进行计算时会将10进制的小数转换为2进制的无限小数进行计算
+        console.log(num1 + num2 === 0.3);//false
+        console.log(num1.toFixed(20));//false
+        console.log(num2.toFixed(20));//false
+
+        // 先相加然后使用toFixed处理相加之后的结果保留一位小数，在转为number类型
+        console.log(+(num1 + num2).toFixed(1) === 0.3);
+
+    </script>
+</body>
+</html>

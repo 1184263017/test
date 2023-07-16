@@ -28,6 +28,36 @@
         console.log(Math.round(3.5));//4
         console.log(Math.round(-3.5));//-3
         console.log(Math.round(-3.6));//-4
+        console.log('--------------------');
+
+
+        // 返回一个0~1之间的随机小数
+        console.log(Math.random());
+        /* 
+            [min,max]
+            (min,max)
+            (min,max]
+            [min,max)
+        */
+        // 获取随机数
+       let min = 1;
+       let max = 10;
+       console.log(Math.random() * (max - min));
+       let res = Math.floor(Math.random() * (max - min))+min;
+       console.log(Math.round(res));
+
+
+        // 返回参数中最大的值
+        console.log(Math.max(1,66,8,75,6));//75
+        console.log(Math.max(1,66,8,75,6,'a'));//NaN
+
+        // 返回参数中最小的值
+        console.log(Math.min(2,8,45,95,50,1));//1
+        console.log(Math.min(1,66,8,75,6,'a'));//NaN
+
+        // 幂
+        console.log(Math.pow(2,10)); // 1024
+        console.log(2 ** 10); // 1024
     </script>
 </body>
 </html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = 10;
+        console.log(a === 10);
+        console.log(a === a);
+        console.log('----------');
+
+        // NaN和任何值比较都不相等，包括自己
+        let n = NaN;
+        console.log(n === NaN);
+        console.log(n === n);
+        console.log(NaN === NaN);
+
+
+        /* 
+            isNaN函数判断一个值是否是NaN,是就返回true不是就返回false
+        */
+        let res = +prompt(1);
+        if(isNaN(res)){
+            console.log('不是数字');
+        }else{
+            console.log(res);
+        }
+    </script>
+</body>
+</html>

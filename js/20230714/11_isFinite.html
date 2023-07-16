@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(isFinite(10));
+        console.log(isFinite(-10));
+        console.log(isFinite(1.1));
+        console.log(isFinite(-1.1));
+        console.log('---------');
+        console.log(isFinite(NaN));
+        console.log(isFinite(Infinity));
+        console.log('----------');
+        console.log(isFinite('10'));
+        console.log(isFinite('-10'));
+        console.log(isFinite('1.1'));
+        console.log(isFinite('-1.1'));
+        console.log('----------');
+        console.log(isFinite('a10'));
+        console.log(isFinite('1a0'));
+        console.log(isFinite('10a'));
+
+
+        let num = prompt(1);
+        // 判断输入的内容是否是数字用isFInite函数，是就返回true不是返回false
+        if(isFinite(num) && num !== ''){
+            console.log(num);
+        }else{
+            console.log('不是数字');
+        }
+    </script>
+</body>
+</html>

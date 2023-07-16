@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 参数是number类型
+        console.log(parseInt(10));      //10
+        console.log(parseInt(-10));     //-10
+        console.log(parseInt(10.1));    //10
+        console.log(parseInt(10.9));    //10
+        console.log(parseInt(-10.9));   //-10
+        console.log(parseInt(-10.1));   //-10
+        console.log('-------------------');
+
+
+        // 参数是字符串类型(纯数字的字符串)
+        console.log(parseInt('10'));    //10
+        console.log(parseInt('-10'));   //-10
+        console.log(parseInt('10.1'));  //10
+        console.log(parseInt('10.9'));  //10
+        console.log(parseInt('-10.9')); //-10
+        console.log(parseInt('-10.1')); //-10
+        console.log('-------------------');
+
+
+         // 参数是字符串类型(不是纯数字的字符串)
+         console.log(Number('10a'));    //NaN
+         console.log(parseInt('10a'));  //10
+         console.log(Number('1a0'));    //NaN
+         console.log(parseInt('1a0'));  //1
+         console.log(Number('a123'));   //NaN
+         console.log(parseInt('a123')); //NaN
+         console.log('-------------------');
+
+
+        // 将其他进制的值通过设置第二个参数转换为10进制的值
+        console.log(parseInt('ff',16)); //255
+        console.log(parseInt(0xff));    //255
+        console.log(parseInt('377',8)); //255
+        console.log(parseInt(0o377));   //255
+        console.log(parseInt('11111111',2)); //255
+        console.log(parseInt(0b11111111));   //255
+    </script>
+</body>
+</html>
