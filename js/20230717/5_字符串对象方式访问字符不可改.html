@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = {
+            0:'h',
+            1:'e',
+            2:'l',
+            3:'l',
+            4:'0',
+            length:5
+        }
+        obj[2] = 'L';
+        console.log(obj);
+
+
+        let str = 'hello'
+        // 字符串中的字符是不可以通过对象包装器修改的
+        str[2] = 'L';
+        console.log(str);
+
+
+        let strobj = new String('hello');
+        console.log(strobj[2]);
+        strobj[2] = 'L'
+        console.log(strobj);
+        
+    </script>
+</body>
+</html>

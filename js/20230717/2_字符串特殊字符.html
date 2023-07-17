@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log('a\nb');
+        console.log('a\r\nb');
+        // \转义符 可以将特殊字符转义成普通字符
+        console.log("hello \"jack\"!");
+        // 要想输出\ 需要使用两个\\才能转义出来
+        console.log('\\');
+        console.log(`file:\\C:\Users\\11842\\Desktop\\pdf%E6%96%87%E6%A1%A3`);
+
+        console.log('\u00A9');
+        console.log('\u0024');
+        console.log('\u{20331}');
+        console.log('\u{1F60D}');
+        console.log('\u{1F602}');
+        console.log('😍');
+
+        // 特殊字符的长度为1
+        let str = 'abcd\t\n\r!@你好\u{20331}';
+        console.log(str.length);
+        console.log('abcd\tasdasd\tczxczxczx\tasASasa');
+        console.log('bcd\tasdsd\tczxxczx\tasASsa');
+        console.log('asdasdbcd\tsadasasdsd\tczasdasxxczx\tasAasdasSsa');
+    </script>
+</body>
+</html>

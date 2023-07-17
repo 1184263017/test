@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let str1 = 'abc';
+        let str2 = "abc";
+        let str3 = `abc`;
+        let name = 'jack';
+        let fun = (a,b) => a+b;
+        console.log('hello' + name);
+        console.log(`hello ${name},age:${10+9},${fun(1,2)}`);
+
+        // 反引号可以解析变量，做计算，运行函数，还可以换行显示
+        let html = `
+            <div class="d1">
+                <div class="${name}">
+                    ${fun(10,20)}
+                </div>
+            </div>
+        `;
+        console.log(html);
+    </script>
+</body>
+</html>

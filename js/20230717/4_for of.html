@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let str = 'hello'
+        // for of 循环的次数是字符串的长度
+        for (const k of str) {
+            console.log(k);
+        }
+        for (const k in str) {
+            console.log(str[k]);
+        }
+        for (let i = 0; i < str.length; i++) {
+            console.log(str[i]);
+        }
+    </script>
+</body>
+</html>

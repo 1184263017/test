@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            includes
+            功能:判断一个字符串是否存在另一个字符串中
+            参数:1.字符 2.查找位置
+            返回值:存在返回true不存在返回false
+            注意:区分大小写
+        */
+       let str1 = 'abcdefg'
+       console.log(str1.includes());        //false
+       console.log(str1.includes('c'));     //true
+       console.log(str1.includes('cde'));   //true
+       console.log(str1.includes('cdg'));   //false
+       console.log(str1.includes('C'));     //false
+       console.log(str1.includes('c',4));   //false
+       console.log(str1.includes('f',4));   //true
+
+       console.log('--------------------');
+
+       /* 
+            startsWith
+            功能:判断一个字符串是否以某一个字符串开头
+            参数:1.字符 2.查找位置
+            返回值:存在返回true不存在返回false
+            注意:区分大小写
+        */
+        let str2 = 'abcdefg'
+        console.log(str2.startsWith());     //false
+        console.log(str2.startsWith('a'));  //true
+        console.log(str2.startsWith('c'));  //false
+        console.log(str2.startsWith('abc'));//true
+        console.log(str2.startsWith('ac')); //false
+        console.log(str2.startsWith('A'));  //false
+        console.log(str2.startsWith('e',4));//true
+
+        console.log('--------------------');
+
+        /* 
+            endWith
+            功能:判断一个字符串是否以某一个字符串结尾
+            参数:1.字符 2.str.lenght(默认1开始查找)
+            返回值:存在返回true不存在返回false
+            注意:区分大小写
+        */
+        let str3 = 'abcdefg'
+        console.log(str3.endsWith());       //false
+        console.log(str3.endsWith('g'));    //true
+        console.log(str3.endsWith('fg'));   //true
+        console.log(str3.endsWith('eg'));   //false
+        console.log(str3.endsWith('G'));    //false
+        console.log(str3.endsWith('e',4));  //false
+        console.log(str3.endsWith('d',4));  //true
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            substr
+            功能:从字符串中截取字符
+            参数:1.开始位置  2.截取的长度(默认是截取到字符串的最后)
+            返回值:截取的字符串
+            注意:1.对原字符串没有影响
+                2.参数值为正从0开始计算位置,负从-1开始计算位置
+                3.结束的那一位不算在内(算头不算尾)
+        */
+        let str1 = 'Cast are the best!'
+        console.log(str1.substr());      //Cast are the best!
+        console.log(str1.substr(6));     //re the best!
+        console.log(str1.substr(-8));    //he best!
+        console.log(str1.substr(5,9));   //are the b
+        console.log(str1.substr(5,-10));   //
+        console.log(str1.substr(-13,-10)); //
+        console.log(str1.substr(-13,9));   //are the b
+
+        console.log(str1.substr(9,12));
+
+    </script>
+</body>
+</html>

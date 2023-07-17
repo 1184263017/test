@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            slice
+            功能:从字符串中截取字符
+            参数:1.开始位置  2.结束位置
+            返回值:截取的字符串
+            注意:1.对原字符串没有影响
+                2.参数值为正从0开始计算位置,负值从-1开始计算
+                3.结束的那一位不算在内(算头不算尾)
+                4.开始位置必须在结束位置的左边（前面）
+
+        */
+        let str1 = 'Cast are the best!'
+        console.log(str1.slice());      //Cast are the best!
+        console.log(str1.slice(6));     //re the best!
+        console.log(str1.slice(-8));    //he best!
+        console.log(str1.slice(5,8));   //are
+        console.log(str1.slice(5,-10));   //are
+        console.log(str1.slice(-13,-10));   //are
+        console.log(str1.slice(-13,8));   //are
+
+        console.log(str1.slice(9,12));
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            indexOf
+            功能:查找一个字符串在另一个字符串中出现的位置(从字符串的开头查找到结尾)
+            参数:1字符串,2查找的位置(默认值是0)
+            返回值:不加参数或者字符不存在返回-1
+                字符存在就返回字符串中字符第一次出现的位置(从0开始)
+            注意:区分大小写
+        */
+       let str = 'abcdefgbc';
+       console.log(str.indexOf());      //-1
+       console.log(str.indexOf('z'));   //-1
+       console.log(str.indexOf('f'));   //5
+       console.log(str.indexOf('bc'));   //1
+       console.log(str.indexOf('B'));   //-1
+
+       console.log(str.indexOf('c',4)); //8
+       console.log(str.indexOf('bc',1)); //1
+       console.log(str.indexOf('bc',2)); //7
+    </script>
+</body>
+</html>
