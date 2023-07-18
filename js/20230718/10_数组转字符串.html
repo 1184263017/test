@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const obj = {
+            name:'jack' 
+        }
+        console.log(String(obj));
+
+
+        // const arr = ['a','b','c'];          //a,b,c
+        // const arr = [1,2,3];                   //1,2,3      
+        const arr = [1,'a',true,null,undefined,function(){}];//1,a,true,,,function(){}
+
+        // 数组使用toString方法得到的是数组元素值用逗号连接的字符串
+        // null和undefine会被转化为空
+        console.log(arr.toString());
+        console.log(arr.toString() === 'a,b,c'); // true
+        console.log(String(arr) === 'a,b,c'); // true
+    </script>
+</body>
+</html>

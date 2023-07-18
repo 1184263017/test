@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const arr = ['a','b','c'];
+        console.log(arr.length);    //3
+        arr[6] = 'd'
+        // 数组元素的个数是最大索引加一
+        console.log(arr.length);    //7
+        console.log(arr);
+        console.log('-----------');
+
+        // 可以修改数组length的属性
+        arr.length = 100;
+        console.log(arr);       // ['a', 'b', 'c', empty × 3, 'd', empty × 93]
+        console.log(arr[99]);   //undefined
+        console.log('-----------');
+
+        // 设置length属性比原来数组的length属性小时,就是删除数组元素
+        const arr1 = ['a','b','c','d','e','f'];
+        arr1.length = 3;
+        // 将长度还原，删除的数组元素不会还原
+        arr1.length = 6;
+        // 将数组的length设置为0是清空数组的一种方式
+        arr1.length = 0;
+        console.log(arr1);
+    </script>
+</body>
+</html>

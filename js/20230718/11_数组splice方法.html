@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            splice 数组的手术刀
+            功能:数组的切割 新增 替换
+            参数:1.指定位置(开始位置),正值从0开始，负值从-1开始
+                 2.长度(不设置默认切割到数组的最后),负值截取内容为空
+                 3.新增或者替换的内容
+            返回值:操作以后得数组
+            注意:对原数组是有影响
+        */
+        const arr = ['a','b','c','d','e','f']
+        console.log(arr.splice());
+        // 截取
+    //    console.log(arr.splice(2));  //['c', 'd', 'e', 'f']
+    //    console.log(arr.splice(-2));  // ['e', 'f']
+    //    console.log(arr.splice(2,2));  //  ['c', 'd']
+        console.log(arr.splice(-4,2));  //  ['c', 'd']
+        console.log(arr);            //['a', 'b']
+        console.log('--------------------');
+
+
+
+        //替换
+        const arr1 = ['a','b','c','d','e','f']
+        console.log(arr1.splice(-4,2,'hh','xx'));
+        console.log(arr1);
+        console.log('--------------------');
+
+        //新增(截取长度为0，添加的内容在开始位置之前)
+        const arr2 = ['a','b','c','d','e','f']
+        console.log(arr2.splice(2,0,'color'));
+        console.log(arr2);
+    </script>
+</body>
+</html>

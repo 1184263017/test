@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const o = {
+            size:{
+                width:200,
+            },
+            0:{
+                0:1,
+                1:2,
+                2:3,
+            },
+            1:{
+                0:'a',
+                1:'b',
+                2:'c',
+            },
+            2:{
+                0:'e',
+                1:'f',
+                2:'g',
+            }
+        }
+        console.log(o.size.width);
+        console.log(o['size']['width']);
+        console.log(o[0][0]);
+        console.log(o[1][1]);
+        console.log(o[2][2]);
+        console.log('------------------------');
+
+        // 多维数组：数组元素是数组的
+        /* 
+            00 01 02
+            10 11 12
+            20 21 22
+        */
+        const arr = [
+            ['a','b','c'],
+            ['d','e','f'],
+            ['g','h','i'],
+        ]
+        console.log(arr.length);
+        console.log(arr[0][0]);
+        console.log(arr[2][1]);
+        console.log('----------------------------');
+        // for
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr[i].length; j++) {
+                
+                    console.log(arr[i][j]);
+            }
+            
+        }
+        console.log('----------------------------');
+        // for in
+        for (const key in arr) {
+            for (const k in arr[key]) {
+                console.log(arr[key][k]);
+            }
+        }
+        console.log('----------------------------');
+        // for of
+        for (const val of arr) {
+            for (const v of val) {
+                console.log(v);
+            }
+        }
+    </script>
+</body>
+</html>

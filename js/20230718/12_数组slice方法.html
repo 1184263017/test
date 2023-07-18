@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            slice 
+            功能:切割数组
+            参数:1.开始位置 2.结束位置(不设置就切割到数组的最后)
+            返回值:切割下拉的数组
+            注意:1.对原数组没有影响
+                2.正值从0开始计算，负值从-1开始计算
+                3.设置了结束位置的话，结束的那一位不算在内
+                4.结束位置在开始位置的前面（左边)截取内容为空
+        */
+        const arr = ['a','b','c','d','e','f'];
+        console.log(arr.slice(2));      //['c', 'd', 'e', 'f']
+        console.log(arr.slice(-2));     //['e', 'f']
+        console.log(arr.slice(2,-2));   //['c', 'd']
+        console.log(arr.slice(2,4));    //['c', 'd']
+        console.log(arr.slice(-4,4));   //['c', 'd']
+        console.log(arr.slice(-2,-4));  //['c', 'd']
+        console.log(arr);
+        console.log('----------------------');
+
+        // 复制数组的值
+        console.log(arr.slice());
+        let arr1 = arr.slice();
+        console.log(arr1);
+        console.log(arr1 === arr);  //false
+
+        let arr2 = [];
+        Object.assign(arr2,arr);
+        console.log(arr2);
+        console.log(arr2 === arr);  //false
+    </script>
+</body>
+</html>

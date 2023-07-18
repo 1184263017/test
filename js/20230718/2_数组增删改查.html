@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = {
+           0:'a',
+           1:'b',
+           2:'c',
+        }
+        obj[3] = 'd';
+        delete obj[3]
+        obj[0] = 'f'
+        console.log(obj[0]);
+        console.log(obj);
+
+
+
+        /* 
+            arr 数组名
+            0,1,2 索引（下标）自动从0开始添加
+            'a','b','c' 数组元素
+        */
+        let arr = ['a','b','c'];
+        //增
+        arr[3] = 'd';
+        //删
+        delete arr[3];
+
+        console.log(arr.length);
+        console.log(arr[3]);
+
+        //改
+        arr[0] = 'f';
+        // 查
+        console.log(arr[1]);
+        console.log(arr);
+    </script>
+</body>
+</html>

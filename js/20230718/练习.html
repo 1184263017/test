@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [];
+        let sum = 0;
+        function sumInput(){
+            while(true){
+                let input = prompt('输入数字，否则停止');
+                if(input == null){
+                    return getSum();
+                    break
+                }else if(!isFinite(input) || input.indexOf(' ') != -1 || input == ''){
+                    return getSum();
+                    break
+                }
+                arr.push(input);
+            }
+        }
+
+        function getSum() {
+            for (const value of arr) {
+                sum += +value;
+            }
+            return sum;
+        }
+        console.log(sumInput());
+    </script>
+</body>
+</html>

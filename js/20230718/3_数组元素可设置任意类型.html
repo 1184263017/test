@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 数组元素可以是任意类型
+        let arr = [
+            10,
+            'abc',
+            100n,
+            false,
+            null,
+            undefined,
+            Symbol(),
+            {},
+            [],
+            function(){
+                console.log('ok');
+            }
+        ]
+        console.log(arr);
+        console.log(arr[9]());
+        console.log(arr[9]);
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            concat
+            功能:数组的拼接
+            参数:任意值(数量可以是任意个)
+            返回值:新数组
+            注意:作为参数的数组可以重复使用
+        */
+        let arr1 = ['a','b','c']
+        let arr2 = ['d','e','f']
+        console.log(arr1.concat(arr2));
+
+        let arr = [];
+        console.log(arr.concat(arr1,arr2,10,true,function(){}));
+    </script>
+</body>
+</html>

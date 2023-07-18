@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            push
+            功能:向数组的末尾添加元素
+            参数:添加的元素（个数也可以是一个也可以是多个用逗号隔开）
+            返回值:成功添加以后素组元素的个数
+            注意:对原数组有影响，添加的元素之前的索引不变
+        */
+        const arr = ['a','b','c','d','e','f'];
+        console.log(arr);
+        arr.push('g')
+        arr.push('h','i','j',function(){})
+        console.log(arr);
+        console.log('--------------------');
+
+       /* 
+            pop
+            功能:从数组的末尾删除元素
+            参数:无
+            返回值:有数组元素就返回最后一个数组元素的值,没有就返回undefined
+            注意:对原数组有影响,索引不变
+        */
+
+        const array = ['a','b','c','d','e','f'];
+        console.log(array.pop());   //f
+        console.log(array.pop());   //e
+        console.log(array.pop());   //d
+        console.log(array.pop());   //c
+        console.log(array.pop());   //b
+        console.log(array.pop());   //a
+        console.log(array.pop());   //undefined
+        console.log(array);
+    </script>
+</body>
+</html>
