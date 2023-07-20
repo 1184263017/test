@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            map 高阶方法
+            功能:转换数组元素
+            参数:回调函数
+            返回值:回调函数的返回值是map返回值的数组中的元素
+                  回调函数没有设置返回值,map返回值的数组中的元素就是undefined
+        */
+        const arr = ['a','b','c','d','e','f','g','h'];
+        let res = arr.map(function(value,index,array){
+            return array
+        })
+        console.log(res);
+        console.log('------------');
+
+
+        
+        const arr_new = [
+            {
+                name:'jack',
+                age:18,
+                sex:1
+            },
+            {
+                name:'tom',
+                age:19,
+                sex:1
+            },
+            {
+                name:'lili',
+                age:20,
+                sex:0
+            }
+        ];
+        let info = arr_new.map(function(value,index,array){
+            return {
+                '编号':index+1,
+                '姓名':value.name,
+                '年龄':value.age,
+                '性别':value.sex === 1?'男':'女'
+            }
+        })
+        console.log(info);
+        console.log('--------------');
+
+
+        let info1 = arr_new.map((value,index)=>({
+                '编号':index+1,
+                '姓名':value.name,
+                '年龄':value.age,
+                '性别':value.sex === 1?'男':'女'
+            })
+        )
+        console.log(info1);
+        console.log('-----------');
+
+        let a = [1,2,3]
+        let b = a.map(value=>value)
+        console.log(a);
+        console.log(b);
+        console.log(b == a);
+
+        b[3] = 4;
+        console.log(a);
+        console.log(b);
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            forEach
+            功能:遍历数组
+            参数:回调函数
+            返回值:undefined
+            注意:1.回调函数会自动调用，调用的次数是数字的个数
+                 2.回调函数中的参数有3个
+                    (1) 数组元素的值
+                    (2) 数组元素的索引
+                    (3) 调用forEach方法的数组
+        */
+        const arr = ['a','b','c','d','e','f','g','h'];
+        arr.forEach(function(value,index,array){
+            console.log(value);
+            console.log(index);
+            console.log(array);
+        })
+        console.log('----------------');
+        arr.forEach(value=>console.log(value))
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            Array.isArray
+            功能:判断值是否是数字
+            参数:任意值
+            返回值:是数组返回true,不是返回false
+        */
+       console.log(Array.isArray({}));      //false
+       console.log(Array.isArray('ads'));   //false
+       console.log(Array.isArray([]));      //true
+
+
+       let arr = [
+            ['a','b'],'c',
+            ['d','e'],'f',
+            ['g','h'],'i'
+       ];
+       for (const v of arr) {
+            if (Array.isArray(v)) {
+                for (const v1 of v) {
+                    console.log(v1);
+                }
+            }else{
+                console.log(v);
+            } 
+       }
+    </script>
+</body>
+</html>

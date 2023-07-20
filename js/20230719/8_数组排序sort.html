@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            sort
+            功能:对数组元素进行排序
+            参数:回调函数
+            返回值:排序以后的数组
+            注意:对原数组有影响
+        */
+        let arr = [1,5,7,6,2,4,11,22,33];
+        console.log(arr.sort(function(a,b){
+            return a - b;    //升序
+            return b - a;    //降序
+        }));
+        console.log('-----------');
+
+        console.log(arr.sort((a,b)=>b - a));//降序
+        console.log('-----------');
+
+        console.log(arr.sort((a,b)=>a - b));//升序
+        console.log('-----------');
+
+
+        console.log(arr);
+        console.log('-----------');
+
+
+
+        const arr_new = [
+            {
+                name:'jack',
+                age:21
+            },
+            {
+                name:'tom',
+                age:17
+            },
+            {
+                name:'lili',
+                age:19
+            }
+        ];
+
+        arr_new.sort(function(a,b){
+            return a.age - b.age;
+        })
+        console.log(arr_new);
+        console.log('-----------');
+
+
+        // arr_new.sort((a,b)=>a.age - b.age)
+        // console.log(arr_new);
+        // console.log('-----------');
+
+        // arr_new.sort((a,b)=>b.age - a.age)
+        // console.log(arr_new);
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            reduce  高阶方法
+            功能:处理数据
+            参数:1.回调函数
+                2.回调函数中第一个参数的默认值
+            返回值:最后一次的返回值是reduce方法的返回值，
+                  之前每次的返回值都赋值给了回调函数的第一个参数
+            注意:reduce函数中的第二个参数是回调函数第一个参数的默认值，
+                如果没有设置，那么回调函数第一个参数的默认值就是数组中第一个元素的值
+
+            reduceRight参数和返回值和reduce都一样，只是从后向前读取
+        */
+       const arr = [1,2,3,4,5,6];
+    //    let res = arr.reduce(function(sum,value,index,array){
+    //         console.log(sum);
+    //         return 20;
+    //    },0)
+    //    console.log(res);
+
+       let res1 = arr.reduce((sum,value)=> sum += value,0)
+       console.log(res1);
+
+
+       let res2 = arr.reduce((sum,value)=> console.log(sum))
+    //    console.log(res1);
+
+    const arr1 = [1,78,66,4,45,6];
+    let res3 = arr1.reduce(function(sum,value){
+        return sum < value?value:sum;
+    })
+    console.log(res3);
+
+
+    arr1.reduceRight(function(sum,value){
+        console.log(value);
+    })
+    </script>
+</body>
+</html>

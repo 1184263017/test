@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            filter  高阶方法(find的升级版)
+            功能:查找符合条件的数组元素(可以是多个)
+            参数:回调函数
+            返回值:回调函数中返回值为true时，将当前数组元素放入到数组中,继续迭代
+                    一直是false时,返回值时空数组
+            注意:回调函数中的返回值会自动转换为boolean类型
+        */
+        const arr = ['a','b','c','a','b','c','g','h'];
+        let res = arr.filter(function(value,index,array){
+            if (value == 'c') {
+                return true;
+            }
+        })
+        console.log(res);
+        console.log('------------');
+
+
+        let res1 = arr.filter((value,index,array)=>value == 'c')
+        console.log(res1);
+    </script>
+</body>
+</html>

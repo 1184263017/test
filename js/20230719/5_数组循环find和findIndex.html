@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            find 高阶函数(forEach升级版)
+            功能:查找符合条件的数组元素(只有一条)
+            参数:回调函数
+            返回值:回调函数中的返回值为true时,结果为当前迭代的数组元素
+                   值为false时就继续迭代，最后返回undefined
+            注意:回调函数中的返回值会自动转换为boolean类型
+
+            findIndex返回的是数字元素的索引,都是false返回-1，其他都和find一样
+        */
+        const arr = ['a','b','c','d','e','f','g','h'];
+        let res = arr.find(function(value,index,array){
+            return index === 2;
+            return value === 'c';
+        })
+        console.log(res);
+        console.log('-------------');
+
+        let res1 = arr.find((value,index,array)=>value === 'c')
+        console.log(res1);
+        console.log('-------------');
+
+        let res2 = arr.findIndex((value,index,array)=> false)
+        console.log(res2);
+        console.log('-------------');
+
+
+
+        const arr_new = [
+            {
+                name:'jack',
+                age:18
+            },
+            {
+                name:'tom',
+                age:19
+            },
+            {
+                name:'lili',
+                age:20
+            }
+        ];
+        let r = arr_new.find((value,index)=> value.name == 'tom')
+        console.log(r);
+    </script>
+</body>
+</html>
