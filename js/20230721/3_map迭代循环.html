@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const map = new Map();
+        map.set('a',10)
+            .set('b',20)
+            .set('c',30);
+        
+        // map可以是用for of迭代
+        for (const v of map) {
+            console.log(v[0]);  //key
+            console.log(v[1]);  //value
+        } 
+        console.log('---------------');
+
+        // 获取map中所有的键名key,组成一个集合
+        let keys = map.keys();
+        console.log(keys);
+        for (const v of keys) {
+            console.log(v);
+        }
+        console.log('---------------');
+
+        // 获取map中所有的键值value,组成一个集合
+        let values = map.values();
+        console.log(values);
+        for (const v of values) {
+            console.log(v);
+        }
+        console.log('---------------');
+
+        // 获取map中所有的键值对([key=>value]),组成一个集合
+        let arr = map.entries();
+        console.log(arr);
+        for (const v of arr) {
+            console.log(v);
+            console.log(v[0],v[1]);
+        }
+        console.log('----------------');
+
+
+        map.forEach((value,key,map)=>{
+            console.log(value,key,map);
+        })
+    </script>
+</body>
+</html>

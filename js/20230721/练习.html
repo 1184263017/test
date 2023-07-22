@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function sumSalaries(salaries) {
+            let keys = Object.keys(salaries);
+            let res = keys.reduce((sum, value, index) => {
+                return sum += salaries[value]
+            }, 0)
+            return res;
+        }
+        let salaries = {
+            "John": 100,
+            "Pete": 300,
+            "Mary": 250
+        };
+        console.log(sumSalaries(salaries));
+        console.log('--------------');
+
+
+
+        function count(obj) {
+            return Object.keys(obj).length;
+        }
+        let user = {
+            name: 'John',
+            age: 30
+        };
+        console.log(count(user)); 
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const arr = [1,2,3,4];
+        console.log(arr);
+        // 类数组(类似于数组的对象)
+        const obj = {
+            0:1,
+            1:2,
+            2:3,
+            3:4,
+            length:4
+        }
+        console.log(obj);
+
+        // Array.from可以将类数组(对象)转换成数组
+        let arr1 = Array.from(obj)
+        console.log(arr1);
+
+        const obj1 = {
+            name:'jack',
+            age:18
+        }
+        // Array.from将普通对象转换成数组
+        let arr2 = Array.from(obj1)
+        console.log(arr2);
+    </script>
+</body>
+</html>

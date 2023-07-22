@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const obj = new Object('a','b','c');
+        console.log(obj);
+
+        // map的初始值必须是二维数组
+        const map = new Map([
+            ['a',10],
+            ['b',20],
+            ['c',30]
+        ])
+        map.set('c',50)
+        console.log(map);
+        console.log('-----------------');
+        /* 
+            对象转map
+            1.使用Object.entries()将对象转换为二维数组
+            2.将二维数组作为map的初始值使用
+        */
+       const obj1 = {
+            'a':1,
+            'b':2,
+            'c':3
+       }
+       console.log(obj1);
+       console.log(Object.entries(obj1));
+       const new_map = new Map(Object.entries(obj1))
+       console.log(new_map);
+       console.log(typeof new_map);
+       console.log('-------------');
+
+
+       /* 
+            map转对象
+            1.先使用map.entries()得到键值对的集合 
+            2.在使用Object.fromEntries得到对象
+            注意:直接使用Object.fromEntries(map)也可以得到对象
+       */
+       const map1 = new Map();
+       map1.set('a',10).set('b',20).set('c',30)
+       let a1 = map1.entries();
+       console.log(map1);
+       console.log(a1);
+       console.log(Object.fromEntries(a1));
+       console.log(Object.fromEntries(map1));
+    </script>
+</body>
+</html>

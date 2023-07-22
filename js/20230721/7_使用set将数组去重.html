@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const set = new Set();
+        
+        /* 
+            数组去重
+            1.将数组作为set的初始值使用
+            2.使用Array.from()将set转换为数组
+        */
+        let arr = ['a','b','c','a','b','c'];
+        let set_new = new Set(arr);
+        console.log(set_new);
+        let arr_new = Array.from(set_new);
+        console.log(arr_new);
+    </script>
+</body>
+</html>

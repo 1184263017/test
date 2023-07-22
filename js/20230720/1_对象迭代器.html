@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const str = 'hello'
+        for (const v of str) {
+            console.log(v);
+        }
+        console.log(new String(str));
+        console.log('-----------');
+        const arr = [1, 2, 3]
+        for (const v of arr) {
+            console.log(v);
+        }
+        console.log(arr);
+        console.log('-----------');
+
+        // 对象本身不可迭代，没有迭代器
+        // const obj = {
+        //     from: 1,
+        //     to: 5,
+        // }
+        const obj = {
+            name: 'jack',
+            age: 18,
+            sex:'nan',
+        }
+
+        /* 
+            1.在对象中添加Symbol.iterator方法
+            2.该方法的返回值必须是一个对象
+            3.该方法中必须有next方法
+            4.next方法的返回值必须是一个对象
+            5.对象中有两个属性value就是迭代时输出的值，
+            done为false时继续迭代，为true结束迭代
+        */
+        obj[Symbol.iterator] = function(){
+            let y = 0;
+            let arr = Object.keys(obj)
+            let i = arr.length
+            return {
+                next:()=>{
+                    if (y < i) {
+                        y++
+                        return {
+                            done:false,
+                            value:this[arr[y-1]]
+                        }
+                    }
+                    return{
+                        done:true,
+                        value:undefined
+                    }
+                },
+                // next(){
+                //     if (y <= obj.i) {
+                //         return {
+                //             done:false,
+                //             value:obj.from++
+                //         }
+                //     }
+                //     return{
+                //         done:true,
+                //         value:undefined
+                //     }
+                // }
+            }
+        }
+        // let arr1 = Object.keys(obj);
+        for (const v of obj) {
+            console.log(v);
+        }
+        console.log(obj);
+        console.log('------------');
+
+
+        // let a = [1, 2, 3, 4]
+        // let b = a.map(x => {
+        //     if (x > 2) {
+        //         return 10
+        //     }
+        // })
+        // console.log(b)
+    </script>
+</body>
+
+</html>

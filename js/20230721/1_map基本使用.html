@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const o1 = {
+            name:'jack'
+        };
+        o1.age = 18;
+        o1['sex'] = 'nan'
+        const o2 = new Object();
+        console.log(o1);
+        console.log('---------------');
+
+
+        // map只能通过new Map()创建
+        const map = new Map();
+        // 新增属性map.set(key，value)key可以是任意类型
+        map.set('name','jack')
+        map.set('fun',function(){
+            console.log('ok');
+        })
+        map.set(10,10)
+        map.set(null,13)
+        map.set(true,10)
+        map.set(10n,11)
+        map.set({},10)
+        map.set(undefined,10)
+        map.set(Symbol(),10)
+        map.set([],10)
+        map.set(function(){},12)
+
+        // for (const k of map) {
+        //     console.log(k);
+        // }
+        console.log(map);
+        console.log('---------------');
+
+        // 访问属性 map.get(key)
+        console.log(map.get('fun')());      //访问方法
+        console.log(map.get('name'));
+        console.log(map.get(10));
+        console.log(map.get(10n));
+        console.log(map.get(null));
+        console.log(map.get(function(){})); //undefined 指针不同
+        console.log(map.get({}));           //undefined 指针不同
+        console.log(map.get([]));           //undefined 指针不同
+        console.log(map.get(Symbol()));     //undefined 指针不同
+
+        // 修改属性 map.set(key,value)存在就修改，不存在就添加
+        map.set('name','tom');
+        console.log(map.get('name'));       //tom
+
+        // 判断属性是否存在 map.has(key)存在返回true,不存在返回false
+        console.log(map.has('name'));       //true
+        console.log(map.has({}));           //false
+        console.log(map.has('qwe'));        //false
+
+        // 删除属性 map.delete(key) 删除成功true,删除失败false
+        console.log(map.delete(true));      //true
+        console.log(map.delete(null));      //true
+        console.log(map.delete({}));        //false
+
+        // 计算map中有多少个属性 map.size
+        console.log(map.size);
+
+        // 清空map.clear()
+        console.log(map.clear());           //undefined
+        console.log(map);
+    </script>   
+</body>
+</html>

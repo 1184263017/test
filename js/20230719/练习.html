@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-        function camelize(str){
+        function camelize(str) {
             let arr = str.split('-');
-            let res = arr.map((value,index)=>{
+            let res = arr.map((value, index) => {
                 let str;
-                if(index!=0){
+                if (index != 0) {
                     str = value[0].toUpperCase();
                     return str + value.slice(1)
                 }
@@ -20,9 +22,9 @@
             return res.join('')
         }
         // 复习
-        function cs1(str){
+        function cs1(str) {
             let arr = str.split('-');
-            let res = arr.map((value,index)=>{
+            let res = arr.map((value, index) => {
                 return index == 0 ? value : value[0].toUpperCase() + value.slice(1)
             })
             return res.join('')
@@ -30,20 +32,20 @@
         console.log(cs1('my-short-string'));
         console.log('------------');
 
-        
 
 
-        function filterRange(arr, a, b){
-            let res = arr.filter((value,index)=>{
-                if(value >= a && value <= b){
+
+        function filterRange(arr, a, b) {
+            let res = arr.filter((value, index) => {
+                if (value >= a && value <= b) {
                     return 1;
                 }
             })
             return res;
         }
         // 复习
-        function cs2(arr, a, b){
-            return arr.filter(value=>value >= a && value<= b);
+        function cs2(arr, a, b) {
+            return arr.filter(value => value >= a && value <= b);
         }
         let arr1 = [5, 3, 8, 1];
         let filtered = cs2(arr1, 1, 4);
@@ -52,37 +54,37 @@
         console.log('------------');
 
 
-        function filterRangeInPlace(arr, a, b){
+        function filterRangeInPlace(arr, a, b) {
             let arr1 = [];
-            arr.forEach((value,index) => {
-                if(a <= value && value <= b){
+            arr.forEach((value, index) => {
+                if (a <= value && value <= b) {
                     arr1.push(value)
                 }
             });
             arr.splice(0)
-            arr = Object.assign(arr,arr1)
+            arr = Object.assign(arr, arr1)
         }
-        function cs3(arr, a, b){
+        function cs3(arr, a, b) {
             for (let i = 0; i < arr.length; i++) {
-                if( arr[i] < a  || arr[i] > b){
-                    arr.splice(i,1)
+                if (arr[i] < a || arr[i] > b) {
+                    arr.splice(i, 1)
                     i--
                 }
             }
         }
         let arr2 = [5, 7, 3, 8, 6, 1];
-        cs3(arr2, 1, 4); 
+        cs3(arr2, 1, 4);
         console.log(arr2);
         console.log('------------');
 
 
 
-        
-        function getPao(arr){
+
+        function getPao(arr) {
             let num;
             for (let i = 0; i < arr.length; i++) {
-                for (let y = i+1; y < arr.length; y++) {
-                    if (arr[i]<arr[y]) {
+                for (let y = i + 1; y < arr.length; y++) {
+                    if (arr[i] < arr[y]) {
                         num = arr[i];
                         arr[i] = arr[y];
                         arr[y] = num;
@@ -96,12 +98,12 @@
         console.log('------------');
 
 
-        function copySorted(arr){
-            let arr1 = arr.map(value=>value)
+        function copySorted(arr) {
+            let arr1 = arr.map(value => value)
             let num;
             for (let i = 0; i < arr1.length; i++) {
-                for (let y = i+1; y < arr1.length; y++) {
-                    if (arr1[i]>arr1[y]) {
+                for (let y = i + 1; y < arr1.length; y++) {
+                    if (arr1[i] > arr1[y]) {
                         num = arr1[i];
                         arr1[i] = arr1[y];
                         arr1[y] = num;
@@ -110,22 +112,22 @@
             }
             return arr1;
         }
-        
+
         // 复习
         function cs4(arr) {
             let newarr1 = arr4.slice();
-            newarr1.sort((a,b)=> a>b?1:-1);
+            newarr1.sort((a, b) => a > b ? 1 : -1);
             return newarr1
         }
         let arr4 = ["HTML", "JavaScript", "Vue", "CSS"];
         // 复制数组的方式
         let newarr1 = arr4.slice();
-        let newarr2 = arr4.map(value=>value);
+        let newarr2 = arr4.map(value => value);
         let newarr3 = arr4.join('-').split('-');
         // console.log(newarr1,newarr2,newarr3);
         let sorted = cs4(arr4);
-        console.log( sorted ); // CSS, HTML, JavaScript
-        console.log( arr4 ); // HTML, JavaScript, CSS (no changes)
+        console.log(sorted); // CSS, HTML, JavaScript
+        console.log(arr4); // HTML, JavaScript, CSS (no changes)
         console.log('------------------');
 
 
@@ -165,111 +167,111 @@
         // console.log('-----------');
 
 
-        function getMax(min,max){
-           return Math.round(Math.random() * (max - min)) + min;
+        function getMax(min, max) {
+            return Math.round(Math.random() * (max - min)) + min;
         }
-        function shuffle(arr){
+        function shuffle(arr) {
             let arr1 = []
-            while(arr1.length < 3){
-                let num = arr[getMax(arr.length-1,0)];
+            while (arr1.length < 3) {
+                let num = arr[getMax(arr.length - 1, 0)];
                 if (arr1.indexOf(num) == -1) {
                     arr1.push(num)
                 }
             }
-            arr = Object.assign(arr,arr1)
+            arr = Object.assign(arr, arr1)
         }
         let arr5 = [1, 2, 3];
         shuffle(arr5);
         console.log(arr5);
         console.log('-----------');
 
-        function getAverageAge(users){
+        function getAverageAge(users) {
             let sum = 0;
-            sum = users.reduce((sum,value)=> sum += value.age,0);
-            return sum/users.length;
+            sum = users.reduce((sum, value) => sum += value.age, 0);
+            return sum / users.length;
         }
         let john = { name: "John", age: 25 };
         let pete = { name: "Pete", age: 30 };
         let mary = { name: "Mary", age: 29 };
-        let arr6 = [ john, pete, mary ];
+        let arr6 = [john, pete, mary];
         console.log(getAverageAge(arr6));
         console.log('---------------');
 
-        function unique(arr){
+        function unique(arr) {
             let arr1 = [];
-            arr.forEach(value=>{
-                if(arr1.indexOf(value) == -1){
+            arr.forEach(value => {
+                if (arr1.indexOf(value) == -1) {
                     arr1.push(value)
                 }
             })
             return arr1;
         }
         let strings = ["Hare", "Krishna", "Hare", "Krishna",
-        "Krishna", "Krishna", "Hare", "Hare", ":-O"
+            "Krishna", "Krishna", "Hare", "Hare", ":-O"
         ];
-        console.log( unique(strings) ); 
+        console.log(unique(strings));
         console.log('---------------');
 
 
         function groupById(arr) {
-            let res = arr.reduce((sum,value,index)=>{
-                    sum[value.id] = {
-                        id:value.id,
-                        name:value.name,
-                        age:value.age,
-                    }
-                    return sum;
-            },{})
+            let res = arr.reduce((sum, value, index) => {
+                sum[value.id] = {
+                    id: value.id,
+                    name: value.name,
+                    age: value.age,
+                }
+                return sum;
+            }, {})
             return res
         }
         let users = [
-                {id: 'john', name: "John Smith", age: 20},
-                {id: 'ann', name: "Ann Smith", age: 24},
-                {id: 'pete', name: "Pete Peterson", age: 31},
-            ];
+            { id: 'john', name: "John Smith", age: 20 },
+            { id: 'ann', name: "Ann Smith", age: 24 },
+            { id: 'pete', name: "Pete Peterson", age: 31 },
+        ];
         console.log(groupById(users));
         console.log('---------------');
 
 
 
         function Calculator() {
-            this.ysf = ['+','-'],
-            this.fun = [
-                (a,b)=>a+b,
-                (a,b)=>a-b,
-            ],
-            this.calculate = function (str) {
-                let arr = str.split(' ');
-                let num1 = +arr[0];
-                let num2 = +arr[2];
-                let ys = arr[1];
-                let index = this.ysf.findIndex((value,index)=>{
-                    return ys == value;
-                })
-                return this.fun[index](num1,num2)
-            },
-            this.addMethod = function(name,fun){
-                this.ysf.push(name)
-                this.fun.push(fun)
-            }
+            this.ysf = ['+', '-'],
+                this.fun = [
+                    (a, b) => a + b,
+                    (a, b) => a - b,
+                ],
+                this.calculate = function (str) {
+                    let arr = str.split(' ');
+                    let num1 = +arr[0];
+                    let num2 = +arr[2];
+                    let ys = arr[1];
+                    let index = this.ysf.findIndex((value, index) => {
+                        return ys == value;
+                    })
+                    return this.fun[index](num1, num2)
+                },
+                this.addMethod = function (name, fun) {
+                    this.ysf.push(name)
+                    this.fun.push(fun)
+                }
         }
         //复习
-        function  cs5() {
+        function cs5() {
             this.calculate = function (str) {
                 let arr = str.split(' ');
-                return this[arr[1]](+arr[0],+arr[2])
+                return this[arr[1]](+arr[0], +arr[2])
             },
-            this.addMethod = function(name,fun){
-                this[name] = fun;
-            }
-            this['+'] = (a,b)=>a+b;
-            this['-'] = (a,b)=>a-b;
+                this.addMethod = function (name, fun) {
+                    this[name] = fun;
+                }
+            this['+'] = (a, b) => a + b;
+            this['-'] = (a, b) => a - b;
         }
         // let res = new Calculator();
         let res = new cs5();
-        res.addMethod('*',(a,b)=>a*b)
-        res.addMethod('/',(a,b)=>a/b)
-        res.addMethod('**',(a,b)=>a**b)
+        res.addMethod('*', (a, b) => a * b)
+        res.addMethod('/', (a, b) => a / b)
+        res.addMethod('**', (a, b) => a ** b)
         console.log(res.calculate("1 + 2"));
         console.log(res.calculate("3 - 2"));
         console.log(res.calculate('3 * 2'));
@@ -278,11 +280,12 @@
 
 
 
-        function cs6(){
-            let arr7 = [1,2,3,4,5,6,7,8,9,10,'J','Q','K'];
+        function cs6() {
+            // let arr7 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K'];
+            let arr7 = [1, 2, 3, 4];
             let num3;
             for (let i = 0; i < arr7.length; i++) {
-                let r = Math.round(Math.random() * i);
+                let r = Math.floor(Math.random() * i);
                 num3 = arr7[i]
                 arr7[i] = arr7[r]
                 arr7[r] = num3
@@ -293,4 +296,5 @@
         console.log(cs6());
     </script>
 </body>
+
 </html>

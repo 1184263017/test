@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let id = Symbol('id');
+        let uid = Symbol('uid');
+        const obj = {
+            name:'jack',
+            age:18,
+            sex:'nan',
+            [id]:123,
+            [uid]:456
+        }
+        for (const k in obj) {
+            console.log(k,obj[k]);
+        }
+        //  Object.keys(obj)返回对象的所有属性组成一个数组
+        let keys = Object.keys(obj);
+        console.log(keys);
+        console.log('-------------');
+
+        //  Object.values(obj)返回对象的所有属性值组成一个数组
+        let values = Object.values(obj);
+        console.log(values);
+        console.log('-------------');
+
+        //  Object.entries(obj)对象的属性名和属性值组成的一个二维数组
+        let entries = Object.entries(obj);
+        console.log(entries);
+        console.log('-------------');
+
+        // Object.getOwnPropertySymbols方法返回只有symbol属性的数组
+        let symbol = Object.getOwnPropertySymbols(obj);
+        console.log(symbol);
+        for (const v of symbol) {
+            console.log(v,obj[v]);
+        }
+        console.log('-------------');
+
+        // Reflect.ownKeys(obj)方法可以获取对象中所有的属性名(包含symbol)返回一个数组
+        let res = Reflect.ownKeys(obj);
+        console.log(res);
+        for (const v of res) {
+            console.log(v,obj[v]);
+        }
+        console.log('-------------');
+    </script>
+</body>
+</html>

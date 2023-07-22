@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let user = {
+
+        }
+        let info = user;
+        user = null;
+        console.log(user);
+        console.log(info);
+        console.log('---------');
+
+        let o1 = {};
+        let o2 = {};
+        const weakmap = new WeakMap();
+        weakmap.set(o1,{name:'jack'})
+        // o1 = null;
+        weakmap.set(o2,weakmap.get(o1))
+        console.log('---------------');
+        console.log(o1);
+        console.log(weakmap.get(o2));
+    </script>
+</body>
+</html>

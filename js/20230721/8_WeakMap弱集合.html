@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=w, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const map = new Map();
+        map.set('a',1)
+            .set('b',2)
+        console.log(map);
+        // weakmap 不能迭代，不能遍历
+        const weakmap = new WeakMap();
+        let obj = {}
+        // 添加属性使用weakmap.set方法,key必须是一个对象(数组集合映射都可以)
+        weakmap.set({},1)
+                .set(obj,2)
+                .set([],3)
+                .set(map,4)
+                .set(new Set(),5)
+        console.log(weakmap);
+
+        // 访问属性weakmap.get()
+        console.log(weakmap.get(obj));
+
+        // 删除属性weakmap.delete
+        weakmap.delete(obj)     //true
+        weakmap.delete({})      //false
+        console.log(weakmap);
+
+
+        // 属性是否存在weakmap.has()
+        console.log(weakmap.has(map));  //true
+        console.log(weakmap.has([]));   //false
+    </script>
+</body>
+</html>

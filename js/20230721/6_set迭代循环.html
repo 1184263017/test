@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // set的初始值一般使用数组
+        const set = new Set(['a','b','c']);
+        console.log(set);
+        // set可以使用forof迭代
+        for (const v of set) {
+            console.log(v);
+        }
+        console.log('----------------');
+
+        let keys = set.keys();
+        console.log(keys);
+        for (const v of keys) {
+            console.log(v);
+        }
+        console.log('----------------');
+
+        let values = set.values();
+        console.log(values);
+        for (const v of values) {
+            console.log(v);
+        }
+        console.log('----------------');
+
+        let s = set.entries();
+        console.log(s);
+        for (const v of s) {
+            console.log(v);
+        }
+        console.log('----------------');
+
+        set.forEach((value,index,set)=>{
+            console.log(value,index,set);
+        })
+    </script>
+</body>
+</html>

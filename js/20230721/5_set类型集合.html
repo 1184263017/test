@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const a1 = [];
+        const a2 = new Array();
+        console.log(a1);
+
+        // 集合只能通过new Set创建
+        let set = new Set();
+        console.log(set);
+
+        // 添加集合的值 set.add()集合的值不能重复,值可以是任意类型,可以链式操作
+        set.add('a');
+        set.add(2);
+        set.add(2n);
+        set.add(null);
+        set.add(undefined);
+        set.add(true);
+        set.add({});
+        set.add([]);
+        set.add(Symbol());
+        set.add(function (){});
+        set.add(()=>{})
+            .add(1)
+            .add(3)
+
+        // 无法单独访问set中的莫一个值
+        console.log(set);
+
+        // 删除键值使用set.delete()成功返回true,失败返回false
+        console.log(set.delete(1));         //true
+        console.log(set.delete({}));        //false
+
+        // 判断键值是否存在使用set.has(),存在返回true,不存在返回false
+        console.log(set.has(2));            //true
+        console.log(set.has('2'));          //false
+
+
+        // 使用set.size属性计算set中值的个数
+        console.log(set.size);
+
+
+        // 清空set使用set.clear()方法
+        console.log(set.clear());
+    </script>
+</body>
+</html>
