@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const arr = ['html','css','js','vue','git','svn'];
+        const [a,b,c] = arr;
+        console.log(a,b,c);     //html css js
+
+        const [d,e,f] = arr;
+        console.log(d,e,f);     //html css js
+
+        /* 
+            解构的数组中变量数量没有赋值的数组多时，就按照顺序赋值给变量，不足的值就不使用
+            可以使用(,)占位置(跳过当前顺序的值),可以多次使用
+
+        */
+       const [,,,x,y,z] = arr;
+       const [,i,,k,,l] = arr;
+       console.log(x,y,z);      //vue git svn
+       console.log(i,k,l);      //css vue svn
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const arr = ['html','css','js','vue','git','svn'];
+        // 在最后一个变量的前面加上...表示剩余的值全部解构到当前...变量中，值是一个数组,每值返回一个空数组
+        const [a,,b,,c,...d] = arr;
+        console.log(a);     //html
+        console.log(b);     //css
+        console.log(c);     //js
+        console.log(d);     //['vue', 'git', 'svn']
+        console.log(d);     //['svn']
+
+        // rest参数必须放在解构变量的最后
+        // const [...x,y] = arr;   //ncaught SyntaxError: Rest element must be last element
+        const [x,...y] = arr;
+        console.log(x);
+        console.log(y);
+
+        // 当只有一个变量并且是rest参数时，就是数组的复制
+        const [...arr1] = arr;
+        console.log(arr1 === arr);
+
+        const arr2 = arr.splice('');
+        console.log(arr2);
+
+        const arr3 = arr2.map(value=>value)
+        console.log(arr3);
+
+        const arr4 = arr3.join('-').split('-')
+        console.log(arr4);
+    </script>
+</body>
+</html>

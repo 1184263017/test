@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const obj = {
+            name:'jack',
+            age:18,
+            sex:'nan'
+        }
+        let arr = Object.entries(obj);
+        console.log(arr);
+        console.log('----------------');
+
+        for (const v of arr) {
+            console.log(v);
+        }
+
+        // 在进行循环遍历时也可以使用解构赋值
+        for (const [key,value] of arr) {
+            console.log(key,value);
+        }
+        console.log('-------------------');
+
+        const map = new Map();
+        map.set('name','jack')
+            .set('age',18)
+            .set('sex','nan')
+            console.log(map);
+
+
+        for (const v of map) {
+            // console.log(v);
+            [k,v1] = v;
+            console.log(k,v1);
+        }
+
+        for (const [key,value] of map) {
+            console.log(key,value);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let user = {
+        //     name: "John",
+        //     years: 30
+        // };
+        // let { name, years: age, isAdmin = false } = user;
+        // console.log(name);
+        // console.log(age);
+        // console.log(isAdmin);
+        // console.log('-------------------');
+
+        let salaries = {
+            "John": 100,
+            "Pete": 300,
+            "Mary": 250
+        };
+        function topSalary(salaries) {
+            let arr = Object.entries(salaries);
+            let name = null;
+            let num = 0;
+            for (const [k, v] of arr) {
+                if (v > num) {
+                    num = v;
+                    name = k;
+                }
+            }
+            return name;
+        }
+        let sum = topSalary(salaries);
+        console.log(sum);
+        console.log('------------------');
+
+        const order = {
+            orderId: 101,
+            customerName: "John Doe",
+            items: ["Burger", "Fries", "Drink"],
+            orderTotal: 25.99,
+            orderDate: "2023-07-24"
+        };
+        let { 
+            items: orderedItems, 
+            orderId: id, 
+            customerName: name, 
+            orderTotal: total, 
+            discount = 0, 
+            orderDate: date 
+        } = order;
+        console.log(orderedItems);
+        console.log(id);
+        console.log(name);
+        console.log(total);
+        console.log(discount);
+        console.log(date);
+
+        const shcool = {
+            teacher:{
+                '语文':['小王','小吴','小宋'],
+                '数学':['小1','小2','小3'],
+                '英语':['小4','小5','小6'],
+            },
+            class:{
+                '100':{
+                    teacher_c:'小王',
+                    student_S:['哈哈','嘻嘻','嘿嘿']
+                },
+                '101':{
+                    teacher_c:'小吴',
+                    student_S:['哈哈1',{name:'嘻嘻1'},'嘿嘿1']
+                },
+                '102':{
+                    teacher_c:'小宋',
+                    student_S:['哈哈2','嘻嘻2','嘿嘿2']
+                }
+            }
+        }
+        let {
+            class:{
+                101:{
+                    student_S:[
+                        ,{name:name2},
+                    ]
+                }
+            }
+        } = shcool;
+        console.log(name2);
+    </script>
+</body>
+
+</html>

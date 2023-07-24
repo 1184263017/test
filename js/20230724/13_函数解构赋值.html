@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 函数是实参将值传递给形参，没有实参形参的值就是undefined
+        function fun(a){
+            console.log(a);
+        }
+        fun(10)
+        console.log('-------------');
+
+        function fun1([a,b,c]){
+            // let [a,b,c] = arr
+            // console.log(arr)
+            console.log(a)
+            console.log(b)
+            console.log(c)
+        }
+        fun1([1,2,3])
+        console.log('-------------');
+
+        function fun2({name,age}){
+            // console.log(obj);
+            console.log(name);
+            console.log(age);
+        }
+        fun2({name:'jack',age:18})
+    </script>
+</body>
+</html>

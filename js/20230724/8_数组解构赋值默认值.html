@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getSum(a=10,b=20){
+            return a+b
+        }
+        console.log(getSum());
+        console.log(getSum(1,2));
+        console.log(getSum(1));
+        console.log('--------------');
+
+
+        // 解构赋值的变量也可以有默认值
+        // let [a = 10,b = 20] = [];        // 10 20
+        // let [a = 10,b = 20] = [1,2];     // 1 2
+        let [a = 10,b = 20] = [1];          // 1 20
+        console.log(a,b);
+        console.log('--------------');
+
+
+        // let [x=10,y] = [];               //10 undefined
+        // let [x=10,y] = [1,2];            //1 2
+        let [x=10,y] = [3];                 //3 undefined
+        console.log(x,y);
+        console.log('--------------');
+
+        // 默认值可以是弹窗
+        // let [n=prompt('n'),m=prompt('m')] = [];
+        let [n=prompt('n'),m=prompt('m')] = [1,2];
+        // let [n=prompt('n'),m=prompt('m')] = [1];
+        console.log(n,m);
+        console.log('--------------');
+
+        // 默认值可以是函数
+        let fun1 = ()=>'ok';
+        let fun2 = ()=>'no';
+        // let [l=fun1(),z=fun2()] = [];
+        // let [l=fun1(),z=fun2()] = [1,2];
+        let [l=fun1(),z=fun2()] = [1];
+        console.log(l,z);
+    </script>
+</body>
+</html>

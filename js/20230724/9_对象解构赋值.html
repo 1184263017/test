@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const user = {
+            name:'jack',
+            age:18,
+            sex:'nan',
+            'haha_xixi':'hahaxixi'
+        };
+        // let name = user.name;
+        // console.log(name);
+
+
+        // 对象解构赋值(变量名要和属性名相同,进行赋值,和顺序无关)
+        /* 
+            作为对象的属性名的变量名已经存在
+            1.设置变量名称和对象的属性名相同，形成映射关系
+            2.在设置:后面的变量名，将对象的属性赋值给该变量
+        */
+        let sex = 'boy';
+        let {age,name,sex:gender,haha_xixi} = user;
+        console.log(name);
+        console.log(age);
+        console.log(gender);
+        console.log(haha_xixi);
+    </script>
+</body>
+</html>

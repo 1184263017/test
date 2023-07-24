@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 交换两个变量的值
+
+        // 1.解构赋值
+        let a = 10;
+        let b = 20;
+        [a,b] = [b,a];
+        console.log(a,b);   // 20 10
+
+        // 2.使用第三个变量暂存
+        let x = 10;
+        let y = 20;
+        let z = x
+        x = y;
+        y = z;
+        console.log(x,y);
+
+
+        // 3.加减法(值时number类型)
+        let n = 10;
+        let m = 20;
+        n = n + m;
+        m = n - m;
+        n = n - m;
+        console.log(n,m);
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 等号右侧可以是任何可迭代对象(map,set,字符串)
+        const map = new Map();
+        map.set('name','jack')
+            .set('age',18)
+            .set('sex','nan')
+            console.log(map);
+
+        const [a,b,c] = map;
+        console.log(a);     // ['name', 'jack']
+        console.log(b);     // ['age', 18] 
+        console.log(c);     // ['sex', 'nan']
+
+
+        const set = new Set();
+        set.add(1).add(2).add(3)
+        console.log(set);
+        const [d,e,f] = set;
+        console.log(d);     // 1
+        console.log(e);     // 2
+        console.log(f);     // 3
+
+        const str = 'hello';
+        const [x,y,,,z] = str;
+        console.log(x);     // h
+        console.log(y);     // e
+        console.log(z);     // o
+    </script>
+</body>
+</html>

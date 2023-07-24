@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = ['html','css'];
+
+        // 传统赋值
+        let a = arr[0]
+        let b = arr[1]
+        console.log(a,b);
+
+
+        /* 
+            数组解构赋值
+            =右边的数组按照顺序依次赋值给左边的数组中的变量
+        */
+        const [a1,b1] = arr;
+        console.log(a1,b1);
+
+        // 字符串解构赋值转换为数组在执行
+        let name = 'jack chen';
+        const [fname,lname] = name.split(' ');
+        console.log(fname,lname);
+    </script>
+</body>
+</html>

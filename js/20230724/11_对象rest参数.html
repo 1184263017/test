@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const obj = {
+            width:100,
+            height:100,
+            title:'js'
+        }
+        // 对象解构中的...变量默认值是空对象
+        let {title,...o} = obj
+        console.log(title);
+        console.log(o);
+
+        // 只有一个rest参数时，就是对象的值的复制
+        let {...newobj} = obj;
+        console.log(newobj);
+        console.log(obj);
+
+        const obj1 = Object.assign({},obj)
+        console.log(obj1);
+    </script>
+</body>
+</html>
