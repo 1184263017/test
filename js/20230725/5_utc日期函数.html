@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const d = new Date();
+        console.log(d.getUTCFullYear());
+        console.log(d.getUTCMonth());
+        console.log(d.getUTCDate());
+        console.log(d.getUTCHours());
+        console.log(d.getUTCMinutes());
+        console.log(d.getUTCSeconds());
+        console.log(d.getUTCMilliseconds());
+
+        // 获取当前时间的时间戳(单位是毫秒)
+        console.log(d.getTime() / 1000);
+        console.log(d.toLocaleString(d.getTime()/1000));
+        // 获取utc时间与当前时间的时差，单位是分钟
+        console.log(d.getTimezoneOffset());     // -480
+    </script>
+</body>
+</html>

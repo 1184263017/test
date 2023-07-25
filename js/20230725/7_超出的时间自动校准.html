@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 设置的值超出范围，会自动校准
+        // const d = new Date(2023,12)         //2024/1/1 00:00:00
+        // const d = new Date(2023,10,33)      //2023/12/3 00:00:00
+
+        // 第三个参数(日)设置为0就返回上个月的最后一天
+        // const d = new Date(2023,10,0)         //2023/10/31 00:00:00
+        // const d = new Date(2023,10,0,30)         //2023/11/1 06:00:00
+        
+        const d = new Date();
+        // d.setDate(0);       //返回上个月的最后一天
+        // d.setHours(-2)         //值可以是负值
+        d.setDate(-2)         //值可以是负值
+        console.log(d.toLocaleString());
+    </script>
+</body>
+</html>

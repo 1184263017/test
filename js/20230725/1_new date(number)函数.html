@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // new date不加参数时获取当前时区的年月日时分秒星期
+        let date = new Date();
+        // 日期对象在使用console.log输出时会自动转换为string类型
+        console.log(date);
+
+        /* 
+            Tue Jul 25 2023 09:22:52 GMT+0800
+            星期 月  日  年  时  分 秒  时区
+
+            1970年1月1日 0:0:0 到当前时间的毫秒数 = 时间戳
+        */
+
+
+        // 时间戳
+        // new date是如果只设置了一个参数并且是数字时就表示是时间戳(1秒=1000毫秒)
+        const d1 = new Date(1644513873545);
+        console.log(d1);
+
+        // 时间戳可以是正数，也可以是负数
+        const d2 = new Date(365 * 24 * 60 * 60 * 1000);
+        console.log(d2);
+
+        const d3 = new Date(-365 * 24 * 60 * 60 * 1000);
+        console.log(d3);
+    </script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const d = new Date();
+        console.dir(d);
+
+        let Y = d.getFullYear();      // 年
+        console.log(Y);     // 2023
+
+        let M = d.getMonth();         // 月(0-11)
+        console.log(M);     // 6
+
+        let D = d.getDate()           // 日
+        console.log(D);     // 25
+
+        let h = d.getHours();         // 时
+        console.log(h);     // 10
+
+        let m = d.getMinutes();       // 分
+        console.log(m);     // 58
+
+        let s = d.getSeconds();       // 秒
+        console.log(s);     // 11
+
+        let ms = d.getMilliseconds(); // 毫秒
+        console.log(ms);    // 643
+
+        let w = d.getDay();           // 星期几(0-6)
+        console.log(w);     // 2 
+
+
+        M = M+1<10?'0'+(M+1):M+1;
+        D = D<10?'0'+D:D;
+        h = h<10?'0'+h:h;
+        m = m<10?'0'+m:m;
+        s = s<10?'0'+s:s;
+        switch (w) {
+            case 1:
+                w = '一'
+                break;
+            case 2:
+                w = '二'
+                break;
+            case 3:
+                w = '三'
+                break;
+            case 4:
+                w = '四'
+                break;
+            case 5:
+                w = '五'
+                break;
+            case 6:
+                w = '六'
+                break;
+            default:
+                w = '天'
+                break;
+        }
+
+        console.log(`${Y}年${M}月${D} ${h}:${m}:${s} ${ms} 星期${w}`);
+
+        function getDate(num = 7){
+            const date = new Date();
+            let Y = d.getFullYear();      // 年
+            let M = d.getMonth();         // 月(0-11)
+            let D = d.getDate()           // 日
+            let h = d.getHours();         // 时
+            let m = d.getMinutes();       // 分
+            let s = d.getSeconds();       // 秒
+            let ms = d.getMilliseconds(); // 毫秒
+            let w = d.getDay();           // 星期几(0-6)
+            M = M+1<10?'0'+(M+1):M+1;
+            D = D<10?'0'+D:D;
+            h = h<10?'0'+h:h;
+            m = m<10?'0'+m:m;
+            s = s<10?'0'+s:s;
+            const arr = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+            switch (num) {
+            case 1:
+                return {
+                    0:Y,
+                }
+                break;
+            case 2:
+                return {
+                    0:Y,
+                    1:M,
+                }
+                break;
+            case 3:
+                return {
+                    0:Y,
+                    1:M,
+                    2:D,
+                }
+                break;
+            case 4:
+                return {
+                    0:Y,
+                    1:M,
+                    2:D,
+                    3:h,
+                }
+                break;
+            case 5:
+                return {
+                    0:Y,
+                    1:M,
+                    2:D,
+                    3:h,
+                    4:m,
+                }
+                break;
+            case 6:
+                return {
+                    0:Y,
+                    1:M,
+                    2:D,
+                    3:h,
+                    4:m,
+                    5:s
+                }
+                break;
+            default:
+                return {
+                    0:Y,
+                    1:M,
+                    2:D,
+                    3:h,
+                    4:m,
+                    5:s,
+                    6:arr[w]
+                }
+                break;
+            }
+        }
+        console.log(getDate(7));
+
+    </script>
+</body>
+</html>

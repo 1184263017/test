@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const d = new Date();
+        // 设置年份setFullYear(年,[月],[日])
+        console.log(d.setFullYear(2000,10,12));     //返回时间戳
+        
+        // 设置月setMonth(月,[日])
+        console.log(d.setMonth(6,23));
+
+        // 设置日setDate(日)
+        console.log(d.setDate(18));
+
+        // 设置时setHours(时,[分],[秒],[毫秒])
+        console.log(d.setHours(18,2,1,1000));
+
+         // 设置分setMinutes(分,[秒],[毫秒])
+         console.log(d.setMinutes(8,20,1000));
+
+         // 设置秒setSeconds(秒,[毫秒])
+         console.log(d.setSeconds(59,1000));
+
+         // 设置分setMilliseconds(毫秒)
+         console.log(d.setMilliseconds(1000));
+
+        //  参数是从1970年1月1日0:0:0开始经过的毫秒
+         console.log(d.setTime(1690257006*1000));
+
+        console.log(d.toLocaleString());
+    </script>
+</body>
+</html>

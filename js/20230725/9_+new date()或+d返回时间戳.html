@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 日期对象转换为number类型会自动变成时间戳
+        const d = new Date(1970,0,1,0,0,0,0);
+        console.log(d.toLocaleString());
+        console.log(typeof d);
+        console.log(+d);
+        console.log(d.toLocaleString());
+        console.log(d + 1000 * 3600 *8);
+        console.log(d - 1000 * 3600 *8);
+        console.log('---------------');
+
+        // 计算程序运行的时间可以用两个时间相减
+        const d1 = new Date();
+
+        // for (let i = 0; i < 1000; i++) {
+        //     console.log('ok');
+            
+        // }
+
+        const d2 = new Date();
+
+        console.log(d2-d1);
+
+
+        const d3 = +new Date();
+        const d4 = new Date();
+        console.log(d3);
+
+        console.log(d4.getFullYear());
+    </script>
+</body>
+</html>

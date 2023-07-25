@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // const str = '2023-7-25 14:31:22';
+        // const str = '2023-7-25 14:31:22Z';  //字符串最后加上Z获取 UTC+0 时区
+        const str = '2023年7月25日 14:31:22';  //Invalid Date
+        console.log(Date.parse(str));   // 获取字符串日期的时间戳
+
+        const d = new Date();
+        d.setTime(Date.parse(str))
+        console.log(d.toLocaleString());
+    </script>
+</body>
+</html>

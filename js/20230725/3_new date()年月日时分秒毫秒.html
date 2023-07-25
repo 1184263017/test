@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            1.new date参数不止一个时表示年 月 日 时 分 秒 毫秒
+            2.日没有设置默认是1,小时分钟秒毫秒默认值都是0
+            3.年是1位数会默认加上190的前缀
+                年是2位数会默认加上19的前缀
+                年是3，4位数就显示3,4位数
+            4.月份的值时0-11,一月从0开始计算
+        */
+        // 
+        const d = new Date(2023,6,25,10,20,10,321);
+        console.log(d.toLocaleString());
+    </script>
+</body>
+</html>
