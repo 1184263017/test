@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let id = Symbol('id');
+        const obj = {
+            name:'jack',
+            age:18,
+            isAdmin:true,
+            addr:null,
+            // num:100n,        // 属性值是bigint类型转换会报错
+
+            // 属性值是undefined,属性和属性值是symbole的转换时都会被忽略
+            nun:undefined,      
+            [Symbol('id')]:10,  //
+            id:id,
+            size:{
+                width:100,
+                height:200,
+            },
+            arr:[1,2,3],
+            // 方法转换时会被忽略
+            fun(){
+
+            }
+        }
+        console.log(JSON.stringify(obj));
+    </script>
+</body>
+</html>

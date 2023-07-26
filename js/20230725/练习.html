@@ -43,29 +43,41 @@
         console.log(date3);
         console.log('--------------');
 
-        function getLastDayOfMonth(year, month) {
-            let d = new Date(year, month);
-            d.setDate(0);
-            return d.getDate();
-        }
-        console.log(getLastDayOfMonth(2013, 2));
-        console.log(getLastDayOfMonth(2012, 2));
+        // function getLastDayOfMonth(year, month) {
+        //     let d = new Date(year, month);
+        //     d.setDate(0);
+        //     return d.getDate();
+        // }
+        let getLastDayOfMonth = (year, month) => new Date(year, month+1,0).getDate()
+        console.log(getLastDayOfMonth(2013, 1));
+        console.log(getLastDayOfMonth(2012, 1));
         console.log('------------------');
 
 
-        function getSecondsToday(type = 1) {
-            let d = new Date();
-            let Y = d.getFullYear();
-            let M = d.getMonth() + 1;
-            let D = type == 1 ? d.getDate() : d.getDate() + 1;
-            let str = `${Y}-${M}-${D} 00:00:00`
-            let t = Date.parse(str);
-            if (type == 1) {
-                return ((+new Date() / 1000) - (t / 1000)).toFixed(0);
-            } else {
-                return ((t / 1000) - (+new Date() / 1000)).toFixed(0);
-            }
+        // function getSecondsToday(type = 1) {
+        //     let d = new Date();
+        //     let Y = d.getFullYear();
+        //     let M = d.getMonth() + 1;
+        //     let D = type == 1 ? d.getDate() : d.getDate() + 1;
+        //     let str = `${Y}-${M}-${D} 00:00:00`
+        //     let t = Date.parse(str);
+        //     if (type == 1) {
+        //         return ((+new Date() / 1000) - (t / 1000)).toFixed(0);
+        //     } else {
+        //         return ((t / 1000) - (+new Date() / 1000)).toFixed(0);
+        //     }
+        // }
 
+        function getSecondsToday(type = 1) {
+            let d1 = new Date();
+            let d2 = new Date();
+            d2.setHours(0,0,0,0);
+            if (type == 1) {
+                return ((d1-d2)/1000).toFixed(0);
+            } else {
+                d2.setDate(d2.getDate()+1);
+                return ((d2-d1)/1000).toFixed(0);
+            }
         }
         console.log(getSecondsToday());
         console.log('--------------');
@@ -77,8 +89,23 @@
         console.log('--------------');
 
 
+        // function formatDate(date) {
+        //     let t = ((+new Date()/1000) - Date.parse(date)/1000);
+        //     if(t < 1){
+        //         return 'right now';
+        //     }else if(t < 60){
+        //         return `${Math.floor(t)} sec. ago`
+        //     }else if(t < 3600){
+        //         return `${ Math.floor(t/60)} min. ago`
+        //     }else{
+        //         let str = date.getFullYear();
+        //         str = String(str).slice(2)                
+        //         return `${date.getDate()}.${date.getMonth()+1}.${str} ${date.getHours()}.${date.getMinutes()}`
+        //     }
+        // }
+
         function formatDate(date) {
-            let t = ((+new Date()/1000) - Date.parse(date)/1000);
+            let t = (new Date() - date)/1000;
             if(t < 1){
                 return 'right now';
             }else if(t < 60){
@@ -98,6 +125,16 @@
         // 昨天的日期，例如 31.12.16 20:00
         console.log(formatDate(new Date(new Date - 86400 * 1000)));
         console.log('---------------');
+
+
+        function getLastDayofMonth(year,month) {
+            const date = new Date(year, month+1, 0)
+        //     console.log(date.toLocaleString());
+        //    console.log( date.getMonth());
+            return date.getDate()
+        }
+        console.log(getLastDayofMonth(2023,5));
+        console.log(getLastDayofMonth(2023,1));
     </script>
 </body>
 

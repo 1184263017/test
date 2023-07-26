@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            1.所有属性都用双引号包裹
+            2.所有字符串类型的属性值都用双引号包裹
+            3.最后一个属性值后面的逗号省略
+
+        */
+        const js = `{
+            "name":"jack",
+            "age":18,
+            "sex":"nan",
+            "size":{
+                "width":100,
+                "height":200
+            },*
+            "bool":true,
+            "nu":null,
+            "num":"undefined",
+            "arr":[1,2,3]
+        }`
+        // json格式字符串转换成对象使用JSON.parse方法
+        console.log(JSON.parse(js));
+    </script>
+</body>
+</html>

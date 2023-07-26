@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const o1 = {
+            name:'jack',
+            age:18
+        }
+        // 对象值的复制
+        const o2 = JSON.parse(JSON.stringify(o1));
+        o1.name = 'tom'
+        console.log(o1);
+        console.log(o2);
+
+
+        const o3 = {
+            name:'jack',
+            age:18
+        }
+        const o4 = {
+            name:o3.name,
+            age:o3.age
+        }
+        o3.name='tom'
+        console.log(o3);
+        console.log(o4);
+
+        const o5 = {
+            name:'jack',
+            age:18
+        }
+        const o6 = Object.assign({},o5)
+        o5.name='tom'
+        console.log(o5);
+        console.log(o6);
+    </script>
+</body>
+</html>

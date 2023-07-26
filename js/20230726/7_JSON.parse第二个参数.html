@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const str = `{
+            "name":"jack",
+            "age":18,
+            "birth":"2023-7-26 14:10:20",
+            "size":{
+                "width":100,
+                "height":200
+            }
+        }`
+        /* 
+            JSON.parse第二个参数是一个回调函数
+            这个函数的返回值会影响JSON.parse方法的结果
+        */
+        console.log(JSON.parse(str,function (key,value) {
+            // console.log(key,value);
+            if (key === 'age') {
+                return value + '岁';
+            }
+            if (key === 'birth') {
+                return new Date(value);
+            }
+            return value;
+        }));
+        let obj = JSON.parse(str,function (key,value) {
+            // console.log(key,value);
+            if (key === 'age') {
+                return value + '岁';
+            }
+            if (key === 'birth') {
+                return new Date(value);
+            }
+            return value;
+        });
+        console.log(obj.birth.getDate());
+    </script>
+</body>
+</html>

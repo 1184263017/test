@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const obj = {
+            name:'jack',
+            age:18,
+            birth:'2023/7/26',
+            size:{
+                width:10,
+                heigth:20
+            },
+            sex:1,
+            num:undefined,
+            na:NaN,
+            nu:null,
+            toJSON(){
+                // this.sex = this.sex == 1?'男':'女';
+                // this.num = String(this.num);
+                return this;
+                // return {
+                //     a:1,
+                //     b:2
+                // }
+            }
+        }
+        /* 
+            对象中添加了toJSON方法，在转换时会自动调用该方法
+            转换的结果是toJSON的返回值
+        */
+        console.log(JSON.stringify(obj));
+    </script>
+</body>
+</html>

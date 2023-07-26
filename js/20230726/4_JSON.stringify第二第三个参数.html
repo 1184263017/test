@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const obj = {
+            name:'jack',
+            age:18,
+            birth:'2023/7/26',
+            size:{
+                width:10,
+                heigth:20
+            },
+            sex:1,
+            num:undefined,
+        }
+        /* 
+            JSON.stringify第二个参数是一个回调函数，可以影响转换的结果
+            如果key重复的情况下，都会执行操作，由外到内
+
+            第三个参数是设置空格数量
+        */
+        console.log(JSON.stringify(obj,function (key,value) {
+            if(key === 'age'){
+                return value + '岁'
+            }
+            if(key === 'birth'){
+                return new Date(value).toLocaleString()
+            }
+            if(key === 'width' || key === 'heigth'){
+                return value + 'px'
+            }
+            if(key === 'sex'){
+                return value == 1? '男':'女';
+            }
+            if(key === 'num'){
+                return String(value);
+            }
+            if(key === 'size'){
+                console.log(value);
+            }
+            return value;
+        },4));
+        // 不想设置第二个参数只想设置第三个参数,将第二位设置为null或者undefined
+        console.log(JSON.stringify(obj,undefined,4));
+    </script>
+</body>
+</html>

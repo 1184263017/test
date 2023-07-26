@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            JSON Javascript object native
+            JSON格式字符串
+        */
+        const obj = {
+            name:'jack',
+            age:18,
+            sex:'nan'
+        }
+        /* 
+            1.所有属性都用双引号包裹
+            2.所有字符串类型的属性值都用双引号包裹
+            3.key和value之间没有空格
+            4.最后一个属性值后面的逗号省略
+
+        */
+       const js = `{
+        "name":"jack",
+        "age":18,
+        "sex":"nan"
+        }`
+        console.log(String(obj));       //[object Object]
+        console.log(obj);       //[object Object]
+        // 将对象转换为json格式字符串
+        console.log(JSON.stringify(obj));  
+        console.log(JSON.parse(js)); 
+    </script>
+</body>
+</html>
