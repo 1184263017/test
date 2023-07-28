@@ -7,41 +7,10 @@
 </head>
 <body>
     <script>
-        // function a(){
-        //     var i=0;
-        //     function b(){
-        //         alert(++i);
-        //     }
-        //     return b;
-        // }
-        // // console.log(a());
-        // var c=a();
-        // c();
-
-        // function outerFunction() {
-        //     var outerVariable = 'I am outside!';
-        //     let num = 0;
-        //     function innerFunction() {
-        //         console.log(outerVariable,++num);
-        //     }
-
-        //     return innerFunction;
-        // }
-        // var closure = outerFunction();  // 调用外部函数，将内部函数赋值给变量closure
-        // closure();  // 执行内部函数，输出 "I am outside!"
-        // closure();
-        // closure();
-
-        let r = r?.a?.b
-        console.log(r);
-
-        const obj = {
-            sai:()=>{
-                let a = () => console.log(this);
-                a();
-            }
+        function  f() {
+            console.log('1');
         }
-    console.log(obj.sai())
+        let a = new f()
     </script>
     
 </body>

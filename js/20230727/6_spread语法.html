@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       
+        // console.log(Math.max(1,2,3));
+        const arr = [1,2,3,4,8,5,7];
+
+        // spread语法可以在函数调用时(实参)前面加上...可以打散数组元素
+        console.log(Math.max(...arr));
+
+
+        const arr1 = [1,3,5,7,'asd'];
+        const arr2 = [2,4,6,8];
+        // 可以一次使用多次spread语法，还可以和其他类型的参数混合在一起使用
+        console.log(Math.max(...arr1,...arr2,10));
+
+
+        function f(a,b) {
+            console.log(a,b);
+        }
+        f(...arr);
+    </script>
+</body>
+</html>

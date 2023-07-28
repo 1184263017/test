@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1.字符串
+        let str = 'hello';
+        let arr1 = [...str];
+        console.log(arr1);
+
+
+        let arr2 = str.split('')
+        console.log(arr2);
+        console.log(Array.from(str));
+        console.log('----------------');
+
+        // 2.map
+        const map = new Map();
+        map.set('name','jack').set('age',18)
+        console.log(map);
+        const arr3 = [...map]
+        console.log(arr3);
+        console.log(Array.from(map));
+        console.log('----------------');
+
+        // 3.set
+        const set = new Set();
+        set.add('jack').add(18)
+        console.log(set);
+        const arr4 = [...set]
+        console.log(arr4);
+        console.log(Array.from(set));
+        console.log('----------------');
+
+        // 4.arguments
+        function f() {
+            let arr = [...arguments]
+            console.log(arr);
+        }
+        f(1,2,3,4)
+    </script>
+</body>
+</html>

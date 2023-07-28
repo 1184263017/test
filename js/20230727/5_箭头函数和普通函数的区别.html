@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            箭头函数和普通函数的区别
+            1.箭头函数没有自己的this
+            2.箭头函数不能new
+            3.箭头函数没有arguments
+        */
+        'use strict'
+        function fun1() {
+            console.log(this);
+        }
+        fun1()
+
+        let fun2 = function () {
+            console.log(this);
+        }
+        fun2()
+
+        // 1.箭头函数没有自己的this
+        let fun3 = () => console.log(this)
+        fun3()
+        console.log('---------------------');
+
+        function fun4() {
+            
+        }
+        console.log(new fun4());
+
+        let fun5 = function fun5() {
+            
+        }
+        console.log(new fun5());
+
+        let fun6 = () => {};
+        // 2.箭头函数不能new
+        // console.log(new fun6());
+        // console.log(fun6);
+
+        console.log('---------------------');
+
+        function fun7() {
+            console.log(arguments);
+        }
+        fun7(1,3,4,5,6)
+
+        let fun8 = function () {
+            console.log(arguments);
+        }
+        fun8(1,3,4,5,6)
+
+        // 3.箭头函数没有arguments
+        // let fun9 = ()=>console.log(arguments);
+        // fun9(1,3,4,5,6)
+
+
+        function f() {
+            
+            console.log(arguments);
+            let c = (...num)=>console.log(arguments,num);
+            c(1,2,3,4);
+        }
+        f(5,6,7,8)
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let company = {
+            sales: [{ name: 'John', salary: 1000 }, { name: 'Alice', salary: 1600 }],
+            development: {
+                sites: [{
+                    name: 'Peter', salary: 2000
+                }, {
+                    name: 'Alex', salary: 1800
+                }],
+
+                internals: [{
+                    name: 'Jack', salary: 1300
+                }],
+
+                qd:{
+                    cs:[{ name: 'hh', salary: 1000 }, { name: 'xx', salary: 1600 }]
+                }
+            }
+        };
+        console.log(Object.entries(company));
+        function getName(obj) {
+            if(typeof obj !== 'object'){
+                return 'no type';
+            }
+            
+            for (const k in obj) {
+                if(Array.isArray(obj[k])){
+                    obj[k].forEach(value => {
+                        console.log(value['name']);
+                    });
+                }else{
+                    getName(obj[k]);
+                }
+            }
+        }
+        console.log(getName(company));
+    </script>
+</body>
+
+</html>

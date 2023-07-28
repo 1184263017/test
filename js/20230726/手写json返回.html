@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            对象，数组，string，number,boolean,null 可以转
+
+            bigint转换会报错
+            undefined,function,symbol转换结果为undefined
+        */
+        const obj = {
+            name:'jack',
+            age:18,
+            birth:'2023/7/26',
+            size:{
+                width:10,
+                heigth:20
+            },
+            obj1:{},
+            arr1:[],
+            sex:1,
+            arr:[1,2,'a','b'],
+            num:undefined,
+            [Symbol('id')]:1,
+            id:[Symbol('id')],
+            bs: [1, 2, { size: 1, size2: 3 }],
+        }
+        console.log(JSON.stringify(obj));
+        console.log(typeof JSON.stringify(obj));
+        console.log('--------------');
+
+        // const arr = [null,undefined,function (params) {}];
+        const arr = ['a','b',1,2,false,null,undefined,function (params) {},{},{'a':1,'b':2},[Symbol('id')]];
+        console.log(arr);
+        console.log(JSON.stringify(arr));
+        console.log(typeof JSON.stringify(arr));
+        console.log('--------------');
+
+
+        let i = 0;
+        function toJSON(obj) {
+            let js_str = '';
+            let value = 'null';
+            for (const k in obj) {
+                if(typeof obj[k] === 'string'){
+                    js_str += Array.isArray(obj)? `"${obj[k]}",` : `"${k}":"${obj[k]}",`;
+                }else if(typeof obj[k] === 'number'){
+                    js_str += Array.isArray(obj)? `${obj[k]},` : `"${k}":${obj[k]},`;
+                }else if(typeof obj[k] === 'boolean'){
+                    js_str += Array.isArray(obj)? `${obj[k]},` : `"${k}":${obj[k]},`;
+                }else if(obj[k] === null){
+                    js_str += Array.isArray(obj)? `null,` : `"${k}":${obj[k]},`;
+                }else if(obj[k] === undefined){
+                    js_str += Array.isArray(obj)? `null,` : ``;
+                }else if(typeof obj[k] === 'function'){
+                    js_str += Array.isArray(obj)? `null,` : ``;
+                }else if(typeof obj[k] === 'symbol'){
+                    js_str += `null,`;
+                }
+                
+                if (typeof obj[k] === 'object' && obj[k] != null) {
+                    if (Object.values(obj[k]).length != 0) {
+                        js_str += Array.isArray(obj)? `${toJSON(obj[k])},` : `"${k}":${toJSON(obj[k])},`;
+                    }else{
+                        if(Array.isArray(obj[k])){
+                            js_str += Array.isArray(obj)? `[],` : `"${k}":[],`;
+                        }else{
+                            js_str += Array.isArray(obj)? `{},` : `"${k}":{},`;
+                        }
+                    }
+                }
+            }
+            // i++
+            // console.log(js_str,i);
+            if(js_str != ''){
+                let num = js_str.lastIndexOf(',');
+                js_str = js_str.substr(0,num);
+                js_str = js_str.split(num);
+                if(Array.isArray(obj)){
+                    js_str.push(']');
+                    js_str.unshift('[');
+                }else{
+                    js_str.push('}');
+                    js_str.unshift('{');
+                }
+                js_str = js_str.join('')
+            }
+            return js_str;
+        }
+        
+        console.log(toJSON(obj));
+        console.log('------------');
+        console.log(toJSON(arr));
+        console.log(toJSON(obj) == JSON.stringify(obj));
+        console.log(toJSON(arr) == JSON.stringify(arr));
+        console.log('------------');
+
+
+        let str = `{"name":"jack","age":18,"birth":"2023/7/26","size":{"width":10,"heigth":20},"obj1":{},"arr1":[],"sex":1,"arr":[1,2,"a","b"],"id":[null]}`;
+        console.log(JSON.parse(str));
+    </script>
+</body>
+</html>

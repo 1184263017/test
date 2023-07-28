@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const [a,...b] = [1,2,3];
+        console.log(a);
+        console.log(b);
+
+        let {...name} = {
+            name:'jack',
+            age:18
+        }
+        console.log(name);
+
+        // rest参数,在最后一个形参的前面加上...
+        function fun(a,b,...c) {
+            console.log(a,b,c);
+            
+        }
+        fun(1,2,3,4,5)
+
+        function getsum(...num) {
+            return num.reduce((sum,value)=>sum+=value,0)
+        }
+        console.log(getsum(1,2,3));
+        
+    </script>
+</body>
+</html>

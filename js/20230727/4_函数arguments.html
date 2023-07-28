@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fun(a,b) {
+            /* 
+                类数组(类似与数组的对象，但是可以迭代)接收所有的参数
+                不是数组不能使用数组方法
+                arguments只能在函数内部使用
+                可以使用array.from将其转换为数组
+            */
+            console.log(Array.from(arguments));
+            console.log(arguments.length);
+            for (const value of arguments) {
+                console.log(value);
+            }
+            console.log(Array.isArray(arguments));
+        }
+        fun(1,'a',3,4,5,6)
+    </script>
+</body>
+</html>
