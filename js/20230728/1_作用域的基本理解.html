@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        {
+            let a = 10;
+            {
+                console.log(a); //10
+            }
+            console.log(a); //10
+        }
+        // console.log(a); //a is not defined
+
+        function f1() {
+            let b = 20
+            console.log(b); //20
+        }
+        f1()
+        function f2() {
+            let b = 30
+            console.log(b); //30
+        }
+        f2()
+
+        let c = 40;
+        function f3() {
+            c = 50;
+            console.log(c); //50
+        }
+        f3()
+        console.log(c);     //50
+    </script>
+</body>
+</html>

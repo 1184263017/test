@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict'
+        if(true){
+            let a = 10;
+        }else{
+            let a = 20;
+        }
+        // console.log(a); //a is not defined
+
+        // 严格模式下报错
+        // 非严格模式下会自动将函数提升到最顶部调用
+        if(true){
+            function f() {
+                console.log(1);
+            }
+        }
+        f()
+    </script>
+</body>
+</html>

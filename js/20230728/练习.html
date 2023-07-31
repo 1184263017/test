@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 'use strict'
+        // let name = "John";
+        // function sayHi() {
+        //     console.log("Hi, " + name);
+        // }
+        // name = "Pete";
+        // sayHi(); // pete
+        // console.log('---------------');
+
+
+        function makeWorker() {
+            let name = "Pete";
+            return function () {
+                console.log(name);
+            };
+        }
+        let name = "John";
+        // create a function
+        let work = makeWorker();
+        // call it
+        work(); // 会显示什么？
+        console.log('---------------');
+
+
+        function makeCounter() {
+            let count = 0;
+            return function () {
+                return count++;
+            };
+        }
+        let counter = makeCounter();
+        let counter2 = makeCounter();
+        console.log(counter()); // 0
+        console.log(counter()); // 1
+        console.log(counter2()); // 0
+        console.log(counter2()); // 1
+        console.log('---------------');
+
+        function Counter() {
+            let count = 0;
+            this.up = function () {
+                return ++count;
+            };
+            this.down = function () {
+                return --count;
+            };
+        }
+        let counter1 = new Counter();
+        console.log(counter1.up()); // 1
+        console.log(counter1.up()); // 2
+        console.log(counter1.down()); // 1
+        console.log('---------------');
+
+
+        let phrase = "Hello";
+        if (true) {
+            let user = "John";
+            function sayHi() {
+                console.log(`${phrase}, ${user}`);
+            }
+        }
+        // sayHi();    //Hello, John
+        console.log('---------------');
+
+
+        let sum = a => b => a + b
+        console.log(sum(1)(2));
+        console.log('---------------');
+
+
+        let x = 1;
+        function func() {
+            console.log(x); // Cannot access 'x' before initialization
+            let x = 2;
+        }
+        // func();
+        console.log('---------------');
+
+
+        function inBetween(a, b) {
+            return (value, index, array) => value >= a && value <= b;
+            // return function (value,index,array) {
+            //     return value >= a && value <=b;
+            // }
+        }
+
+        function inArray(arr) {
+            return (value, index, array) => arr.includes(value);
+            // return function (value,index,array) {
+            //     return arr.includes(value);
+            // }
+        }
+
+        /* .. inBetween 和 inArray 的代码 */
+        let arr = [1, 2, 3, 4, 5, 6, 7];
+        console.log(arr.filter(inBetween(3, 6))); // 3,4,5,6
+        console.log(arr.filter(inArray([1, 2, 10]))); // 1,2
+        console.log('---------------');
+
+        let users = [
+            { name: "John", age: 20, surname: "Johnson" },
+            { name: "Pete", age: 18, surname: "Peterson" },
+            { name: "Ann", age: 19, surname: "Hathaway" }
+        ];
+        function byField(name) {
+            return (a, b) => a[name] > b[name] ? 1 : -1;
+        }
+        // users.sort(byField('name'));
+        // console.log(users);
+        users.sort(byField('age'));
+        console.log(users);
+        console.log('------------------');
+
+        function makeArmy() {
+            let shooters = [];
+            let i = 0;
+            while (i < 10) {
+                let n = i;
+                let shooter = function () { // 创建一个 shooter 函数，
+                    let i = n;
+                    console.log(i); // 应该显示其编号
+                };
+                shooters.push(shooter); // 将此 shooter 函数添加到数组中
+                i++;
+            }
+            // ……返回 shooters 数组
+            return shooters;
+        }
+        let army = makeArmy();
+        // ……所有的 shooter 显示的都是 10，而不是它们的编号 0, 1, 2, 3...
+        console.log(army);
+
+        army[9](); // 编号为 0 的 shooter 显示的是 10
+        army[9](); // 编号为 0 的 shooter 显示的是 10
+        // army[1](); // 编号为 1 的 shooter 显示的是 10
+        // army[2](); // 10，其他的也是这样。
+        // army[3](); // 10，其他的也是这样。
+        // army[4](); // 10，其他的也是这样。
+    </script>
+</body>
+
+</html>
