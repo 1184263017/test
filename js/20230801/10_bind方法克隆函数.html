@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict"
+        function add(a,b) {
+            console.log(this);
+            return a+b
+        }
+        console.log(add(1,2));
+        console.log('---------');
+
+        /* 
+            bind不执行,只是克隆
+            1.克隆原函数，返回一个新函数
+            2.绑定新函数的this参数(第一个参数)
+            3.绑定新函数的实参(第二个参数开始)
+            4.新函数调用时,只需要传未绑定参数
+         */
+        const fn1 = add.bind(100)
+        fn1.call(200);   //无法再设置
+        console.log(fn1(10,20));
+        console.log('---------');
+
+        const fn2 = add.bind(200,5)
+        console.log(fn2(10));//只需要传未绑定参数
+        console.log('---------');
+
+        const fn3 = add.bind(200,20,30)
+        console.log(fn3());//不需要传递参数
+
+    </script>
+</body>
+</html>

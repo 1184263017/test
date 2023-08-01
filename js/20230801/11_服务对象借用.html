@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 改变服务对象
+        const arr = [1,2,3,4,5]
+
+        console.log(arr.join());
+        console.log('-------------');
+
+        // 可放入类数组
+        console.log(arr.join.call(['a','b','c']));
+        console.log(arr.join.call({0:7,1:8,2:9,length:3}));
+        console.log('-------------');
+
+        console.log(arr.join.apply(['a','b','c']));
+        console.log(arr.join.apply({0:7,1:8,2:9,length:3}));
+
+        
+    </script>
+</body>
+</html>

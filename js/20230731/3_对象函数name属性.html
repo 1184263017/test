@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            对象
+            1.属性
+            2.方法
+                1.参数(输入)
+                2.输出(输出)
+        */
+        //函数有函数名时用自己的函数名，没有就使用属性名，向外查找
+        const info = {
+            say:function fn(){},
+            sayHi(){},
+        }
+        info.say.name = 132;
+        console.log(info.say.name);     //fn
+        console.log(info.sayHi.name);   //sayHi
+        console.log(info.say);          //函数
+        console.dir(info.say);          //对象
+    </script>
+</body>
+</html>

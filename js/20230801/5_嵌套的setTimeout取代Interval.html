@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 每隔一段时间执行一次
+        let s1;//要想清除需要取内部每次变换的setTimeout ID
+        setTimeout(function tick() {
+            console.log('hello');
+            s1 = setTimeout(tick,2000)
+        }, 2000);
+
+        setTimeout(() => {
+            clearTimeout(s1)
+        }, 5000);
+    </script>
+</body>
+</html>

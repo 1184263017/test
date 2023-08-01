@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            setTimeout只执行一次
+            第一个参数是回调函数，执行操作的流程写在其中
+            第二个参数是间隔时间，单位毫秒
+            第二个参数后面的是回调函数的实参，可填多个
+        */
+        setTimeout((a,b) => {
+            console.log('ok',a+b);
+        }, 5000,1,2,3,4);
+    </script>
+</body>
+</html>

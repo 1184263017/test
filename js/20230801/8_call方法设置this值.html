@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict"
+        function say(a,b) {
+            console.log('hello',a+b,this);
+        }
+        // say(1,2)
+
+        /* 
+            1.调用执行函数
+            2.设置this参数(第一个参数)
+            3.设置其他实参(第二个参数开始)
+            4.this值约定只能设置对象或者null
+        */
+        const arr = [10,20]
+        say.call(1,...arr);
+        say.call(1,1,2);
+    </script>
+</body>
+</html>

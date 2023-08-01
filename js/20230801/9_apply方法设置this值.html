@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict"
+        function say(a,b) {
+            console.log('hello',a+b,this);
+            console.log(this.name);
+            console.log(this.age);
+        }
+        // say(1,2)
+
+        const obj = {
+            name:'jakc',
+            age:18
+        }
+
+        /* 
+            1.调用执行函数
+            2.设置this参数(第一个参数)
+            3.设置其他实参(第二个参数是数组)
+            4.this值约定只能设置对象或者null
+        */
+        say.apply(obj,[2,3]);
+
+        // let a = ()=>{
+        //     console.log(this);
+        // }
+        // a.apply(1)
+    </script>
+</body>
+</html>

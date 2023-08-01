@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function makeCounter() {
+        //     let f =  function counter(){} // {}
+        //     f.count = 0;
+        //     f.set = function (value){
+        //         this.count = value
+        //         return this.count
+        //     }
+        //     f.decrease = function (value){
+        //         this.count -= value;
+        //         return this.count
+        //     }
+        //     return f;
+        // }
+
+        // let f = makeCounter();
+        
+        // console.log(f.set(100));
+        // console.log(f.decrease(20));
+        // console.log(f.count);
+        // console.log('---------------');
+
+
+
+        // let num = 123456.123;
+        // function setStr(num) {
+        //     let arr = String(num).split('.');
+        //     let arr1 = arr[0].split('');
+        //     let len = Math.floor((arr1.length / 3));
+        //     let y = 3;
+        //     let n = arr1.length;
+        //     for (let i = 1; i <= len; i++) {
+        //         arr1.splice((n-y),0,',')
+        //         y+=3;
+        //     }
+        //     let arr2 = arr1.join('').split(',');
+        //     if (arr2[0] == '') {
+        //         arr2.splice(0,1);
+        //     }
+        //     return arr2.join(',') + (arr[1]==undefined ? '':'.'+arr[1]);
+        // }
+        // console.log(setStr(num));   //123，456，789.123
+
+        // let count = 0;
+        // function sum(num) {
+        //     count += num;
+        //     return sum;
+        // }
+        // sum.toString = ()=> count;
+        // console.log(sum(1)(2)(3)-1);
+
+        // function sum2(num) {
+        //     if(sum2.count == undefined){
+        //         sum2.count = 0;
+        //     }
+        //     sum2.count += num;
+        //     // sum2.toString = function () {
+        //     //     // console.log(this);
+        //     //     return this.count;
+        //     // };
+        //     return sum2;
+        // }
+        // sum2.toString = function () {
+        //     // console.log(2);
+        //     return this.count;
+        // };
+        // console.log(sum2);
+        // console.log(sum2(1));
+
+
+        // function sum1(num) {
+        //     let count = 0;
+        //     count += num;
+        //     function f(num) {
+        //         count += num;
+        //         return f;
+        //     }
+       
+        //     f.toString = ()=> count;
+        //     return f;
+        // }
+        // console.log(sum1(1)(2)(3)-1);
+
+
+        // function sum() {
+        //     f.count = 0;
+        //     function f(n) {
+        //         f.count += n;
+        //         return f;
+        //     }
+        //     f.toString = function () {
+        //         return this.count;
+        //     }
+        //     // f.toString = () => console.log(this.count);
+        //     return f
+        // }
+        // let s = sum();
+        // console.log(s(1)(2) - 1);
+
+
+
+        function call(n) {
+            let ysf = {
+                '*':(a,b)=>a*b,
+                '+':(a,b)=>a+b, 
+                '-':(a,b)=>a-b,
+                '/':(a,b)=>a/b,
+            }
+            let arr = [];
+            arr.push(n);
+            function f(n) {
+                arr.push(n);
+                console.log(arr);
+                if(arr[2] != undefined && isFinite(arr[2])){
+                   return ysf[arr[1]](arr[0],arr[2]);
+                }
+                return f
+            }
+            
+            return f;
+        }
+        // call(1)('*')(2) // 2
+        // call(2)('/')(2) // 1
+        // console.log(call(1)('*')(2));
+        // console.log(call(2)('/')(2));
+
+
+
+        // const map  = new Map([['name','jcak'],['age',18]])
+        // console.log(map);
+        // for (const [k,v] of map) {
+        //     console.log(k,v);
+        // }
+
+        // function name() {
+        //     console.log(arguments);
+        //     console.log(Array.from(arguments));
+        // }
+        // name(1,2,3)
+
+        const obj  = {
+            name:'jack',
+            o:{
+                age:18
+            }
+        }
+        const obj1 = Object.assign({},obj)
+        const obj2 = JSON.parse(JSON.stringify(obj,(k,v)=>{
+            if (k == 'age') {
+                return 30
+            }
+            return v;
+        })) ;
+
+        obj.name = 'tom';
+        obj.o.age = 20;
+
+
+
+
+
+
+        console.log(obj);
+        console.log(obj1);
+        console.log(obj2);
+
+
+
+
+        // console.log(Number(symbol('id')));
+
+
+        // const arr = [1,2,3,4];
+        // let arr1 = arr.splice(0)
+        // console.log(arr1);
+
+        // console.log('a');
+        // setTimeout(() => {
+        //     console.log(1);
+        // }, 1000);
+        // console.log('b');
+        // setTimeout(() => {
+        //     console.log(3);
+        // }, 3000);
+        // console.log('c');
+        // setTimeout(() => {
+        //     console.log(5);
+        // }, 5000);
+        // console.log('d');
+
+        
+        console.log(isNaN('a12'));
+        console.log(Number.isNaN(NaN));
+        
+    </script>
+</body>
+</html>

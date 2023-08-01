@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            函数表达式：函数赋值给变量
+                1.匿名函数           const f1 = function () {}
+                2.具名函数(NFE)      const f1 = function say() {}
+                    1.它允许函数在内部引用自己
+                    2.它在函数外是不可见的
+        */
+        /* 
+            f1全局变量
+            say 局部变量
+        */
+        const f1 = function say() {
+            console.log('1');
+            console.log(say);
+        }
+
+        f1();   //1
+        // say();  //say is not defined
+    </script>
+</body>
+</html>

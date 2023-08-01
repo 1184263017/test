@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            同步>异步
+            0 表示代码等待同步代码执行完毕后立刻执行
+            1000 表示代码等待同步代码执行完毕在等待1000毫米后执行
+        */
+        console.log(1); //同步
+        setTimeout(() => {
+            console.log(2.1); //相对于外面是异步，相对于里面是同步
+            setTimeout(() => {
+                console.log(2.2); //异步
+            }, 1000);
+            console.log(2.3); //相对于外面是异步，相对于里面是同步
+        }, 1000);
+        console.log(3); //同步
+        console.log(4); //同步
+    </script>
+</body>
+</html>

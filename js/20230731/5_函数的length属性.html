@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function f1(a) {}
+        function f2(a,b) {}
+        function f3(a,b,c,...more) {} //剩余参数不算在length内
+
+        console.log(f1.length); //1
+        console.log(f2.length); //2
+        console.log(f3.length); //3
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            对象
+            1.属性
+            2.方法
+                1.参数(输入)
+                2.输出(输出)
+        */
+
+        // 匿名函数有函数名时用自己的函数名，没有就使用变量名，向外查找
+        const sayHi = function say() { }     //匿名函数
+        console.log(sayHi.name);  //获取函数名
+
+        
+
+
+        function say() { }  // say = {};
+        function fn(f = function () { }) {
+            console.log(f.name);
+
+        }
+
+        fn(say);
+        fn();
+    </script>
+</body>
+
+</html>

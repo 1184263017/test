@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            对象
+            1.属性
+            2.方法
+                1.参数(输入)
+                2.输出(输出)
+        */
+
+        // const say = function () {}
+        function say() {}  // say = {};
+
+        // 两面（二合一，可以是对象也可以是函数）
+        say();      //函数
+        say.username = 'jack';  //对象
+
+        console.log(say);   //当做函数输出
+        console.dir(say);   //当做对象输出
+    </script>
+</body>
+</html>

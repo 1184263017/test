@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            同步>异步
+            0 表示代码等待同步代码执行完毕后立刻执行
+            1000 表示代码等待同步代码执行完毕在等待1000毫米后执行
+        */
+        console.log(1); //同步
+        setTimeout(() => {
+            console.log(2); //相对于外面是异步
+        }, 0);
+        console.log(3); //同步
+        console.log(4); //同步
+
+        //1 3 4 2
+
+
+
+        let i = 0;
+        /* 
+            代码从上到下，这个时候已经执行，等待同步执行完毕，
+            如果同步耗时1秒钟完成，那么异步也是1秒钟输出，
+            如果同步耗时0.5秒钟完成，那么异步也是1秒钟输出，
+            如果同步耗时2秒钟完成，那么异步也是2秒钟输出，
+         */
+        // setTimeout(() => console.log(i,'---'), 1000); // ?
+        // 假设这段代码的运行时间 >100ms
+        for (let j = 0; j < 100000000; j++) {
+            i++;
+            // console.log(i);
+        }
+        /* 
+            代码从上到下，这个时候需要等待同步执行完毕，
+            如果同步耗时1秒钟完成，那么异步也是2秒钟输出，
+            如果同步耗时0.5秒钟完成，那么异步也是1.5秒钟输出，
+            如果同步耗时2秒钟完成，那么异步也是3秒钟输出，
+         */
+        setTimeout(() => console.log(i,'---'), 5000); // ?
+    </script>
+</body>
+</html>

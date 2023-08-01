@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function f1(a) {}   // f1 = {}
+
+        f1.username = 'lili';
+        f1.name = 'haha'
+        f1.say = function () {
+            console.log(this.username);
+        }
+
+        f1.say();
+        console.log(f1.name);
+    </script>
+</body>
+</html>
