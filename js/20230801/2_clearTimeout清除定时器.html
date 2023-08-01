@@ -6,20 +6,20 @@
     <title>Document</title>
 </head>
 <body>
-    <script>
-        // 唯一标识当前定时器的
-        const s1 = setTimeout(() => {
-            console.log('ok');
-        }, 3000);
+        <script>
+            // 唯一标识当前定时器的
+            const s1 = setTimeout(() => {
+                console.log('ok');
+            }, 3000);
 
-        const s2 = setTimeout(() => {
-            console.log('hello');
-            clearTimeout(s1)
-        }, 2000);
+            const s2 = setTimeout(() => {
+                console.log('hello');
+                clearTimeout(s1)
+            }, 2000);
 
-        console.log(s1,s2);
+            console.log(s1,s2);
 
-        // clearTimeout(s2)
-    </script>
+            // clearTimeout(s2)
+        </script>
 </body>
 </html>
