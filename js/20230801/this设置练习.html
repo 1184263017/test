@@ -42,15 +42,15 @@
         });
         // console.dir(bound);
         console.log(bound.test); // 输出将会是什么？为什么？ undefined bind不会克隆函数对象中的属性和方法
-
+        console.log('-----------------');
 
         // function askPassword(ok, fail) {
         //     // ok = ok.bind(user)
         //     // fail = fail.bind(user)
         //     let password = prompt("Password?",
         //         '');
-        //     if (password == "rockstar") ok();
-        //     else fail();
+        //     if (password == "rockstar") ok.call(user);
+        //     else fail.call(user);
         // }
         // let user = {
         //     name: 'John',
@@ -62,23 +62,40 @@
         //     },
         // };
 
-        // askPassword(user.loginOk.bind(user), user.loginFail.bind(user));
+        // // askPassword(user.loginOk.bind(user), user.loginFail.bind(user));
+        // askPassword(user.loginOk, user.loginFail);
 
 
-        function askPassword(ok, fail) {
-            let password = prompt("Password?",
-                '');
-            if (password == "rockstar") ok();
-            else fail();
+        // function askPassword(ok, fail) {
+        //     let password = prompt("Password?",
+        //         '');
+        //     if (password == "rockstar") ok();
+        //     else fail();
+        // }
+        // let user = {
+        //     name: 'John',
+        //     login(result) {
+        //         console.log(this.name + (result ? ' logged in' : ' failed to log in'));
+        //     }
+        // };
+        // askPassword(user.login.bind(user,true),user.login.bind(user,false)); // ?你只能修改这部分的代码。
+
+
+        const o1 = {
+            name:'jack',
+            say(){
+                console.log(this.name,'hi');
+            },
         }
-        let user = {
-            name: 'John',
-            login(result) {
-                console.log(this.name + (result ? ' logged in' : ' failed to log in'));
-            }
-        };
-        askPassword(user.login.bind(user,true),user.login.bind(user,false)); // ?你只能修改这部分的代码。
+        const f1 = o1.say.bind(o1);
+        f1();
 
+
+        const o2 = {
+            name:'tom',
+            fn:o1.say.bind(o1),
+        }
+        o2.fn();
     </script>
 </body>
 

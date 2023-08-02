@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const info = {
+            age:18,
+            name:'jack',
+            o:{
+                width:100,
+                height:200,
+            }
+        }
+        // 获取源对象属性标志
+        const i = Object.getOwnPropertyDescriptors(info);
+        console.log(i);
+        info.o.width = 500;
+        // 基于源对象的属性标志生成新对象(复制 属于浅拷贝)
+        const user = {};
+        Object.defineProperties(user,i);
+        console.log(user);
+    </script>
+</body>
+</html>

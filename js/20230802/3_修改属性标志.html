@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const id = Symbol('id');
+        const info = {
+            //直接定义属性的所有标志默认为true 
+            age:18,
+            [id]:123
+        }
+        
+        // 默认情况下定义属性的所有标志默认为false
+        Object.defineProperty(info,'name',{
+            value:'jack',
+            writable:true,      //是否可以修改
+            enumerable:true,    //是否可以遍历
+            configurable:true,  //是否可以删除
+        })
+        console.log(info);
+        // info.name = 'tom'
+        // delete info.name
+        // for (const k in info) {
+        //     console.log(info[k]);
+        // }
+        console.log(info);
+        console.log('-----------------');
+        const o2 = Object.getOwnPropertyDescriptor(info,id)
+        console.log(o2);
+        const o1 = Object.getOwnPropertyDescriptor(info,'name')
+        console.log(o1);
+        const o = Object.getOwnPropertyDescriptor(info,'age')
+        console.log(o);
+    </script>
+</body>
+</html>

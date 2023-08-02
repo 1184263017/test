@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict"
+
+
+        /* 
+            箭头函数没有自己的this,他的this取决于上下文
+            箭头函数this查找本质上变量作用域的问题
+
+            不能new 
+            没有argument
+            没有this
+        */
+        const user = {
+            username:'jack',
+            say(){
+                console.log(this.username);
+                const fn1 = ()=>{
+                    console.log(this.username);
+                }
+                fn1()
+
+
+
+                const fn2 = function () {
+                    console.log(this.username);
+                }
+                fn2()
+            }
+        }
+        user.say();
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const info = {
+            fisrtName:'liu',
+            lastName:'wang',
+            get fullName(){
+                // 每次调用重新计算
+                return `${this.lastName} ${this.fisrtName}`;
+            }
+        }
+        // console.log(info.fullName());   // wang liu
+        // info.fisrtName = 'tom';
+        // console.log(info.fullName());   // wang tom
+
+        // 方法前面加上get则调用方法时不需要括号
+        console.log(info.fullName);   // wang liu
+        info.fisrtName = 'tom';
+        console.log(info.fullName);   // wang tom
+    </script>
+</body>
+</html>
