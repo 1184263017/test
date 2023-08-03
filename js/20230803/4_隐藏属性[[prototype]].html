@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            [[prototype]] == __proto__
+            1.他是一个隐藏属性，无法直接访问
+            2.所有对象都有这个属性
+            3.可以通过调试属性__proto__进行
+        */
+
+        const a = {}
+        const b = []
+        const c = function () {}
+
+        console.log(a);
+        console.log(b);
+        console.dir(c);
+    </script>
+</body>
+</html>

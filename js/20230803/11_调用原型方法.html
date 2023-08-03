@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const animal = {
+            fisrtName:'liu',
+            lastName:'wang',
+            get fullName(){
+                // 每次调用重新计算
+                return `${this.lastName} ${this.fisrtName}`;
+            },
+            set fullName(value){
+                // 当对fullname设置的时候立即执行，并且传递设置的值
+                // console.log(value);
+                [this.lastName,this.fisrtName] = value.split(' ')
+            },
+        }
+        const cat = {
+            __proto__:animal,
+        }
+
+        /* 
+            1.本质上不是属性设置而是方法的调用
+            2.如果想阻止只需要设置一个同名属性就可以
+        */
+        cat.fullName = 'lili zhang'
+        console.log(cat);
+        console.log(animal.fullName);   //wang liu
+        console.log(cat.fullName);      //lili zhang
+        console.log('-----------');
+    </script>
+</body>
+</html>

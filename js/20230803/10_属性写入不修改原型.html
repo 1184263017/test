@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        const Animal = {
+            money:1000
+        };
+        const cat = {
+            __proto__:Animal,
+        }
+        // 属性写入不会修改原型
+        cat.money = 20;
+        // 修改原型必须使用__proto__去修改
+        cat.__proto__.money = 50;
+        console.log(cat);
+        console.log(cat.money);     //20
+        console.log(Animal.money);  //1000
+    </script>
+</body>
+</html>

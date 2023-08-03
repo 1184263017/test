@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const user = {
+            fisrtName:'liu',
+            lastName:'wang',
+            gender:'1',
+            get genderCN(){
+                const g = {1:'男',2:'女'}
+                return  g[this.gender];
+            },
+            get genderUS(){
+                const g = {1:'boy',2:'girl'}
+                return  g[this.gender];
+            },
+            set genderCN(value){
+                const g = {'男':'1','女':'2'}
+                this.gender = g[value];
+            },
+            set genderUS(value){
+                const g = {'boy':'1','girl':'2'}
+                this.gender = g[value];
+            },
+        }
+        console.log(user.genderCN);
+        user.genderCN = '女'
+        console.log(user.genderCN);
+        console.log('------------------');
+        console.log(user.genderUS);
+        user.genderUS = 'boy'
+        console.log(user.genderUS);
+    </script>
+</body>
+</html>

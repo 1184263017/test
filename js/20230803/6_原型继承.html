@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            原型继承
+            1.基于原型查找属性和方法
+            2.实现代码复用
+        */
+        const Animal = {
+            eat:true,
+            say(){
+                console.log('hello');
+            }
+        }
+        const cat = {
+            __proto__:Animal,
+        }
+        console.log(cat);
+        console.log(cat.uname);
+        console.log(cat.eat);
+        cat.say()
+    </script>
+</body>
+</html>

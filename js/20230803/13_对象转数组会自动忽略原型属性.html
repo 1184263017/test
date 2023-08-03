@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const animal = {
+            eats:true,
+        }
+
+        const rabbit = {
+            jumps:true,
+            age:20,
+            gendey:'boy',
+            __proto__:animal,
+        }
+        console.log(Object.values(rabbit));
+        console.log(Object.keys(rabbit));
+        console.log(Object.entries(rabbit));
+    </script>
+</body>
+</html>

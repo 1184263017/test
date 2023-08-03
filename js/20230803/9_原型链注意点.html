@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const a = {
+            money:1000, 
+            __proto__:null, //原型链结束(终点)
+        }
+        const b = {
+            __proto__:a,
+            f1(){
+                console.log('b');
+            }
+        }
+        const c = {
+            __proto__:b,
+        }
+        const d = {
+            __proto__:c,
+        }
+        // 原型链不能闭环
+        // a.__proto__ = d; //报错
+    </script>
+</body>
+</html>

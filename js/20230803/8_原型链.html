@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            1.所有属性和方法都是基于原型链查找
+            2.任意原型对象上如果查找到属性和方法，终止原型链查找
+            3.属性独立，方法共享
+        */
+        const a = {
+            money:1000,
+            
+        }
+        const b = {
+            __proto__:a,
+            f1(){
+                console.log('b');
+            }
+        }
+        const c = {
+            // money:400,
+            __proto__:b,
+        }
+        const d = {
+            // money:5,
+            __proto__:c,
+            // f1(){
+            //     console.log('d');
+            // }
+        }
+
+        console.log(d.money);
+        d.f1()
+        console.log(d);
+        
+    </script>
+</body>
+</html>

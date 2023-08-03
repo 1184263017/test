@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const animal = {
+            eats:true,
+        }
+
+        const rabbit = {
+            jumps:true,
+            __proto__:animal,
+        }
+        // rabbit.__proto__.uname = 'wang'
+        // console.log(rabbit);
+        /* 
+            所有的对象都有hasOwnProperty方法，判断当前属性是否属于这个对象，属于返回true,不属于返回false、
+
+            forin循环会遍历原型链上的属性，不遍历原型链上的方法
+        */
+        // console.log(rabbit.hasOwnProperty('eats'));
+        // console.log(rabbit.hasOwnProperty('jumps'));
+        for (const k in rabbit) {
+            if (rabbit.hasOwnProperty(k) === true) {
+                console.log(k);
+            } 
+        }
+    </script>
+</body>
+</html>
