@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function Array() {
+        //     this.__proto__ = Array.prototype
+        // }
+        const date = new Date;// new Array();
+        console.log(date.__proto__ === Date.prototype);
+        console.log(Date.prototype);
+        console.log('----------------');
+
+         /* 
+            所有对象都是有原型链的，原型链的终点是null
+            Object.prototype是所有对象的祖先
+            Array.prototype是所有数组对象的祖先
+            Date.prototype是所有日期对象的祖先
+            Function.prototype是所有函数对象的祖先
+        */
+        // const Object = {
+        //     __proto__ : null,
+        // }
+        // const Date = {
+        //     __proto__ : Object.prototype,
+        // }
+        // const date = {
+        //     __proto__ : Date.prototype,
+        // }
+        console.log(Date.prototype.__proto__ === Object.prototype);
+    </script>
+</body>
+</html>

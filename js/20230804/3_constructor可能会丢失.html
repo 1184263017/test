@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            1.constructor可能会丢失，如果丢失可以通过重新设置指向构造函数找回
+            2.constructor可以用于反向查找对象是那个构造函数构造的
+        */
+        function Person(){
+            // this = {};
+            this.age = 18
+            this.name = 'jack'
+            // this.__proto__ = Person.prototype
+            // return this
+        }
+        Person.prototype = {allow:true,constructor:Person} 
+        const p1 = new Person();
+        console.log(p1.constructor);
+        console.log(p1.constructor.name);
+    </script>
+</body>
+</html>

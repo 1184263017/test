@@ -15,7 +15,7 @@
             1.value 属性没必要存在,使用get(读取)和set(写入)替代
             2.get返回数据作为属性值，set会在属性被赋值的时候触发
             3.get 和 set 中的this指向 . 前面的对象
-            4.writable无效  enumerable和enumerable正常使用
+            4.writable无效  enumerable和configurable正常使用
         */
         Object.defineProperty(user,'fullName',{
             get(){

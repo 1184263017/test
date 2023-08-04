@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            null 和 undefined 比较特殊。它们没有对象包装器，
+            所以它们没有方法和属性。并且它们也没有相应的原型
+        */
+        const str = 'hello';
+        // str = New String('hello');
+        console.log(str.__proto__ === String.prototype);
+        console.log(String.prototype);
+        console.log('--------------');
+
+        const num = 100;
+        // num = New Number(100);
+        console.log(num.__proto__ === Number.prototype);
+        console.log(Number.prototype);
+        console.log('--------------');
+
+
+        const boolean = true;
+        // num = New Boolean(true);
+        console.log(boolean.__proto__ === Boolean.prototype);
+        console.log(Boolean.prototype);
+        console.log('--------------');
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            1.[[prototype]] 所有对象都有的属性（对象原型属性）
+            2.prototype     所有函数对象都有的属性（函数原型属性）
+        */
+
+        function say() {
+            console.log('1');
+        }
+        console.dir(say);
+        console.dir(say.prototype);
+        console.dir(say.prototype.constructor);
+        console.dir(say.prototype.constructor === say);
+
+        say()
+        say.prototype.constructor()
+        console.log('-------------');
+
+
+        const a = new say();
+        const b =new say.prototype.constructor();
+
+        console.log(a);
+        console.log(b);
+    </script>
+</body>
+</html>

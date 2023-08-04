@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = {
+            0:"Hello",
+            1:"world!",
+            length: 2,
+        }
+        console.log([].join === Array.prototype.join);
+        obj.join = Array.prototype.join;
+        console.log( obj.join(',') ); // Hello,world!
+    </script>
+</body>
+</html>

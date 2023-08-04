@@ -14,15 +14,15 @@
                 // 每次调用重新计算
                 return `${this.lastName} ${this.fisrtName}`;
             },
-            // set fullName(value){
-            //     // 当对fullname设置的时候立即执行，并且传递设置的值
-            //     // console.log(value);
-            //     [this.lastName,this.fisrtName] = value.split(' ')
-            // },
+            set fullName(value){
+                // 当对fullname设置的时候立即执行，并且传递设置的值
+                // console.log(value);
+                [this.lastName,this.fisrtName] = value.split(' ')
+            },
         }
         // 相当于对依赖属性进行设置
         // set fullname('lili zhang')
-        // user.fullName = "lili zhang"  
+        user.fullName = "lili zhang"  
 
         // get fullname()
         console.log(user);

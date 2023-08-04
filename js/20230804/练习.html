@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function f(){
+        //     console.log('hello');
+        // }
+        // f.defer = function (ms) {
+        //     setTimeout(() =>this(), ms);
+        // }
+        // f.defer(1000)
+
+        // console.log('--------------');
+
+        // Function.prototype.defer = function (ms) {
+            
+        //     // return function(a,b){
+        //     //     setTimeout(() =>{
+        //     //         console.log(a+b);
+        //     //     }, ms);
+        //     // };
+        //     let that = this
+        //     return function(a,b){
+        //         setTimeout(() =>{
+        //             that(a,b)
+        //         }, ms);
+        //     };
+        // }
+        // function say(a,b) {
+        //     console.log(a+b);
+        // }
+        // say.defer(1000)(1,2)
+        console.log({
+            __proto__:null
+        });
+
+        const o = {
+            // __proto__:100
+        }
+        o.__proto__.b = 100;
+        console.log(o);
+    </script>
+</body>
+</html>

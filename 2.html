@@ -37,6 +37,43 @@
         b()
 
         console.log(''+'');
+
+        console.log({});
+        console.log([]);
+        console.dir(function () {});
+
+        let c = function () {
+            
+        }
+        console.log({}.__proto__ === [].__proto__.__proto__);
+        console.log({}.__proto__ === c.__proto__.__proto__);
+
+
+        var d = 1;
+        function test(d) {
+            d = 2;
+        }
+        test();
+        console.log(d);
+
+        const arr = [];
+        // arr.valueOf = function () {
+        //     return 1;
+        // }
+        console.log(arr.toString());
+
+        const set = new Map([['name','jack'],['age',20]])
+        console.log(set);
+
+        for (const k of set) {
+            
+            console.log(k);
+        }
+
+        let aa = new String(10);
+        console.log(aa);
+
+        console.dir(undefined);
     </script>
 </body>
 </html>

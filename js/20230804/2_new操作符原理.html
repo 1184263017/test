@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            1.设置this = {}
+            2.将this的原型指向构造函数的原型（继承）
+            3.返回this
+        */
+       /* 
+            1.同一个构造函数构建对象其对象原型是相等的，指向构造函数原型
+            2.可以利用上述特性给所有对象添加统一的属性或方法（共享）
+       */
+        function Person(){
+            // this = {};
+            this.age = 18
+            this.name = 'jack'
+            // this.__proto__ = Person.prototype
+            // return this
+        }
+        const p1 = new Person();
+        console.dir(Person);
+        console.log(p1);
+        console.log(p1.age);
+        console.log(p1.constructor);
+        console.log(Person.prototype.constructor === p1.constructor);
+        console.log('----------------');
+
+        Person.prototype.add = function (params) {
+            console.log('add');
+        }
+        const p2 = new Person()
+        const p3 = new Person()
+        console.log(p1.__proto__ === p2.__proto__);
+        console.log(p3.__proto__ === p2.__proto__);
+        console.log(p3.__proto__ === p1.__proto__);
+        console.log('----------------');
+
+        console.log(p1.__proto__);
+        console.log(p2.__proto__);
+        console.log(p3.__proto__);
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 所有对象都是有原型链的，原型链的终点是null
+        const o1 = {};      // new Object();
+        console.log(o1);
+        console.log(o1.__proto__ === Object.prototype);
+        console.log(Object.prototype.__proto__ === null);
+        console.dir(Object);
+        console.log('------------------');
+
+
+        
+        const arr = [];
+        console.log(arr);
+        console.dir(Array);
+    </script>
+</body>
+</html>
