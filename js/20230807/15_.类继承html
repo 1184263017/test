@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            extends 可以让一个类继承另一个类
+        */
+        class Person{
+            say(){
+                console.log('hello');
+            }
+        }
+
+        class User extends Person{
+            // User.prototype.__proto__ = Person.prototype
+        }
+        const u = new User();
+        console.log(new Person());
+        console.log(u);
+        u.say()
+    </script>
+</body>
+</html>

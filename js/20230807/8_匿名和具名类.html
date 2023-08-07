@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 匿名类
+        const Person1 = class {}     //类表达式
+        const p1 = new Person1();
+        console.dir(p1);
+
+        //具名类
+        const Person2 = class Human {   //类表达式
+            // Human局部变量只能在类方法中访问
+            say(){
+                this.uname = 'tom';
+                console.log(Human);
+            }
+            // uname = 'hah'
+        }     
+        const p2 = new Person2();
+        new Person2().say();
+        p2.say()
+        console.log(p2);
+        
+    </script>
+</body>
+</html>

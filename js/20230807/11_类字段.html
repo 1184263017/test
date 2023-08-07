@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            类字段的优点
+            1.简洁，无需显式定义constructor
+
+             类字段的缺点
+            1.灵活度不够,在初始化时不能执行某些操作
+        */
+        const Person = class Human{
+            constructor(a,b){
+                this.firstName = a;
+                this.lastName = b;
+            }
+            username = 'jack'
+            age = 20
+            setField(key,value){
+                this[key] = value
+            }
+        }
+
+        const p1 = new Person('wang','liu')
+        p1.setField('cs','xixi')
+        p1.setField('username','tom')
+        console.log(p1);
+        console.log(p1.username);
+        console.log(p1.age);
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            extends 可以让一个类继承另一个类
+            1.子类的prototype.__proto__指向父类的prototype
+            2.子类复制父类所有的this对象属性
+        */
+        class Person{
+            constructor(){
+                this.admin = true
+                this.money = 1000
+            }
+            say(){
+                console.log('hello');
+            }
+        }
+
+        class User extends Person{
+            // User.prototype.__proto__ = Person.prototype
+            // 复制父类的属性
+            // constructor(){
+            //     this.admin = true
+            //     this.money = 1000
+            // }
+        }
+        const u = new User();
+        u.money = 2000
+        console.log(new Person());
+        console.log(u);
+        u.say()
+        console.log(u.admin);
+        console.log(u.money);
+    </script>
+</body>
+</html>

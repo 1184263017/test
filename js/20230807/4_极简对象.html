@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // const obj = {name:'jack'}
+        // obj.__proto__ = null;
+
+
+        /* 
+            极简对象 只保存数据，不需要其他方法操作的时候，好处是提高执行效率
+        */
+        const obj = Object.create(null,{
+            name:{
+                value:'tom'
+            }
+        })
+        console.log(obj);
+    </script>
+</body>
+</html>

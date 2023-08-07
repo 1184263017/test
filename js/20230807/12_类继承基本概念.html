@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function Person(){}
+
+        /* 
+            1.独立出了函数的构造对象的功能
+            2.类不能当做函数执行，必须new Person() 不能 Person() 写
+        */
+        class Person {}
+
+        new Person() // 直接Person()是错误的
+
+        console.log(typeof Person); //function
+    </script>
+</body>
+</html>

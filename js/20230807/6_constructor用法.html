@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            (构造函数创建 new ..., Object.create创建对象)
+            class 类: 创建对象
+        */
+        //对象的蓝图(图纸)，描述了对象的形状    
+        class Person {
+            /* 
+                构造方法
+                1.new 类的时候自动调用
+                2.构造方法返回内部this对象
+                3.通过this对象设置属性
+            */
+            constructor(){
+                this.uname = 'tom'
+                this.age = 20
+                console.log('ok');
+            }
+            cs='haha'
+            
+            add(a,b){
+                console.log(a+b);
+            } 
+            say(){
+                console.log('hello');
+            } 
+        }
+        // console.dir(Person);
+        const p1 = new Person();
+        console.log(p1);
+        p1.say()
+        p1.add(1,2)
+    </script>
+</body>
+</html>

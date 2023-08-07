@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const Person = class Human{
+            constructor(){
+                this.firstName = 'li';
+                this.lastName = 'jack'
+            }
+
+            // 计算属性
+            get fullName(){
+                return `${this.lastName} ${this.firstName}`
+            }
+
+            set fullName(value){
+                [this.lastName,this.firstName] = value.split(' ')
+            }
+        }
+
+        const p1 = new Person()
+        console.log(p1);
+        p1.fullName = 'haha xixi'
+        console.log(p1.fullName);
+    </script>
+</body>
+</html>

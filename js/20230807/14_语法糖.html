@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            属性独立，方法共享
+        */
+        function Person() {
+            this.name = 'jack'
+            this.age = 20
+            this.add = ()=>{}
+        }
+        Person.prototype.say = ()=>{}
+
+
+        // 语法糖
+        class Person {
+            constructor(){
+                this.name = 'jack'
+                this.age = 20
+                // this.__proto__ = Person.prototype
+            }
+            say(){} //Person.prototype.say = ()=>{}
+            add(){} //Person.prototype.add = ()=>{}
+        }
+    </script>
+</body>
+</html>

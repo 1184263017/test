@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function array1(){
+            array1.prototype.del = function (params) {
+                console.log(22);
+            }
+        }
+
+        function array2() {
+            array1()
+            array2.prototype.__proto__ = array1.prototype
+            array2.prototype.say = function (params) {
+                console.log(33);
+            }
+        }
+
+        function array3() {
+            array2()
+            array3.prototype.__proto__ = array2.prototype
+        }
+        array3()
+        console.dir(array3);
+        const a = new array3;
+        // a.del()
+        console.log(new array3);
+        // console.dir(Array);
+        // console.dir(Object);
+    </script>
+</body>
+</html>

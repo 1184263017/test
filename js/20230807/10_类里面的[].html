@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const v1 = 'say';
+        const v2 = 'Hi'
+        const Person = class Human{
+            constructor(){
+
+            }
+            // [表达式|值]
+            [v1+v2](){
+                console.log('hello');
+            }
+        }
+
+        const p1 = new Person()
+        p1.sayHi();
+    </script>
+</body>
+</html>

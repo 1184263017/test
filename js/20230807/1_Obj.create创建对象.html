@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // const obj = {}
+        // obj.__proto__ = {a:1}
+
+        /* 
+            Object.create创建对象，同时设置对象的原型和属性
+            第一个参数指定对象原型
+            第二个参数对象属性
+        */
+    //    Object.defineProperties(obj,{
+    //         name:{
+    //             value:'jacj',
+    //             writable:true
+    //         },
+    //    });
+
+        const obj = Object.create({a:1},{
+            username:{
+                value:'jacj',
+                writable:true
+            },
+            add:{
+                value:'jiangsu',
+                enumerable:true
+            }
+        })
+        for (const k in obj) {
+            if (obj.hasOwnProperty(k) === true) {
+                console.log(obj[k],k);
+            }  
+        }
+        console.log(obj);
+    </script>
+</body>
+</html>

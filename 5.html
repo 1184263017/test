@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script  > -->
+    <script src="./echarts.js"></script>
+
+    <style>
+        #main {
+            width: 500px;
+            height: 500px;
+            /* background-color: blue; */
+        }
+        #d1{
+            width: 5rem;
+            height: 5rem;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+
+    </div>
+    <!-- <div id="d1">
+
+    </div> -->
+    <script>
+
+        // function setRem() {
+        //     // 默认使用100px作为基准大小
+        //     const baseSize = 100;
+        //     const baseVal = baseSize / 1920;
+        //     const vW = window.innerWidth; // 当前窗口的宽度
+        //     const rem = vW * baseVal; // 以默认比例值乘以当前窗口宽度,得到该宽度下的相应font-size值
+        //     window.$size = rem / 100;
+        //     document.documentElement.style.fontSize = rem + "px";
+        // }
+        // // 初始化
+        // setRem();
+        // // 窗口大小变化时重置 rem
+        // window.onresize = function () {
+        //     setRem();
+        // };
+
+
+
+        // var chartDom = document.getElementById('main');
+        // var myChart = echarts.init(chartDom);
+        // var option;
+
+        // option = {
+        //     xAxis: {
+        //         type: 'category',
+        //         data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        //     },
+        //     yAxis: {
+        //         type: 'value'
+        //     },
+        //     series: [
+        //         {
+        //             data: [150, 230, 224, 218, 135, 147, 260],
+        //             type: 'line'
+        //         }
+        //     ]
+        // };
+
+        // option && myChart.setOption(option);
+
+        var chartDom = document.getElementById('main');
+        var myChart = echarts.init(chartDom);
+        var option;
+
+        option = {
+            title: {
+                text: 'Referer of a Website',
+                subtext: 'Fake Data',
+                left: 'center'
+            },
+            tooltip: {
+                trigger: 'item'
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left'
+            },
+            series: [
+                {
+                    name: 'Access From',
+                    type: 'pie',
+                    radius: '50%',
+                    data: [
+                        { value: 1048, name: 'Search Engine' },
+                        { value: 735, name: 'Direct' },
+                        { value: 580, name: 'Email' },
+                        { value: 484, name: 'Union Ads' },
+                        { value: 300, name: 'Video Ads' }
+                    ],
+                    emphasis: {
+                        itemStyle: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+
+        option && myChart.setOption(option);
+    </script>
+</body>
+
+</html>

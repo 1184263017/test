@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // class Person {}             //类声明
+        
+        // 可以赋值
+        const Person = class {}     //类表达式
+        const p1 = new Person();
+        console.dir(p1);
+
+        // 可以被返回
+        function createClass() {
+            return class {
+                add(){
+                    
+                }
+                name='tom'
+            }
+        }
+        const Human = createClass();
+        // console.log(createClass());
+        const h1 = new Human();
+        console.log(h1);
+    </script>
+</body>
+</html>

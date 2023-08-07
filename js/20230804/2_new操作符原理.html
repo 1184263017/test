@@ -16,19 +16,23 @@
             1.同一个构造函数构建对象其对象原型是相等的，指向构造函数原型
             2.可以利用上述特性给所有对象添加统一的属性或方法（共享）
        */
+        //   Array
         function Person(){
             // this = {};
             this.age = 18
             this.name = 'jack'
+            this.add = function(){
+                console.log(1);
+            }
             // this.__proto__ = Person.prototype
             // return this
         }
         const p1 = new Person();
         console.dir(Person);
         console.log(p1);
-        console.log(p1.age);
-        console.log(p1.constructor);
-        console.log(Person.prototype.constructor === p1.constructor);
+        // console.log(p1.age);
+        // console.log(p1.constructor);
+        // console.log(Person.prototype.constructor === p1.constructor);
         console.log('----------------');
 
         Person.prototype.add = function (params) {
