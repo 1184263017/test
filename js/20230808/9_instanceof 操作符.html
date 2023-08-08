@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            typeof 
+            缺点:对像 null 和 函数之外的对象类型无效
+        */
+        console.log(typeof 1);
+        console.log(typeof 'hello');
+        console.log(typeof true);
+        console.log(typeof function (params) {});
+        console.log(typeof undefined);
+        console.log(typeof 123n);
+        console.log(typeof Symbol('id'));
+        console.log(typeof {});
+        console.log(typeof null);
+        console.log(typeof []);
+        console.log('-------------------');
+
+
+        /* 
+            Object.prototype.toString
+            缺点:不能判断自定义对象类型
+        */
+         console.log(Object.prototype.toString.call(1));        //[object Number]
+         console.log(Object.prototype.toString.call('hello'));  //[object String]
+         console.log(Object.prototype.toString.call(true));     //[object String]
+         console.log(Object.prototype.toString.call([]));       //[object Array]
+         console.log(Object.prototype.toString.call(null));     //[object Null]
+         console.log(Object.prototype.toString.call(undefined));//[object Undefined]
+         console.log(Object.prototype.toString.call(123n));     //[object BigInt]
+         console.log(Object.prototype.toString.call({}));       //[object object]
+         console.log(Object.prototype.toString.call(function (){}));//[object Function]
+         console.log(Object.prototype.toString.call(Symbol('12')));//[object Symbol]
+
+         class Person {}
+         const p = new Person()
+         console.log(p);
+         console.log(Object.prototype.toString.call(p));//[object Object]
+         console.log('-------------------');
+
+
+
+         /* 
+            1.对象 instanceof 类|构造函数|属性类型 
+            1.是那个类构造出来的
+            2.判断构造函数或类的prototype是否在对象的原型链上，在就返回true,否则返回false
+            缺点:只对对象类型进行判断
+         */
+        console.log([] instanceof Array);//true
+        console.log(p instanceof Person);//true
+        console.log(p instanceof Object);//true
+
+
+        /* 
+            1.Person = Person.prototype.constructor
+            2.p.constructor === Person
+            缺点:constructor是可以被修改的，一旦被修改则无法判断
+        */
+        console.log(p.constructor === Person);//true
+    </script>
+</body>
+</html>

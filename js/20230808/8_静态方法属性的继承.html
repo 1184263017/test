@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            所有的继承 默认都是原型继承
+            1.构造函数继承
+            2.类继承
+            3.直接修改原型
+        */
+        class Person {
+            username = "lili";
+            say(){
+                console.log(this.username);
+                console.log(Person.username);
+            }
+
+            static username = 'tom'
+        }
+        
+        class User extends Person{}
+        const u = new User()
+        console.log(u);
+        console.dir(User);
+        console.log(u.username);
+        console.log(User.username);
+    </script>
+</body>
+</html>

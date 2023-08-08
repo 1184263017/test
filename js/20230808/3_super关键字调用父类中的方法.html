@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Preson {
+            constructor(){
+                console.log(1);
+            }
+            say(){
+                console.log('ok');
+            }
+            add(){
+                console.log('add');
+            }
+        }
+        class User extends Preson {
+            constructor(){
+                this.name = 'jcak'  // 报错
+                super(); // super.constructor()
+                console.log(2);2
+                super.say();
+            }
+            cs(){
+                super.add()
+            }
+        }
+
+        /* 
+            1.new User 会执行父类中的constructor
+            2.所有的 new 操作必须执行父类中的constructor
+            3.使用 super 关键字调用父类中的constructor，
+              必须省略constructor不写，其他方法不行
+            4.子类中的this必须在super调用后才能访问(赋值)
+
+        */
+        const u = new User()
+        u.cs()
+        console.log(u);
+    </script>
+</body>
+
+</html>

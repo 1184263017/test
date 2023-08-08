@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function creatClass() {
+            return class {
+                constructor() {
+                    this.money = 1000;
+                }
+            }
+        }
+        // const Person = creatClass()
+        class User extends creatClass() { }
+
+        console.log(new User());
+        console.log('-------------');
+
+
+        const Person = class {
+            constructor() {
+                this.money = 2000;
+            }
+            uname = 'jack'
+            say(){}
+            add(){}
+        }
+        class Test extends Person { }
+        console.log(new Test());
+    </script>
+</body>
+
+</html>

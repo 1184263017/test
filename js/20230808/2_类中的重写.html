@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Preson {
+            say(){
+                console.log(1);
+            }
+        }
+        class User extends Preson {
+            say(){
+                console.log(2);
+            }
+        }
+
+        /* 
+            原型链
+            1.user对象->user.prototype
+            ->user.prototype._proto_(Preson.prototype)
+            ->Preson.prototype._proto_(object.prototype)
+        */
+        const u = new User()
+        u.say()
+        console.log(u);
+    </script>
+</body>
+
+</html>

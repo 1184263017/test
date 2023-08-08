@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            类就是函数
+            1.函数时函数也是对象
+            2.类是类也是对象
+            3.定义在类上的属性时静态属性
+            4.定义在类上的方法时静态方法
+            5.调用方式 类名.属性 或者 类名.方法() 
+            6.静态方法不能访问对象属性和方法，对象方法可以访问静态属性和方法
+        */
+        class Person {}
+
+        // 外部定义静态属性和静态方法
+        // 静态属性
+        Person.username = 'jack';
+        // 静态方法
+        Person.say = function () {
+            console.log(this.username);
+        }
+
+        Person.say()
+    </script>
+</body>
+</html>

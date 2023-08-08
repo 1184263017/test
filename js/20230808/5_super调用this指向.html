@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Preson {
+            username = 'jack'
+            constructor(){
+                console.log(this.username);
+            }
+            say(){
+                console.log(this.username);
+            }
+        }
+        class User extends Preson {
+            username = 'lili'
+            constructor(){
+                super(); // super.constructor()内部的this永远指向父类
+                super.say() //super其他方法时，this永远等于.前面调用的
+            }
+        }
+        /* 
+            1.super()调用，this永远指向父类
+            2.super.方法名()调用，this指向当前子类
+            3.子类对象.方法名()调用，this指向调用她的对象
+        */
+        const u = new User()
+        console.log(u);
+
+        const obj = {
+            username:'tom'
+        }
+        obj.say = u.say
+        obj.say();
+    </script>
+</body>
+
+</html>
