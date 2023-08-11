@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+           1.在业务当中一般用于在条件满足时执行(异步)
+           2.resolve(参数)传递给then((参数)=>{})回调函数的参数
+        */
+        const p1 = new Promise(function (resolve,reject) {
+            const age = 1;
+            if(age < 0){
+                reject(new Error('错误'))
+            }else{
+                resolve(123)
+            }
+            console.log('..........');
+        })
+        const p2 = p1.then((value)=>{
+            console.log('then',value);
+        }).catch((e)=>{
+            console.log('catch');
+            console.log(e);
+        }).finally(()=>{
+            console.log('finally');
+        });
+    </script>
+</body>
+</html>

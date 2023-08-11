@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            全局捕获，必须放在最顶部
+            1.当这个页面代码出错的时候，自动执行
+            2.必须放到代码开始位置
+        */
+        window.onerror = function (message,url,line,col,error) {
+            console.log('错误信息',message);
+            console.log('错误代码地址',url);
+            console.log('错误行',line);
+            console.log('错误列',col);
+            console.log('错误详细信息',error);
+        }
+        
+        try {
+            console.log(username);
+        } catch (error) {
+            console.log(123);
+        }
+        
+    </script>
+</body>
+</html>

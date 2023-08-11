@@ -37,7 +37,7 @@
         // c.start(2000)
 
 
-        class ExtendedClock extends Clock{
+        class ExtendedClock extends Clock {
             start(ticks = 1000) {
                 this.render();
                 this.timer = setInterval(() => this.render(), ticks)
@@ -46,23 +46,53 @@
         // console.log(new ExtendedClock({template:'h:m:s'}).start(2000));
 
 
-        arr = [1,2,3,4,6];
-        let num = eval(String(arr).replace(/,/g,'+'));
+        arr = [1, 2, 3, 4, 6];
+        let num = eval(String(arr).replace(/,/g, '+'));
         console.log(num);
-        
 
-        function a(){
+
+        function a() {
             let a = 10;
             let c = 20;
             function b() {
                 return {
-                    a,b
+                    a, b
                 };
             }
             return b
         }
         const a1 = a();
         console.log(a1());
+
+        // console.log(Object.prototype.toString.call());
+
+        // console.log({}.toString.call([]));
+
+
+        function quickSort(arr) {
+            if (arr.length <= 1) {
+                return arr;
+            }
+
+            const pivot = arr[Math.floor(arr.length / 2)]; // 选择一个中间元素作为基准
+            const left = [];
+            const right = [];
+
+            for (const element of arr) {
+                if (element < pivot) {
+                    left.push(element); // 小于基准的放左边
+                } else if (element > pivot) {
+                    right.push(element); // 大于基准的放右边
+                }
+            }
+
+            return [...quickSort(left), pivot, ...quickSort(right)]; // 递归排序左右子数组并合并
+        }
+
+        const unsortedArray = [6, 3, 8, 5, 2, 7, 4, 1,2,8];
+        const sortedArray = quickSort(unsortedArray);
+        console.log(sortedArray); // 输出: [1, 2, 3, 4, 5, 6, 7, 8]
+        console.log([6, 3, 8, 5, 2, 7, 4, 1,2,8].sort((a,b)=>{a-b}));
     </script>
 </body>
 

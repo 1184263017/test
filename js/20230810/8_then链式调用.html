@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            1.在业务当中一般用于在条件满足时执行(异步)
+            2.上一个promise对象的resolve(参数)传递给then((参数)=>{})回调函数的参数
+            3.then(()=>{}),他是被上一个函数中的回调函数resolve()触发的
+            4.then(()=>{}),回调函数，返回一个promise对象,
+              手动返回也行,返回的promise会作为then()方法的返回值
+            5.在promise所有回调函数的throw,reject都可以通过catch捕捉
+
+        */
+       console.dir(Promise);
+        const p1 = new Promise(function (resolve,reject) {
+            resolve(1)
+            console.log('..........');
+        })
+        const p2 = p1.then((data)=>{
+            console.log('then',data);
+            // return new Promise((resolve,reject)=>{reject(new Error('错误'))})
+            return Promise.resolve(123)
+        }).then((data)=>{
+            console.log('then',data);
+            return Promise.reject(456)
+        }).then((data)=>{
+            console.log('then',data);
+        }).catch((e)=>{
+            console.log(e);
+        })
+
+        class a{
+            add(){}
+            static say(){}
+        }
+        console.dir(a);
+    </script>
+</body>
+</html>

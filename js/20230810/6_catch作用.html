@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            1.throw 抛出错误，会调用p.catch捕捉错误，
+              会中断promise回调函数中代码的执行(同步代码)
+              
+            2.p.catch 会捕捉抛出的错误对象，错误对象被保存在p.catch回调参数
+
+            3.rejrct 可以替换throw抛错,rejrct的实参会传递给p.catch回调参数
+              不会中断promise回调函数中代码的执行(同步代码)
+        */
+        const p1 = new Promise(function (resolve,reject) {
+            const age = -1;
+            if(age < 0){
+                // throw new Error('错误')
+                rejrct(new Error('错误'))
+            }else{
+                resolve()
+            }
+            console.log('..........');
+        })
+        const p2 = p1.then(()=>{
+            console.log('then');
+        }).catch((e)=>{
+            console.log('catch');
+            console.log(e);
+        }).finally(()=>{
+            console.log('finally');
+        });
+    </script>
+</body>
+</html>

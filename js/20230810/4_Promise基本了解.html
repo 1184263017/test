@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            1.Promise回调函数，同步自动执行
+            2.resolve是一个函数，调用resolve()导致then方法的回调函数会执行
+              then回调函数是异步执行的
+
+        */
+        const p1 = new Promise(function (resolve,reject) {
+            resolve();
+            console.log('Promise1');
+        })
+        p1.then(function () {
+            console.log('then');
+        });
+
+        /* 
+            1.Promise回调函数，同步自动执行
+            2.reject是一个函数，调用reject()导致catch方法的回调函数会执行
+              catch回调函数是异步执行的
+
+        */
+        const p2 = new Promise(function (resolve,reject) {
+            reject();
+            console.log('Promise2');
+        })
+        p2.catch(function () {
+            console.log('catch');
+        });
+
+        /* 
+            1.Promise回调函数，同步自动执行
+            2.调用resolve()或者调用reject()导致finally方法的回调函数会执行
+              finally回调函数是异步执行的
+
+        */
+        const p3 = new Promise(function (resolve,reject) {
+            resolve();
+            console.log('Promise3');
+        })
+        p3.finally(function () {
+            console.log('finally');
+        });
+    </script>
+</body>
+</html>

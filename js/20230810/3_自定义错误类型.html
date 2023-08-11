@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            语义化，定义我们语义化错误
+            1.继承error
+            2.重写name属性,设为类名（字符串）
+        */
+
+        class AgeError extends Error{
+            name = 'AgeError'
+        }
+        
+        class PhoneError extends Error{
+            name = 'PhoneError'
+        }
+
+        const age = 1;
+        const phone = '123456789123';
+        try {
+            if (age < 0) {
+                throw new AgeError('年龄错误')
+            }
+            if (phone.length > 11 ) {
+                throw new PhoneError('手机格式错误')
+            }
+        } catch (e) {
+            console.log(e);
+        }
+    </script>
+</body>
+</html>

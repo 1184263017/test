@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            回调地狱
+            增加维护代码难度
+        */
+        // setTimeout(() => {
+        //     console.log(1);
+        //     setTimeout(() => {
+        //         console.log(2);
+        //         setTimeout(() => {
+        //             console.log(3);
+        //         }, Math.random() * 100);
+        //     }, Math.random() * 100);
+        // }, Math.random() * 100);
+
+        new Promise((resolve, reject) => {
+            setTimeout(() => {
+                console.log(1);
+                resolve()
+            }, Math.random() * 100);
+        }).then(() => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    console.log(2);
+                    resolve()
+                }, Math.random() * 100);
+            })
+        }).then(() => {
+            setTimeout(() => {
+                console.log(3);
+            }, Math.random() * 100);
+        })
+    </script>
+</body>
+
+</html>

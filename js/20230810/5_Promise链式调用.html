@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            所有的方法(then catch finally...)都返回一个新的promise对象
+            所以可以使用链式调用，注意分拆的调用方式从来不用
+        */
+        const p1 = new Promise(function (resolve,reject) {
+            resolve();
+            console.log('Promise1');
+        })
+        const p2 = p1.then(()=>{
+            console.log('then');
+        }).catch(()=>{
+            console.log('catch');
+        }).finally(()=>{
+            console.log('finally');
+        });
+        // console.log(p1.then());
+        // console.log(p2 == p1);
+    </script>
+</body>
+</html>
