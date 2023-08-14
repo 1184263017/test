@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const obj = {
+            async fn1() {
+                const r = await Promise.resolve();
+                console.log(r);
+            },
+            fn2: async function () {
+                const r = await Promise.resolve();
+                console.log(r);
+            },
+            fn3: async () => {
+                const r = await Promise.resolve();
+                console.log(r);
+            }
+        }
+
+        class Peronson {
+            async say1() {
+                const r = await Promise.resolve();
+                console.log(r);
+            }
+
+            static async say2() {
+                const r = await Promise.resolve();
+                console.log(r);
+            }
+
+            say3 = async function (params) {
+                const r = await Promise.resolve();
+                console.log(r);
+            }
+        }
+
+        const fn = async function () {
+            const r = await Promise.resolve(123);
+            console.log(r);
+            return r;
+        }
+        console.log(fn());
+    </script>
+</body>
+
+</html>

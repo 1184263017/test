@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            异步
+            1.宏任务
+                script,setTimeout,setInterval
+            2.微任务
+                then,catch,finally
+            
+            代码执行的优先级
+            同步>微任务>宏任务
+        */
+
+        const p1 = new Promise((resolve,reject)=>{
+            resolve(1)
+        })
+        p1.then(()=>{
+            console.log(2);
+        })
+        setTimeout(() => {
+            console.log(3);
+        }, 1);
+        console.log(1);
+        
+    </script>
+</body>
+</html>

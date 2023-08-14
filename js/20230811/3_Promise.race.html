@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            Promise.race([promise,promise...])
+            1.是一个数组,数组的元素是promise对象
+            2.返回值是一个promise对象,所以有三个方法 then catch finally
+            3.执行的时间，等待第一个调用了resolve或者reject的promise对象
+            4.当数组中第一个resolve被执行时，then回调函数就会执行，
+              回调函数参数获取resolve的参数
+              当数组中第一个reject被执行时，catch回调函数就会执行，
+              回调函数参数获取reject的参数
+        */
+        const p1 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(1)
+            }, Math.random() * 100);
+        })
+        const p2 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                reject(new Error('错误'))
+            }, Math.random() * 100);
+        })
+        const p3 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                reject(new Error('没错'))
+            }, Math.random() * 100);
+        })
+        Promise.race([p1, p2, p3]).then((data) => {
+            console.log(data);
+        }).catch((e)=>{
+            console.log(e);
+        })
+    </script>
+</body>
+
+</html>

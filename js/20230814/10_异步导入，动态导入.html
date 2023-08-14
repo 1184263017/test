@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="module">
+        /* 
+            动态导入，异步导入
+            1.import()不是函数，但可以当中函数理解
+            2.import()返回一个promise对象,then导入成功后执行
+            catch导入失败后执行
+            3.导出的数据会以对象的方式保存在then回调函数参数中
+            4.可以组合条件语法和循环语法
+        */
+        if (1 < 2) {
+            // import('./js/m4.js').then((data) => {
+            //     console.log(data);
+            // }).catch((e) => {
+            //     console.log(e);
+            // })
+
+            async function fn() {
+                const {nianling:age,info} = await import('./js/m3.js');
+                console.log(age,info);
+            }
+            fn();
+        }
+        console.log(3);
+
+        console.log([] instanceof Object);
+    </script>
+</body>
+
+</html>

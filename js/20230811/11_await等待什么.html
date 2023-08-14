@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            await 等待什么
+            1.等待promise执行resolv()
+            2.await 后续代码都是微任务异步代码
+            3.await 设定先后顺序(对结果的输出排序),
+              后续await结果输出需要等待前一个结果的输出
+              即使后面的await早就拿到结果也要等待
+        */
+        const p1 = new Promise((resolve,reject)=>{
+            setTimeout(() => {
+                resolve(100)
+            }, 3000);
+        })
+
+        async function f1() {//里面是同步代码
+            console.log(1000);
+            const r = await p1;//await之后是异步代码
+            console.log(r);
+            console.log(1);
+            console.log(2);
+            console.log(3);
+        }
+        f1()
+        console.log(2000);
+    </script>
+</body>
+
+</html>

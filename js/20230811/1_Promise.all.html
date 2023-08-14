@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            Promise.all([promise,promise...])
+            1.是一个数组,数组的元素是promise对象
+            2.返回值是一个promise对象,所以有三个方法 then catch finally
+            3.当数组中的所有promise都执行resolve时，then回调函数就回执行，否则执行catch
+            4.执行的时间，等待所有的promise都调用了resolve或者reject
+            5.then的回调函数参数值是一个resolve参数集合(数组)
+        */
+        const p1 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(1)
+            }, Math.random() * 100);
+        })
+        const p2 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                reject(2)
+            }, Math.random() * 100);
+        })
+        const p3 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                reject(3)
+            }, Math.random() * 1000);
+        })
+        Promise.all([p1, p2, p3]).then((data) => {
+            console.log(data);
+        }).catch((e) => {
+            console.log(e);
+        })
+    </script>
+</body>
+
+</html>

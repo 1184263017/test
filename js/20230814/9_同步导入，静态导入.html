@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="module">
+        /* 
+            同步导入，静态导入
+            1.代码书写顺序就是执行的顺序
+            2.必须要放在模块开始位置导入
+            3.不能使用while或if或switch等条件循环语句
+
+        */
+       import './js/t1.js'
+       import './js/t2.js'
+       console.log(3);
+    </script>
+</body>
+</html>

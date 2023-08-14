@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="module">
+        /* 
+            import  导入
+            1.被导入文件会自动执行
+            2.只能写在模块脚本中或者单独的js文件中
+            3.export(导出) 可以对外暴露变量值，使得局部(模块)变量可以再外部被使用
+            4.inprot {} 中可以定义变量,如果定义的变量名和导出变量名相同的话，
+              那么可以获取导出变量名的值
+        */
+    </script>
+    <script type="module">
+        import {username,sex,add} from './js/m1.js';
+        console.log(username,sex,add);
+    </script>
+</body>
+</html>

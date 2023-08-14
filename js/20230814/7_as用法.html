@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="module">
+        /* 
+            import as 
+            1.取别名(重新定义变量名)
+            作用:当默认映射的变量和其他变量定义重复时，
+                 使用as给导入映射变量重新起个变量名
+            2.如果别名存在，访问导入值只能使用别名变量，之前的默认导入映射变量名失效
+            
+            export as
+            1.只能在分离导出时使用
+            2.可以在导出时替换默认导出变量名,导入时候以替换后的变量名为准，默认导出变量名失效
+        */
+        import { nianling as birth } from './js/m3.js';
+
+        let age = 30;
+
+        console.log(birth);
+    </script>
+</body>
+
+</html>

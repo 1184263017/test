@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            在promise内不做任何操作时可用简写形式，
+            如果需要操作，请使用正常编写格式
+        */
+        // const p1 = new Promise((resolve, reject) => {
+        //     resolve(1)
+        // })
+        const p1 = Promise.resolve(1)
+
+        // const p2 = new Promise((resolve, reject) => {
+        //     reject(new Error())
+        // })
+        const p2 = Promise.reject(new Error('asd'))
+        p2.then((data) => {
+            console.log(data);
+        }).catch((e)=>{
+            console.log(e);
+        })
+    </script>
+</body>
+
+</html>

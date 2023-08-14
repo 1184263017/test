@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            await 运算符
+            1.一元运算符，运算单元可以是任意数据类型
+            2.必须在异步函数中执行(async修饰的函数)
+            3.对非promise数据类型，直接返回运算单元
+            4.对promise数据类型,如果执行的是resolve返回resolve参数
+              如果执行的是reject直接并抛出错误
+            5.建议使用try...catch捕捉错误，如果执行reject,就出发catch捕捉,
+              错误发生,从发生错误的位置开始中断try中其他代码的执行
+        */
+        // const p1 = new Promise((resolve, reject) => {
+        //     reject(new Error('...'))
+        // })
+
+        // async function fn() {
+        //     /* 第一种错误捕捉方式 */
+        //     // const r = await p1.catch((e)=>console.log(e));
+        //     // console.log(r);
+
+
+        //     /* 第二种错误捕捉方式 */
+        //     try {
+        //         const r = await p1;
+        //         console.log(r);
+        //     } catch (e) {
+        //         console.log(e);
+        //     }
+
+        // }
+        // fn()
+
+
+        async function fn1() {
+            // const r = await Promise.resolve(1)
+            const r = await Promise.reject(new Error('...')).catch(()=>{
+                return Promise.resolve(123)
+            })
+            console.log(r);
+            // return r;
+        }
+        console.log(fn1());
+    </script>
+</body>
+
+</html>

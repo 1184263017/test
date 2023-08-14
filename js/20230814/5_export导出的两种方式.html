@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="module">
+        /* 
+            export 导出
+            1.只要在变量，类，函数前加上关键字export即可
+            2.导出与变量定义分离,缺点是无法直观看出那个变量被导出,单词任意拼错
+            
+        */
+        import {age,info,Person,say} from './js/m3.js';
+        console.log(age);
+        say()
+        console.log(new Person().name);
+    </script>
+</body>
+</html>

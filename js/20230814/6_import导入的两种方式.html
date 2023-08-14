@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="module">
+        /* 
+            import 导入
+            1.定义变量名映射导出变量名
+            2.* 星号全部导入，必须使用as语法，定义一个对象，
+            被导出的变量，将以对象属性的方式保存在这个对象中
+            后续可以通过对象语法访问带出的值，
+            优点:导入时无需知道导出变量名
+        */
+        import * as m3 from './js/m3.js';
+        console.log(m3);
+    </script>
+</body>
+</html>

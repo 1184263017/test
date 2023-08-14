@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="module">
+        /* 
+            export default
+            1. 一次只能导出一个值
+            2. 一个模块(js文件)中，只能有一个导出值
+
+            3. 混合变量导出和默认导出，导入方式有
+                3.1 分别导入，需要导入两次
+                3.2 只使用变量导入，使用default映射默认导入，
+                    同时由于default是语法关键字，不能作为变量使用
+                    必须使用as重新命名一个变量保存默认导入
+                3.3 可以定义一个变量用于接收默认导出，同时用{}语法接收变量导出
+                3.4 使用*接受全部导入，接受的变量会获取一个对象，变量导入，
+                    所有的变量映射为对象属性，默认带入:default映射为属性default
+        */
+        // 只导入默认部分
+        // import cla from './js/m4.js';
+        // 只导入变量导出部分
+        // import {age} from './js/m4.js';
+
+        // 使用变量导入,但需要as重新命名
+        // import {age,default as cla} from './js/m4.js';
+
+        // 定义一个变量用于接收默认导出，{}语法接收变量导出
+        // import cla,{age} from './js/m4.js';
+
+        // 全部导出，默认导出看作为对象的属性default调用
+        import * as m6 from './js/m4.js'
+        console.log(new m6.default().name);
+        console.log(m6.age);
+    </script>
+</body>
+
+</html>
