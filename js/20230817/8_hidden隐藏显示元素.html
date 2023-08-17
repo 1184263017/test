@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">
+        hello box
+        <b>!!</b>
+    </div>
+    <script>
+        /* 
+            hidden
+            1.显示或者隐藏可见元素
+            2.获取元素是否可见
+            3.如果不可见返回为true,否则返回false,如果设置为true表示隐藏，false表示显示
+         */
+        const box = document.getElementById('box');
+        console.log(box.hidden);
+        setTimeout(() => {
+            box.hidden = true
+            console.log(box.hidden);
+        }, 2000);
+    </script>
+</body>
+
+</html>

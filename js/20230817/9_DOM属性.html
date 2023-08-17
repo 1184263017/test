@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="inputA">
+    <div id="box"></div>
+    <script>
+        const inpA = document.getElementById('inputA');
+        const box = document.getElementById('box');
+        inpA.username = 'jack';
+        box.username = 'tom';
+        console.log(inpA);
+
+        Element.prototype.say = function(){
+            console.log(this.username);
+        }
+
+        Element.prototype.zxcasdqwe = 'cs11111111111'
+
+        for (const k in box) {
+            if (box.hasOwnProperty(k) === false) {
+                console.log(box[k]);
+                
+            }
+        }
+        inpA.say()
+        box.say()
+    </script>
+</body>
+</html>

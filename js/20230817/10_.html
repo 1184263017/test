@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input style="color: red;" type="text" id="inputA" username="'jack" class="a b c">
+    <script>
+        /* 
+            特性
+            1.标准特性，html标签预设好功能的特性
+            2.非标准特性
+
+            特性和属性
+            1.dom对象创建过程:根据标签标准特性创建，一个标准特性默认同步一dom属性
+            2.默认情况下属性和特性同名，属性和特性是独立的
+        */
+        const inpA = document.getElementById('inputA');
+
+        console.log(inpA.type);
+        console.log(inpA.id);
+        console.log(inpA.username);
+        console.log(inpA.className);
+        console.log(inpA.style);
+
+
+
+        // console.dir( Array);
+        // class a{
+        //     username = 'jack'
+        //     say(){}
+        //     static from(){}
+        // }
+        // console.dir(a);
+        // console.dir(new a());
+    </script>
+</body>
+</html>

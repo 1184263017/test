@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">
+        hello box
+        <b>!!</b>
+    </div>
+    <script>
+        /* 
+            outerHTML
+            1.只要是标签对象就有这个属性
+            2.获取标签的文本内容，内容包含html的,和标签本身
+            3.使用其他内容替换标签,如果内容中有html标签，那么标签会被解析
+              之前的标签会被清除
+         */
+        const box = document.getElementById('box');
+        console.log(box.outerHTML);
+
+        setTimeout(() => {
+            box.outerHTML = 'loli <strong>haha<strong>'
+            console.log(box);
+        }, 3000);
+    </script>
+</body>
+
+</html>

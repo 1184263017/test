@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="list">
+        <li>
+            li1
+            <ul>
+                <li>
+                    li11
+                    <ul>
+                        <li>li111</li>
+                        <li>li112</li>
+                        <li>li113</li>
+                    </ul>
+                </li>
+                <li>li12</li>
+                <li>li13</li>
+            </ul>
+        </li>
+        <li>
+            li2
+            <ul>
+                <li>li11</li>
+                <li>li12</li>
+                <li>li13</li>
+                <li>li14</li>
+            </ul>
+        </li>
+        <li>
+            li3
+        </li>
+    </ul>
+    <script>
+        const list = document.getElementById('list');
+        
+        function getCount(list){
+            [...list.children].forEach((v)=>{
+                if (v.children.length !== 0) {
+                    v.childNodes[0].data += `[${ v.children[0].children.length}]`;
+                    getCount(v.children[0]);
+                }else{
+                    v.childNodes[0].data += `[${0}]`;
+                }
+            })
+        }
+        getCount(list)
+    </script>
+</body>
+
+</html>

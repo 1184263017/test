@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    hello
+    <!-- comment -->
+    <h1>haha</h1>
+    <span>123</span>
+    <script>
+        /* 
+            文本节点 === undefined
+            注释节点 === undefined
+            标签(元素)节点 === H1
+            document === undefined
+
+            tagName
+            1.只有标签对象才有的类型
+            2.获取标签对象的名称，或者也可以用于区分标签对象和非标签对象
+        */
+       const ns = document.body.childNodes;
+       console.log(ns);
+       console.log(ns[0].tagName);
+       console.log(ns[1].tagName);
+       console.log(ns[3].tagName);
+       console.log(ns[5].tagName);
+       console.log(document.tagName);
+    </script>
+</body>
+</html>

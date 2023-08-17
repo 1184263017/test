@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    hello
+    <!-- comment -->
+    <h1>haha</h1>
+    <span>123</span>
+    <script>
+        /* 
+            nodeValue/data
+            1.只有非标签节点才有的属性
+            2.获取非标签节点内的文本
+            3是可读可写属性,对于html标签不会解析
+         */
+        const ns = document.body.childNodes;
+        console.log(ns);
+        console.log(ns[0].nodeValue);       //hello
+        console.log(ns[1].nodeValue);       //comment 
+        console.log(ns[3].nodeValue);       //null
+        console.log(ns[5].nodeValue);       //null
+        console.log(document.nodeValue);    //null
+
+
+        console.log(ns[0].data);       //hello
+        console.log(ns[1].data);       //comment 
+        console.log(ns[3].data);       //null
+        console.log(ns[5].data);       //null
+        console.log(document.data);    //null
+
+        setTimeout(() => {
+            ns[0].nodeValue = 'haha<strong>gg</strong>'
+            ns[1].data = 'xixi'
+        }, 2000);
+    </script>
+</body>
+
+</html>
