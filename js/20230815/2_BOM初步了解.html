@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(navigator);
+        console.log(location);
+        
+
+        
+        /* 
+            location.href
+            1. 读：获取地址栏信息
+            1. 写：修改地址栏信息,可以使用相对路径，和网络结对路径(网址)
+
+            location.reload
+            刷新当前页面
+        */
+        console.log(location.href);
+
+        setTimeout(() => {
+            // location.href = 'https://www.baidu.com'
+            // location.href = './1_DOM初步使用.html'
+
+            // location.reload()
+        }, 3000);
+    </script>
+</body>
+</html>

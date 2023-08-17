@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body><!-- cs -->
+    <h1>hello</h1>
+    <p>this is tag</p>
+    <script>
+        const arr1 = [...document.body.childNodes];
+        const arr2 = Array.from(document.body.childNodes);
+        const arr3 = Object.values(document.body.childNodes)
+        console.log(arr1);
+        console.log(arr2);
+        console.log(arr3);
+        for (const v of document.body.childNodes) {
+            console.log(v);
+        }
+    </script>
+</body>
+</html>

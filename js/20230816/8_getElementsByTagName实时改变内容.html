@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+        <div class="box">
+            <p id="p1"></p>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        /* 
+            getElementsByTagName 实时，修改视图(html)内容，
+            获取元素对象的变量会同步发生变化
+
+            在页面上删除一个元素时，li2中的元素会实时改变
+            li1中的元素不变
+        */
+        const li1 = document.querySelectorAll('li');
+        const li2 = document.getElementsByTagName('li');
+        // console.log(li1,li2);
+
+        
+    </script>
+</body>
+
+</html>

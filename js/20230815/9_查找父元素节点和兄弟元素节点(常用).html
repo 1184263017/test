@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>l1</li>
+        <li>l2</li>
+        <li>l3</li>
+        <li>l4</li>
+        <li>l5</li>
+    </ul>
+    <script>
+        const ul = document.body.children[0];       //查找所有子节点,纯文本子元素查找,返回伪数组
+        const l3 = ul.children[2]             
+        console.log(ul);
+        console.log(ul.firstElementChild);          //查找第一个子节点
+        console.log(ul.lastElementChild);           //查找最后一个子节点
+        console.log(l3);
+        console.log(l3.previousElementSibling);     //查找上一个兄弟节点,返回元素对象
+        console.log(l3.nextElementSibling);         //查找下一个兄弟节点,返回元素对象
+        console.log(l3.parentElement);              //查找父级节点,返回元素对象
+        console.log(l3.children);                   //查找子节点,返回伪数组
+    </script>
+</body>
+</html>

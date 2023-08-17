@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            1.节点对象可能有父节点但不一定有父元素节点
+            2.除了html元素其他节点的父节点和父元素节点都是同一个对象        
+        */
+        // 父节点document
+        console.log(document.documentElement.parentNode);
+        // 父元素节点null
+        console.log(document.documentElement.parentElement);
+    </script>
+</body>
+</html>

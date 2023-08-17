@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            节点(节点对象)
+            1.所有的文档内容必须要转换成对象后，才能使用JS处理
+            2.浏览器内部已经将这些文档内容转成对象了
+            3.同时提供了属性或者方法让我们去获取
+            4.浏览器将所有的文档内容对象化了，整个过程是浏览器自动完成的
+              这些对象可以，修改文档内容，读取文档内容，删除文档内容，增加文档内容
+        */
+       console.dir(document);
+       console.dir(document.documentElement);   //html
+       console.dir(document.body);              //body
+       console.dir(document.head);              //head
+    </script>
+</body>
+</html>

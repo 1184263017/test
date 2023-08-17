@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .serce{
+        .serce {
             width: 300px;
             height: 30px;
             border: 1px solid orange;
@@ -17,36 +18,42 @@
             margin-top: 50%;
             /* padding-top: -15px; */
         }
-        .left{
+
+        .left {
             margin-left: 10px;
             width: 30px;
             height: 30px;
             line-height: 30px;
         }
-        .left span{
+
+        .left span {
             font-size: 12px;
             color: red;
         }
-        .center{
+
+        .center {
             /* width: 150px; */
-            flex:1;
+            flex: 1;
             /* border: 1px solid; */
         }
-        .center input{
+
+        .center input {
             /* width: 150px; */
             height: 18px;
             border: none;
             border-left: 1px solid #999;
             outline: none;
         }
-        .right{
+
+        .right {
             width: 50px;
             height: 30px;
             /* border: 1px solid; */
             border-radius: 12px;
-            
+
         }
-        .right button{
+
+        .right button {
             width: 50px;
             height: 30px;
             border: 1px solid orange;
@@ -56,6 +63,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="serce">
         <div class="left">
@@ -68,5 +76,14 @@
             <button>搜索</button>
         </div>
     </div>
+
+    <script>
+        function sum(a, b) {
+            return a + b;
+        }
+        var result = sum(3, sum(4, 5))
+        console.log(result);
+    </script>
 </body>
+
 </html>

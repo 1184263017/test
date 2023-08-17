@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        const box = document.getElementById('box');
+        console.log(box.__proto__ === HTMLDivElement.prototype);
+        console.log(HTMLDivElement.prototype.__proto__ === HTMLElement.prototype);
+        console.log(HTMLElement.prototype.__proto__ === Element.prototype);
+        console.log(Element.prototype.__proto__ === Node.prototype);
+        console.log(Node.prototype.__proto__ === EventTarget.prototype);
+        console.dir(EventTarget.prototype.__proto__ === Object.prototype);
+        console.dir(Object.prototype.__proto__ === null);
+    </script>
+</body>
+</html>

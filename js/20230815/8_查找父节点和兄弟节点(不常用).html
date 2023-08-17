@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>l1</li>
+        <li>l2</li>
+        <li>l3 <b>123</b><p>456</p></li>
+        <li>l4</li>
+        <li>l5</li>
+    </ul>
+    <script>
+        const ul = document.body.childNodes[1];
+        const li5 = ul.childNodes[5];
+        console.log(li5.previousSibling.previousSibling);    //查找上一个兄弟节点
+        console.log(li5.nextSibling.nextSibling);            //查找下一个兄弟节点
+        console.log(li5.parentNode);                         //查找父节点
+        console.log(li5.childNodes);
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+        <div class="box">
+            <p id="p1"></p>
+            <ul>
+                <li>1</li>
+                <li id="li2">2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+        </div>
+    </div>
+    <input type="text" name="usernam">
+    <input type="text" name="password">
+    <script>
+        // 根据标签批量选择元素对象，返回类数组
+        console.log(document.getElementsByTagName('li'));
+
+        // 根据类名批量选择元素对象，返回类数组
+        console.log(document.getElementsByClassName('box'));
+
+        // 根据name属性批量选择元素对象，返回类数组
+        console.log(document.getElementsByName('usernam'));
+    </script>
+</body>
+
+</html>

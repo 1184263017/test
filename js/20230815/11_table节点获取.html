@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        tbody{
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <table border="1">
+        <caption>表格</caption>
+        <thead>
+            <tr>
+                <td>name</td>
+                <td>age</td>
+                <td>gender</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>jack</td>
+                <td>18</td>
+                <td>nan</td>
+            </tr>
+            <tr>
+                <td>tom</td>
+                <td>20</td>
+                <td>nv</td>
+            </tr>
+            <tr>
+                <td>lili</td>
+                <td>19</td>
+                <td>nv</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>jack</td>
+                <td>18</td>
+                <td>nan</td>
+            </tr>
+            <tr>
+                <td>tom</td>
+                <td>20</td>
+                <td>nv</td>
+            </tr>
+            <tr>
+                <td>lili</td>
+                <td>19</td>
+                <td>nv</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+        </tfoot>
+    </table>
+    <script>
+        const table = document.body.children[0];
+        console.log(table.children[0]);
+        console.log(table.children[1]);
+        console.log(table.children[2]);
+        console.log(table.children[3]);
+        console.log(table.children[4]);
+        // 表头
+        console.log(table.tHead);           //返回元素对象
+        // 表脚
+        console.log(table.tFoot);           //返回元素对象
+        // 表体 
+        console.log(table.tBodies);         //返回伪数组对象
+        // 标题
+        console.log(table.caption);         //返回元素对象
+        // 获取所有行
+        console.log(table.rows);            //返回伪数组对象
+        // 获取第一个tbody中的所有tr
+        console.log(table.tBodies[0].rows); //返回伪数组对象
+    </script>
+</body>
+</html>

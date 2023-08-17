@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    hello
+    <!-- comment -->
+    <h1>haha</h1>
+    <script>
+        /* 
+            文本节点 === 3
+            注释节点 === 8
+            标签(元素)节点 === 1
+            document === 9
+
+            nodeType
+            1.所有的节点对象都有的属性
+            2.返回数字记录区分不同节点的类型
+        */
+       const ns = document.body.childNodes;
+       console.log(ns);
+       console.log(ns[0].nodeType);
+       console.log(ns[1].nodeType);
+       console.log(ns[3].nodeType);
+       console.log(document.nodeType);
+    </script>
+</body>
+</html>

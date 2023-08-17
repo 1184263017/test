@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        tbody{
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <table border="1">
+        <caption>表格</caption>
+        <thead>
+            <tr>
+                <td>name</td>
+                <td>age</td>
+                <td>gender</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>jack</td>
+                <td>18</td>
+                <td>nan</td>
+            </tr>
+            <tr>
+                <td>tom</td>
+                <td>20</td>
+                <td>nv</td>
+            </tr>
+            <tr>
+                <td>lili</td>
+                <td>19</td>
+                <td>nv</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>jack</td>
+                <td>18</td>
+                <td>nan</td>
+            </tr>
+            <tr>
+                <td>tom</td>
+                <td>20</td>
+                <td>nv</td>
+            </tr>
+            <tr>
+                <td>lili</td>
+                <td>19</td>
+                <td>nv</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+        </tfoot>
+    </table>
+    <script>
+        const table = document.body.children[0];
+        console.log(table);
+        // 获取单元格的索引
+        console.log(table.tHead.rows[0].cells[2].cellIndex); //2
+    </script>
+</body>
+</html>

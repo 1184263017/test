@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <input type="checkbox" name="" id="" checked>js
+    <input type="checkbox" name="" id="">html
+    <input type="checkbox" name="" id="" checked>css
+    <input type="text" name="" id="">
+    <script>
+        // 通过css选择器批量获取标签对像,返回的是伪数组对象
+        console.log(document.querySelectorAll("ul li"));
+        console.log(document.querySelectorAll("#box"));
+        console.log(document.querySelectorAll("input[type='checkbox']:checked"));
+        
+        const arr = document.querySelectorAll("ul li");
+        [...arr].forEach((v)=>console.log(v))
+        console.log('-----------------');
+
+
+        /* 
+            querySelectorAll 批量获取，返回所有匹配结果(类数组)
+            querySelector    只返回所有匹配元素的第一个元素(对象)
+        */
+        console.log(document.querySelector("ul li"));
+        console.log(document.querySelectorAll("ul li"));
+        console.log('--------------');
+
+        /* 
+            所有的元素对象都可以调用querySelectorAll和querySelector
+        */
+        console.log(document.querySelectorAll('ul'))
+        console.log(document.querySelectorAll('#box ul'))
+        console.log(document.querySelector('#box').querySelectorAll('ul'));
+    </script>
+</body>
+</html>

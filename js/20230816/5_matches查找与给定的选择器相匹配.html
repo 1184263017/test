@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <div id="box1">
+            <p id="p1"></p>
+            <ul>
+                <li>1</li>
+                <li id="li2">2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+        </div>
+    </div>
+
+    <a href="www.a.com">1</a>
+    <a href="www.b.com">2</a>
+    <a href="www.c.com">3</a>
+    <a href="www.a.com">4</a>
+    <script>
+        /* 
+            所有的标签元素对象都有matches方法
+            1.判断元素对象是否可以被参数选择器选中
+            2.过匹配选中返回true,否则返回false
+        */
+       const li2 = document.getElementById('li2');
+       console.log(li2.matches('li'));
+       console.log(li2.matches('#box1>ul li')); //true
+       console.log(li2.matches('#box>ul li'));  //false
+       console.log('-------------');
+
+       const links = document.querySelectorAll('a');
+       for (const v of links) {
+            console.log(v.matches('[href*="a.com"]'));
+            if (v.matches('[href*="a.com"]')) {
+                console.log(v);
+            }
+       }
+    </script>
+</body>
+</html>

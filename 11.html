@@ -9,16 +9,39 @@
 
 <body>
   <script>
-    async function say() {
-      let r = await Promise.reject('123');
-      return r;
+    const obj = {
+      username: 'jack',
+      age:20,
+      add:'nanjin'
     }
-    // console.log(say());
-    say().then((data)=>{
-      console.log(data);
-    }).catch((e)=>{
-      console.log(e);
-    })
+    // console.log(Object.getOwnPropertyDescriptor(obj,'username'));
+    // Object.defineProperty(obj,'username',{
+    //   value:'tom',
+    //   writable:false
+    // })
+    // console.log(Object.getOwnPropertyDescriptor(obj,'username'));
+
+    const o1 = Object.getOwnPropertyDescriptors(obj);
+    console.log(o1);
+    const obj1 = Object.defineProperties({},o1);
+    obj.username = 'tom';
+    console.log(obj);
+    console.log(obj1);
+
+    console.log([] instanceof Object);
+
+
+    class user{
+      uname = 'jack'
+      static say(){
+        console.log(this.uname);
+      }
+    }
+    // const a = new user()
+    // a.say()
+    const str = 'hello';
+   
+    console.log(str.lastIndexOf('h'));
   </script>
 </body>
 
