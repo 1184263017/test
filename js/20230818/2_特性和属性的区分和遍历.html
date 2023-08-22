@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input style="color:red" type="text" name="'username" id="username" age="20">
+    <script>
+
+        /* 
+            属性区分大小写
+            特性不区分大小写
+
+            属性调用某些值时返回的是对象
+            特性调用某些值时返回的是字符串
+        */
+        const input = document.getElementById('username');
+        console.log(input.style); //返回对象
+        console.log(input.Name); //undefined  区分大小写
+        console.log('------------');
+
+        // 查询特性
+        console.log( input.getAttribute('style')); //返回字符串
+        console.log( input.getAttribute('Name')); //username  不区分大小写
+        console.log('------------');
+
+        /* 
+            attributes
+            返回该元素所包含的全部属性的对象，可迭代
+            
+         */
+        console.log(input.attributes);
+        console.log(input.attributes.name.value);
+        console.log(input.attributes.age.value);
+        console.log(input.getAttribute('name'));
+
+        // attributes获取一个可迭代的对象
+        for (const v of input.attributes) {
+            console.log(v.name,v.value);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./util/index.css">
+    <script src="./util/base.js"></script>
+    <style>
+        /* .overlay{
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 9;
+        }
+        .modal{
+            padding: 0.5rem;
+            background: white;
+            border-radius: 0.25rem;
+            z-index: 10;
+        } */
+    </style>
+</head>
+
+<body>
+    <button data-open-modal>Open</button>
+    <dialog data-modal>
+        <div>This is a modal</div>
+        <button data-close-modal>Close</button>
+        </dialog>
+    <script>
+        const openButton = document.querySelector("[data-open-modal]");
+        const closeButton = document.querySelector("[data-close-modal]");
+        const modal = document.querySelector("[data-modal]");
+
+        openButton.addEventListener("click", () => {
+            modal.showModal();
+        });
+
+        closeButton.addEventListener("click", () => {
+            modal.close();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            /* border: solid; */
+            margin: 0 auto;
+            width: 800px;
+            height: 200px;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: skyblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        div>span{
+            font-size: 16px;
+        }
+        img{
+            border-radius: 10px;
+            display: inline-block;
+            width: 6em;
+            height: 6em;
+            background-color: #333;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span id="h">00</span>
+        <span>
+            <img src="./imgs/dot.png" alt="">
+        </span>
+        <span id="m">00</span>
+        <span>
+            <img src="./imgs/dot.png" alt="">
+        </span>
+        <span id="s">00</span>
+    </div>
+    <script>
+        function getRandomHexColor() {
+            const letters = "0123456789ABCDEF";
+            let color = "#";
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        const randomColor = getRandomHexColor();
+        console.log(randomColor); // 随机的十六进制颜色码，如 "#2A7B9B"
+
+        function Time(){
+            const d = new Date();
+            const H = d.getHours() < 10 ? '0' + d.getHours() : d.getHours();
+            const M = d.getMinutes() < 10 ? '0' + d.getMinutes() : d.getMinutes();
+            const S = d.getSeconds() < 10 ? '0' + d.getSeconds() : d.getSeconds();
+            const imgH = String(H).split('').reduce((str,v)=>{
+                str += `<img src='./imgs/countdown${v}.png'>`
+                return str
+            },'')
+            const imgM = String(M).split('').reduce((str,v)=>{
+                str += `<img src='./imgs/countdown${v}.png'>`
+                return str
+            },'')
+            const imgS = String(S).split('').reduce((str,v)=>{
+                str += `<img src='./imgs/countdown${v}.png'>`
+                return str
+            },'')
+            document.getElementById('h').innerHTML = imgH;
+            document.getElementById('m').innerHTML = imgM;
+            document.getElementById('s').innerHTML = imgS;
+        }
+        Time();
+        setInterval(() => {
+            Time()
+        }, 1000);
+    </script>
+</body>
+
+</html>

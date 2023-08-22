@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span>hahaha</span>
+    <ul id="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <script>
+        /* 
+            都支持多参数传递，用逗号隔开,参数类型可以是字符串和元素对象
+            append  在当前元素对象的子节点末尾追加一个新对象
+            prepend 在当前元素对象的子节点头部追加一个新对象
+            before  在当前元素对象的前面追加一个新对象
+            after   在当前元素对象的末尾追加一个新对象
+        */
+        const list = document.getElementById('list');
+
+        const li1 = document.createElement('li');
+        const li2 = document.createElement('li');
+        const span1 = document.createElement('span');
+        const span2 = document.createElement('span');
+        // li.innerHTML = 'new li';
+
+        const text1 = document.createTextNode('new li-wei');
+        const text2 = document.createTextNode('new li-tou');
+        const text3 = document.createTextNode('new span-toubu');
+        const text4 = document.createTextNode('new span-weibu');
+        li1.append(text1)
+        li2.append(text2)
+        span1.append(text3)
+        span2.append(text4)
+
+        // 子节点尾部插入
+        list.append(li1);
+        // 子节点头部插入
+        list.prepend(li2);
+        // 父节点自身前面插入
+        list.before(span1);
+        // 父节点自身后面面插入
+        list.after(span2);
+
+        // 父节点整个替换 和outerHTML相似
+        list.replaceWith(`<h1>xixi</h1>`)
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="h1">hello
+        <i>jack
+            <b>!!</b>
+        </i>
+    </h1>
+    <script>
+        const b = document.createElement('b')
+        // b.innerHTML = 'hello'
+        // const div = document.createElement('div')
+        // div.append(b);
+        // console.log(div);
+        // document.body.append(div)
+
+
+        /*
+            DocumentFragment
+            1.可以创建一个容器，这个容器可以被当做普通节点使用，但容器本身不会被渲染
+         */
+        const df = new DocumentFragment()
+        df.append(b);
+        df.prepend(b);
+        // df.before(b);    //报错
+        // df.after(b);     //报错
+        console.log(df);
+    </script>
+</body>
+
+</html>

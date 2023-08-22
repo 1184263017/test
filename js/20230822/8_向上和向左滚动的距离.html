@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            border:1rem solid skyblue;
+            padding: 10px;
+            width: 300px;
+            height: 300px;
+            background: orange;
+            background-clip: content-box;
+            overflow: auto;
+        }
+        p{
+            width: 300px;
+            height: 150px;
+            font-size: 2rem;
+            border: solid;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <p>p1</p>
+        <p>p2</p>
+        <p>p3</p>
+        <p>p4</p>
+    </div>
+    <script>
+        const box = document.getElementById('box');
+        
+        // 向上和向左滚动的距离
+        setTimeout(() => {
+            console.log(box.scrollTop);
+            console.log(box.scrollLeft);
+        }, 3000);
+    </script>
+</body>
+</html>

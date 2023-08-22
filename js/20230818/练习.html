@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a name="list">the list</a>
+    <ul>
+        <li><a data-color="red" href="http://123.com">http://123.com</a></li>
+        <li><a href="/tutorial">/tutorial</a></li>
+        <li><a href="local/path">local/path</a></li>
+        <li><a data-color="orange" href="ftp://456.com">ftp://456.com</a></li>
+        <li><a data-color="yellow" href="http://789.com">http://789.com</a></li>
+        <li><a href="http://internal.com/test">http://internal.com/test</a></li>
+    </ul>
+    <script>
+        // document.querySelectorAll('a[href*="//"]').forEach(e=>{
+        //     e.style.color = 'red'
+        // })
+
+        document.querySelectorAll('a').forEach(e=>{
+            if (e.dataset.color === undefined) return;
+            e.style.color = e.dataset.color;
+        })
+    </script>
+</body>
+</html>

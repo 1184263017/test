@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="h1">hello</h1>
+    <script>
+        /* 
+            insertAdjacentElement 兼容性好，老版本浏览器也能运行
+            2.需要两个参数，第一个参数表示插入的位置，第二个参数表示插入的内容
+            3.insertAdjacentHTML 支持html文本插入，并且解析html
+            4.insertAdjacentText 支持文本插入，原样展示html内容
+
+        */
+        const h1 = document.getElementById('h1')
+        const b1 = document.createElement('b');
+        b1.innerHTML = '1'
+
+        const b2 = document.createElement('b');
+        b2.innerHTML = '2'
+
+        const b3 = document.createElement('b');
+        b3.innerHTML = '3'
+
+        const b4 = document.createElement('b');
+        b4.innerHTML = '4'
+
+        h1.insertAdjacentElement('afterbegin',b1)   //子节点尾部插入
+        h1.insertAdjacentElement('beforeend',b2)    //子节点头部插入
+        h1.insertAdjacentElement('afterend',b3)     //父节点自身前面插入
+        h1.insertAdjacentElement('beforebegin',b4)  //父节点自身后面面插入
+
+        // 插入文本内容不解析html
+        h1.insertAdjacentText('beforebegin',"<h6>insertAdjacentText</h6>")
+         // 插入文本内容解析html
+        h1.insertAdjacentHTML('afterend',"<h6>insertAdjacentHTML</h6>")
+    </script>
+</body>
+</html>

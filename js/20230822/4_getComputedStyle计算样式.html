@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box::after{
+            content: 'world';
+            color:red;
+            font-size:32px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">hello</div>
+    <script>
+        /* 
+            1.（计算）层叠样式 标签样式+文件样式+内联样式+默认样式
+            2.计算样式只能读取，不能设置，读取的语法和style一直
+        */
+        const box = document.getElementById('box');
+
+        // 返回一个样式对象，解构和box.style一致
+        const style = getComputedStyle(box)
+        console.log(style);
+        console.log(style.color);
+
+        // 伪元素样式获取
+        const after = getComputedStyle(box,'::after')
+        console.log(after.color);
+        console.log(after.fontSize);
+    </script>
+</body>
+</html>

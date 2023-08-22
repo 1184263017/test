@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ol id="elem">
+        <li>Hello</li>
+        <li>World</li>
+    </ol>
+    <script>
+        function clear(elem) {
+            const ol = document.getElementById(elem);
+            // console.log(ol);
+            // [...ol.children].forEach((v,k) => {
+            //     ol.removeChild(ol.children[k]);
+            // });
+            // console.log(ol.children);
+
+            for (let i = ol.children.length - 1; i >= 0; i--) {
+                ol.removeChild(ol.children[i]);
+            }
+        }
+        clear('elem')
+    </script>
+</body>
+
+</html>

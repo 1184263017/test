@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box" data-name="jack" data-age="20" data-user-name="tom"></div>
+    <script>
+        /* 
+            1.建议给所有特性加上data-前缀
+            2.有data-前缀的非标准属性,其值会被保存在元素对象的dataset对象属性中
+              属性名使用(去除前缀的)特性名
+            3.好处:方便读取只需要使用对象读取语法,方便设置只需要使用对象设置语法
+            4.如果设置的对象不存在就新增
+            5.自定义的data 特性名可以使用多个单词，每个单词使用-分割
+            6.多单词转换对象时，从第二个单词开始首字母大写(驼峰命名法)
+        */
+        const box = document.getElementById('box')
+
+        // console.log(box.getAttribute('data-name'));
+        // console.log(box.getAttribute('data-age'));
+
+        console.log(box.dataset);
+        console.log(box.dataset.name);
+        console.log(box.dataset.age);
+        console.log(box.dataset.userName); 
+        // box.removeAttribute('data-cs')
+        console.log(box.outerHTML);
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="ul">
+
+    </ul>
+    <div id="box"></div>
+    <script>
+        // const ul = document.getElementById('ul');
+        // const arr = [];
+
+        // while (true) {
+        //     const text = prompt('1');
+        //     if (text === null) break;
+        //     const li = document.createElement('li');
+        //     li.innerHTML = text;
+        //     arr.push(li);
+        // }
+
+
+        // ul.append(...arr)
+        
+        const a = new Date();
+        a.setMonth(12);
+        a.setDate(0)
+        console.log(a.getDate());
+        console.log(a.toLocaleString());
+        console.log('----------');
+        const arr1 = [1,2,3,4,5,6,1,1,2,5,7];
+        const obj = {};
+        for (const v of arr1) {
+            if (v in obj) {
+                obj[v] += 1;
+            }else{
+                obj[v] = 1;
+            }
+        }
+        console.log(obj);
+
+
+        let data = {
+            "Fish":{
+                "trout":{},
+                "salmon":{}
+            },
+            "Tree":{
+                "Huge":{
+                    "sequoia":{},"oak": {}
+                },
+                "Flowering":{
+                    "apple tree":{},"magnolia": {}
+                }
+            }
+        }
+        function list(data,el) {
+            const arr = Object.keys(data);
+            const ul = document.createElement('ul');
+            if(arr.length !== 0){
+                arr.forEach(e=>{
+                    const li = document.createElement('li');
+                    li.innerHTML = e;
+                    if(Object.keys(data[e]).length !==0){
+                        const obj = list(data[e],li);
+                    }
+                    ul.append(li) 
+                })
+                el.append(ul);
+            }
+        }
+        list(data,document.getElementById('box'));
+    </script>
+</body>
+
+</html>

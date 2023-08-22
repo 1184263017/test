@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="ul">
+        <li>1</li>
+    </ul>
+    <script>
+        /*
+            DocumentFragment
+            1.可以创建一个容器，这个容器可以被当做普通节点使用，但容器本身不会被渲染
+            2.append 调用一次页面就会被重新渲染一次
+            3.可以将所有的节点append到df对象中，因为df对象不是真实的dom对象
+              所以不会导致页面渲染，df对象又没有当做真实对象添加到dom中，
+              利用这个特性可以减少渲染次数
+         */
+        const ul = document.getElementById('ul');
+        // const df = new DocumentFragment();
+        const df = []
+        for (let i = 2; i < 12; i++) {
+            const li = document.createElement('li');
+            li.innerHTML = i;
+            // df.append(li)
+            df.push(li)
+        }
+        console.log(df);
+        // ul.append(df)
+        ul.append(...df)
+    </script>
+</body>
+</html>

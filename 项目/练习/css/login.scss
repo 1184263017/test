@@ -1,0 +1,132 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei";
+}
+.main{
+    display: flex;
+    .background{
+        width: 901px;
+        height: 100vh;
+        background-image: url(../img/login1_1.1.png);
+        // border: solid;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        background-size: 100% 100%;
+        background-position: center center;
+        >img{
+            // border: solid 1px;
+            margin: 0 auto;
+            margin-bottom: 10vh;
+        }
+    }
+    .login{
+        width: 800px;
+        height: 100vh;
+        // border: solid;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #fff;
+        >.lg_center{
+            box-shadow: 0 0 10px 1px #d4e7ff;
+            border-radius: 17px;
+            width: 549px;
+            height: 564px;
+            padding: 0px 81px;
+            >.img{
+                >img{
+                    width: 290px;
+                    flex-grow: 0;
+                    flex-shrink: 0;
+                    flex-basis: auto;
+                    margin-top: 40px;
+                    margin-left: 28px;
+                    font-size: 14px;
+                }
+            }
+            >.logon{
+                width: 100%;
+                margin-top: 40px;
+                >span{
+                    font-size: 24px;
+                    color: #202020;
+                    line-height: 30px;
+                }
+            }
+            >.username{
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                width: 100%;
+                height: 60px;
+                font-size: 0;
+                flex-grow: 0;
+                flex-shrink: 0;
+                flex-basis: auto;
+                margin-top: 20px;
+                border: 1px solid #e6e7eb;
+                border-radius: 4px 4px 4px 4px;
+                >img{
+                    width: 30px;
+                    height: 30px;
+                    flex-grow: 0;
+                    flex-shrink: 0;
+                    flex-basis: auto;
+                    margin-left: 14px;
+                    font-size: 14px;
+                }
+                >input{
+                    width: 270px;
+                    height: 40px;
+                    line-height: 30px;
+                    padding-left: 2px;
+                    padding-right: 2px;
+                    margin-left: 14px;
+                    border: 0 solid #000;
+                    font-size: 16px;
+                    outline: none;
+                }
+            }
+            >.tishi{
+                width: 100%;
+                margin-top: 24px;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                // border: solid;
+                >input{
+                    display: inline-block;
+                    height: 14px;
+                    width: 14px;
+                    border: 1px solid #ccc;
+                    border-radius: 2px;
+                    vertical-align: middle;
+                }
+                >label{
+                    // border: solid;
+                    // height: 6px;
+                    font-size: 14px;
+                    color: #333;
+                    margin-left: 10px;
+                    vertical-align: middle;
+                }
+            }
+            >.but{
+                margin-top: 50px;
+                >button{
+                    width: 100%;
+                    height: 60px;
+                    background-color: #3662ec;
+                    color: #fff;
+                    border: 1px solid #09f;
+                    border-radius: 9px 9px 9px 9px;
+                    font-size: 18px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box" style="color: red;">hello</div>
+    <script>
+        /* 
+            1.style 样式为空不表示对象没有样式,所有对象都有默认样式
+            2.style 和其他样式无关,他的值不会受到其他样式的影响
+            3.多单词，连接符后的第一个首字母大写
+
+            -webkit-border-radius = WebkitBorderRadius
+        */
+        const box = document.getElementById('box');
+        box.style.width = 100 + 'px';
+        box.style.height = 100 + 'px';
+        box.style.border = `1px solid red`;
+        box.style.fontSize = 24 + 'px';
+        box.style.color = 'blue';
+
+        console.log(box.style.color);
+    </script>
+</body>
+
+</html>

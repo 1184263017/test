@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="h1">hello
+        <i>jack
+            <b>!!</b>
+        </i>
+    </h1>
+    <script>
+        /* 
+            删除元素节点
+            remove:h1.children[0].remove();
+            removeChild:h1.removeChild(h1.children[0]);
+            删除元素特性
+            removeAttribute:input.removeAttribute('name')
+
+        */
+        const h1 = document.getElementById('h1')
+        setTimeout(() => {
+            h1.children[0].remove();
+            // h1.removeChild(h1.children[0]);
+        }, 2000);
+    </script>
+</body>
+
+</html>

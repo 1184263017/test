@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            margin: 0 auto;
+            border-spacing:0;
+            width: 30vw;
+        }
+        tr{
+            height: 8vh;
+            border: 1px solid rgb(230, 230, 230);
+        }
+        td{
+            text-align: center;
+            font-size: 14px;
+            border-right: 1px solid rgb(230, 230, 230);
+        }
+        thead>tr>td{
+            font-weight: bold;
+            font-size: 16px;
+        }
+        thead>tr{
+            background-color: rgb(249, 249, 249);
+        }
+        tbody>tr{
+            background-color: white;
+        }
+        tbody>tr:hover{
+            background-color: rgb(243, 243, 243);
+        }
+        tbody>tr:nth-child(2n+1){
+            background-color: rgb(246, 246, 255);
+        }
+        caption{
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: bolder;
+        }
+        .upd,.del{
+            color: white;
+            background-color: skyblue;
+            border-radius: 5px;
+            border: none;
+            height: 5vh;
+            margin-right: 2px;
+        }
+        .caozuo{
+            height: 8vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <table border="1">
+        <caption>数据展示</caption>
+        <thead>
+            <tr>
+                <td>选择</td>
+                <td>编号</td>
+                <td>姓名</td>
+                <td>年龄</td>
+                <td>性别</td>
+                <td>操作</td>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+
+        </tbody>
+    </table>
+    <script>
+        const users = [
+            {id:1,name:'jack',age:20,gender:'1'},
+            {id:2,name:'tom',age:21,gender:'1'},
+            {id:3,name:'lili',age:22,gender:'2'},
+            {id:4,name:'haha',age:23,gender:'1'},
+            {id:5,name:'xixi',age:24,gender:'2'},
+            {id:6,name:'lilei',age:25,gender:'2'},
+        ];
+        // 数组转换为表格
+        // const str = users.map((v)=>{
+        //     return `
+        //         <tr>
+        //             <td>${v.id}</td>
+        //             <td>${v.name}</td>
+        //             <td>${v.age}</td>
+        //             <td>${v.gender==1?'男':'女'}</td>
+        //         </tr>
+        //     `
+        // }).join('');
+
+        const str = users.reduce((str,v)=>{
+            let style;
+            // if(v.gender==2){
+            //     style = `style="background-color: red;"`
+            // }
+            str += `
+                <tr ${style}>
+                    <td><input type='checkbox'></td>
+                    <td>${v.id}</td>
+                    <td>${v.name}</td>
+                    <td>${v.age}</td>
+                    <td>${v.gender==1?'男':'女'}</td>
+                    <td class='caozuo'>
+                        <button class='upd'>修改</button>    
+                        <button class='del'>删除</button>    
+                    </td>
+                </tr>
+            `
+            return str;
+        },'')
+        // console.log(str);
+        document.getElementById('tbody').innerHTML = str;    
+    </script>
+</body>
+</html>

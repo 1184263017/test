@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .a{
+            width: 100px;
+            height: 100px;
+            border: solid;
+        }
+        .b{
+            width: 200px;
+            height: 200px;
+            border: solid;
+        }
+        .c{
+            width: 300px;
+            height: 300px;
+            border: solid;
+        }
+        .str{
+            font-size: 24px;
+            color: red;
+        }
+        .qx{
+            font-style: inherit;
+        }
+    </style>
+</head>
+<body>
+    <div class="str a">hello</div>
+    <div id="box" class="a">hello</div>
+    <script>
+        /* 
+            classList.toggle(类名)
+            判断对象样式类是否存在，存在就删除，不存在就添加
+        */
+        const box = document.getElementById('box');
+        // 添加样式类
+        // box.classList.add('a','str','qx');
+        console.log(box.classList);
+        setInterval(() => {
+            box.classList.toggle('str');
+        }, 2000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="checkbox" checked id="username">
+    <script>
+        /* 
+            1.特性值只有两种类型：null和字符串
+            2.属性值常见类型：字符串，对象，布尔值
+        */
+        const input = document.getElementById('username');
+
+
+        // 特性:空字符表示选中,null表示取消选中
+        console.log(input.getAttribute('checked'));
+
+        // 属性:true表示选中，false表示取消选中
+        console.log(input.checked);
+
+        setTimeout(() => {
+            // input.checked = false
+            // console.log(input.getAttribute('checked'));
+            input.removeAttribute('checked')
+        }, 2000);
+    </script>
+</body>
+
+</html>

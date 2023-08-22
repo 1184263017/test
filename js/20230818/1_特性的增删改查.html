@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="'username" id="username" age="20">
+    <script>
+        /* 
+            获取特性
+            1.通过属性获取,因为dom的部分属性是依据特性创建的
+            2.通过dom对象给出的方法getAttribute获取,就可以获取标准特性
+              也可以获取自定义特性
+            
+        */
+        const input = document.getElementById('username');
+        console.log(input.name);
+
+        // 查询特性
+        console.log( input.getAttribute('name'));
+        console.log( input.getAttribute('age'));
+        // 检测特性是否存在
+        console.log( input.hasAttribute('age'));
+        console.log( input.hasAttribute('haha'));
+        // 新增或修改特性的值
+        input.setAttribute('zhidao','nishuone')
+        console.log(input.outerHTML);
+        input.setAttribute('name','xixi')
+        console.log( input.getAttribute('name'));
+        // 删除特性值
+        input.removeAttribute('name')
+        console.log( input.hasAttribute('name'));
+
+        
+    </script>
+</body>
+</html>

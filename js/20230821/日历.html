@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../20230822/nongli.js"></script>
+    <title>Document</title>
+    <style>
+        .rli {
+            width: 280px;
+            /* border: solid; */
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            background-color: rgb(229, 229, 229);
+            border-radius: 5px;
+            padding-top: 5px;
+        }
+
+        .rli>div {
+            width: 40px;
+            height: 40px;
+            box-sizing: border-box;
+            /* line-height: 40px; */
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .divT:hover {
+            border-radius: 50%;
+            background-color: rgb(200, 200, 200);
+            color: black !important;
+            transition: all .5s;
+        }
+
+        .divT {
+            display: flex;
+            flex-direction: column;
+            border-radius: 50%;
+        }
+
+        .divT>span {
+            margin-top: 2px;
+            font-size: 12px;
+            transform: scale(.9);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="rli" class="rli">
+        <div>一</div>
+        <div>二</div>
+        <div>三</div>
+        <div>四</div>
+        <div>五</div>
+        <div>六</div>
+        <div>日</div>
+    </div>
+    <script>
+        const arr = ['国庆节', '中秋节', '劳动节', '元旦', '春节', '端午节', '端午节']
+        function createCalendar(elem, year, month) {
+            const shangyue = new Date(year, month - 1, 0).getDate();
+            const max = new Date(year, month, 0).getDate();
+            const sta_rl = new Date(year, month - 1, 1).getDay() || 7;
+            const end_rl = 7 - (new Date(year, month - 1, max).getDay() || 7);
+            for (let i = sta_rl; i > 1; i--) {
+                const div = document.createElement('div');
+                div.className = 'divT'
+                div.innerHTML = shangyue - i + 2;
+                div.style.color = 'rgb(194,194,194)'
+                const str = getTiem(year, month - 1, shangyue - i + 2);
+                div.innerHTML = `
+                    <span>${shangyue - i + 2}</span>
+                    <span>${str}</span>
+                `;
+                elem.append(div)
+            }
+            for (let i = 1; i <= max; i++) {
+                const div = document.createElement('div');
+                div.className = 'divT'
+                if (new Date().getDate() == i) {
+                    div.style.color = 'rgb(255,255,255)';
+                    div.style.borderRadius = '50%';
+                    div.style.backgroundColor = 'rgb(0,103,192)';
+                }
+                const str = getTiem(year, month, i);
+                div.innerHTML = `
+                    <span>${i}</span>
+                    <span>${str}</span>
+                `;
+                elem.append(div)
+            }
+            for (let i = 1; i <= end_rl; i++) {
+                const div = document.createElement('div');
+                div.className = 'divT'
+                div.style.color = 'rgb(194,194,194)'
+                const str = getTiem(year, month + 1, i);
+                div.innerHTML = `
+                    <span>${i}</span>
+                    <span>${str}</span>
+                `;
+                elem.append(div)
+            }
+        }
+        const rli = document.getElementById('rli')
+        createCalendar(rli, 2023, 8);
+
+        function getTiem(year, month, date) {
+            const lunarDate = LunarCalendar.solarToLunar(year, month , date);
+            let str;
+            if (lunarDate.solarFestival != undefined && arr.includes(lunarDate.solarFestival.split(' ')[0])) {
+                str = lunarDate.solarFestival.split(' ')[0]
+            } else if (lunarDate.term) {
+                str = lunarDate.term
+            } else if (lunarDate.lunarDayName == '初一') {
+                str = lunarDate.lunarMonthName
+            } else {
+                str = lunarDate.lunarDayName
+            }
+            return str;
+        }
+
+
+        // 获取当前日期
+        const today = new Date();
+
+        // 使用 lunarCalendar 的方法获取农历日期
+        // console.log(LunarCalendar);
+        // console.log(today.getMonth(), today.getDate());
+        const lunarDate = LunarCalendar.solarToLunar(2023, 10, 3);
+        // console.log(lunarDate);
+        // console.log(lunarDate.solarFestival != undefined);
+        // console.log(lunarDate.solarFestival.split(' ')[0]);
+        // console.log(arr.includes(lunarDate.solarFestival.split(' ')[0]));
+
+        // 提取农历日期的年、月、日
+        const lunarYear = lunarDate.lunarYear;
+        const lunarMonth = lunarDate.lunarMonthName;
+        const lunarDay = lunarDate.lunarDayName;
+
+        console.log(`今天的农历日期是：${lunarYear}年${lunarMonth}月${lunarDay}日`);
+
+    </script>
+</body>
+
+</html>

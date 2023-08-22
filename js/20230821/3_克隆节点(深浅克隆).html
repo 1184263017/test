@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="h1">hello
+        <i>jack
+            <b>!!</b>
+        </i>
+    </h1>
+    <script>
+        const h1 = document.getElementById('h1')
+        // 深克隆
+        const ha = h1.cloneNode(true)   //<h1 id="h1">...</h1>
+        document.body.append(ha);
+        // 浅克隆
+        const hb = h1.cloneNode(false)  //<h1 id="h1"></h1>
+
+        console.log(ha);
+        console.log(hb);
+    </script>
+</body>
+
+</html>

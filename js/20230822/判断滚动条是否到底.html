@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            border:1rem solid skyblue;
+            padding: 10px;
+            width: 300px;
+            height: 300px;
+            background: orange;
+            background-clip: content-box;
+            overflow: auto;
+        }
+        p{
+            width: 300px;
+            height: 150px;
+            font-size: 2rem;
+            border: solid;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <p>p1</p>
+        <p>p2</p>
+        <p>p3</p>
+        <p>p4</p>
+    </div>
+    <script>
+        const box = document.getElementById('box');
+        
+        // 判断是否滚动到底部（触底）
+        /* 
+            全部高度 - 滚动高度 - 内容高度 = 剩余未滚动高度
+            全部宽度 - 滚动宽度 - 内容宽度 = 剩余未滚动宽度
+        */
+        setTimeout(() => {
+            console.log(box.scrollHeight-box.scrollTop-box.clientHeight);
+            console.log(box.scrollWidth-box.scrollLeft-box.clientWidth);
+        }, 3000);
+    </script>
+</body>
+</html>

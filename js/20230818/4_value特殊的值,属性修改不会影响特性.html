@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input style="color:red" type="text" id="username" age="20">
+    <script>
+
+        /* 
+            属性-特性同步
+            1.当标准特性被修改，属性也会同步修改
+            2.当属性被修改，(通常)特性也会同步修改
+        */
+        const input = document.getElementById('username');
+
+        console.log('---------特性=>属性(同步)----------');
+        console.log(input.value);
+        // input.setAttribute('value','jack');
+        input.value = 'lili';
+        console.log(input.getAttribute('value'));
+        
+        // console.log('---------属性=>特性(不同步)----------');
+        // console.log(input.getAttribute('value'));
+        // input.value='lili';
+        // console.log(input.getAttribute('value'));
+    </script>
+</body>
+</html>

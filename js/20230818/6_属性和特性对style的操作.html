@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="inputA" style="color:red;background-color: yellow;">
+    <script>
+        /* 
+            属性操作比特性更加的方便
+        */
+        const input = document.getElementById('inputA');
+
+        console.log(input.style);
+        console.log(input.getAttribute('style'));
+
+        console.log(input.style.color);
+
+        setTimeout(() => {
+            input.style.backgroundColor = 'green'
+        }, 2000);
+    </script>
+</body>
+</html>
