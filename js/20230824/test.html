@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const arr = [1, 2, 3, [4, 5, 6, [7, 8, 9]]];
+        function sum1(arr) {
+            const sumCount = arr.reduce((sum, v, k) => {
+                if (Array.isArray(v)) {
+                    const count =  sum1(v);
+                    sum += count;
+                } else{
+                    sum += v;
+                }
+                return sum;
+            }, 0);
+            return sumCount;
+        }
+        console.log(sum1(arr));
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            height: 500px;
+            width: 1000px;
+            border: solid;
+        }
+    </style>
+</head>
+
+<body>
+    <p>hello</p>
+    <p>hello</p>
+    <script>
+        /* 
+            window 浏览器窗口大小和滚动
+            1.可以通过HTML宽高获取，获取的结果不包括滚动条
+                document.documentElement.clientHeight
+                document.documentElement.clientWidth
+            2.可以通过window对象获取宽高，包含滚动条
+                window.innerHeight
+                window.innerWidth
+        */
+        // 窗口的宽高
+        console.log(document.documentElement.offsetWidth);
+        console.log(document.documentElement.clientHeight, window.innerHeight);
+        console.log(document.documentElement.clientWidth, window.innerWidth);
+        console.log('-----------');
+
+        // 文档的宽高
+        console.log(document.documentElement.scrollHeight);
+        console.log(document.documentElement.scrollWidth);
+
+        // 兼容性问题,解决方法时,将HTML和BODY的内尺寸和外尺寸，内容尺寸集合到一起取最大值
+        let scrollHeight = Math.max(
+            document.body.clientHeight,
+            document.body.scrollHeight,
+            document.body.offsetHeight,
+            document.documentElement.scrollHeight,
+            document.documentElement.offsetHeight,
+            document.documentElement.clientHeight
+        )
+        console.log(scrollHeight);
+        console.log('-----------');
+
+        // 滚动距离
+        
+        setTimeout(() => {
+            console.log(window.pageYOffset);
+            console.log(window.pageXOffset);
+            console.log(document.documentElement.scrollTop);
+            console.log(document.documentElement.scrollLeft);
+            console.log(document.documentElement.scrollHeight - window.pageYOffset - document.documentElement.clientHeight);
+            console.log(document.documentElement.scrollWidth - window.pageXOffset - document.documentElement.clientWidth);
+        }, 3000);
+    </script>
+</body>
+
+</html>

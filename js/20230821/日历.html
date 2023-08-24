@@ -9,20 +9,19 @@
     <style>
         .rli {
             width: 280px;
-            /* border: solid; */
             margin: 0 auto;
             display: flex;
             flex-wrap: wrap;
             background-color: rgb(229, 229, 229);
             border-radius: 5px;
             padding-top: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
 
         .rli>div {
             width: 40px;
             height: 40px;
             box-sizing: border-box;
-            /* line-height: 40px; */
             text-align: center;
             font-size: 14px;
         }
@@ -45,6 +44,30 @@
             font-size: 12px;
             transform: scale(.9);
         }
+
+        #but {
+            /* border: solid; */
+            margin: 0 auto;
+            margin-top: 3vh;
+            width: 7.1vw;
+        }
+
+        #years {
+            display: inline-block;
+            width: 1vw;
+            outline: none;
+            text-align: center;
+        }
+
+        #shang,
+        #xia {
+            width: 2.5vw;
+            background-color: skyblue;
+            color: white;
+            border-radius: 3px;
+            border: none;
+            font-size: 14px;
+        }
     </style>
 </head>
 
@@ -58,8 +81,14 @@
         <div>六</div>
         <div>日</div>
     </div>
+    <div id="but">
+        <input type="button" value="上月" id="shang">
+        <input type="text" name="" id="years" value="">
+        <input type="button" value="下月" id="xia">
+    </div>
     <script>
-        const arr = ['国庆节', '中秋节', '劳动节', '元旦', '春节', '端午节', '端午节']
+        document.getElementById('years').value = new Date().getMonth() + 1;
+        const arr = ['国庆节', '中秋节', '劳动节', '元旦节', '春节', '端午节', '除夕']
         function createCalendar(elem, year, month) {
             const shangyue = new Date(year, month - 1, 0).getDate();
             const max = new Date(year, month, 0).getDate();
@@ -105,13 +134,15 @@
             }
         }
         const rli = document.getElementById('rli')
-        createCalendar(rli, 2023, 8);
+        createCalendar(rli, new Date().getFullYear(), new Date().getMonth() + 1);
 
         function getTiem(year, month, date) {
-            const lunarDate = LunarCalendar.solarToLunar(year, month , date);
+            const lunarDate = LunarCalendar.solarToLunar(year, month, date);
             let str;
             if (lunarDate.solarFestival != undefined && arr.includes(lunarDate.solarFestival.split(' ')[0])) {
                 str = lunarDate.solarFestival.split(' ')[0]
+            } else if (lunarDate.lunarFestival != undefined && arr.includes(lunarDate.lunarFestival.split(' ')[0])) {
+                str = lunarDate.lunarFestival.split(' ')[0]
             } else if (lunarDate.term) {
                 str = lunarDate.term
             } else if (lunarDate.lunarDayName == '初一') {
@@ -123,24 +154,57 @@
         }
 
 
-        // 获取当前日期
-        const today = new Date();
+        let num = new Date().getMonth() + 1;
+        document.getElementById('shang').addEventListener('click', function () {
+            num = num - 1
+            num = num < 1 ? 12 : num;
+            for (let i = rli.children.length; i > 6; i--) {
+                if (rli.children[i] == undefined) {
+                    continue;
+                }
+                rli.removeChild(rli.children[i])
+            }
+            createCalendar(rli, new Date().getFullYear(), num);
+            document.getElementById('years').value = num;
+        })
+        document.getElementById('xia').addEventListener('click', function () {
+            num = num + 1
+            num = num > 12 ? 1 : num;
+            for (let i = rli.children.length; i > 6; i--) {
+                if (rli.children[i] == undefined) {
+                    continue;
+                }
+                rli.removeChild(rli.children[i])
+            }
+            createCalendar(rli, new Date().getFullYear(), num);
+            document.getElementById('years').value = num;
+        })
+        document.getElementById('years').addEventListener('keydown', function (event) {
+            if (event.keyCode === 13 || event.which === 13) {
+                // 在这里执行你希望在回车键按下时执行的操作
+                num = +document.getElementById('years').value;
+                console.log(num);
+                num = num > 12 ? 1 : num;
+                num = num < 1 ? 12 : num;
+                for (let i = rli.children.length; i > 6; i--) {
+                    if (rli.children[i] == undefined) {
+                        continue;
+                    }
+                    rli.removeChild(rli.children[i])
+                }
+                createCalendar(rli, new Date().getFullYear(), num);
+                document.getElementById('years').value = num;
+            }
+
+        })
+
+
+        
+
 
         // 使用 lunarCalendar 的方法获取农历日期
-        // console.log(LunarCalendar);
-        // console.log(today.getMonth(), today.getDate());
-        const lunarDate = LunarCalendar.solarToLunar(2023, 10, 3);
+        const lunarDate = LunarCalendar.solarToLunar(2023, 1, 21);
         // console.log(lunarDate);
-        // console.log(lunarDate.solarFestival != undefined);
-        // console.log(lunarDate.solarFestival.split(' ')[0]);
-        // console.log(arr.includes(lunarDate.solarFestival.split(' ')[0]));
-
-        // 提取农历日期的年、月、日
-        const lunarYear = lunarDate.lunarYear;
-        const lunarMonth = lunarDate.lunarMonthName;
-        const lunarDay = lunarDate.lunarDayName;
-
-        console.log(`今天的农历日期是：${lunarYear}年${lunarMonth}月${lunarDay}日`);
 
     </script>
 </body>

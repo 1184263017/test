@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .main {
+            width: 100%;
+            height: 100%;
+        }
+
+        .top {
+            height: 40px;
+            background-color: skyblue;
+            position: absolute;
+            left: 0;
+            right: 0;
+        }
+
+        .bottom {
+            display: flex;
+            position: absolute;
+            top: 40px;
+            left: 0;
+            right: 0;
+        }
+
+        .left {
+            width: 200px;
+            height: 900px;
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            /* justify-content: center; */
+            align-items: center;
+            padding-top: 20px;
+        }
+
+        .left_zi {
+            margin-top: 10px;
+        }
+
+        .xia {
+            display: inline-block;
+            width: 0px;
+            height: 0px;
+            border: 10px solid rgb(196, 167, 167);
+            border-bottom: 5px solid transparent;
+            border-left: 0px solid transparent;
+            border-top: 5px solid transparent;
+        }
+
+        .shang {
+            display: inline-block;
+            width: 0px;
+            height: 0px;
+            border: 10px solid rgb(196, 167, 167);
+            border-bottom: 0px solid transparent;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+        }
+
+        .right {
+            flex: 1;
+            /* background-color: orange; */
+        }
+
+        .left_zi ul {
+            list-style: none;
+            max-height: 100px;
+            overflow: hidden;
+            transition: all 500ms;
+            margin-top: 5px;
+            width: 90px;
+        }
+
+        .ul1.hiddn {
+            max-height: 0px;
+        }
+        .ul1 li{
+            margin-top: 5px;
+        }
+
+        table {
+            border: 1px solid;
+            border-spacing: 0;
+            width: 100%;
+            /* height: 180px; */
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        tbody tr:nth-child(2n+1) {
+            background-color: rgb(246, 246, 255);
+        }
+
+        thead tr {
+            background-color: skyblue;
+            font-weight: bold;
+        }
+
+        button {
+            border: none;
+            border-radius: 5px;
+            background-color: orange;
+            color: white;
+            font-size: 12px;
+        }
+
+        tbody>tr:hover {
+            background-color: rgb(243, 243, 243) !important;
+        }
+
+        caption {
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="top">导航栏</div>
+        <div class="bottom">
+            <div class="left" id="left">
+                <!-- <div class="left_zi" id="left_zi">
+                    <span>菜单1</span>
+                    <span class="xia biaoqian"></span>
+                    <ul id="u1" class="ul1 hiddn">
+                        <li>123</li>
+                        <li>123</li>
+                        <li>123</li>
+                        <li>123</li>
+                        <li>123</li>
+                        <li>123</li>
+                        <li>123</li>
+                        <li>123</li>
+                        <li>123</li>
+                    </ul>
+                </div> -->
+            </div>
+            <div class="right">
+                <table border="1" id="table">
+                    <caption>消息列表</caption>
+                    <thead>
+                        <tr>
+                            <td>id</td>
+                            <td>姓名</td>
+                            <td>消息内容</td>
+                            <td>操作</td>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tbody">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        
+
+
+        const tbody = document.getElementById('tbody');
+        const users = [
+            { id: 1, name: 'jack', msg: '哈哈哈' },
+            { id: 2, name: 'tom', msg: '嘻嘻嘻' },
+            { id: 3, name: 'lili', msg: '嘿嘿嘿' },
+            { id: 4, name: 'haha', msg: '啊实打实' },
+            { id: 5, name: 'xixi', msg: '去外地请问' },
+            { id: 6, name: 'lilei', msg: '撒大声地' },
+        ];
+
+        const str = users.reduce((sum, v, k) => {
+            sum += `
+                <tr id='tr_${v.id}'>
+                    <td>${v.id}</td>
+                    <td>${v.name}</td>
+                    <td>${v.msg}</td>
+                    <td>
+                        <button onclick='del(${v.id})'>关闭</button>
+                    </td>
+                </tr>
+            `
+            return sum;
+        }, '')
+        // console.log(str);
+        tbody.innerHTML = str;
+
+        function del(id) {
+            const str = 'tr_' + id
+            document.getElementById(str).remove();
+        }
+
+
+
+        const menu = [
+            { id: 1, name: '用户管理', chlic: [{ sid: 1, name: '管理员列表' }, { sid: 1, name: '用户列表' }] },
+            { id: 2, name: '商品管理', chlic: [{ sid: 1, name: '商品列表' }, { sid: 1, name: '订单列表' }] },
+            { id: 3, name: '财务管理', chlic: [{ sid: 1, name: '流水列表' }, { sid: 1, name: '核销列表' }] },
+        ];
+        const left = document.getElementById('left');
+        const str1 = menu.reduce((sum, v, k) => {
+            let str;
+            if(v.chlic.length != 0){
+                str = v.chlic.reduce((sum1, v1, k1) => {
+                    sum1 += `<li>&nbsp&nbsp${v1.name}</li>`
+                    return sum1;
+                },'')
+            }
+            sum += `
+                <div class="left_zi biaoqian" id="left_zi">
+                    <span>${v.name}</span>
+                    <span class="xia"></span>
+                    <ul id="u1" class="ul1 hiddn">
+                        ${str}
+                    </ul>
+                </div>
+            `
+            return sum;
+        }, '')
+        // console.log(str1);
+        left.innerHTML = str1;
+
+
+        const biaoqian = document.querySelectorAll('.biaoqian');
+        console.log(biaoqian);
+        for (const v of biaoqian) {
+            
+            v.addEventListener('click', function () {
+                this.children[1].className = this.children[1].className == 'shang' ? 'xia' : 'shang'
+                this.children[1].nextElementSibling.classList.toggle('hiddn');
+            })
+        }
+    </script>
+</body>
+
+</html>

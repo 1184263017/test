@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <button class="but">播放</button> -->
+    <div class="main">
+        <div class="imgs" id="imgs">
+            <div><img src="./imgs/2123-2023-06-15052425-1686821065576.jpg" alt=""></div>
+            <div><img src="./imgs/微信图片_20230720102913.png" alt=""></div>
+            <div><img src="./imgs/acg.gy_01.jpg" alt=""></div>
+            <div><img src="./imgs/725368f266bc149c152eeab3971afbb0.jpg" alt=""></div>
+            <div><img src="./imgs/9216-2023-06-12021455-1686550495830.jpg" alt=""></div>
+            <div><img src="./imgs/4542-2023-06-15052200-1686820920526.jpg" alt=""></div>
+            <div><img src="./imgs/2301-2023-06-12021235-1686550355907.jpg" alt=""></div>
+            <div><img src="./imgs/1182-2023-06-12021425-1686550465670.jpg" alt=""></div>
+        </div>
+        <div class="zuo">&lt;</div>
+        <div class="you">&gt;</div>
+        <div class="dian">
+        </div>
+    </div>
+    <script>
+        const imgs = document.getElementById('imgs')
+        let sum = 0;
+        // let num = 0;
+        let id
+         // 设置点的阴影
+        function getDian() {
+            const sps = document.querySelectorAll('.dian span')
+            sps.forEach(e => {
+                e.style.border = '2px solid transparent' 
+                e.style.backgroundColor = '#999'
+            })
+            let str = `sp_${sum / 800}`
+            const sp = document.getElementById(str)
+            sp.style.border = '2px solid rgba(0,0,0,.6)';
+            sp.style.backgroundColor = 'white';
+        }
+        // 设置轮播定时器
+        function getList() {
+            id = setInterval(() => {
+                
+                //设置轮播距离
+                sum += 800;
+                if (sum > (imgs.children.length - 1) * 800) {
+                    sum = 0;
+                }
+
+                imgs.style.marginLeft = '-' + sum + 'px';
+                getDian()
+                // imgs.append(imgs.children[num].cloneNode(true))
+                // imgs.removeChild(imgs.children[0])
+                // num = num>8?0:num+=1;
+            }, 1000)
+        }
+        getList()
+
+        // 左右滑动事件
+        const zuo = document.querySelector('.zuo')
+        const you = document.querySelector('.you')
+        you.addEventListener('click', function () {
+            clearInterval(id);
+            sum += 800;
+            if (sum > (imgs.children.length - 1) * 800) {
+                sum = 0;
+            }
+            imgs.style.marginLeft = '-' + sum + 'px';
+            getDian()
+        })
+        zuo.addEventListener('click', function () {
+            clearInterval(id);
+            sum -= 800;
+            if (sum < 0) {
+                sum = (imgs.children.length - 1) * 800;
+            }
+            imgs.style.marginLeft = '-' + sum + 'px';
+            getDian()
+        })
+
+        imgs.addEventListener('mouseover', () => {
+            clearInterval(id);
+        })
+        imgs.addEventListener('mouseout', () => {
+            getList()
+        })
+
+        // 创建点号
+        const dian = document.querySelector('.dian')
+        imgs.children.length
+        const arr = [];
+        for (let i = 0; i < imgs.children.length; i++) {
+            const sp = document.createElement('span');
+            sp.id = `sp_${i}`
+            sp.setAttribute('data-sid', i)
+            arr.push(sp);
+        }
+        dian.append(...arr)
+        // 小点切换图片
+        dian.addEventListener('mouseover', (e) => {
+            if (e.target.dataset.sid != undefined) {
+                // console.log(e.target.dataset);
+                clearInterval(id);
+                sum = e.target.dataset.sid * 800;
+                imgs.style.marginLeft = '-' + sum + 'px';
+                getDian()
+            }
+
+        })
+
+        // const but = document.querySelector('.but');
+        // but.addEventListener('click',function (e) {
+        //     if (this.innerHTML == '播放') {
+        //         this.innerHTML = '停止'
+        //         getList()
+        //     }else{
+        //         this.innerHTML = '播放'
+        //         clearInterval(id);
+        //     }
+        // })
+
+
+    </script>
+</body>
+
+</html>

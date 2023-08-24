@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border: 1px solid;
+            border-spacing: 0;
+            width: 400px;
+            /* height: 180px; */
+            text-align: center;
+            margin: 0 auto;
+        }
+        tbody tr:nth-child(2n+1) {
+            background-color: rgb(246, 246, 255);
+        }
+        thead tr {
+            background-color: skyblue;
+            font-weight: bold;
+        }
+        button{
+            border: none;
+            border-radius: 5px;
+            background-color: orange;
+            color: white;
+            font-size: 12px;
+        }
+        tbody>tr:hover{
+            background-color: rgb(243, 243, 243) !important;
+        }
+        caption{
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="1" id="table">
+        <caption>消息列表</caption>
+        <thead>
+            <tr>
+                <td>id</td>
+                <td>姓名</td>
+                <td>消息内容</td>
+                <td>关闭</td>
+            </tr>
+        </thead>
+
+        <tbody id="tbody">
+
+        </tbody>
+    </table>
+    <script>
+        const tbody = document.getElementById('tbody');
+        const users = [
+            { id: 1, name: 'jack', msg: '哈哈哈' },
+            { id: 2, name: 'tom', msg: '嘻嘻嘻' },
+            { id: 3, name: 'lili', msg: '嘿嘿嘿' },
+            { id: 4, name: 'haha', msg: '啊实打实' },
+            { id: 5, name: 'xixi', msg: '去外地请问' },
+            { id: 6, name: 'lilei', msg: '撒大声地' },
+        ];
+
+        const str = users.reduce((sum, v, k) => {
+            sum += `
+                <tr id='tr_${v.id}'>
+                    <td>${v.id}</td>
+                    <td>${v.name}</td>
+                    <td>${v.msg}</td>
+                    <td>
+                        <button onclick='del(${v.id})'>关闭</button>
+                    </td>
+                </tr>
+            `
+            return sum;
+        }, '')
+        // console.log(str);
+        tbody.innerHTML = str;
+
+        function del(id) {
+            const str = 'tr_'+id
+            document.getElementById(str).remove();
+        }
+    </script>
+</body>
+
+</html>

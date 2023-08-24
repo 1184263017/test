@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            border: solid;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="u1">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script>
+        /* 
+            事件(处理函数)委托
+            指的是将后代对象中的事件处理函数业务逻辑委托给上级元素处理
+        */
+        const u1 = document.getElementById('u1');
+
+        u1.addEventListener('click',(e)=>{
+            console.log(e.target);
+            console.log(e.target.innerHTML);
+        })
+    </script>
+</body>
+
+</html>

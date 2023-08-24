@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            height: 300px;
+            width: 1000px;
+            border: solid;
+        }
+    </style>
+</head>
+
+<body>
+    <p>hello</p>
+    <p>hello</p>
+    <p id="p1" style="font-size: 2rem;">hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <script>
+        const p1 = document.getElementById('p1');
+        setTimeout(() => {
+            // 所有可见元素都有的一个方法，将对象滚动到可见区域
+            p1.scrollIntoView(true) //顶部对齐
+            p1.scrollIntoView(false)//底部对齐
+        }, 3000);
+
+        // 设置滚动条滚动
+        // setTimeout(() => {
+        //     // 参照物是起始位置
+        //     window.scrollTo(0,20);
+        // }, 3000);
+
+        // setTimeout(() => {
+        //     // 参照物是当前位置
+        //     window.scrollBy(0,20);
+        // }, 3000);
+    </script>
+</body>
+
+</html>

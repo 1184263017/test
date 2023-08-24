@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">hello</div>
+    <script>
+        const box = document.getElementById('box');
+        // box.onclick = function (params) {
+        //     console.log('单击事件');
+        // }
+        // box.ondblclick = function (params) {
+        //     console.log('双击击事件');
+        // }
+        // box.oncontextmenu = function (params) {
+        //     console.log('右击事件');
+        // }
+        // box.onmousedown = function (params) {
+        //     console.log('鼠标按下事件');
+        // }
+        // box.onmouseup = function (params) {
+        //     console.log('鼠标抬起事件');
+        // }
+        box.onmouseover = function (params) {
+            console.log('鼠标移入事件');
+        }
+        box.onmouseout = function (params) {
+            console.log('鼠标移出事件');
+        }
+    </script>
+</body>
+</html>

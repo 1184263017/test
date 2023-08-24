@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="but">点击</button>
+    <script>
+        /* 
+            属性绑定,事件名称区分大小写，因为JSt严格区分大小写
+            1.事件本质上是对象的方法
+            2.对象属性事件可以被直接调用,也可以通过用户行为调用(触发)
+            3.事件属性的格式:on+事件名称
+        */
+        const but = document.getElementById('but')
+
+        but.oncontextmenu = function (params) {
+            console.log('hello');
+        }
+    </script>
+</body>
+</html>

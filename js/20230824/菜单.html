@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .mens{
+            width: 200px;
+            /* border: solid; */
+            position: relative;
+        }
+        ul{
+            display: none;
+            list-style: none;
+            position: absolute;
+            left: 0;
+            right: 0;
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, .5);
+            background-color: skyblue;
+        }
+        li{
+            text-align: center;
+            margin-bottom: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="mens">
+        <button id="but">菜单</button>
+        <ul id="mensLIst">
+            <li>添加</li>
+            <li>编辑</li>
+            <li>删除</li>
+        </ul>
+    </div>
+    <script>
+        const but = document.getElementById('but')
+        const mensLIst = document.getElementById('mensLIst')
+        but.addEventListener('click',function () {
+            if (getComputedStyle(mensLIst).display === 'none') {
+                mensLIst.style.display = 'block';
+            }else{
+                mensLIst.style.display = 'none';
+            }
+            
+        })
+    </script>
+</body>
+</html>

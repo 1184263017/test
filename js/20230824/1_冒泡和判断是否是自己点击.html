@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            border: solid;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box1">
+        box1
+        <div id="box2">
+            box2
+            <div id="box3">
+                box3
+                <div id="box4">
+                    box4
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        /* 
+            冒泡定义
+            当一个事件发生在一个元素上，它会首先运行在该元素上的
+            处理程序，然后运行其父元素上的处理程序，然后一直向上
+            到其他祖先上的处理程序
+
+            判断点击是否是点击自己触发的
+            1.在所有事件中都能获取事件点击的目标对象 target
+            2.在所有的事件函数中也都能获取到事件绑定对象 this
+            3.如果this和target相等说明点击的就是自己
+        */
+        const box1 = document.getElementById('box1')
+        const box2 = document.getElementById('box2')
+        const box3 = document.getElementById('box3')
+        const box4 = document.getElementById('box4')
+
+        box1.onclick = function(event){
+            console.log(event.target === this)
+            console.log(1)
+        };
+        box2.onclick = function(event){
+            console.log(event.target=== this)
+            console.log(2)
+        };
+        box3.onclick = function(event){
+            console.log(event.target=== this)
+            console.log(3)
+        };
+        box4.onclick = function(event){
+            console.log(event.target=== this)
+            console.log(4)
+        };
+    </script>
+</body>
+
+</html>

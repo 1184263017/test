@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="box" onclick="say(event)">点击</button>
+    <script>
+        /* 
+            事件对象
+            1.本质上就是函数参数
+            2.是事件触发调用函数时自动传入
+        */
+        const box = document.getElementById('box');
+        // box.onclick = function (e) {
+        //     console.log(e.type);                //事件名称
+        //     console.log(e.currentTarget);       //this
+        //     console.log(e.clientX, e.clientY);   //鼠标相当于窗口的坐标
+        // }
+
+        // box.addEventListener('click', function (e) {
+        //     console.log(e.type);                //事件名称
+        //     console.log(e.currentTarget);       //this
+        //     console.log(e.clientX, e.clientY);   //鼠标相当于窗口的坐标
+        // })
+
+        function say(e) {
+            console.log(e.type);                //事件名称
+            console.log(e.currentTarget);       //this
+            console.log(e.clientX, e.clientY);   //鼠标相当于窗口的坐标
+        }
+    </script>
+</body>
+
+</html>

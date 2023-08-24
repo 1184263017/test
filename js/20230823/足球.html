@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+            border: solid;
+        }
+        #court{
+            width: 600px;
+            height: 300px;
+            background-color: green;
+            margin: 0 auto;
+            overflow: hidden;
+            position: fixed;
+            left:100px;
+            top: 100px;
+            
+        }
+        #football{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: white;
+            position: absolute;
+            top:125px;
+            left:275px;
+            transition: all 1s;
+        }
+        .sp1,.sp2{
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            border: 5px solid white;
+            border-radius: 50%;
+        }
+        .sp1{
+            position: absolute;
+            top:50%;
+            transform: translate(-50%,-50%);
+        }
+        .sp2{
+            position: absolute;
+            top:50%;
+            right: 0;
+            transform: translate(50%,-50%);
+        }
+        .sp3{
+            display: inline-block;
+            height: 300px;
+            border: 2px solid white;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .sp4{
+            display: inline-block;
+            width: 150px;
+            height: 150px;
+            border: 5px solid white;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="court">
+        <div id="football">
+
+        </div>
+        <span class="sp1"></span>
+        <span class="sp3"></span>
+        <span class="sp4"></span>
+        <span class="sp2"></span>
+    </div>
+    <script>
+        const court = document.getElementById('court')
+        const football = document.getElementById('football')
+
+        court.addEventListener('click',function(e){
+            // console.log(e.clientX,e.clientY,'鼠标');
+            // console.log(court.offsetLeft,court.offsetTop,'距离父元素');
+            const x = e.clientX - court.offsetLeft
+            const y = e.clientY - court.offsetTop
+            // console.log(x,y);
+            football.style.left = x - football.offsetWidth/2 + 'px'
+            football.style.top = y - football.offsetHeight/2 + 'px'
+        })
+    </script>
+</body>
+</html>

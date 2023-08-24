@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="but" onclick="console.log('hello');say()">点击</button>
+    <script>
+        /* 
+            特性绑定,事件名称不区分大小写，因为HTML不区分大小写
+            onclick 后面必须是函数代码
+
+            特性和属性只能执行一个
+        */
+        function say(params) {
+            console.log('word');
+        }
+
+        document.getElementById('but').onclick = function (params) {
+            console.log(123);
+        }
+    </script>
+</body>
+
+</html>

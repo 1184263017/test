@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            border: solid;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box1">
+        box1
+        <div id="box2">
+            box2
+            <div id="box3">
+                box3
+                <div id="box4">
+                    box4
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        /* 
+            停止向上冒泡,但不会停止该元素本身定义的相同事件冒泡
+            event.stopPropagation()
+
+            停止向上冒泡，并阻止当前元素上的相同事件处理程序运行。
+            使用该方法之后，其他相同事件处理程序就不会被执行
+            event.stopImmediatePropagation()
+        */
+        const box1 = document.getElementById('box1')
+        const box2 = document.getElementById('box2')
+        const box3 = document.getElementById('box3')
+        const box4 = document.getElementById('box4')
+
+        box1.onclick = function(event){
+            // 判断点击的目标对象是否是自己
+            console.log(event.target === this)
+            // 停止冒泡
+            event.stopPropagation();
+            console.log(1)
+        };
+        box2.onclick = function(event){
+            // 判断点击的目标对象是否是自己
+            console.log(event.target === this)
+            // 停止冒泡
+            event.stopPropagation();
+            console.log(2)
+        };
+        box3.onclick = function(event){
+            // 判断点击的目标对象是否是自己
+            console.log(event.target === this)
+            // 停止冒泡
+            event.stopPropagation();
+            console.log(3)
+        };
+        box4.onclick = function(event){
+            // 判断点击的目标对象是否是自己
+            console.log(event.target === this)
+            // 停止冒泡
+            // event.stopPropagation();
+            
+            // 停止冒泡，并阻止自身相同事件冒泡
+            event.stopImmediatePropagation();
+            console.log(4)
+        };
+
+
+        box4.addEventListener('dblclick',()=>console.log(4.1))
+        box4.addEventListener('click',()=>console.log(4.2))
+        box4.addEventListener('click',()=>console.log(4.3))
+    </script>
+</body>
+
+</html>

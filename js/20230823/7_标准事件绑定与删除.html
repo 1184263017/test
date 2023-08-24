@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="box">点击</button>
+    <script>
+        /* 
+            标准事件绑定
+            1.可以绑定多个处理函数
+            2.如果要对绑定函数做删除操作，那么所有函数必须定义为命名函数或函数表达式
+        */
+        const box = document.getElementById('box');        
+        box.addEventListener('click', (e) => {
+            console.log(1);
+        }, {
+            // 配置项，设定一些额外的功能
+            // once: true //只能被调用一次
+        })
+
+        let f1 = function (){
+            console.log(2);
+        }
+        box.addEventListener('click', f1)
+
+        function f2(){
+            console.log(3);
+        }
+        box.addEventListener('click', f2)
+
+        setTimeout(() => {
+            box.removeEventListener('click',f1)
+            box.removeEventListener('click',f2)
+        }, 3000);
+    </script>
+</body>
+
+</html>
