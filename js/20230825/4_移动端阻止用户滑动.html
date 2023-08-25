@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            overflow: auto;
+            height: 400px;
+        }
+        p{
+            height: 200px;
+            border: solid;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+        <p>4</p>
+        <p>5</p>
+        <p>6</p>
+        <p>7</p>
+        <p>8</p>
+        <p>9</p>
+        <p>10</p>
+    </div>
+    <script>
+        const box = document.getElementById('box')
+        box.addEventListener('touchmove',(e)=>{
+            // e.preventDefault()阻止浏览器默认行为
+            e.preventDefault();
+            console.log(1);
+            // 判断页面是否阻止默认事件,不允许返回true,允许返回false
+            console.log(e.defaultPrevented);
+        },{
+            // passive:true
+        })
+    </script>
+</body>
+</html>

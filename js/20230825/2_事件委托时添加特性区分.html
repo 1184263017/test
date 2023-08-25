@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <button data-actions="add">添加</button>
+        <button data-actions="save">修改</button>
+        <button data-actions="remove">删除</button>
+    </div>
+    <script>
+        function save() {
+            console.log('修改');
+
+        }
+        function remove() {
+            console.log('删除');
+        }
+        function add() {
+            console.log('添加');
+        }
+        document.addEventListener('click', function (e) {
+            const actions = e.target.dataset.actions
+            if (actions === 'add') {
+                add()
+            }
+
+            if (actions === 'save') {
+                save()
+            }
+
+            if (actions === 'remove') {
+                remove()
+            }
+        })
+    </script>
+</body>
+
+</html>

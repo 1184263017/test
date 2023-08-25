@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div style="height: 1000px;">hello</div> -->
+    <div id="box">hello box</div>
+    <div style="height: 1000px;">hello</div>
+    <script>
+        // 系统键
+        const box = document.getElementById('box');
+        box.onclick = (e)=>{
+
+            // 鼠标点击0左键，1中键，2右键
+            console.log(e.button);
+
+            // 系统键 先按住shift再触发点击事件...
+            console.log('shiftKey',e.shiftKey);
+            console.log('altKey',e.altKey);
+            console.log('ctrlKey',e.ctrlKey);
+            console.log('metaKey',e.metaKey);
+
+            // 当前元素相对于窗口和文档的距离
+            console.log('窗口',e.clientX,e.clientY);
+            console.log('文档',e.pageX,e.pageY);
+        }
+        box.oncontextmenu = (e)=>{
+            e.preventDefault();
+            console.log(e.button);
+        }
+    </script>
+</body>
+</html>

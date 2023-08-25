@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .show {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button data-toggle-id="email">邮箱</button>
+    <input type="text" value="118@qq.com" id="email">
+    <script>
+        document.addEventListener('click', function (e) {
+            const id = e.target.dataset.toggleId;
+            console.log(id);
+            if (id !== undefined) {
+                document.getElementById(id).classList.toggle('show');
+            }
+        })
+    </script>
+</body>
+
+</html>

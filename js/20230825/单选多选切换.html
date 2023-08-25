@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bcol{
+            background-color: red;
+        }
+        li{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li data-itme>1</li>
+        <li data-itme>2</li>
+        <li data-itme>3</li>
+        <li data-itme>4</li>
+    </ul>
+    <script>
+        document.onclick = (e)=>{
+            if (e.target.dataset.itme !== undefined) {
+                if (!e.ctrlKey) {
+                    document.querySelectorAll('.bcol').forEach(e=>e.classList.remove('bcol'))
+                }
+                e.target.classList.toggle('bcol')
+            }
+        }
+        document.onmousedown = (e)=>{
+            if (e.target.dataset.itme !== undefined) {
+                e.preventDefault();
+                console.log(e.defaultPrevented);
+            }
+        }
+
+
+    </script>
+</body>
+</html>

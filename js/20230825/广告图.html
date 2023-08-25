@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <div class="imgs">
+        <div class="main-img">
+            <div><img id="main_img" src="./imgs/2123-2023-06-15052425-1686821065576.jpg" alt=""></div>
+        </div>
+        <div class="thumb-img">
+            <div><img data-img src="./imgs/2123-2023-06-15052425-1686821065576.jpg" alt=""></div>
+            <div><img data-img src="./imgs/微信图片_20230720102913.png" alt=""></div>
+            <div><img data-img src="./imgs/acg.gy_01.jpg" alt=""></div>
+            <div><img data-img src="./imgs/725368f266bc149c152eeab3971afbb0.jpg" alt=""></div>
+            <div><img data-img src="./imgs/9216-2023-06-12021455-1686550495830.jpg" alt=""></div>
+            <div><img data-img src="./imgs/4542-2023-06-15052200-1686820920526.jpg" alt=""></div>
+            <div><img data-img src="./imgs/2301-2023-06-12021235-1686550355907.jpg" alt=""></div>
+            <div><img data-img src="./imgs/1182-2023-06-12021425-1686550465670.jpg" alt=""></div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('mouseover',(e)=>{
+            if (e.target.dataset.img !== undefined) {
+                document.getElementById('main_img').src = e.target.src;
+            }
+        })
+    </script>
+</body>
+</html>

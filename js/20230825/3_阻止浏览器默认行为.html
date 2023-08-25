@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="http://www.baidu.com" id="link" target="_blank">百度111</a>
+    <a href="http://www.baidu.com" target="_blank" id="link1" onclick="console.log(1);return false;">百度222</a>
+    <script>
+        /* 
+            阻止默认行为得了两种方法
+            1.标准方法，只需要有事件对象就可以使用
+            2.在事件处理函数中return false,只能在属性或特性绑定函数时使用
+        */
+        const link = document.getElementById('link')
+        const link1 = document.getElementById('link1')
+        // 单击
+        link.onclick = function (e) {
+            // return false阻止浏览器默认行为
+            console.log('hello');
+            return false;
+        }
+        // 右击
+        link.oncontextmenu = function (e) {
+            // e.preventDefault()阻止浏览器默认行为
+            e.preventDefault();
+            console.log('hello');
+        }
+
+        link1.addEventListener('contextmenu',(e)=>{
+            // 只能使用e.preventDefault()阻止浏览器默认行为，不能使用return false
+            e.preventDefault();
+            console.log('右击');
+        })
+    </script>
+</body>
+</html>

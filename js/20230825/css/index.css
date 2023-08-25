@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  outline: none;
+}
+
+.imgs {
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.imgs .main-img {
+  width: 100%;
+  height: 400px;
+}
+.imgs .main-img img {
+  width: 100%;
+  height: 400px;
+}
+.imgs .thumb-img {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  overflow-x: auto;
+}
+.imgs .thumb-img > div {
+  border: 2px solid white;
+  box-sizing: content-box;
+}
+.imgs .thumb-img > div img {
+  width: 80px;
+  height: 76px;
+}/*# sourceMappingURL=index.css.map */
