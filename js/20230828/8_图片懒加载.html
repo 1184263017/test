@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            height: 400px;
+            border: solid;
+        }
+        img{
+            /* display: inline-block; */
+            width: 200px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <p>1
+        <img src="./loading.gif" data-src="../20230825/imgs/1182-2023-06-12021425-1686550465670.jpg" alt="">
+    </p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5
+        <img src="./loading.gif" data-src="../20230825/imgs/4542-2023-06-15052200-1686820920526.jpg" alt="">
+    </p>
+    <p>6</p>
+    <p>7
+        <img src="../20230825/imgs/4542-2023-06-15052200-1686820920526.jpg" alt="">
+    </p>
+    <p>8</p>
+    <p>9</p>
+    <p>10
+        <img src="./loading.gif" data-src="../20230825/imgs/9216-2023-06-12021455-1686550495830.jpg" alt="">
+    </p>
+    <script>
+        window.onscroll = function(){
+            lazyImg()
+        }
+        function lazyImg() {
+            const imgs = document.querySelectorAll('img[data-src]');
+            imgs.forEach(e=>{
+                // 获取节点的位置坐标
+                console.log(e.getBoundingClientRect());
+                const {top} = e.getBoundingClientRect();
+                console.log(window.innerHeight);
+                // if (top < window.innerHeight-100) {
+                if (top < window.innerHeight-e.offsetHeight) {
+                    e.src = e.dataset.src
+                    e.removeAttribute('data-src')
+                }
+            })
+        }
+        lazyImg()
+    </script>
+</body>
+</html>

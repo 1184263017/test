@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1 {
+            border: solid;
+            background-color: skyblue;
+            width: 300px;
+            /* height: 300px; */
+            padding: 10px;
+        }
+
+        #box2 {
+            border: solid;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box1">box1
+
+        <div id="box2">box2</div>
+    </div>
+
+    <script>
+        /* 
+            mouseenter,mouseleave
+            1.不会冒泡
+            2.移入子元素在移出子元素时，不会再次触发移入父元素事件
+        */
+        const box1 = document.getElementById('box1')
+        const box2 = document.getElementById('box2')
+        // 鼠标移入事件
+        box1.onmouseenter = function (e) {
+            console.log('box1 onmouseenter(移入)');
+        }
+        // 鼠标移出事件
+        box1.onmouseleave = function (e) {
+            console.log('box1 onmouseleave(移出)');
+        }
+
+        // 鼠标移入事件
+        box2.onmouseenter = function (e) {
+            console.log('box2 onmouseenter(移入)');
+        }
+        // 鼠标移出事件
+        box2.onmouseleave = function (e) {
+            console.log('box2 onmouseleave(移出)');
+        }
+    </script>
+</body>
+
+</html>

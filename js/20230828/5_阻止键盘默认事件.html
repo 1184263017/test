@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="input">
+    <script>
+        const input = document.getElementById('input')
+
+        // 键盘按下触发
+        input.onkeydown = function (e) {
+            // if (e.keyCode<48 || e.keyCode>57) {
+            //     e.preventDefault();
+            // }
+            // console.log(e.keyCode);
+            // if (e.key < '0' || e.key > '9') {
+            //     e.preventDefault();
+            // }
+            // if (e.key < 'a' || e.key>'c') {
+            //     e.preventDefault();
+            // }
+        }
+
+        // 键盘抬起触发
+        input.onkeyup = function (e) {
+            // console.log('key',e.key);           //a
+            // console.log('code',e.code);         //KeyA
+            // console.log('KeyCode',e.keyCode);   //65
+        }
+    </script>
+</body>
+
+</html>

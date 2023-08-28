@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 500px;
+            height: 400px;
+            border: solid;
+            /* box-sizing: border-box; */
+        }
+        p{
+            border: solid;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+    </div>
+    <script>
+        const box = document.getElementById('box');
+        console.log(box.clientHeight);
+        console.log(box.scrollHeight);
+        console.log(box.offsetHeight);
+    </script>
+</body>
+</html>

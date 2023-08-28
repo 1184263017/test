@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1 {
+            border: solid;
+            background-color: skyblue;
+            width: 400px;
+            height: 400px;
+            padding: 10px;
+            position: fixed;
+            left: 200px;
+            top: 100px;
+            overflow: hidden;
+        }
+
+        #box2 {
+            width: 100px;
+            height: 100px;
+            border: solid;
+            background-color: red;
+            position: absolute;
+            left: 0;
+            top: 0;
+            /* transition: all .5s; */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box1">box1
+
+        <div id="box2">box2</div>
+    </div>
+
+    <script>
+        const box1 = document.getElementById('box1')
+        const box2 = document.getElementById('box2')
+
+        // box1.onmousemove = function (e) {
+        //     console.log(e.clientX,e.clientY);
+        // }
+
+        box2.onmousedown = function (e) {
+            const bx = e.clientX - box1.offsetLeft - box2.offsetLeft
+            const by = e.clientY - box1.offsetTop - box2.offsetTop
+            // console.log(e.clientX, box1.offsetLeft);
+            // console.log(e.clientY, box1.offsetTop);
+            // console.log('onmousedown');
+            box1.onmousemove = function (e) {
+                const x = e.clientX - box1.offsetLeft;
+                const y = e.clientY - box1.offsetTop;
+                // console.log(e.clientX, box1.offsetLeft);
+                // console.log(e.clientY, box1.offsetTop);
+                box2.style.left = x - bx + 'px';
+                box2.style.top = y - by + 'px';
+            }
+        }
+
+
+
+        box2.onmouseup = function (e) {
+            console.log('onmouseup');
+            box1.onmousemove = null;
+        }
+    </script>
+</body>
+
+</html>

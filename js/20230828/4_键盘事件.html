@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input">
+    <script>
+        const input = document.getElementById('input')
+
+        // 键盘按下触发
+        input.onkeydown = function (e) {
+            
+            // console.log('key',e.key);           //a
+            // console.log('code',e.code);         //KeyA
+            // console.log('KeyCode',e.keyCode);   //65
+            // 检查用户是否一直重复触发键盘按下,不是返回false 是返回true
+            console.log(e.repeat,'--------------');
+            if (e.repeat === false) {
+                console.dir(e.target);
+                console.log(e.target.value);
+            }
+        }
+
+        // 键盘抬起触发
+        input.onkeyup = function (e) {
+            // console.log('key',e.key);           //a
+            // console.log('code',e.code);         //KeyA
+            // console.log('KeyCode',e.keyCode);   //65
+        }
+    </script>
+</body>
+</html>

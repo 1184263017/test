@@ -1,28 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-        const arr = [1,2,[3,4,[5,6,[7,8,9]]]];
-        // const arr = [1,2,3,4,5,6,7,8,9];
-        let res;
-        let new_arr = [];
-        function fun(min,max,arr) {
-            res = arr.filter((v,k)=>{
-                if (Array.isArray(v)) {
-                    res = fun(min,max,v);
-                }
-                if(v >= min && v <= max){
-                    return v;
-                }
-            })
-            return new_arr = new_arr.concat([],res)
+        // const arr = [1, 2, [3, 4, [5, 6, [7, 8, 9]]]];
+        // // const arr = [1,2,3,4,5,6,7,8,9];
+        // let res;
+        // let new_arr = [];
+        // function fun(min, max, arr) {
+        //     res = arr.filter((v, k) => {
+        //         if (Array.isArray(v)) {
+        //             res = fun(min, max, v);
+        //         }
+        //         if (v >= min && v <= max) {
+        //             return v;
+        //         }
+        //     })
+        //     return new_arr = new_arr.concat([], res)
+        // }
+        // console.log(fun(3, 8, arr));
+
+
+        function f(a, b) {
+            alert(a + b);
         }
-        console.log(fun(3,8,arr));
+
+        Function.prototype.defer = function (m) {
+            setTimeout(defer(), m);
+            return this;
+        }
+        // f.defer(1000)(1, 2); // 1 秒后显示 3
+         // 1 秒后显示 3
+        console.log(f.defer(3000));
+
     </script>
 </body>
+
 </html>

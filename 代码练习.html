@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            // 检查空对象
+            let schedule = {};
+            function isEmpty(obj) {
+                // 返回全部属性名
+                return Reflect.ownKeys(obj).length === 0;
+                // 不返回symbol  
+                // return Object.keys(obj)
+            }
+    
+            console.log(isEmpty(schedule)); // true
+            const id = Symbol('id')
+            schedule[id] = 1
+            schedule["8:30"] = "get up";
+            console.log(isEmpty(schedule)); // false 
+        */
+
+        /*
+            // 对象属性求和
+            let salaries = {
+                // John: 100,
+                // Ann: 160,
+                // Pete: 130
+            }
+            function getSum(obj) {
+                // if (Reflect.ownKeys.length === 0) {
+                //     return 0;
+                // }
+                return Object.values(obj).reduce((sum,v)=>{
+                    sum +=v;
+                    return sum
+                },0)
+            }   
+            console.log(getSum(salaries));
+        */
+
+        /*
+            // 将数值属性值都乘以 2
+            let menu = {
+                width: 200,
+                height: 300,
+                title: "My menu"
+            };
+            
+            function multiplyNumeric(obj) {
+                for (const key in obj) {
+                    if (isFinite(obj[key])) {
+                        obj[key] *= 2;
+                    }
+                }
+            }
+            multiplyNumeric(menu); 
+            console.log(menu);
+        */
+
+        /*
+            // 创建一个计算器
+            let calculator = {
+                read() {
+                    this.a = +prompt('num1');
+                    this.b = +prompt('num2');
+                    this.a == null?0:this.a;
+                    this.b == null?0:this.b;
+                },
+                sum() {
+                    return this.a + this.b
+                },
+                mul() {
+                    return this.a - this.b
+                }
+            };
+            calculator.read();
+            console.log(calculator.sum());
+            console.log(calculator.mul())
+        */
+
+        /*
+            // 链式（调用）
+            let ladder = {
+                step: 0,
+                up() {
+                    this.step++;
+                    return this;
+                },
+                down() {
+                    this.step--;
+                    return this;
+                },
+                showStep: function () { // 显示当前的 step
+                    console.log(this.step);
+                    return this;
+                }
+            };
+            // ladder.up();
+            // ladder.up();
+            // ladder.down();
+            // ladder.showStep(); // 1
+            // ladder.down();
+            // ladder.showStep(); // 0
+
+            ladder.up().up().down().showStep().down().showStep(); // 展示 1，然后 0
+        */
+        /*
+            // 两个函数 —— 一个对象
+            // 共享的类
+            class instantiate {
+                constructor() {
+                    this.age = 20;
+                }
+                name = 'jack'
+                say() {
+
+                }
+            }
+            const ins = new instantiate();
+            function A() {
+                return ins
+            }
+            function B() {
+                return ins
+            }
+
+            let a = new A;
+            let b = new B;
+            console.log(a);
+            console.log(b);
+            console.log(a == b); // true
+        */
+
+        /*
+            // 创建 new Calculator
+            function Calculator() {
+                this.read = function () {
+                    this.a = +prompt('num1');
+                    this.b = +prompt('num2');
+                    this.a == null ? 0 : this.a;
+                    this.b == null ? 0 : this.b;
+                }
+                this.sum = function () {
+                    return this.a + this.b
+                }
+                this.mul = function () {
+                    return this.a * this.b;
+                }
+            }
+            let calculator = new Calculator();
+            calculator.read();
+            console.log("Sum=" + calculator.sum());
+            console.log("Mul=" + calculator.mul());
+        */
+
+        /* 
+            // 创建 new Accumulator
+            function Accumulator(ins) {
+                this.value = ins;
+                this.read= function () {
+                    a = +prompt('num1');
+                    a == null ? 0 : a;
+                    this.value += a;
+                }
+            }
+            let accumulator = new Accumulator(1); // 初始值 1
+            accumulator.read(); // 添加用户输入的 value
+            accumulator.read(); // 添加用户输入的 value
+            console.log(accumulator.value); // 显示这些值的总和
+        */
+
+        // console.log((1.35).toFixed(20));
+        // console.log((6.35).toFixed(20));
+
+        /* 
+            // 重复，直到输入的是一个数字
+            function readNumber() {
+                while(true){
+                    let a = prompt('num');
+                    if (a == null) {
+                        return a;
+                    }
+                    if (isFinite(a)) {
+                        return a;
+                    }
+                }
+            }
+            
+            console.log(readNumber());
+        */
+
+        /* 
+            // 从 min 到 max 的随机数
+            function random(min, max) {
+                return Math.random() * (max-min) + min;
+            }
+            console.log(random(1, 5)); // 1.2345623452
+            console.log(random(1, 5)); // 3.7894332423
+            console.log(random(1, 5)); // 4.3435234525
+
+            // 从 min 到 max 的随机整数
+            function random(min, max) {
+                return Math.floor(Math.random() * (max-min+1) + min);
+            }
+            console.log(random(1, 5)); // 1.2345623452
+            console.log(random(1, 5)); // 3.7894332423
+            console.log(random(1, 5)); // 4.3435234525
+            
+        */
+
+        /* 
+            // 首字母大写
+            function ucFirst(str){
+                return str[0].toUpperCase() + str.slice(1);
+            }
+            console.log(ucFirst("john"));
+        */
+
+        /* 
+            // 写一个函数 checkSpam(str) ，如果 str 包含 viagra 或 XXX 就返回 true ，否则返回 false 。函数必须不区分大小写：
+            function checkSpam(str) {
+                str = str.toLowerCase();
+                return str.includes('xxx') || str.includes('viagra')
+            }
+            console.log(checkSpam('buy ViAgRA now'));
+            console.log(checkSpam('free xxxxx'));
+            console.log(checkSpam('innocent rabbit'));
+        */
+
+        /* 
+            // 截断文本
+            function truncate(str, maxlength) {
+                // ''.sclie
+                // "What I'd like to tell on this topic is:".slice(20)
+                if (str.length>maxlength) {
+                    console.log(str.slice(0,maxlength-1) + '...');
+                }else{
+                    console.log(str);
+                }
+            }
+            truncate("What I'd like to tell on this topic is:", 20)
+            truncate("Hi everyone!", 20)
+        */
+
+
+        // function extractCurrencyValue(str) {
+        //     return +str.split('$')[1];
+        // }
+        // console.log(extractCurrencyValue('$120') === 120); // true
+
+
+        // function obj(params) {
+        //     this.a = 10;
+        //     this.constructor = function () {
+        //         console.log(123);
+        //         // return this.prototype.constructor;
+        //     }
+        //     this.say = function () {
+        //         console.log(222);
+        //     }
+        // }
+        // console.dir(obj);
+        // console.dir(new obj.constructor());
+        // const a = new obj();
+        // const b = new obj.constructor();
+        // // a.say()
+        // // console.log(a);
+        // // console.log(b);
+
+
+
+        // function loadJson(url) {
+        //     return fetch(url)
+        //         .then(response => {
+        //             if (response.status == 200) {
+        //                 return response.json();
+        //             } else {
+        //                 throw new Error(response.status);
+        //             }
+        //         });
+        // }
+        // loadJson('https://javascript.info/no-such-user.json')
+        //     .catch(alert); // Error: 404
+
+        // async function loadJson(url) {
+        //     try {
+        //         const response = await fetch(url);
+        //         if (response.status == 200) {
+        //             return response.json();
+        //         } else {
+        //             throw new Error(response.status);
+        //         }
+        //     } catch (e) {
+        //         alert(e)
+        //     }
+        //     // return res;
+        // }
+        // loadJson('https://javascript.info/no-such-user.json')
+
+
+        // async function wait() {
+        //     await new Promise(resolve => setTimeout(resolve, 0));
+        //     return 10;
+        // }
+        // function f() {
+        //     // ……这里你应该怎么写？
+        //     // 我们需要调用 async wait() 并等待以拿到结果 10
+        //     wait().then(function (data) {
+        //         console.log(this);
+        //         console.log(data)
+        //     })
+        // }
+
+        // console.log(f());
+
+        // async function fun1(ms) {
+        //     return new Promise((resolve, reject) => {
+        //         // console.log(ms);
+        //         setTimeout(() => {
+        //             resolve();
+        //         }, ms)
+        //     })
+        // }
+
+
+        // async function delay(ms) {
+        //     // return await fun1(ms)
+        //     return new Promise((resolve, reject) => {
+        //         // console.log(ms);
+        //         setTimeout(() => {
+        //             resolve();
+        //         }, ms)
+        //     })
+        // }
+        // delay(3000).then(() => alert('runs after 3 seconds'));
+
+
+
+        // class HttpError extends Error {
+        //     constructor(response) {
+        //         super(`${response.status} for ${response.url}`);
+        //         this.name = 'HttpError';
+        //         this.response = response;
+        //     }
+        // }
+        // function loadJson(url) {
+        //     return fetch(url)
+        //         .then(response => {
+        //             if (response.status == 200) {
+        //                 return response.json();
+        //             } else {
+        //                 console.log(response);
+        //                 throw new HttpError(response);
+        //             }
+        //         });
+        // }
+        // // 询问用户名，直到 github 返回一个合法的用户
+        // function demoGithubUser() {
+        //     let name = prompt("Enter a name?", "iliakan");
+        //     return loadJson(`https://api.github.com/users/${name}`)
+        //         .then(user => {
+        //             alert(`Full name: ${user.name}.`);
+        //             return user;
+        //         })
+        //         .catch(err => {
+        //             if (err instanceof HttpError && err.response.status == 404) {
+        //                 alert("No such user, please reenter.");
+        //                 return demoGithubUser();
+        //             } else {
+        //                 throw err;
+        //             }
+        //         });
+        // }
+        // demoGithubUser();
+
+
+
+        // function f(x) {
+        //     alert(x);
+        // }
+        // delay = function (f, ms) {
+        //     return function (a) {
+        //         setTimeout(() => {
+        //             f(a)
+        //         }, ms);
+        //     }
+        // }
+        // // create wrappers
+        // let f1000 = delay(f, 1000);
+        // let f1500 = delay(f, 1500);
+        // f1000("test"); // 在 1000ms 后显示 "test"
+        // f1500("test123"); // 在 1500ms 后显示 "test"
+
+
+        // function printNumbers(from, to) {
+        //     from++;
+        //     let id;
+        //     if (from > to) {
+        //         clearTimeout(id);
+        //         return false;
+        //     }
+        //     id = setTimeout(printNumbers, 1000, from, to)
+        //     console.log(from);
+        // }
+        // printNumbers(10, 15)
+    </script>
+</body>
+
+</html>

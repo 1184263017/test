@@ -28,10 +28,10 @@
         const b4 = document.createElement('b');
         b4.innerHTML = '4'
 
-        h1.insertAdjacentElement('afterbegin',b1)   //子节点尾部插入
-        h1.insertAdjacentElement('beforeend',b2)    //子节点头部插入
-        h1.insertAdjacentElement('afterend',b3)     //父节点自身前面插入
-        h1.insertAdjacentElement('beforebegin',b4)  //父节点自身后面面插入
+        h1.insertAdjacentElement('afterbegin',b1)   //子节点头部插入
+        h1.insertAdjacentElement('beforeend',b2)    //子节点尾部插入
+        h1.insertAdjacentElement('afterend',b3)     //父节点自身后面插入
+        h1.insertAdjacentElement('beforebegin',b4)  //父节点自身前面插入
 
         // 插入文本内容不解析html
         h1.insertAdjacentText('beforebegin',"<h6>insertAdjacentText</h6>")

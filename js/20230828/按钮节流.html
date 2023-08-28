@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            border-radius: 10px;
+            border: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 50px;
+            font-size: 20px;
+            color: skyblue;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <button id="but">原神启动</button>
+    </div>
+    <script>
+        // const but = document.getElementById('but')
+        // let flag = true;
+        // but.addEventListener('click', (e) => {
+        //     if (flag === true) {
+        //         flag = false
+        //         setTimeout(() => {
+        //             flag = true
+        //             console.log(1);
+        //         }, 1000)
+        //     }
+        // })
+
+        // function throttle(func, interval) {
+        //     let lastTime = 0;
+
+        //     return function () {
+        //         const now = new Date().getTime();
+        //         if (now - lastTime >= interval) {
+        //             // console.log(this);
+        //             func.apply(this, arguments);
+        //             lastTime = now;
+        //         }
+        //     };
+        // }
+
+        // const throttleFn = throttle(() => {
+        //     console.log('Throttled function executed');
+        // }, 1000);
+        // window.addEventListener('click', throttleFn);
+
+
+        // function debounce(func, delay) {
+        //     let timer;
+
+        //     return function () {
+        //         clearTimeout(timer);
+        //         // console.log(timer);
+        //         timer = setTimeout(() => {
+        //             func.apply(this, arguments);
+        //         }, delay);
+        //     };
+        // }
+
+        // const debounceFn = debounce(() => {
+        //     console.log('Debounced function executed');
+        // }, 300);
+
+        // window.addEventListener('click', debounceFn);
+
+    </script>
+</body>
+
+</html>

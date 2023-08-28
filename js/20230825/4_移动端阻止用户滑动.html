@@ -32,12 +32,17 @@
         const box = document.getElementById('box')
         box.addEventListener('touchmove',(e)=>{
             // e.preventDefault()阻止浏览器默认行为
-            e.preventDefault();
+            // e.preventDefault();
             console.log(1);
             // 判断页面是否阻止默认事件,不允许返回true,允许返回false
-            console.log(e.defaultPrevented);
+            // console.log(e.defaultPrevented);
+
+            for (let i = 0; i < 100000; i++) {
+                console.log(i);
+            }
         },{
-            // passive:true
+            // passive 选项可以提高滚动性能，因为它允许浏览器在滚动时更加流畅地处理事件，而不必等待事件处理程序完成。
+            passive:true
         })
     </script>
 </body>

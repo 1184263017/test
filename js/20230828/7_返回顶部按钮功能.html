@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            height: 300px;
+            border: solid;
+        }
+        #boxTop{
+            width: 100px;
+            height: 100px;
+            font-size: 2rem;
+            font-weight: bold;
+            position: fixed;
+            top:20px;
+            right: 20px;
+            background-color: skyblue;
+            color: white;
+            text-align: center;
+            line-height: 100px;
+            cursor: pointer;
+            display: none;
+        }
+        #boxTop:hover{
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="boxTop">TOP</div>
+    <div id="box">
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+        <p>4</p>
+        <p>5</p>
+        <p>6</p>
+        <p>7</p>
+        <p>8</p>
+        <p>9</p>
+        <p>10</p>
+    </div>
+
+    <script>
+        let i = 0;
+        window.onscroll = function () {
+            // 判断是否触底
+            // console.log(document.documentElement.scrollHeight - window.innerHeight - window.pageYOffset);
+
+            const dis = document.documentElement.scrollHeight - window.innerHeight - window.pageYOffset;
+            if (dis <= 10) {
+                i++
+                // const newP = document.createElement('p');
+                // newP.innerHTML = 'newp'
+                // document.body.append(newP);
+
+                document.getElementById('box').insertAdjacentHTML('beforeend', `<p>newp${i}</p>`)
+            }
+
+
+            if (window.pageYOffset > window.innerHeight) {
+                document.getElementById('boxTop').style.display = 'block'
+            }else{
+                document.getElementById('boxTop').style.display = 'none'
+            }
+        }
+
+        document.getElementById('boxTop').onclick = function(){
+            // window.scrollTo(0,0);
+            window.scrollTo({
+                left:0,
+                top:0,
+                // 平缓返回顶部
+                behavior:'smooth'
+            });
+        }
+    </script>
+</body>
+
+</html>
