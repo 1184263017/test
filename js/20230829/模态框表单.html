@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/1.css">
+</head>
+
+<body>
+    <h1>我是遮罩层</h1>
+    <button id="openform">添加表单</button>
+    <div class="model-mask" id="dialog">
+        <div class="model-dialog animate__animated animate__bounceIn">
+            <div class="close" data-action="cancel">X</div>
+            <div class="title">注册</div>
+            <div class="form">
+                <form action="" name="f1">
+                    <div class="form_conten">
+                        <label for="">用户名:</label>
+                        <input type="text" name="username">
+                    </div>
+                    <div class="form_conten">
+                        <label for="">年龄:</label>
+                        <input type="text" name="age">
+                    </div>
+                    <div class="form_conten">
+                        <label for="">性别:</label>
+                        <input type="radio" checked value="1" name="gender">男
+                        <input type="radio" value="2" name="gender">女
+                    </div>
+                    <div class="form_conten">
+                        <label for="">爱好:</label>
+                        <input type="checkbox" value="css" name="aihao">css
+                        <input type="checkbox" value="html" name="aihao">html
+                        <input type="checkbox" value="js" name="aihao">js
+                    </div>
+                    <div class="form_conten">
+                        <label for="">地址:</label>
+                        <select name="arde" id="">
+                            <option value="nj">南京</option>
+                            <option value="sh">上海</option>
+                            <option value="bj">北京</option>
+                        </select>
+                    </div>
+                    <div class="form_conten">
+                        <label for="">头像:</label>
+                        <input type="file" name="flieImg" id="">
+                    </div>
+                    <button type="submit" data-action="save">提交</button>
+                    <button type="submit" data-action="cancel">取消</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        /* 
+            模态框
+        */
+        const dialog = document.getElementById('dialog')
+        const f1 = document.f1;
+        dialog.addEventListener('click', function (e) {
+            if (e.target.dataset.action === 'cancel') {
+                e.preventDefault()
+                document.querySelector('.model-dialog').classList.toggle('animate__bounceIn')
+                document.querySelector('.model-dialog').classList.toggle('animate__bounceOut')
+                setTimeout(()=>{
+                    this.style.display = 'none'
+                    document.querySelector('.model-dialog').classList.remove('animate__bounceOut')
+                    document.querySelector('.model-dialog').classList.toggle('animate__bounceIn')
+                },750)
+            }
+
+            if (e.target.dataset.action === 'save') {
+                // 获取所有表单值
+                e.preventDefault()
+                // console.log(f1.username.value);
+                // console.log(f1.flieImg.files);
+
+                // 批量获取表单内容
+               const fd =  new FormData(f1);
+               console.log(fd);
+               console.log(fd.get('username'));
+               console.log(fd.getAll('flieImg'));
+               console.log(fd.getAll('aihao'));
+            }
+        })
+
+        const openform = document.getElementById('openform');
+        openform.addEventListener('click', function () {
+            dialog.style.display = 'flex'
+        })
+    </script>
+</body>
+
+</html>

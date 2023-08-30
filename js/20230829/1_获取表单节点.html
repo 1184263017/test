@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        name <input type="text" name="username" id="">
+        <br>
+        age <input type="number" name="age" id="">
+        <br>
+        gender <input type="radio" name="gender" id="">男
+               <input type="radio" name="gender" id="">女
+    </form>
+    <form action=""></form>
+    <form action=""></form>
+    <script>
+        /* 
+            document.forms 获取所有的form元素，返回一个伪数组
+
+            form[0].elements 获取所有的表单元素
+
+            form[0].elements[1] 通过索引获取单个表单元素
+
+            form[0].elements['age'] 通过name获取单个表单元素
+        */
+        const form =  document.forms;
+        console.log(form);
+
+        // 获取所有的表单元素
+        console.log(form[0].elements);
+        console.log('----------------');
+        
+        // 通过索引获取单个表单元素
+        console.log(form[0].elements[1]);
+        // 通过name获取单个表单元素
+        console.log(form[0].elements['age']);
+        console.log(form[0].elements.age);
+    </script>
+</body>
+</html>

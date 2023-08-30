@@ -407,9 +407,83 @@
         //         return false;
         //     }
         //     id = setTimeout(printNumbers, 1000, from, to)
+
         //     console.log(from);
         // }
         // printNumbers(10, 15)
+
+        // function sum(v) {
+        //     let count = v;
+        //     function fun(v) {
+        //         count += v;
+        //         return fun;
+        //     }
+        //     fun.valueOf = function (){
+        //         return count;
+        //     }
+        //     return fun;
+        // }
+        // console.log(+sum(1)(2)(3)(4));
+        // console.log(+sum(5)(-1)(5));
+
+
+        // function sum(num) {
+        //     let count = num;
+        //     function fn(num) {
+        //         count += num
+        //         return fn;
+        //     }
+        //     fn.valueOf = function () {
+        //         return count;
+        //     }
+        //     return fn;
+        // }
+        // console.log(+sum(1)(2)(3)(4));
+        // console.log(+sum(5)(-1)(5));
+
+        // function makeCounter(){
+        //     this.count = 0;
+        //     return function counter() {
+        //         return count;
+        //     }
+        // }
+        // const counter = makeCounter();
+        // counter.set = function (num) {
+        //     count += num;
+        // }
+        // counter.decrease = function () {
+        //     count -= 1;
+        // }
+        // console.log(counter.set(10));
+        // console.log(counter.decrease());
+        // console.log(counter());
+
+
+        function factorial(n) {
+            let sum = n;
+            n--
+            if(n > 0){
+                sum *= factorial(n); 
+            }
+            return sum;
+        }
+        console.log(factorial(5) );
+
+        function sumTo(n) {
+            let num = n;
+            n--
+            if (n > 0) {
+                num += sumTo(n)
+            }
+            return num;
+        }
+        console.log(sumTo(100));
+
+        console.log(+new Date('2023/8/30 00:00:00')/1000);
+        console.log(+new Date()/1000);
+        const d = (+new Date('2023/8/30 00:00:00') - +new Date())/1000;
+        console.log(d);
+        
     </script>
 </body>
 

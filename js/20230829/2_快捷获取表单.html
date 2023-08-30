@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" name="f1">
+        name <input type="text" name="username" id="">
+        <br>
+        age <input type="number" name="age" id="">
+        <br>
+        gender <input type="radio" name="gender" id="">男
+               <input type="radio" name="gender" id="">女
+    </form>
+    <form action=""></form>
+    <form action=""></form>
+    <script>
+        // 获取单个form
+       const form =  document.f1
+       console.log(form);
+
+        // 获取form中的元素
+        console.log(form.age);
+        console.log(form.username);
+        console.log(form.gender);
+        document.addEventListener
+        form.username.addEventListener('click',(e)=>{
+            console.log(e.target.value);
+        })
+    </script>
+</body>
+</html>

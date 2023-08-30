@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.model-mask {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+.model-mask .model-dialog {
+  width: 400px;
+  background-color: white;
+  padding: 10px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.model-mask .model-dialog .close {
+  width: 30px;
+  height: 30px;
+  border: solid;
+  line-height: 30px;
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.model-mask .model-dialog .close:hover {
+  background-color: #999;
+  color: white;
+}
+.model-mask .model-dialog .title {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.model-mask .model-dialog .form {
+  margin-top: 20px;
+}
+.model-mask .model-dialog .form > form > div {
+  margin-bottom: 5px;
+}
+.model-mask .model-dialog .form > form > div > label {
+  display: inline-block;
+  min-width: 60px;
+  text-align: right;
+}/*# sourceMappingURL=index.css.map */

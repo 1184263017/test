@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" name="f1">
+        <label for="">性别</label>
+        <input type="radio" value="1" name="gender">男
+        <input type="radio" value="2" name="gender">女
+        <br>
+        <button type="button" name="submitBtn">提价</button>
+    </form>
+    <script>
+        const f1 = document.f1;
+        f1.submitBtn.onclick = function () {
+            // 获取多个单选集合,集合中的value属性保存了选中项的value
+           console.log(f1.gender.value);
+            // 设置 对集合对象属性的value设置
+            // 设置的值必须是已知的value值,设置好的value值会被默认选中
+           f1.gender.value = 2;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .main {
+            margin: 0 auto;
+            /* border: solid; */
+            width: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        input {
+            width: 391px;
+            height: 36px;
+            outline: none;
+            border: 2px solid #4e6ef2;
+            border-right: 0px;
+            vertical-align: middle;
+            border-radius: 10px 0 0 10px;
+            text-indent: 25px;
+        }
+
+        button {
+            margin-left: -5px;
+            width: 112px;
+            height: 40px;
+            background-color: #4e6ef2;
+            color: white;
+            font-size: 17px;
+            border-radius: 0 10px 10px 0;
+            border: 0;
+            vertical-align: middle;
+        }
+
+        .list {
+            width: 395px;
+            position: absolute;
+            border: solid;
+            left: 47.5px;
+            top: 37px;
+            display: flex;
+            flex-direction: column;
+            border: 2px solid #4e6ef2;
+            padding-left: 25px;
+            box-sizing: border-box;
+            border-top: 2px solid transparent;
+            display: none;
+        }
+
+        span {
+            margin-bottom: 5px;
+        }
+
+        .xian {
+            width: 350px;
+            /* height: 10px; */
+            border-top: 2px solid #e3d9d9;
+            position: absolute;
+            left: 70px;
+            top: 35px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <form action="" name="f1">
+            <input type="text" name="keyword">
+            <button>百度一下</button>
+        </form>
+        <div class="xian"></div>
+        <div class="list">
+
+        </div>
+    </div>
+    <script>
+        const f1 = document.f1;
+        let timeId;
+        f1.keyword.oninput = function () {
+            clearTimeout(timeId);
+            timeId = setTimeout(() => {
+                console.log();
+                if (this.value !== '') {
+                    getList({ 'name': this.value });
+                    this.style.borderBottom = '2px solid transparent'
+                    this.style.borderRadius = ' 10px 0 0 0'
+                    document.querySelector('.list').style.display = 'flex'
+                    document.querySelector('.xian').style.display = 'block'
+                } else {
+                    this.style.borderBottom = '2px solid #4e6ef2'
+                    this.style.borderRadius = ' 10px 0 0 10px'
+                    document.querySelector('.list').style.display = 'none'
+                    document.querySelector('.xian').style.display = 'none'
+                }
+
+            }, 400)
+        }
+
+        f1.keyword.onclick = function () {
+            if (this.value !== '') {
+                this.style.borderBottom = '2px solid transparent'
+                this.style.borderRadius = ' 10px 0 0 0'
+                document.querySelector('.list').style.display = 'flex'
+                document.querySelector('.xian').style.display = 'block'
+            }
+
+
+        }
+
+        f1.keyword.onblur = function () {
+            this.style.borderBottom = '2px solid #4e6ef2'
+            this.style.borderRadius = ' 10px 0 0 10px'
+            document.querySelector('.list').style.display = 'none'
+            document.querySelector('.xian').style.display = 'none'
+        }
+
+
+
+        async function getList(data) {
+            return axios.post('http://www.tp6.com/api/index/getUserList', JSON.stringify(data))
+                .then(response => {
+                    console.log(response.data);
+                    if (response.data.code == 1) {
+                        document.querySelector('.list').innerHTML = null;
+                        const arr = response.data.data;
+                        for (let i = 0; i < arr.length; i++) {
+                            let targetSpan = document.createElement('span')
+                            targetSpan.innerHTML = `${arr[i]['user_name']}`
+                            document.querySelector('.list').appendChild(targetSpan)
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        }
+    </script>
+</body>
+
+</html>

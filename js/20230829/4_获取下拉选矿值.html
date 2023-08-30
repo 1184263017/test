@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" name="f1">
+        <select name="city" id="">
+            <option value="南京">南京</option>
+            <option value="上海">上海</option>
+            <option value="北京">北京</option>
+            <option value="天津">天津</option>
+        </select>
+        <br>
+        <button type="button" name="submitBtn">提价</button>
+    </form>
+    <script>
+        const f1 = document.f1;
+        f1.submitBtn.onclick = function () {
+            // 获取当前选中项option的value值
+           console.log(f1.city.value);
+            // 设置选项value值，选项会被选中
+           f1.city.value = '天津'
+        }
+    </script>
+</body>
+
+</html>

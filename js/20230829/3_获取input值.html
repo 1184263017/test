@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" name="f1">
+        name <input type="text" name="username" id="">
+        <br>
+        <textarea name="desc" id="" cols="30" rows="10"></textarea>
+        <button type="button" name="submitBtn">提价</button>
+    </form>
+    <script>
+        const f1 = document.f1;
+        f1.submitBtn.onclick = function () {
+            // 获取
+            console.log(f1.username.value);
+            // 设置
+            f1.username.value = 'jack'
+
+
+            console.log(f1.desc.value);
+            f1.desc.value = 'tom'
+
+            // 获取上传图片的值
+            f1.flieImg.files
+        }
+    </script>
+</body>
+
+</html>

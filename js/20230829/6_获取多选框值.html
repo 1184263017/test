@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" name="f1">
+        <label for="">爱好</label>
+        <input type="checkbox" name="aihao" value="css">css
+        <input type="checkbox" name="aihao" value="html">html
+        <input type="checkbox" name="aihao" value="javasceipr">javasceipr
+        <br>
+        <button type="button" name="submitBtn">提价</button>
+    </form>
+    <script>
+        const f1 = document.f1;
+        f1.submitBtn.onclick = function () {
+            // 获取被选中的对象
+            console.log(f1.aihao);
+            const res = [...f1.aihao].filter(el=>el.checked == true)
+            console.log(res);
+            // 将选中的对象value值提取
+            const data = res.map(el=>el.value);
+            console.log(data);
+
+            // 设置
+            // 获取被选中的对象，遍历设置每个对象的checked,
+            // 如果对象的value在预设数组只中则checked选中否则checked不选中
+            [...f1.aihao].forEach(el=>{
+                if (['css','html'].includes(el.value)) {
+                    el.checked = true
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

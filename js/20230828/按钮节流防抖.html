@@ -39,6 +39,16 @@
         //     }
         // })
 
+
+        const but = document.getElementById('but')
+        let timeId;
+        but.addEventListener('click', (e) => {
+            clearTimeout(timeId)
+            timeId = setTimeout(() => {
+                console.log(1);
+            }, 400)
+        })
+
         // function throttle(func, interval) {
         //     let lastTime = 0;
 

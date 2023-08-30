@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" name="f1">
+        name <input type="text" name="username" id="">
+        <br>
+        <button type="button" name="submitBtn">提价</button>
+    </form>
+    <script>
+        /* 
+            input所有的表单对象都有的事件
+            1.只要有输入就会执行
+            change所有的表单对象都有的事件
+            1.只有元素value值发生变化时候,并且元素失去焦点后触发
+        */
+        const f1 = document.f1;
+
+        // 拷贝触发
+        f1.username.oncopy = function () {
+            console.log(this.value);
+        }
+
+        // 剪切触发
+        f1.username.oncut = function () {
+            console.log(this.value);
+        }
+
+        // 粘贴触发
+        f1.username.onpaste = function () {
+            console.log(this.value);
+        }
+
+        // f1.username.onchange = function () {
+        //     console.log(this.value);
+        // }
+
+        // f1.username.oninput = function () {
+        //     console.log(this.value);
+        // }
+    </script>
+</body>
+</html>
