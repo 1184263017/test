@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            集合
+            \d = [0-9]
+            \db = [0b-9b]
+            \w = [0-9][A-Z][a-z]_
+            /./ = 匹配一切
+            /^a/ = 匹配头部是a的
+            /a$/ = 匹配尾部是a的
+            \b = 词边界
+
+            匹配不上返回null
+        */
+        const str = '_a1b2c3b'
+        // const reg = /1/g;
+        // const reg = /\db/g;      // \d = [0-9]
+        // const str = ' a1 b2  c3  b'
+        // const reg = /\sa/g;      // \s = 空格
+        // const reg = /\w/g;      // \w 拉丁字母或数字或下划线
+        // const reg = /.b/g       //.代表匹配一切
+
+        const reg = /\D/g       //大写代表!
+
+        // 根据正则表达式匹配字符,返回匹配结果
+        console.log(str.match(reg));
+    </script>
+</body>
+
+</html>

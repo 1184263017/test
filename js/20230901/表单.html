@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" name="f1">
+        姓名<input type="text" name="username">
+        <span id="username" style="display: none;">姓名不能为空</span>
+        <br>
+        邮箱<input type="text" name="email"><br>
+        手机<input type="text" name="phone"><br>
+        <button type="submit">提交</button>
+    </form>
+    <script>
+        document.oninput = (e) => {
+            const target = e.target;
+            const name = e.target.name;
+            const errMsg = document.getElementById(name);
+            if (name === 'username') {
+                console.dir(target);
+                console.dir(target.valeu);
+                if (e.target.valeu === '') {
+                    errMsg.style.display = '';
+                }else{
+                    errMsg.style.display = 'none';
+                }
+            }
+
+        }
+    </script>
+</body>
+
+</html>

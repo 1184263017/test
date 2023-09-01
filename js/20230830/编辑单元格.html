@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="1" id="table">
+        <tbody>
+            <tr>
+                <td>2</td>
+                <td>2</td>
+                <td>2</td>
+                <td>2</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>3</td>
+                <td>3</td>
+                <td>3</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>4</td>
+                <td>4</td>
+                <td>4</td>
+                <td>4</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        // 保存当前正在编辑的单元格对象
+        let curTag = null;
+        // document.getC
+        document.onclick = function (e) {
+            const target = e.target;
+            const elName = target.nodeName;
+            const action = target.dataset.action;
+            if (elName === 'TD' && curTag === null) {
+                console.log(getComputedStyle(target).width);
+                console.log(getComputedStyle(target).height);
+                curTag = target;
+                const html = `
+                <input type='text' id='inp1' value=${target.innerHTML}>
+                <button data-action='confim'>完成</button>
+                <button data-action='cancel'>取消</button>
+                `
+                target.innerHTML = html;
+                console.log(action);
+
+            }
+            if (action === 'confim') {
+                curTag.innerHTML = document.getElementById('inp1').value;
+                curTag = null;
+            }
+            if (action === 'cancel') {
+                curTag.innerHTML = document.getElementById('inp1').getAttribute('value')
+                curTag = null;
+            }
+        }
+    </script>
+</body>
+
+</html>

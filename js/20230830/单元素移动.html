@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .mouse {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            position: fixed;
+            top:0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            transition: all .1s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mouse" id="m1"></div>
+    <script>
+        const mouse = document.getElementById('m1');
+
+        document.addEventListener('keydown', function (e) {
+            const {left,top,bottom,right} = mouse.getBoundingClientRect();
+            // console.log(mouse.getBoundingClientRect());
+            if (e.key === 'ArrowRight') {
+                mouse.style.left = left + 20 +'px';
+            }
+            if (e.key === 'ArrowUp') {
+                mouse.style.top = top - 20 +'px';
+            }
+            if (e.key === 'ArrowLeft') {
+                mouse.style.left = left - 20 +'px';
+            }
+            if (e.key === 'ArrowDown') {
+                console.log(1);
+                mouse.style.top = top + 20 +'px';
+            }
+        })
+    </script>
+</body>
+
+</html>

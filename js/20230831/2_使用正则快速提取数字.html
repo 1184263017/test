@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        const str = '_a1b2c3b'
+
+        // 电话号码转换
+        const phone = '789/456+123(025)';
+        console.log(phone.match(/\d/g).join(''));
+
+        const reg = /.b/g       //.代表匹配一切
+
+        // 根据正则表达式匹配字符,返回匹配结果
+        console.log(str.match(reg));
+    </script>
+</body>
+
+</html>

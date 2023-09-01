@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const str = 'abcabcabc123';
+        console.log(str.match(/(abc){3}/g));
+
+        // 整体匹配捕捉，括号中内容会被单独捕捉
+        const time = '2012-12-12';
+        console.log(time.match(/^\d{4}-\d{2}-\d{2}$/));
+        console.log(time.match(/^(\d{4})-(\d{2})-(\d{2})$/));
+        console.log(time.match(/^((\d{4})-(\d{2}))-(\d{2})$/));
+    </script>
+</body>
+</html>

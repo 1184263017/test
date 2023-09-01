@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // const text = '🌟 Star emoji: 🌟';
+        // const pattern = /\p{Emoji_Presentation}/gu;
+
+        // const matches = text.match(pattern);
+
+        // console.log(matches); // 输出 ["🌟", "🌟"]
+
+        const text = 'Line 1: apples\nLine 2: oranges\nLine 3: bananas';
+        const pattern = /^Line \d+: (\w+)/gm;
+
+        let match;
+        while ((match = pattern.exec(text)) !== null) {
+            console.log(match[1]);
+        }
+
+    </script>
+</body>
+
+</html>

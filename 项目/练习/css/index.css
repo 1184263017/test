@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.navigation {
+  width: 100%;
+  height: 50px;
+  background-color: black;
+}
+.navigation .logo {
+  width: 200px;
+  height: 50px;
+}
+.navigation .logo > img {
+  width: 200px;
+  height: 50px;
+  display: inline-block;
+}
+
+.main {
+  width: 100%;
+  height: 890px;
+  border: solid;
+  display: flex;
+}
+.main .menu {
+  width: 200px;
+  height: 100%;
+  border: solid;
+  background-color: black;
+}
+.main .content {
+  flex: 1;
+  border: solid;
+}/*# sourceMappingURL=index.css.map */

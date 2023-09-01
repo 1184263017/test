@@ -7,8 +7,22 @@
     <title>Document</title>
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
-
+    <!-- element组件 -->
+    <!-- 引入样式 -->
+    <!-- <link rel="stylesheet" href="./element.css"> -->
+    <!-- 引入组件库 -->
+    <!-- <script src="./element.js"></script> -->
+<!-- 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/mhDoLbDldZc3qpsJHpLogda//BVZbgYuw6kof4u2FrCedxOtgRZDTHgHUhOCVim"
+        crossorigin="anonymous"></script> -->
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
         table {
             text-align: center;
             font-size: 14px;
@@ -56,7 +70,7 @@
             transform: translate(-50%, -50%);
         }
 
-        .modal-content span{
+        .modal-content span {
             float: right;
             color: #999;
             cursor: pointer;
@@ -145,16 +159,43 @@
             height: 20px;
         }
 
-        .page{
-            margin:0 auto;
+        .page {
+            margin: 0 auto;
             /* border: 1px solid; */
             width: 110px;
             margin-top: 10px;
             font-size: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        .page span{
+
+        .page span {
             cursor: pointer;
-            margin-right: 10px;
+            /* margin-right: 10px; */
+            /* border: solid; */
+        }
+        ul{
+            display: flex;
+            list-style: none;
+            padding: 0 5px;
+        }
+        li{
+            width: 20px;
+            height: 20px;
+            border: 1px solid transparent;
+            border-radius: 3px;
+            text-align: center;
+            height: 20px;
+            box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+            margin-right: 3px;
+        }
+        /* a{
+            text-decoration: none;
+        } */
+        .colorB{
+            background-color: royalblue;
+            color: white;
         }
     </style>
 </head>
@@ -183,10 +224,14 @@
             <td>操作</td>
         </tr>
     </table>
-    <div class="page">
-        <span>上一页</span>
-        <span>下一页</span>
+    <div class="page" id="app">
+       <!-- <span><<</span> -->
+       <ul id="u1">
+
+       </ul>
+       <!-- <span>>></span> -->
     </div>
+
 
     <div id="myModal" class="modal">
         <div class="modal-content">
@@ -265,28 +310,6 @@
             const pro = getApi(url + 'getUserList', null, 'GET');
             getUserList(pro);
 
-            // pro.then((data) => {
-            //     let str = '';
-            //     const arr = data;
-            //     for (let i = 0; i < arr.length; i++) {
-            //         let targetSpan = document.createElement('tr')
-            //         targetSpan.innerHTML = `
-            //                 <td>${arr[i]['admin_id']}</td>
-            //                 <td>${arr[i]['user_name']}</td>
-            //                 <td>${arr[i]['email']}</td>
-            //                 <td>${arr[i]['last_ip']}</td>
-            //                 <td>${new Date(arr[i]['add_time'] * 1000).toLocaleString()}</td>
-            //                 <td>${new Date(arr[i]['last_login'] * 1000).toLocaleString()}</td>
-            //                 <td>${arr[i]['login_count']}</td>
-            //                 <td>${arr[i]['desc']}</td>
-            //             `
-            //         container.appendChild(targetSpan)
-            //     }
-            // }).catch((e) => {
-            //     alert(e);
-            // })
-
-
             let container = document.getElementById('table')
             let targetSpan = document.createElement('tr')
             targetSpan.innerHTML = `
@@ -325,10 +348,11 @@
             })
         }
 
-        async function getUserList(pro) {
+        async function getUserList(pro,page=null) {
             try {
                 const res = await pro;
                 let container = document.getElementById('table')
+                let u1 = document.getElementById('u1')
                 let str = '';
                 const arr = res.data;
                 for (let i = 0; i < arr.length; i++) {
@@ -349,6 +373,18 @@
 
                         `
                     container.appendChild(targetSpan)
+                }
+                u1.innerHTML = null;
+                for (let i = 1; i <= res.count; i++) {
+                    let targetSpan = document.createElement('li')
+                    // targetSpan.innerHTML = `<li><a href="" onpage='page(${i})'>${i}</a></li>`
+                    targetSpan.innerHTML = `<li onclick='page(${i})'>${i}</li>`
+                    if (i == 1 && page == null) {
+                        targetSpan.innerHTML = `<li class='colorB' onclick='page(${i})'>${i}</li>`
+                    }else if(i == page){
+                        targetSpan.innerHTML = `<li class='colorB' onclick='page(${i})'>${i}</li>`
+                    }
+                    u1.appendChild(targetSpan)
                 }
             } catch (e) {
                 alert(e)
@@ -453,6 +489,18 @@
                 view[i] = s.charCodeAt(i) & 0xFF;
             }
             return buf;
+        }
+        
+        function page(page) {
+            console.log(123);
+            const pro = getApi(url + 'getUserList', { 'page': page }, 'POST');
+            getUserList(pro,page);
+
+            const tab = document.getElementById('table')
+            const children = tab.children;
+            for (let i = children.length - 1; i > 0; i--) {
+                tab.removeChild(children[i]);
+            }
         }
     </script>
 </body>

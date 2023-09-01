@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const str = 'abc-123*hahaha#';
+        console.log(str.split(/[-*#]/));
+        // search等同与indexOf 但是支持正则表达式
+        console.log(str.search('123'));
+        console.log(str.replace('123'));
+    </script>
+</body>
+
+</html>

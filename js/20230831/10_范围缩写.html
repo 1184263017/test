@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const str = 'abcccccdcc';
+        // {1,}
+        console.log(str.match(/c+/g));
+        // 0表示c重复0次(无法匹配)
+        console.log(str.match(/c{0}/g));
+        // {0,1}=={不存在,存在}
+        console.log(str.match(/c?/g));
+        // {0,}=={不存在,存在}
+        console.log(str.match(/c*/g));
+
+
+
+        const str1 = 'abc,ab,abcccc,def';
+        // {0,1}
+        console.log(str1.match(/abc?/g));
+        // {0,}
+        console.log(str1.match(/abc*/g));
+        // {1,}
+        console.log(str1.match(/abc+/g));
+    </script>
+</body>
+</html>

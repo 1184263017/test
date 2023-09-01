@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" name="f1">
+        <input type="text" name="username" id="">
+    </form>
+    <script>
+        const f1 = document.f1
+        f1.username.onfocus = function (e) {
+            console.log('聚焦');
+        }   
+
+        f1.username.onblur = function (e) {
+            console.log('失焦');
+        }   
+
+        setTimeout(()=>{
+            // 自动获取焦点，触发焦点事件
+            f1.username.focus()
+        },3000)
+
+
+        setTimeout(()=>{
+            // 自动失去焦点，触发失去焦点事件
+            f1.username.blur()
+        },5000)
+        
+    </script>
+</body>
+
+</html>

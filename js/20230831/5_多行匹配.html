@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            m 修饰符开启多行模式
+            默认情况下，正则表达式将字符串多行看作是一行
+        */
+        const str1 = `1 this is for you3
+2 sdad dasdaxzc qwew fdsf 4
+6 zxcx asf fvc qewas cv 5`
+        console.log(str1.match(/^\d/gm));
+        console.log(str1.match(/\d$/gm));
+        console.log(str1.match(/.\d/gm));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        const str1 = '12:21,12:31,13:21';
+        console.log(str1.match(/^\d\d:\d\d/g));
+        console.log(str1.match(/\d\d:\d\d$/g));
+
+
+        const str2 = '12:21';
+        // 完全匹配,开始和结束的字符串必须一模一样
+        // console.log(str1.match(/^\d\d:\d\d$/g));    //null
+        console.log(str2.match(/^\d\d:\d\d$/g));       //['12:21']
+    </script>
+</body>
+
+</html>

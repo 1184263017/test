@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            1.正则表达式匹配日期
+            2.使用字符串replace函数
+            3.设定年月日分组捕获
+            4.在replace第二个参数中可以读取分组信息
+            5.读取的分组信息和要替换的字符串组合
+        */
+        const str = '2023-12-21,2012-12-22'
+        
+        // const reg = /(\d{4})-(\d{2})-(\d{2})/g;
+        // console.log(str.replace(reg, '$1年$2月$3日'));
+
+        const reg = /(?<y>\d{4})-(?<m>\d{2})-(?<d>\d{2})/g;
+        console.log(str.replace(reg, '$<y>年$<m>月$<d>日'));
+    </script>
+</body>
+
+</html>

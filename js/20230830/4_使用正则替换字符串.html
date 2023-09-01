@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            replace 替换字符串中的字符
+            1.参数类型可以是字符串，也可以是正常表达式对象，要替换的字符
+            2.替换成什么字符
+        */
+        const str = '1a2A3a4A';
+        
+        // 不加g只匹配第一个a,加g(global)修饰全局匹配所有的a
+        // i 不区分大小写
+        console.log(str.replace(/a/,'b'));
+        console.log(str.replace(/a/gi,'b'));
+    </script>
+</body>
+</html>

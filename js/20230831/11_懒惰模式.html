@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const str = '<div>hello<h1></div>';
+        // 贪婪模式
+        // 数量后面加?表示开启懒惰模式
+        console.log(str.match(/<.+?>/g));
+    </script>
+</body>
+</html>

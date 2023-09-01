@@ -1,0 +1,38 @@
+@mixin kuangao($width:0,$height:0){
+    width: $width;
+    height: $height;
+}
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+.navigation{
+    @include kuangao(100%,50px);
+    background-color: black;
+    .logo{
+        @include kuangao(200px,50px);
+        // background-color: red;
+        >img{
+            @include kuangao(200px,50px);
+            display: inline-block;
+        }
+    }
+}
+.main{
+    @include kuangao(100%,890px);
+    border: solid;
+    display: flex;
+    .menu{
+        @include kuangao(200px,100%);
+        border: solid;
+        background-color: black;
+    }
+    .content{
+        // @include kuangao(50px,100%);
+        flex: 1;
+        border: solid;
+    }
+}

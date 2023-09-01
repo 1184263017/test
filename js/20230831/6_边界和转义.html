@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const str = 'hello word hio hi lili . \\ ^ $'
+        console.log(str.match(/\bhi\b/g));
+
+        // .点已经诶正则表达式征用,需要加斜杠转义回本来含义
+        console.log(str.match(/\./));
+        console.log(str.match(/\\/));
+        console.log(str.match(/\^/));
+        console.log(str.match(/\$/));
+    </script>
+</body>
+
+</html>

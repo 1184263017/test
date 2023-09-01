@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const r2 = '\\d';
+        const r1 = '\\s';
+
+        const str = ' 5456';
+        const reg = new RegExp(r1+r2,'g')
+        // console.log(reg);
+        // console.log(str.match(/(r1+r2)/g));
+        console.log(str.match(reg));
+        console.log(str.match(/\s\d/));
+
+        const str1 = 'abc123edf456';
+        // console.log(str1.match(/[abc123]/g));
+        console.log(str1.match(/[a-c0-3]/g));
+    </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            /* background-clip:; */
+        }
+    </style>
+</head>
+
+<body>
+    <button data-action="allDel">批量删除</button>
+    <table border="1">
+        <thead>
+            <tr>
+                <td><input type="checkbox" data-action="allCheck"></td>
+                <td>id</td>
+                <td>姓名</td>
+                <td>年龄</td>
+                <td>性别</td>
+                <td>邮箱</td>
+                <td>电话</td>
+                <td>操作</td>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        const users = [
+            { id: 1, name: 'jack', age: 18, gender: '1', email: '118@qq.com', phone: '369852' },
+            { id: 2, name: 'tom', age: 19, gender: '2', email: '119@qq.com', phone: '123456' },
+            { id: 3, name: 'lili', age: 20, gender: '1', email: '120@qq.com', phone: '654321' },
+            { id: 4, name: 'xixi', age: 21, gender: '2', email: '121@qq.com', phone: '741852' },
+        ]
+
+        // 将数组对象转成表格字符串
+        function render(arr) {
+            const str = arr.reduce((str, v) => {
+                str += `
+                    <tr>
+                        <td><input class='check' type="checkbox" data-id=${v.id} data-action="check"></td>
+                        <td>${v.id}</td>
+                        <td>${v.name}</td>
+                        <td>${v.age}</td>
+                        <td>${v.gender === '1' ? '男' : '女'}</td>
+                        <td>${v.email}</td>
+                        <td>${v.phone}</td>
+                        <td>
+                            <button data-id=${v.id} data-action='del'>删除</button>    
+                        </td>
+                    </tr>
+                `
+                return str
+            }, '')
+            // console.log(str);
+            document.querySelector('tbody').innerHTML = str;
+        }
+        render(users)
+        const arr = [];
+        document.onclick = function (e) {
+            if (e.target.dataset.action === 'del') {
+                if (confirm('确定删除吗') === false) return false;
+                let id = e.target.dataset.id;
+                const index_1 = users.findIndex(el => el.id == id)
+                console.log(index_1);
+                users.splice(index_1, 1);
+                render(users)
+            }
+            if (e.target.dataset.action === 'allDel') {
+                if (confirm('确定删除吗') === false) return false;
+                if (arr.length == 0) {
+                    alert('没有选中!')
+                    return false;
+                }
+                arr.forEach(e => {
+                    console.log(e);
+                    const index_1 = users.findIndex(el => el.id == e)
+                    users.splice(index_1, 1);
+                })
+                render(users)
+            }
+            if (e.target.dataset.action === 'check') {
+                let id = e.target.dataset.id;
+                if (e.target.checked == true) {
+                    arr.push(id)
+                } else {
+                    arr.splice(arr.findIndex(e => e === id), 1);
+                }
+            }
+            if (e.target.dataset.action === 'allCheck') {
+                if (e.target.checked == true) {
+                    arr.splice(0);
+                    document.querySelectorAll('.check').forEach(el => {
+                        el.checked = true;
+                        arr.push(el.dataset.id)
+                    })
+                } else {
+                    document.querySelectorAll('.check').forEach(el => {
+                        el.checked = false;
+                    })
+                    arr.splice(0);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
