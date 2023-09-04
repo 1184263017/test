@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="but">提交</button>
+    <script>
+        const but = document.getElementById('but');
+        but.addEventListener('click',(e)=>{
+            // 判断是用户自己触发还是程序触发，用户返回true,程序返回false
+            console.log(e.isTrusted);
+        })
+        const clickE = new Event('click');
+        // 手动触发addEventListener事件处理
+        but.dispatchEvent(clickE);
+    </script>
+</body>
+</html>

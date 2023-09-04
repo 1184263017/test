@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="but">提交</button>
+    <div id="box1">hello</div>
+    <div id="box2">jack</div>
+    <div id="box3">lili</div>
+    <div id="box4">20</div>
+    <script>
+        /* 
+            发布订阅模式(编程模式)
+        */
+        const but = document.getElementById('but');
+        box1.addEventListener('update', function (e) {
+            this.innerHTML += e.detail.str;
+        })
+        box2.addEventListener('update', function (e) {
+            this.innerHTML += e.detail.str;
+        })
+        box3.addEventListener('update', function (e) {
+            this.innerHTML += e.detail.str;
+        })
+        box4.addEventListener('update', function (e) {
+            this.innerHTML += e.detail.str;
+        })
+        // const clickE = new Event('update');
+        const clickE = new CustomEvent('update',{
+            detail:{str:'!'}
+        });
+        but.onclick = () => {
+            // 手动触发addEventListener事件处理
+            document.querySelectorAll('[id*=box]').forEach(el => {
+                el.dispatchEvent(clickE);
+            });
+            
+        }
+    </script>
+</body>
+
+</html>

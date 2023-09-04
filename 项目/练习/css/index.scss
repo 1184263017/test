@@ -12,6 +12,7 @@
 .navigation{
     @include kuangao(100%,50px);
     background-color: black;
+    display: flex;
     .logo{
         @include kuangao(200px,50px);
         // background-color: red;
@@ -20,13 +21,104 @@
             display: inline-block;
         }
     }
+    .breadcrumb{
+        @include kuangao(100%,50px);
+        // background-color: red;
+        display: flex;
+        justify-content: space-between;
+        .breadcrumb_left{
+            @include kuangao(150px,50px);
+            // background-color: skyblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            .xian_1{
+                position: absolute;
+                @include kuangao(0px,0px);
+                border: solid;
+                top: 0;
+                left: 18px;
+                transition: all .7s;
+            }
+            .xian_2{
+                position: absolute;
+                @include kuangao(0px,0px);
+                border: solid;
+                top: 0;
+                left: 53px;
+                transition: all .5s;
+            }
+            .return_index{
+                // border: solid;
+                >img{
+                    @include kuangao(24px,24px);
+                }
+            }
+            .school_admin{
+                margin-top: -5px;
+                margin-left: 10px;
+                // border: solid;
+                >img{
+                    display: inline-block;
+                    @include kuangao(14px,14px);
+                    vertical-align: middle;
+                }
+                >span{
+                    vertical-align: middle;
+                    font-size: 14px;
+                    color: white
+                }
+            }
+        }
+        .breadcrumb_right{
+            // background-color: skyblue;
+            @include kuangao(260px,50px);
+            display: flex;
+            .breadcrumb_right_icon{
+                @include kuangao(140px,50px);
+                // background-color: red;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                >img{
+                    @include kuangao(20px,20px);
+                    margin-right: 10px;
+                    cursor:pointer;
+                }
+            }
+            .breadcrumb_right_user{
+                @include kuangao(120px,50px);
+                // background-color: skyblue;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor:pointer;
+                .man{
+                    @include kuangao(30px,30px);
+                    border-radius: 50%;
+                    background-color: white;
+                    margin-right: 10px;
+                    transform: scale(1);
+                }
+                .down{
+                    @include kuangao(16px,16px);
+                }
+                >span{
+                    font-size: 14px;
+                    color: white;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
 }
 .main{
     @include kuangao(100%,890px);
     border: solid;
     display: flex;
     .menu{
-        @include kuangao(200px,100%);
+        @include kuangao(194px,100%);
         border: solid;
         background-color: black;
     }

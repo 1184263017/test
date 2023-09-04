@@ -13,12 +13,66 @@
             <div class="logo">
                 <img src="../img/indexlog.png" alt="">
             </div>
-            <div class="breadcrumb"></div>
+            <div class="breadcrumb">
+                <div class="breadcrumb_left">
+                    <div class="xian_1"></div>
+                    <div class="xian_2"></div>
+                    <div class="return_index" data-action="return_index">
+                        <img src="../img/home_white.png" alt="" data-action="return_index">
+                    </div>
+                    <div class="school_admin" data-action="school_admin">
+                        <img src="../img/indent_left_dark.png" alt="" data-action="school_admin">
+                        <span data-action="school_admin">校务管理</span>
+                    </div>
+                </div>
+                <div class="breadcrumb_right">
+                    <div class="breadcrumb_right_icon">
+                        <img src="../img/refresh.png" alt="">
+                        <img src="../img/fullscreen.png" alt="">
+                        <img src="../img/app.png" alt="">
+                        <img src="../img/theme.png" alt="">
+                    </div>
+                    <div class="breadcrumb_right_user">
+                        <img class="man" src="../img/man.png" alt="">
+                        <span>管理员</span>
+                        <img class="down" src="../img/arrow_down_white.png" alt="">
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="main">
             <div class="menu"></div>
             <div class="content"></div>
         </div>
     </div>
+    <script>
+        /* ----------校务管理动画效果---------- */
+        document.querySelector('.breadcrumb_left').addEventListener('mouseover',(e)=>{
+            console.log(321);
+            const target = e.target;
+            const name = target.dataset.action;
+            if (name === 'return_index') {
+                document.querySelector('.xian_1').style.width = '30px';
+                document.querySelector('.xian_1').style.color = 'white';
+            }
+            if (name === 'school_admin') {
+                document.querySelector('.xian_2').style.width = '78px';
+                document.querySelector('.xian_2').style.color = 'white';
+            }
+        })
+        document.querySelector('.breadcrumb_left').addEventListener('mouseout',(e)=>{
+            console.log(123);
+            const target = e.target;
+            const name = target.dataset.action;
+            if (name === 'return_index') {
+                document.querySelector('.xian_1').style.width = '0px';
+                document.querySelector('.xian_1').style.color = 'black';
+            }
+            if (name === 'school_admin') {
+                document.querySelector('.xian_2').style.width = '0px';
+                document.querySelector('.xian_2').style.color = 'black';
+            }
+        })
+    </script>
 </body>
 </html>

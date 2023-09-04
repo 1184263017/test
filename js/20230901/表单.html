@@ -5,32 +5,154 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .main {
+            box-sizing: border-box;
+            margin: 0 auto;
+            /* border: solid; */
+            width: 350px;
+            height: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f5dada;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+            position: relative;
+        }
+
+        .main div {
+            margin-left: 150px;
+            /* border: solid; */
+            display: flex;
+            width: 360px;
+        }
+
+        button {
+            margin-left: 150px;
+        }
+
+        input {
+            outline: none;
+            /* margin-bottom: 5px; */
+        }
+    </style>
 </head>
 
 <body>
-    <form action="" name="f1">
-        姓名<input type="text" name="username">
-        <span id="username" style="display: none;">姓名不能为空</span>
-        <br>
-        邮箱<input type="text" name="email"><br>
-        手机<input type="text" name="phone"><br>
-        <button type="submit">提交</button>
-    </form>
+    <div class="main">
+        <form action="" name="f1">
+            <div>
+                姓名<input type="text" name="username">
+                <span id="username" class="s1" style="display: none;">姓名必须6到18个字符</span>
+            </div>
+            <div>
+                邮箱<input type="text" name="email">
+                <span id="email" class="s2" style="display: none;">请输入正确的邮箱</span>
+            </div>
+            <div>
+                手机<input type="text" name="phone">
+                <span id="phone" class="s3" style="display: none;">手机号码错误</span>
+            </div>
+            <div>
+                年龄<input type="text" name="age">
+                <span id="age" class="s4" style="display: none;">年龄错误</span>
+            </div>
+            <div>
+                密码<input type="text" name="password">
+                <span id="password" class="s1" style="display: none;">密码必须6到18个字符</span>
+            </div>
+            <div>
+                确认密码<input type="text" name="cpassword">
+                <span id="cpassword" class="s1" style="display: none;">密码不相等</span>
+            </div>
+            <button type="submit" data-action="submit">提交</button>
+        </form>
+    </div>
+
     <script>
-        document.oninput = (e) => {
+        document.oninput = function (e) {
             const target = e.target;
             const name = e.target.name;
             const errMsg = document.getElementById(name);
+            // 验证用户名
             if (name === 'username') {
-                console.dir(target);
-                console.dir(target.valeu);
-                if (e.target.valeu === '') {
-                    errMsg.style.display = '';
-                }else{
-                    errMsg.style.display = 'none';
+                valid(target, (value) => {
+                    return /^\w{6,18}$/.test(value);
+                });
+            }
+            // 验证邮箱
+            if (name === 'email') {
+                valid(target, (value) => {
+                    return /^\w+@\w+.\w+$/.test(value);
+                });
+            }
+            // 验证手机号
+            if (name === 'phone') {
+                valid(target, (value) => {
+                    return /^1[3-9]\d{9}$/.test(value);
+                });
+            }
+            // 验证年龄
+            if (name === 'age') {
+                valid(target, (value) => {
+                    return +value >= 18 && +value <= 80;
+                });
+            }
+            // 验证密码
+            if (name === 'password') {
+                valid(target, (value) => {
+                    return value.length >= 6 && +value.length <= 18;
+                });
+            }
+            // 确认密码
+            if (name === 'cpassword') {
+                valid(target, (value) => {
+                    return value === form.password.value;
+                });
+            }
+        }
+        function valid(target, cb) {
+            const name = target.name;
+            const errMsg = document.getElementById(name);
+            const res = cb(target.value);
+            if (res) {
+                errMsg.style.display = 'none';
+            } else {
+                errMsg.style.display = '';
+            }
+            return res;
+        }
+        const form = document.f1;
+        document.onclick = function (e) {
+            const name = e.target.dataset.action;
+            if (name == 'submit') {
+                e.preventDefault();
+                const username = valid(form.username, (value) => {
+                    return /^\w{6,18}$/.test(value);
+                })
+                const phone = valid(form.phone, (value) => {
+                    return /^1[3-9]\d{9}$/.test(value);
+                });
+                const email = valid(form.email, (value) => {
+                    return /^\w+@\w+.\w+$/.test(value);
+                });
+                const age = valid(form.age, (value) => {
+                    return +value >= 18 && +value <= 80;
+                });
+                const cpassword = valid(form.cpassword, (value) => {
+                    // console.log(value === form.password.value);
+                    return value === form.password.value;
+                });
+                const password = valid(form.password, (value) => {
+                    return value.length >= 6 && +value.length <= 18;
+                });
+
+
+                if (username && phone && email && age && cpassword && password) {
+                    alert('注册成功')
                 }
             }
-
         }
     </script>
 </body>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="but">提交</button>
+    <script>
+        const but = document.getElementById('but');
+        but.addEventListener('click',(e)=>{
+            console.log(e);
+        })
+        but.addEventListener('click',(e)=>{
+            console.log(e);
+        })
+        but.addEventListener('del',(e)=>{
+            console.log(e);
+        })
+        /* 
+            1.dispatchEvent本质上是批量调用节点对象的事件处理函数
+            2.参数是一个event对象，事件对象中必须要指明事件类型，事件类型对应节点
+        */
+        // PointerEvent 继承与 Event
+        const clickE = new PointerEvent('click');
+        const dblclickE = new Event('dblclick');
+        const delE = new Event('del');
+        // 手动触发addEventListener事件处理
+        but.dispatchEvent(clickE);
+        but.dispatchEvent(delE);
+    </script>
+</body>
+</html>

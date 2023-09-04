@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/mhDoLbDldZc3qpsJHpLogda//BVZbgYuw6kof4u2FrCedxOtgRZDTHgHUhOCVim"
+        crossorigin="anonymous"></script>
     <title>Document</title>
     <style>
-        table {
-            /* background-clip:; */
-        }
-
         .modal_box_add,
         .modal_box_edit {
             width: 100%;
@@ -21,7 +22,7 @@
 
         .addform,
         .editform {
-            width: 500px;
+            width: 400px;
             /* height: 300px; */
             /* border: solid; */
             position: absolute;
@@ -32,46 +33,48 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             background-color: white;
             padding-bottom: 30px;
+            padding-left: 30px;
+            padding-right: 30px;
+            padding-top: 10px;
         }
 
-        input {
+        /* input {
             outline: none;
             height: 15px;
             width: 100px;
             border: 1px solid rgb(227, 220, 220);
             border-radius: 3px;
-        }
+        } */
 
-        .d1 {
+        /* .d1 {
             width: 160px;
             height: 50px;
-            /* border: solid; */
             display: flex;
             flex-wrap: wrap;
-        }
+        } */
 
-        .d1 span {
+        /* .d1 span {
             font-size: 14px;
             color: red;
-        }
+        } */
 
-        .d1 label {
+        /* .d1 label {
             font-size: 14px;
             color: red;
-        }
+        } */
 
-        form {
+        /* form {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-        }
+        } */
 
-        .r1 {
+        /* .r1 {
             height: 10px;
             width: 20px;
             font-size: 12px;
-        }
+        } */
 
         .add_close {
             position: absolute;
@@ -83,7 +86,6 @@
             font-size: 14px;
             text-align: center;
             line-height: 20px;
-            /* border: 1px solid #333; */
             border: none;
             box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
         }
@@ -102,94 +104,131 @@
             border: none;
         }
 
-        .d2 {
+        /* .d2 {
             display: flex;
             justify-content: center;
             align-items: center;
-        }
+        } */
     </style>
 </head>
 
 <body>
+    <button type="button" class="btn btn-dark" data-action="allDel">批量删除</button>
+    <button type="button" class="btn btn-success" data-action="add">添加用户</button>
     <div class="modal_box_add" id="modal_box_add">
-
         <div class="addform">
-            <h3>添加用户</h3>
+            <h5>添加用户</h5>
             <span data-action="add_close" class="add_close">X</span>
             <form action="" name="addform">
-                <div class="d1">
-                    <label for="username">姓名:</label>
-                    <input type="text" id="username" name="username">
-                    <span style="display: none;" id="username_msg_add">姓名最少2到6位</span>
+                <div class="mb-3 row d1">
+                    <label for="username" class="col-sm-2 col-form-label">姓名:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="username" name="username">
+                    </div>
+                    <span style="display:none;" id="username_msg_add">姓名最少2到6位</span>
                 </div>
-                <div class="d1">
-                    <label for="age">年龄:</label>
-                    <input type="text" id="age" name="age">
-                    <span style="display: none;" id="age_msg_add">年龄18至80岁</span>
+                <div class="mb-3 row d1">
+                    <label for="age" class="col-sm-2 col-form-label">年龄:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="age" name="age">
+                    </div>
+                    <span style="display:none;" id="age_msg_add">年龄18至80岁</span>
                 </div>
-                <div class="d1">
-                    <label for="gender">性别:</label>
-                    <input type="radio" class="r1" checked id="gender" name="gender" value="1">男
-                    <input type="radio" class="r1" id="gender" name="gender" value="2">女
+
+                <div class="mb-3 row d1" style="display: flex;flex-wrap: nowrap;">
+                    <label for="gender" class="col-sm-2 col-form-label">性别:</label>
+                    <div class="form-check form-check-inline" style="width: 80px;margin-left: 10px;">
+                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio1"
+                            value="1">
+                        <label class="form-check-label" for="inlineRadio1">男</label>
+                    </div>
+                    <div class="form-check form-check-inline" style="width: 80px;">
+                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio2"
+                            value="2">
+                        <label class="form-check-label" for="inlineRadio2">女</label>
+                    </div>
                 </div>
-                <div class="d1">
-                    <label for="email">邮箱:</label>
-                    <input type="text" id="email" name="email">
-                    <span style="display: none;" id="email_msg_add">邮箱格式不正确</span>
+
+                <div class="mb-3 row d1">
+                    <label for="email" class="col-sm-2 col-form-label">邮箱:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="email" name="email">
+                    </div>
+                    <span style="display:none;" id="email_msg_add">邮箱格式不正确</span>
                 </div>
-                <div class="d1">
-                    <label for="phone">电话:</label>
-                    <input type="text" id="phone" name="phone">
-                    <span style="display: none;" id="phone_msg_add">电话号码格式不正确</span>
+
+                <div class="mb-3 row d1">
+                    <label for="phone" class="col-sm-2 col-form-label">电话:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="phone" name="phone">
+                    </div>
+                    <span style="display:none;" id="phone_msg_add">电话格式不正确</span>
                 </div>
                 <div class="d1 d2">
-                    <button data-action="add_form">提交</button>
-                    <button data-action="add_close">关闭</button>
+                    <button data-action="add_form" class="btn btn-primary btn-sm" type="submit">提交</button>
+                    <button data-action="add_close" class="btn btn-primary btn-sm" type="submit">关闭</button>
                 </div>
             </form>
         </div>
     </div>
     <div class="modal_box_edit" id="modal_box_edit">
         <div class="editform">
-            <h3>修改用户</h3>
+            <h5>修改用户</h5>
             <span data-action="edit_close" class="add_close">X</span>
             <form action="" name="editform">
                 <input type="hidden" data-id="" name="userid">
-                <div class="d1">
-                    <label for="username">姓名:</label>
-                    <input type="text" id="username" name="username">
-                    <span style="display: none;" id="username_msg_edit">姓名最少2到6位</span>
+                <div class="mb-3 row d1">
+                    <label for="username" class="col-sm-2 col-form-label">姓名:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="username" name="username">
+                    </div>
+                    <span style="display:none;" id="username_msg_edit">姓名最少2到6位</span>
                 </div>
-                <div class="d1">
-                    <label for="age">年龄:</label>
-                    <input type="text" id="age" name="age">
-                    <span style="display: none;" id="age_msg_edit">年龄18至80岁</span>
+                <div class="mb-3 row d1">
+                    <label for="age" class="col-sm-2 col-form-label">年龄:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="age" name="age">
+                    </div>
+                    <span style="display:none;" id="age_msg_edit">年龄18至80岁</span>
                 </div>
-                <div class="d1">
-                    <label for="gender">性别:</label>
-                    <input type="radio" class="r1" checked id="gender" name="gender" value="1">男
-                    <input type="radio" class="r1" id="gender" name="gender" value="2">女
+
+                <div class="mb-3 row d1" style="display: flex;flex-wrap: nowrap;">
+                    <label for="gender" class="col-sm-2 col-form-label">性别:</label>
+                    <div class="form-check form-check-inline" style="width: 80px;margin-left: 10px;">
+                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio1"
+                            value="1">
+                        <label class="form-check-label" for="inlineRadio1">男</label>
+                    </div>
+                    <div class="form-check form-check-inline" style="width: 80px;">
+                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio2"
+                            value="2">
+                        <label class="form-check-label" for="inlineRadio2">女</label>
+                    </div>
                 </div>
-                <div class="d1">
-                    <label for="email">邮箱:</label>
-                    <input type="text" id="email" name="email">
-                    <span style="display: none;" id="email_msg_edit">邮箱格式不正确</span>
+
+                <div class="mb-3 row d1">
+                    <label for="email" class="col-sm-2 col-form-label">邮箱:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="email" name="email">
+                    </div>
+                    <span style="display:none;" id="email_msg_edit">邮箱格式不正确</span>
                 </div>
-                <div class="d1">
-                    <label for="phone">电话:</label>
-                    <input type="text" id="phone" name="phone">
-                    <span style="display: none;" id="phone_msg_edit">电话号码格式不正确</span>
+
+                <div class="mb-3 row d1">
+                    <label for="phone" class="col-sm-2 col-form-label">电话:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="phone" name="phone">
+                    </div>
+                    <span style="display:none;" id="phone_msg_edit">电话格式不正确</span>
                 </div>
                 <div class="d1 d2">
-                    <button data-action="edit_form">提交</button>
-                    <button data-action="edit_close">关闭</button>
+                    <button data-action="edit_form" class="btn btn-primary btn-sm" type="submit">提交</button>
+                    <button data-action="edit_close" class="btn btn-primary btn-sm" type="submit">关闭</button>
                 </div>
             </form>
         </div>
     </div>
-    <button data-action="allDel">批量删除</button>
-    <button data-action="add">添加用户</button>
-    <table border="1">
+    <table class="table table-dark table-striped">
         <thead>
             <tr>
                 <td><input type="checkbox" data-action="allCheck"></td>
@@ -227,14 +266,13 @@
                         <td>${v.email}</td>
                         <td>${v.phone}</td>
                         <td>
-                            <button data-id=${v.id} data-action='del'>删除</button>    
-                            <button data-id=${v.id} data-action="edit">修改用户</button>
+                            <button data-id=${v.id} data-action='del' class="btn btn-primary" type="submit">删除</button>
+                            <button data-id=${v.id} data-action='edit' class="btn btn-primary" type="submit">修改用户</button>
                         </td>
                     </tr>
                 `
                 return str
             }, '')
-            // console.log(str);
             document.querySelector('tbody').innerHTML = str;
         }
         render(users);
@@ -248,7 +286,6 @@
                 if (confirm('确定删除吗') === false) return false;
                 let id = e.target.dataset.id;
                 const index_1 = users.findIndex(el => el.id == id)
-                console.log(index_1);
                 users.splice(index_1, 1);
                 render(users)
             }
@@ -259,7 +296,6 @@
                     return false;
                 }
                 arr.forEach(e => {
-                    console.log(e);
                     const index_1 = users.findIndex(el => el.id == e)
                     users.splice(index_1, 1);
                 })
@@ -317,28 +353,28 @@
                         age: add_form.age.value,
                         gender: add_form.gender.value,
                         email: add_form.email.value,
-                        phone: add_form.phone.value,
+                        phone: add_form.phone.value,    
                     })
                     render(users)
-                    document.getElementById('modal_box_add').style.display = 'none'
+                    document.getElementById('modal_box_add').style.display = 'none';
+                    add_form.username.value = '';
+                    add_form.age.value = '';
+                    add_form.gender.value = '';
+                    add_form.email.value = '';
+                    add_form.phone.value = '';
                 }
             }
 
             if (action === 'edit') {
-                // console.log(e.target.dataset.id);
                 const arr = users.find(el => el.id === +e.target.dataset.id)
                 edit_form.username.value = arr.name;
                 edit_form.age.value = arr.age;
                 edit_form.phone.value = arr.phone;
                 edit_form.gender.value = arr.gender;
                 edit_form.email.value = arr.email;
-                edit_form.userid.value = arr.id;
+                edit_form.userid.value = +arr.id;
                 document.getElementById('modal_box_edit').style.display = 'block'
-                add_form.username.value = '';
-                add_form.age.value = '';
-                add_form.gender.value = '';
-                add_form.email.value = '';
-                add_form.phone.value = '';
+
             }
             if (action === 'edit_close') {
                 e.preventDefault();
@@ -365,8 +401,7 @@
                     users[index].phone = edit_form.phone.value;
                     users[index].gender = edit_form.gender.value;
                     users[index].email = edit_form.email.value;
-                    users[index].id = edit_form.userid.value;
-                    console.log(index);
+                    users[index].id = +edit_form.userid.value;
                     document.getElementById('modal_box_edit').style.display = 'none';
                     render(users);
                 }

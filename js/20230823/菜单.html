@@ -155,61 +155,11 @@
                 </div> -->
             </div>
             <div class="right">
-                <table border="1" id="table">
-                    <caption>消息列表</caption>
-                    <thead>
-                        <tr>
-                            <td>id</td>
-                            <td>姓名</td>
-                            <td>消息内容</td>
-                            <td>操作</td>
-                        </tr>
-                    </thead>
-
-                    <tbody id="tbody">
-
-                    </tbody>
-                </table>
+                <iframe  width="100%" height="100%" src="../20230830/bootstrap表单.html" frameborder="0"></iframe>
             </div>
         </div>
     </div>
     <script>
-        
-
-
-        const tbody = document.getElementById('tbody');
-        const users = [
-            { id: 1, name: 'jack', msg: '哈哈哈' },
-            { id: 2, name: 'tom', msg: '嘻嘻嘻' },
-            { id: 3, name: 'lili', msg: '嘿嘿嘿' },
-            { id: 4, name: 'haha', msg: '啊实打实' },
-            { id: 5, name: 'xixi', msg: '去外地请问' },
-            { id: 6, name: 'lilei', msg: '撒大声地' },
-        ];
-
-        const str = users.reduce((sum, v, k) => {
-            sum += `
-                <tr id='tr_${v.id}'>
-                    <td>${v.id}</td>
-                    <td>${v.name}</td>
-                    <td>${v.msg}</td>
-                    <td>
-                        <button onclick='del(${v.id})'>关闭</button>
-                    </td>
-                </tr>
-            `
-            return sum;
-        }, '')
-        // console.log(str);
-        tbody.innerHTML = str;
-
-        function del(id) {
-            const str = 'tr_' + id
-            document.getElementById(str).remove();
-        }
-
-
-
         const menu = [
             { id: 1, name: '用户管理', chlic: [{ sid: 1, name: '管理员列表' }, { sid: 1, name: '用户列表' }] },
             { id: 2, name: '商品管理', chlic: [{ sid: 1, name: '商品列表' }, { sid: 1, name: '订单列表' }] },
