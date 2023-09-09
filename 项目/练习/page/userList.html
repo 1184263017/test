@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/userList.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <link rel="stylesheet" href="../css/fontawesome-free-6.4.2-web/css/all.min.css">
+    <!-- <script src="../css/fontawesome-free-6.4.2-web/js/all.min.js"></script> -->
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="alert alert-danger jg" id="jg" role="alert">
+
+    </div>
+    <div class="search">
+        <div class="input-group search_wh">
+            <input type="text" class="form-control" placeholder="输入用户名,账户,电话号码查询" aria-label="Recipient's username"
+                aria-describedby="button-addon2" id="search" name="search">
+            <button class="btn btn-outline-secondary" style="background-color: white;" type="button" id="button-addon2"
+                data-action="search"><i data-action="search" class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        <button type="button" class="btn btn-dark" data-action="allDel">批量删除</button>
+        <button type="button" class="btn btn-success" data-action="add">添加用户</button>
+        <button type="button" class="btn btn-warning" data-action="excel"><i data-action="excel"
+                class="fa-solid fa-file-excel"></i></button>
+        <button type="button" class="btn btn-info" data-action="table"><i data-action="table"
+                class="fa-solid fa-bars"></i></button>
+        <div class="gauge_outfit" style="display: none;">
+            <ul>
+                <li>
+                    <input data-action="optional_table" class="table_head" type="checkbox" checked name="username"
+                        id="xz_username" value="账户">
+                    <label data-action="optional_table" data-name="username" data-value="账户" for="xz_username"
+                        data-id="xz_username">账户</label>
+                </li>
+                <li>
+                    <input data-action="optional_table" class="table_head" type="checkbox" checked name="name"
+                        id="xz_name" value="姓名">
+                    <label data-action="optional_table" data-name="name" data-value="姓名" for="xz_name"
+                        data-id="xz_name">姓名</label>
+                </li>
+                <li>
+                    <input data-action="optional_table" class="table_head" type="checkbox" checked name="avatar"
+                        id="xz_avatar" value="头像">
+                    <label data-action="optional_table" data-name="avatar" data-value="头像" for="xz_avatar"
+                        data-id="xz_avatar">头像</label>
+                </li>
+                <li>
+                    <input data-action="optional_table" class="table_head" type="checkbox" checked name="department"
+                        id="xz_department" value="部门">
+                    <label data-action="optional_table" data-name="department" data-value="部门" for="xz_department"
+                        data-id="xz_department">部门</label>
+                </li>
+                <li>
+                    <input data-action="optional_table" class="table_head" type="checkbox" checked checked name="age"
+                        id="xz_age" value="年龄">
+                    <label data-action="optional_table" data-name="age" data-value="年龄" for="xz_age"
+                        data-id="xz_age">年龄</label>
+                </li>
+                <li>
+                    <input data-action="optional_table" class="table_head" type="checkbox" checked name="gender"
+                        id="xz_gender" value="性别">
+                    <label data-action="optional_table" data-name="gender" data-value="性别" for="xz_gender"
+                        data-id="xz_gender">性别</label>
+                </li>
+                <li>
+                    <input data-action="optional_table" class="table_head" type="checkbox" checked name="email"
+                        id="xz_email" value="邮箱">
+                    <label data-action="optional_table" data-name="email" data-value="邮箱" for="xz_email"
+                        data-id="xz_email">邮箱</label>
+                </li>
+                <li>
+                    <input data-action="optional_table" class="table_head" type="checkbox" checked name="phone"
+                        id="xz_phone" value="电话">
+                    <label data-action="optional_table" data-name="phone" data-value="电话" for="xz_phone"
+                        data-id="xz_phone">电话</label>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="modal_box_add" id="modal_box_add">
+        <div class="addform">
+            <h5>添加用户</h5>
+            <span data-action="add_close" class="add_close">X</span>
+            <form action="" name="addform">
+                <div class="mb-3 row d1">
+                    <label for="username" class="col-sm-2 col-form-label">账户:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="username" name="username" autocomplete="off">
+                    </div>
+                    <span style="display: none;" id="username_msg_add">账户最少4位</span>
+                </div>
+                <div class="mb-3 row d1">
+                    <label for="password" class="col-sm-2 col-form-label">密码:</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="password" name="password" autocomplete="off">
+                    </div>
+                    <span style="display:none;" id="password_msg_add">密码最少8位</span>
+                </div>
+                <div class="mb-3 row d1">
+                    <label for="passwordConfirm" class="col-sm-2 col-form-label">确认密码:</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm"
+                            autocomplete="off">
+                    </div>
+                    <span style="display:none;" id="passwordConfirm_msg_add">密码不相同</span>
+                </div>
+                <div class="mb-3 row d1">
+                    <label for="name" class="col-sm-2 col-form-label">姓名:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="name" name="name" autocomplete="off">
+                    </div>
+                    <span style="display:none;" id="name_msg_add">姓名最少4位</span>
+                </div>
+                <div class="mb-3 row d1">
+                    <label for="age" class="col-sm-2 col-form-label">年龄:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="age" name="age" autocomplete="off">
+                    </div>
+                    <span style="display:none;" id="age_msg_add">年龄18至80岁</span>
+                </div>
+
+                <div class="mb-3 row d1" style="display: flex;flex-wrap: nowrap;">
+                    <label for="gender" class="col-sm-2 col-form-label">性别:</label>
+                    <div class="form-check form-check-inline" style="width: 80px;margin-left: 10px;">
+                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="1" checked>
+                        <label class="form-check-label" for="inlineRadio1">男</label>
+                    </div>
+                    <div class="form-check form-check-inline" style="width: 80px;">
+                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="2">
+                        <label class="form-check-label" for="inlineRadio2">女</label>
+                    </div>
+                </div>
+
+                <div class="mb-3 row d1">
+                    <label for="email" class="col-sm-2 col-form-label">邮箱:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="email" name="email" autocomplete="off">
+                    </div>
+                    <span style="display:none;" id="email_msg_add">邮箱格式不正确</span>
+                </div>
+
+                <div class="mb-3 row d1">
+                    <label for="phone" class="col-sm-2 col-form-label">电话:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="phone" name="phone" autocomplete="off">
+                    </div>
+                    <span style="display:none;" id="phone_msg_add">电话格式不正确</span>
+                </div>
+                <div class="mb-3 row d1">
+                    <label for="departments" class="col-sm-2 col-form-label">部门:</label>
+                    <select style="width: 280px;margin-left: 11px;" class="form-select form-select-sm"
+                        aria-label="Default select example" id="departments" name="department">
+                        <option selected value="">请选择部门</option>
+                    </select>
+                </div>
+                <div class="mb-3 row fileImg">
+                    <label for="formFile" class="col-sm-2 col-form-label">上传头像</label>
+                    <input style="width: 280px;margin-left: 11px;" class="form-control" type="file" id="formFile"
+                        data-action="fileImg" name="avatar">
+                    <img id="imguser" style="display: none;" src="../static/2123-2023-06-15052425-1686821065576.jpg"
+                        alt="">
+                    <span id="cha" style="display: none;" data-action="deletePicture">x</span>
+                </div>
+                <div class="d1 d2">
+                    <button data-action="add_form" class="btn btn-primary btn-sm" type="submit">提交</button>
+                    <button data-action="add_close" class="btn btn-primary btn-sm" type="submit">关闭</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal_box_edit" id="modal_box_edit">
+        <div class="editform">
+            <h5>修改用户</h5>
+            <span data-action="edit_close" class="add_close">X</span>
+            <form action="" name="editform">
+                <input type="hidden" data-id="" name="userid">
+                <div class="mb-3 row d1">
+                    <label for="username" class="col-sm-2 col-form-label">账户:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="username" name="username">
+                    </div>
+                    <span style="display:none;" id="username_msg_edit">账户最少4位</span>
+                </div>
+                <div class="mb-3 row d1">
+                    <label for="name" class="col-sm-2 col-form-label">姓名:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="name" name="name">
+                    </div>
+                    <span style="display:none;" id="name_msg_edit">姓名最少4位</span>
+                </div>
+                <div class="mb-3 row d1">
+                    <label for="age" class="col-sm-2 col-form-label">年龄:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="age" name="age">
+                    </div>
+                    <span style="display:none;" id="age_msg_edit">年龄18至80岁</span>
+                </div>
+
+                <div class="mb-3 row d1" style="display: flex;flex-wrap: nowrap;">
+                    <label for="gender" class="col-sm-2 col-form-label">性别:</label>
+                    <div class="form-check form-check-inline" style="width: 80px;margin-left: 10px;">
+                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="1">
+                        <label class="form-check-label" for="inlineRadio1">男</label>
+                    </div>
+                    <div class="form-check form-check-inline" style="width: 80px;">
+                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="2">
+                        <label class="form-check-label" for="inlineRadio2">女</label>
+                    </div>
+                </div>
+
+                <div class="mb-3 row d1">
+                    <label for="email" class="col-sm-2 col-form-label">邮箱:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="email" name="email" disabled readonly>
+                    </div>
+                    <span style="display:none;" id="email_msg_edit">邮箱格式不正确</span>
+                </div>
+
+                <div class="mb-3 row d1">
+                    <label for="phone" class="col-sm-2 col-form-label">电话:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="phone" name="phone">
+                    </div>
+                    <span style="display:none;" id="phone_msg_edit">电话格式不正确</span>
+                </div>
+                <div class="mb-3 row d1">
+                    <label for="departments" class="col-sm-2 col-form-label">部门:</label>
+                    <select style="width: 280px;margin-left: 11px;" class="form-select form-select-sm"
+                        aria-label="Default select example" id="departments_edit" name="department">
+                        <option selected value="">请选择部门</option>
+                    </select>
+                </div>
+                <div class="mb-3 row fileImg">
+                    <label for="formFile" class="col-sm-2 col-form-label">上传头像</label>
+                    <input style="width: 280px;margin-left: 11px;" class="form-control" type="file" id="formFile_edit"
+                        data-action="fileImgEdit" name="avatar">
+                    <img id="imguser_edit" style="display: none;"
+                        src="../static/2123-2023-06-15052425-1686821065576.jpg" alt="">
+                    <span id="cha_edit" style="display: none;" data-action="deletePictureEdit">x</span>
+                </div>
+                <div class="d1 d2">
+                    <button data-action="edit_form" class="btn btn-primary btn-sm" type="submit">提交</button>
+                    <button data-action="edit_close" class="btn btn-primary btn-sm" type="submit">关闭</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr id="thead">
+
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center" id="page">
+
+
+        </ul>
+    </nav>
+    <script type="module">
+        import on from '../js/on.js';
+        import confirm from '../js/confirm.js';
+        import PocketBase from '../js/pocketbase.es.js';
+
+        const pb = new PocketBase('http://127.0.0.1:8090');
+
+
+        /* ----------------动态获取表头----------------- */
+        let table = {};
+        let table_arr;
+        (function getTbaleHead() {
+            const data = document.querySelectorAll('.table_head');
+            for (const val of data) {
+                table[val.name] = val.value;
+            }
+            table_arr = Object.keys(table);
+        })()
+
+        /* ----------------通用数据存储----------------- */
+        const perPage = 12;
+        async function userList(page = 1, where = '') {
+            // where = 'boo';
+            let users;
+            try {
+                users = await pb.collection('users').getList(page, perPage, {
+                    expand: 'department',
+                    filter: `username ~ "${where}" || phone ~ "${where}" || name ~ "${where}"`,
+                });
+
+            } catch (error) {
+                console.dir(error);
+            }
+
+            return users
+        }
+        let PagesCount = 0;
+        const users = await userList();
+        // 分页总数
+        const totalPages = users.totalPages;
+        // 当前页码
+        let page = users.page;
+        // 查询的条件
+        let search = '';
+
+        // 将数组对象转成表格字符串
+        function render(arr) {
+            // 渲染分页
+            page = arr.page;
+            if (PagesCount != arr.totalPages) {
+                PagesCount = arr.totalPages;
+                const totalPages = arr.totalPages;
+                let strPage = `<li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous" data-action='turn' data-type='up'>
+                                <span aria-hidden="true" data-action='turn' data-type='up'>&laquo;</span>
+                            </a>
+                        </li>`;
+                for (let i = 1; i <= totalPages; i++) {
+                    strPage += `<li class="page-item" id='li_${i}'><a class="page-link" href="#" data-page=${i} data-action='turn'>${i}</a></li>`;
+                }
+                strPage += `<li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next" data-action='turn' data-type='dpwn'>
+                                <span aria-hidden="true" data-action='turn' data-type='dpwn'>&raquo;</span>
+                            </a>
+                        </li>`
+
+                document.getElementById('page').innerHTML = strPage;
+                page = page > PagesCount ? PagesCount : page;
+                page = page == 0 ? 1 : page;
+                let str_new = `li_${page}`;
+                document.getElementById(str_new).classList.add('active');
+            }
+
+            // console.log(table);
+            // 渲染表头
+            document.getElementById('thead').innerHTML = null;
+            let str_th = '<td><input type="checkbox" data-action="allCheck"></td>';
+            for (const k in table) {
+                str_th += `<td>${table[k]}</td>`
+            }
+            // console.log(str_th);
+            document.getElementById('thead').innerHTML += str_th + '<td>操作</td>';
+
+            // 渲染数据
+            const keys = Object.keys(table);
+
+
+            const str = arr.items.reduce((str, v) => {
+                str += `<tr>
+                        <td><input class='check' type="checkbox" data-id=${v.id} data-action="check"></td>`
+                keys.forEach(e => {
+                    if (e == 'gender') {
+                        str += `<td>${v[e] === '1' ? '男' : '女'}</td>`
+                    } else if (e == 'department') {
+                        str += `<td>${v.expand.department?.label || '无'}</td>`
+                    } else if (e == 'avatar') {
+                        if (v[e] != '') {
+                            str += `<td class='img_user'>
+                                <img src='${'http://127.0.0.1:8090/api/files/_pb_users_auth_/' + v.id + '/' + v[e]}'>
+                            </td>`
+                        } else {
+                            str += `<td class='img_user'>
+                                <img src="../static/man.png";>
+                            </td>`
+                        }
+
+                    } else {
+                        str += `<td>${v[e]}</td>`
+                    }
+                    // console.log(v[e]);
+                });
+                str += `<td>
+                            <button data-id=${v.id} data-action='del' class="btn btn-primary" type="submit"><i data-id=${v.id} data-action='del' class="fa-solid fa-trash"></i></button>
+                            <button data-id=${v.id} data-action='edit' class="btn btn-primary" type="submit"><i data-id=${v.id} data-action='edit'  class="fa-solid fa-pen-to-square"></i></button>
+                        </td>
+                    </tr>`;
+                return str
+            }, '')
+            document.querySelector('tbody').innerHTML = str;
+        }
+        render(users);
+
+        /* ----------------警式框----------------- */
+        const arr = [];
+        function msgWarn(msg) {
+            document.getElementById('jg').style.display = 'block';
+            document.getElementById('jg').innerHTML = msg;
+        }
+        function cancellationWarn() {
+            document.getElementById('jg').style.display = 'none';
+            document.getElementById('jg').innerHTML = '';
+        }
+        function s2ab(s) {
+            const buf = new ArrayBuffer(s.length);
+            const view = new Uint8Array(buf);
+            for (let i = 0; i < s.length; i++) {
+                view[i] = s.charCodeAt(i) & 0xFF;
+            }
+            return buf;
+        }
+
+        /* ----------------事件操作----------------- */
+        on('click', {
+            // 删除用户
+            async del() {
+                const bool = await confirm({ title: '删除操作', center: '确认删当前数据吗?' }).then(async () => {
+                    try {
+                        await pb.collection('users').delete(this.dataset.id);
+                        const users = await userList(page);
+                        render(users);
+                    } catch (error) {
+                        console.log(error);
+                        msgWarn('删除失败')
+                    }
+                }).catch((error) => {
+                    // console.log(error);
+                    // msgWarn('删除失败')
+                })
+            },
+            // 批量删除
+            async allDel() {
+                if (arr.length == 0) {
+                    alert('没有选中!')
+                    return false;
+                }
+                confirm({ title: '删除操作', center: '确认删当前选中的数据吗?' }).then(() => {
+                    try {
+                        const prs = [];
+                        arr.forEach(val => {
+                            console.log(val);
+                            prs.push(pb.collection('users').delete(val));
+                        })
+                        Promise.all(prs).then(async function (e) {
+                            const users = await userList(page);
+                            render(users);
+                            arr.length = 0;
+                        }).catch(e => {
+                            console.log('删除失败');
+                        })
+                    } catch (error) {
+                        msgWarn('删除失败');
+                    }
+                }).catch((error) => {
+                    // console.log(error);
+                    // msgWarn('删除失败')
+                })
+
+            },
+            // 单选
+            check() {
+                let id = this.dataset.id;
+                if (this.checked == true) {
+                    arr.push(id);
+                } else {
+                    arr.splice(arr.findIndex(e => e === id), 1);
+                }
+            },
+            // 多选
+            allCheck() {
+                if (this.checked == true) {
+                    arr.splice(0);
+                    document.querySelectorAll('.check').forEach(el => {
+                        el.checked = true;
+                        arr.push(el.dataset.id)
+                    })
+                } else {
+                    document.querySelectorAll('.check').forEach(el => {
+                        el.checked = false;
+                    })
+                    arr.splice(0);
+                }
+            },
+            // 展开添加
+            async add() {
+                closeMsg();
+                document.getElementById('modal_box_add').style.display = 'block';
+                try {
+                    const departments = await pb.collection('departments').getList();
+                    const select = document.getElementById('departments');
+                    select.innerHTML = `<option selected value="">请选择部门</option>`
+                    // console.log(departments.items);
+                    const str = (departments.items).reduce((str, val) => {
+                        str += `<option value="${val.id}">${val.label}</option>`
+                        return str
+                    }, '')
+                    select.innerHTML += str;
+                } catch (error) {
+                    msgWarn('批量删除失败');
+                }
+            },
+            // 关闭添加
+            add_close(e) {
+                e.preventDefault();
+                document.getElementById('modal_box_add').style.display = 'none';
+            },
+            // 添加时删除图片展示
+            deletePicture() {
+                document.getElementById('formFile').value = null;
+                document.getElementById('cha').style.display = 'none';
+                document.getElementById('imguser').style.display = 'none';
+            },
+            // 添加
+            async add_form(e) {
+                e.preventDefault();
+                const addform = document.addform;
+
+                const username = validate(addform.username, (v) => v.length >= 4);
+                const name = validate(addform.name, (v) => v.length >= 4);
+                const age = validate(addform.age, (v) => v >= 18 && v <= 80);
+                const password = validate(addform.password, (v) => v.length >= 8);
+                const passwordConfirm = validate(addform.passwordConfirm, (v) => addform.password.value == v);
+                const email = validate(addform.email, (v) => /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(v));
+                const phone = validate(addform.phone, (v) => /^(?:(?:\+|00)86)?1[3-9]\d{9}$/.test(v));
+
+                if (!(username && name && age && password && passwordConfirm && email && phone)) {
+                    return false;
+                }
+
+                const fd = new FormData(addform);
+                fd.append('emailVisibility', true);
+                try {
+                    const record = await pb.collection('users').create(fd);
+                    const users = await userList();
+                    render(users);
+                    document.getElementById('modal_box_add').style.display = 'none';
+                } catch (error) {
+                    console.dir(error);
+                }
+            },
+            // 展开编辑
+            async edit(e) {
+                // 重置
+                closeMsg();
+                document.getElementById('formFile_edit').value = '';
+                document.getElementById('imguser_edit').src = '';
+                document.getElementById('imguser_edit').style.display = 'none';
+                document.getElementById('cha_edit').style.display = 'none';
+                try {
+                    const userinfo = await pb.collection('users').getOne(this.dataset.id);
+                    // console.log(userinfo);
+                    const departments = await pb.collection('departments').getList();
+                    const select = document.getElementById('departments_edit');
+                    select.innerHTML = `<option selected value="">请选择部门</option>`
+                    const str = (departments.items).reduce((str, val) => {
+                        if (val.id == userinfo.department) {
+                            str += `<option value="${val.id}" selected>${val.label}</option>`
+                        } else {
+                            str += `<option value="${val.id}">${val.label}</option>`
+                        }
+                        return str
+                    }, '')
+                    select.innerHTML += str;
+                    const editform = document.editform;
+                    editform.username.value = userinfo.username;
+                    editform.age.value = userinfo.age;
+                    editform.email.value = userinfo.email;
+                    editform.gender.value = userinfo.gender;
+                    editform.phone.value = userinfo.phone;
+                    editform.name.value = userinfo.name;
+                    editform.userid.value = userinfo.id;
+                    if (userinfo.avatar !== '') {
+                        document.getElementById('imguser_edit').src = 'http://127.0.0.1:8090/api/files/_pb_users_auth_/' + userinfo.id + '/' + userinfo.avatar;
+                        document.getElementById('imguser_edit').style.display = '';
+                        document.getElementById('cha_edit').style.display = '';
+                    }
+                } catch (error) {
+                    console.dir(error);
+                    // msgWarn('用户不存在');
+                }
+                document.getElementById('modal_box_edit').style.display = 'block';
+            },
+            // 关闭编辑
+            edit_close(e) {
+                e.preventDefault();
+                document.getElementById('modal_box_edit').style.display = 'none';
+            },
+            // 编辑时删除图片展示
+            deletePictureEdit() {
+                document.getElementById('formFile_edit').value = null;
+                document.getElementById('cha_edit').style.display = 'none';
+                document.getElementById('imguser_edit').style.display = 'none';
+            },
+            // 编辑
+            async edit_form(e) {
+                e.preventDefault();
+                const editform = document.editform;
+                const username = validate(editform.username, (v) => v.length >= 4);
+                const name = validate(editform.name, (v) => v.length >= 4);
+                const age = validate(editform.age, (v) => v >= 18 && v <= 80);
+                // const email = validate(editform.email, (v) => /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(v));
+                const phone = validate(editform.phone, (v) => /^(?:(?:\+|00)86)?1[3-9]\d{9}$/.test(v));
+
+                if (!(username && name && age && phone)) {
+                    return false;
+                }
+                const fd = new FormData(editform);
+                console.log(fd);
+                fd.append('emailVisibility', true);
+
+                if (!fd.get('avatar').name) {
+                    if (document.getElementById('imguser_edit').style.display === 'none') {
+                        console.log(2);
+                        fd.get('avatar').value = '';
+                    } else {
+                        console.log(3);
+                        fd.delete('avatar');
+                    }
+                }
+                try {
+                    const record = await pb.collection('users').update(editform.userid.value, fd);
+                    const users = await userList(page);
+                    render(users);
+                    document.getElementById('modal_box_edit').style.display = 'none';
+                } catch (error) {
+                    console.dir(error);
+                    msgWarn('修改失败');
+                }
+            },
+            // 分页跳转
+            async turn() {
+                let page_new = 0;
+                if (this.dataset.type != undefined) {
+                    page_new = this.dataset.type == 'up' ? page - 1 : page + 1;
+                    page_new = page_new > PagesCount ? PagesCount : page_new;
+                    page_new = page_new == 0 ? 1 : page_new;
+                    let str_old = `li_${page}`;
+                    document.getElementById(str_old).classList.remove('active');
+                    let str_new = `li_${page_new}`;
+                    document.getElementById(str_new).classList.add('active');
+                } else {
+                    document.querySelectorAll('[class*="active"]').forEach(e => e.classList.remove('active'))
+                    page_new = this.dataset.page;
+                    let str_new = `li_${page_new}`;
+                    document.getElementById(str_new).classList.add('active');
+                }
+                console.log(search);
+                const users = await userList(page_new, search);
+                render(users);
+            },
+            // 搜索
+            async search() {
+                search = document.getElementById('search').value;
+                const users = await userList(1, search);
+                render(users);
+
+            },
+            // 导出excel
+            async excel() {
+                let data;
+                try {
+                    const users = await pb.collection('users').getFullList({
+                        expand: 'department'
+                    });
+                    data = users.map((v) => {
+                        return [
+                            v.username,
+                            v.name,
+                            v.expand.department?.label || '无',
+                            v.email,
+                            v.age,
+                            v.gender ? '男' : '女',
+                            v.phone
+                        ]
+                    })
+                    data.unshift(["账户", "姓名", "部门", "email", "年龄", "性别", "电话"])
+
+                    const worksheet = XLSX.utils.aoa_to_sheet(data);
+                    const workbook = XLSX.utils.book_new();
+                    XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+
+                    const excelBlob = new Blob([s2ab(XLSX.write(workbook, { bookType: 'xlsx', type: 'binary' }))], {
+                        type: 'application/octet-stream'
+                    });
+
+                    const downloadLink = document.createElement("a");
+                    downloadLink.href = URL.createObjectURL(excelBlob);
+                    downloadLink.download = "用户表.xlsx";
+                    downloadLink.click();
+                } catch (error) {
+                    console.dir(error);
+                }
+            },
+            // 隐藏显示表头
+            table() {
+                document.querySelector('.gauge_outfit').style.display = document.querySelector('.gauge_outfit').style.display == 'block' ? 'none' : 'block';
+            },
+            // 切换表头
+            async optional_table(e) {
+                if (Object.keys(table).length == 1 && (this.checked == false || !document.getElementById(this.dataset.id).checked == false)) {
+                    e.preventDefault();
+                    // msgWarn('至少保留一个选项');
+                    // setTimeout(() => {
+                    //     cancellationWarn();
+                    // }, 1500);
+                    return false;
+                }
+                let name;
+                let value;
+                let check;
+                if (this.name !== undefined) {
+                    name = this.name;
+                    value = this.value;
+                    check = this.checked;
+                } else {
+                    e.preventDefault();
+                    name = this.dataset.name;
+                    value = this.dataset.value;
+                    check = !document.getElementById(this.dataset.id).checked;
+                    document.getElementById(this.dataset.id).checked = check;
+                }
+                if (check) {
+                    table[name] = value;
+                    table = Object.entries(table);
+                    const arr = [];
+                    for (const val of table_arr) {
+                        for (const key in table) {
+                            if (val == table[key][0]) {
+                                arr.push(table[key]);
+                            }
+                        }
+                    }
+                    table = Object.fromEntries(arr);
+                } else {
+                    delete table[name];
+                }
+                const users = await userList();
+                render(users)
+                // console.log(table);
+            }
+        })
+
+        /* ----------------图片事件----------------- */
+        on('change', {
+            fileImg() {
+                var selectedFile = this.files[0];
+                const previewImage = document.getElementById('imguser');
+                if (selectedFile) {
+                    // 更新预览图
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        previewImage.src = this.result;
+                        previewImage.style.display = 'block';
+                        document.getElementById('cha').style.display = 'block';
+                    };
+                    reader.readAsDataURL(selectedFile);
+
+                    // 输出文件信息
+                    // console.log('文件名: ' + selectedFile.name);
+                    // console.log('文件类型: ' + selectedFile.type);
+                    // console.log('文件大小: ' + selectedFile.size + ' 字节');
+                } else {
+                    // 用户未选择文件
+                    previewImage.style.display = 'none';
+                    document.getElementById('cha').style.display = 'none';
+                    // console.log('没有选择文件');
+                }
+            },
+            fileImgEdit() {
+                var selectedFile = this.files[0];
+                const previewImage = document.getElementById('imguser_edit');
+                if (selectedFile) {
+                    // 更新预览图
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        previewImage.src = this.result;
+                        previewImage.style.display = 'block';
+                        document.getElementById('cha_edit').style.display = 'block';
+                    };
+                    reader.readAsDataURL(selectedFile);
+
+                    // 输出文件信息
+                    // console.log('文件名: ' + selectedFile.name);
+                    // console.log('文件类型: ' + selectedFile.type);
+                    // console.log('文件大小: ' + selectedFile.size + ' 字节');
+                } else {
+                    // 用户未选择文件
+                    previewImage.style.display = 'none';
+                    document.getElementById('cha_edit').style.display = 'none';
+                    // console.log('没有选择文件');
+                }
+            }
+        })
+
+        /* ----------------验证输入----------------- */
+        document.addEventListener('input', function (e) {
+            const name = e.target.name;
+            switch (true) {
+                case name === 'name':
+                    validate(e.target, (v) => v.length >= 4)
+                    break;
+                case name === 'username':
+                    validate(e.target, (v) => v.length >= 4)
+                    break;
+                case name === 'password':
+                    validate(e.target, (v) => v.length >= 8)
+                    break;
+                case name === 'passwordConfirm':
+                    validate(e.target, (v) => document.addform.password.value == v)
+                    break;
+                case name === 'email':
+                    validate(e.target, (v) => /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(v))
+                    break;
+                case name === 'phone':
+                    validate(e.target, (v) => /^(?:(?:\+|00)86)?1[3-9]\d{9}$/.test(v))
+                    break;
+                case name === 'age':
+                    validate(e.target, (v) => v >= 18 && v <= 80)
+                    break;
+            }
+        })
+        function validate(e, cb) {
+            const name = e.name;
+            const sp_add = document.getElementById(`${name}_msg_add`);
+            const sp_edit = document.getElementById(`${name}_msg_edit`);
+            const res = cb(e.value);
+            if (!res) {
+                sp_add.style.display = 'block';
+                sp_edit.style.display = 'block';
+            } else {
+                sp_add.style.display = 'none';
+                sp_edit.style.display = 'none';
+            }
+            return res;
+        }
+        function closeMsg() {
+            document.querySelectorAll('[id*="_msg_"]').forEach(e => e.style.display = 'none')
+        }
+    </script>
+</body>
+
+</html>

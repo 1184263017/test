@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/favicon.ico" type="images/x-ico" />
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
+    <title>欣材IT学院</title>
+</head>
+
+<body>
+    <div class="alert alert-danger jg" id="jg" role="alert">
+
+    </div>
+    <div class="modal_box_add" id="modal_box_add">
+        <div class="addform">
+            <h5>编辑资料</h5>
+            <span data-action="add_close" class="add_close">X</span>
+            <form action="" name="addform">
+                <div class="mb-3 row d1">
+                    <label for="username" class="col-sm-2 col-form-label">账户:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="username" name="username">
+                    </div>
+                    <span style="display: none;" id="username_msg_add">账户最少4位</span>
+                </div>
+                <div class="mb-3 row d1">
+                    <label for="name" class="col-sm-2 col-form-label">姓名:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="name" name="name">
+                    </div>
+                    <span style="display:none;" id="name_msg_add">姓名最少4位</span>
+                </div>
+                <div class="mb-3 row d1">
+                    <label for="age" class="col-sm-2 col-form-label">年龄:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="age" name="age">
+                    </div>
+                    <span style="display:none;" id="age_msg_add">年龄18至80岁</span>
+                </div>
+
+                <div class="mb-3 row d1" style="display: flex;flex-wrap: nowrap;">
+                    <label for="gender" class="col-sm-2 col-form-label">性别:</label>
+                    <div class="form-check form-check-inline" style="width: 80px;margin-left: 10px;">
+                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="1">
+                        <label class="form-check-label" for="inlineRadio1">男</label>
+                    </div>
+                    <div class="form-check form-check-inline" style="width: 80px;">
+                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="2">
+                        <label class="form-check-label" for="inlineRadio2">女</label>
+                    </div>
+                </div>
+
+                <div class="mb-3 row d1">
+                    <label for="email" class="col-sm-2 col-form-label">邮箱:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="email" name="email">
+                    </div>
+                    <span style="display:none;" id="email_msg_add">邮箱格式不正确</span>
+                </div>
+
+                <div class="mb-3 row d1">
+                    <label for="phone" class="col-sm-2 col-form-label">电话:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="phone" name="phone">
+                    </div>
+                    <span style="display:none;" id="phone_msg_add">电话格式不正确</span>
+                </div>
+                <div class="mb-3 row d1">
+                    <label for="departments" class="col-sm-2 col-form-label">部门:</label>
+                    <select style="width: 280px;margin-left: 11px;" class="form-select form-select-sm"
+                        aria-label="Default select example" id="departments" name="department">
+                        <option selected value="">请选择部门</option>
+                    </select>
+                </div>
+                <div class="mb-3 row fileImg">
+                    <label for="formFile" class="col-sm-2 col-form-label">上传头像</label>
+                    <input style="width: 280px;margin-left: 11px;" class="form-control" type="file" id="formFile"
+                        data-action="fileImg" name="avatar">
+                    <img id="imguser" style="display: none;" src="../static/2123-2023-06-15052425-1686821065576.jpg"
+                        alt="">
+                    <span id="cha" style="display: none;" data-action="deletePicture">x</span>
+                </div>
+                <div class="d1 d2">
+                    <button data-action="add_form" class="btn btn-primary btn-sm" type="submit">提交</button>
+                    <button data-action="add_close" class="btn btn-primary btn-sm" type="submit">关闭</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal_box_edit" id="modal_box_edit">
+        <div class="editform">
+            <h5>修改密码</h5>
+            <span data-action="edit_close" class="add_close">X</span>
+            <form action="" name="editform">
+                <div class="mb-3 row d1">
+                    <label for="oldPassword" class="col-sm-4 col-form-label">原始密码:</label>
+                    <div class="col-sm-8">
+                        <input type="password" class="form-control" id="oldPassword" name="oldPassword"
+                            autocomplete="off">
+                    </div>
+                    <span style="display:none;" id="oldPassword_msg_edit">原始密码错误</span>
+                </div>
+                <div class="mb-3 row d1">
+                    <label for="password" class="col-sm-4 col-form-label">密码:</label>
+                    <div class="col-sm-8">
+                        <input type="password" class="form-control" id="password" name="password" autocomplete="off">
+                    </div>
+                    <span style="display:none;" id="password_msg_edit">密码最少8位</span>
+                </div>
+                <div class="mb-3 row d1">
+                    <label for="passwordConfirm" class="col-sm-4 col-form-label">确认密码:</label>
+                    <div class="col-sm-8">
+                        <input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm"
+                            autocomplete="off">
+                    </div>
+                    <span style="display:none;" id="passwordConfirm_msg_edit">密码不相同</span>
+                </div>
+                <div class="d1 d2">
+                    <button data-action="edit_form" class="btn btn-primary btn-sm" type="submit">提交</button>
+                    <button data-action="edit_close" class="btn btn-primary btn-sm" type="submit">关闭</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div>
+        <div class="navigation">
+            <div class="logo">
+                <img src="./static/indexlog.png" alt="">
+            </div>
+            <div class="breadcrumb">
+                <div class="breadcrumb_left">
+                    <div class="xian_1"></div>
+                    <div class="xian_2"></div>
+                    <div class="return_index" data-action="return_index">
+                        <img src="./static/home_white.png" alt="" data-action="return_index">
+                    </div>
+                    <div class="school_admin" data-action="school_admin">
+                        <img src="./static/indent_left_dark.png" alt="" data-action="school_admin">
+                        <span data-action="school_admin">校务管理</span>
+                    </div>
+                </div>
+                <div class="breadcrumb_right">
+                    <div class="breadcrumb_right_icon">
+                        <img src="./static/refresh.png" alt="" data-action="refresh">
+                        <img src="./static/fullscreen.png" alt="" data-action="fullScreen">
+                        <!-- <img src="./static/app.png" alt="">
+                        <img src="./static/theme.png" alt=""> -->
+                    </div>
+                    <div class="breadcrumb_right_user">
+                        <img class="man" src="./static/man.png" alt="" id="userimg">
+                        <span id="user_name">管理员</span>
+                        <img class="down" src="./static/arrow_down_white.png" alt="">
+                        <ul>
+                            <li data-action="add">
+                                <img src="./static/edit.png" alt="" data-action="add">
+                                <span data-action="add">编辑资料</span>
+                            </li>
+                            <li data-action="edit">
+                                <img src="./static/pwd.png" alt="" data-action="edit">
+                                <span data-action="edit">修改密码</span>
+                            </li>
+                            <li data-action="outlogin">
+                                <img src="./static/quit.png" alt="" data-action="outlogin">
+                                <span data-action="outlogin">退出</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="menu">
+                <div class="left" id="left">
+                    <a href="./page/userList.html" target="iframeSrc"></a>
+                </div>
+            </div>
+            <div class="content">
+                <iframe width="100%" height="100%" frameborder="0" name="iframeSrc" src="./page/userList.html"></iframe>
+            </div>
+        </div>
+    </div>
+    <script type="module">
+        import on from './js/on.js';
+        import confirm from './js/confirm.js';
+        import PocketBase from './js/pocketbase.es.js';
+
+        const pb = new PocketBase('http://127.0.0.1:8090');
+        /* ----------校验是否登录---------- */
+        if (pb.authStore.token === '') {
+            location.href = './login.html';
+        }
+
+        /* ----------获取登录用户消息展示---------- */
+        async function getUserInfo() {
+            try {
+                const id = await pb.authStore.model.id;
+                const userinfo = await pb.collection('users').getOne(id);
+                if (userinfo.avatar != '') {
+                    document.getElementById('userimg').src = 'http://127.0.0.1:8090/api/files/_pb_users_auth_/' + userinfo.id + '/' + userinfo.avatar;
+                } else {
+                    document.getElementById('userimg').src = "./static/man.png";
+                }
+                document.getElementById('user_name').innerHTML = userinfo.name;
+            } catch (error) {
+                console.dir(error);
+            }
+        }
+        getUserInfo();
+
+        setInterval(getUserInfo, 500);
+
+        /* ----------校务管理动画效果---------- */
+        document.querySelector('.breadcrumb_left').addEventListener('mouseover', (e) => {
+            const target = e.target;
+            const name = target.dataset.action;
+            if (name === 'return_index') {
+                document.querySelector('.xian_1').style.width = '30px';
+                document.querySelector('.xian_1').style.color = 'white';
+            }
+            if (name === 'school_admin') {
+                document.querySelector('.xian_2').style.width = '78px';
+                document.querySelector('.xian_2').style.color = 'white';
+            }
+        })
+        document.querySelector('.breadcrumb_left').addEventListener('mouseout', (e) => {
+            const target = e.target;
+            const name = target.dataset.action;
+            if (name === 'return_index') {
+                document.querySelector('.xian_1').style.width = '0px';
+                document.querySelector('.xian_1').style.color = 'black';
+            }
+            if (name === 'school_admin') {
+                document.querySelector('.xian_2').style.width = '0px';
+                document.querySelector('.xian_2').style.color = 'black';
+            }
+        })
+        /* ----------------菜单列表渲染----------------- */
+        const menu = [
+            { id: 1, name: '用户管理', chlic: [{ sid: 1, name: '用户列表', src: 'userList' }] },
+            { id: 2, name: '部门管理', chlic: [{ sid: 1, name: '部门列表', src: 'departmentList' }] },
+        ];
+        const left = document.getElementById('left');
+        const str1 = menu.reduce((sum, v, k) => {
+            let str;
+            if (v.chlic.length != 0) {
+                str = v.chlic.reduce((sum1, v1, k1) => {
+                    sum1 += `<li><a href="./page/${v1.src}.html" target="iframeSrc">${v1.name}</a></li>`
+                    return sum1;
+                }, '')
+            }
+            sum += `
+                <div class="left_zi biaoqian" id="left_zi">
+                    <span>${v.name}</span>
+                    <span class="xia"></span>
+                    <ul id="u1" class="ul1 hiddn">
+                        ${str}
+                    </ul>
+                </div>
+            `
+            return sum;
+        }, '')
+        left.innerHTML = str1;
+
+        const biaoqian = document.querySelectorAll('.biaoqian');
+        for (const v of biaoqian) {
+            v.addEventListener('click', function () {
+                this.children[1].className = this.children[1].className == 'shang' ? 'xia' : 'shang'
+                this.children[1].nextElementSibling.classList.toggle('hiddn');
+            })
+        }
+
+        /* ----------------警式框----------------- */
+        function msgWarn(msg) {
+            document.getElementById('jg').style.display = 'block';
+            document.getElementById('jg').innerHTML = msg;
+        }
+        function cancellationWarn() {
+            document.getElementById('jg').style.display = 'none';
+            document.getElementById('jg').innerHTML = '';
+        }
+
+        /* ----------点击事件---------- */
+        on('click', {
+            //全屏半屏
+            fullScreen() {
+                // documentElement 属性以一个元素对象返回一个文档的文档元素
+                var el = document.documentElement;
+                el.requestFullscreen || el.mozRequestFullScreen || el.webkitRequestFullscreen || el.msRequestFullScreen ?
+                    el.requestFullscreen() || el.mozRequestFullScreen() || el.webkitRequestFullscreen() || el.msRequestFullscreen() : null;
+            },
+            //刷新页面
+            refresh() {
+                location.reload();
+            },
+            //退出登录
+            async outlogin() {
+                try {
+                    pb.authStore.clear();
+                    location.href = './login.html';
+                } catch (error) {
+
+                }
+            },
+            // 展开编辑
+            async add() {
+                document.getElementById('modal_box_add').style.display = 'block';
+                document.getElementById('formFile').value = '';
+                const id = await pb.authStore.model.id;
+                try {
+                    const departments = await pb.collection('departments').getList();
+                    const userinfo = await pb.collection('users').getOne(id);
+                    const select = document.getElementById('departments');
+                    select.innerHTML = `<option selected value="">请选择部门</option>`
+                    const str = (departments.items).reduce((str, val) => {
+                        if (val.id == userinfo.department) {
+                            str += `<option value="${val.id}" selected>${val.label}</option>`
+                        } else {
+                            str += `<option value="${val.id}">${val.label}</option>`
+                        }
+                        return str
+                    }, '')
+                    select.innerHTML += str;
+                    const addform = document.addform;
+                    addform.username.value = userinfo.username;
+                    addform.age.value = userinfo.age;
+                    addform.email.value = userinfo.email;
+                    addform.gender.value = userinfo.gender;
+                    addform.phone.value = userinfo.phone;
+                    addform.name.value = userinfo.name;
+                    if (userinfo.avatar !== '') {
+                        document.getElementById('imguser').src = 'http://127.0.0.1:8090/api/files/_pb_users_auth_/' + userinfo.id + '/' + userinfo.avatar;
+                        document.getElementById('imguser').style.display = '';
+                        document.getElementById('cha').style.display = '';
+                    }
+                } catch (error) {
+                    msgWarn('展开编辑失败');
+                }
+            },
+            // 关闭编辑
+            add_close(e) {
+                e.preventDefault();
+                document.getElementById('modal_box_add').style.display = 'none';
+            },
+            // 编辑时删除图片展示
+            deletePicture() {
+                document.getElementById('formFile').value = null;
+                document.getElementById('cha').style.display = 'none';
+                document.getElementById('imguser').style.display = 'none';
+            },
+            // 编辑提交
+            async add_form(e) {
+                e.preventDefault();
+                const id = await pb.authStore.model.id;
+                const addform = document.addform;
+                const fd = new FormData(addform);
+                // const email = fd.get('email');
+
+                fd.append('emailVisibility', true);
+                // fd.delete('email');
+                // fd.append('email', email);
+                // fd.forEach((v, k) => {
+                //     console.log(k, v);
+                // })
+                // console.log(fd.entries());
+                // console.log(fd);
+                // return false;
+                if (!fd.get('avatar').name) {
+                    if (document.getElementById('imguser').style.display === 'none') {
+                        fd.get('avatar').value = '';
+                    } else {
+                        fd.delete('avatar');
+                    }
+                }
+
+                const username = validate(addform.username, (v) => v.length >= 4);
+                const name = validate(addform.name, (v) => v.length >= 4);
+                const age = validate(addform.age, (v) => v >= 18 && v <= 80);
+                const email = validate(addform.email, (v) => /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(v));
+                const phone = validate(addform.phone, (v) => /^(?:(?:\+|00)86)?1[3-9]\d{9}$/.test(v));
+
+                if (!(username && name && age && email && phone)) {
+                    return false;
+                }
+                try {
+                    const record = await pb.collection('users').update(id, fd);
+                    getUserInfo();
+                    document.getElementById('modal_box_add').style.display = 'none';
+                } catch (error) {
+                    console.dir(error);
+                    msgWarn('修改失败');
+                    setTimeout(() => {
+                        cancellationWarn()
+                    }, 1000);
+
+                }
+            },
+            // 展开修改密码
+            async edit() {
+                document.getElementById('modal_box_edit').style.display = 'block';
+            },
+            // 关闭修改密码
+            edit_close(e) {
+                e.preventDefault();
+                document.getElementById('modal_box_edit').style.display = 'none';
+            },
+            // 提交修改密码.
+            async edit_form(e) {
+                e.preventDefault();
+                const editform = document.editform;
+                const fd = new FormData(editform);
+                const id = await pb.authStore.model.id;
+                try {
+                    await pb.collection('users').update(id, fd);
+                    confirm({ title: '修改密码成功', center: '请重新登陆' }).finally(() => {
+                        pb.authStore.clear();
+                        location.href = './login.html';
+                    })
+                } catch (error) {
+                    console.dir(error);
+                    // msgWarn('修改失败');
+                }
+            },
+        })
+        /* ----------图片上传---------- */
+        on('change', {
+            fileImg() {
+                var selectedFile = this.files[0];
+                const previewImage = document.getElementById('imguser');
+                if (selectedFile) {
+                    // 更新预览图
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        previewImage.src = this.result;
+                        previewImage.style.display = 'block';
+                        document.getElementById('cha').style.display = 'block';
+                    };
+                    reader.readAsDataURL(selectedFile);
+
+                    // 输出文件信息
+                    // console.log('文件名: ' + selectedFile.name);
+                    // console.log('文件类型: ' + selectedFile.type);
+                    // console.log('文件大小: ' + selectedFile.size + ' 字节');
+                } else {
+                    // 用户未选择文件
+                    previewImage.style.display = 'none';
+                    document.getElementById('cha').style.display = 'none';
+                    // console.log('没有选择文件');
+                }
+            },
+        })
+
+
+
+        /* ----------------验证输入----------------- */
+        document.addEventListener('input', function (e) {
+            const name = e.target.name;
+            switch (true) {
+                case name === 'name':
+                    validate(e.target, (v) => v.length >= 4)
+                    break;
+                case name === 'username':
+                    validate(e.target, (v) => v.length >= 4)
+                    break;
+                case name === 'password':
+                    validate(e.target, (v) => v.length >= 8)
+                    break;
+                case name === 'passwordConfirm':
+                    validate(e.target, (v) => document.editform.password.value == v)
+                    break;
+                case name === 'oldPassword':
+                    const userpassword = JSON.parse(localStorage.getItem('userpassword'));
+                    validate(e.target, (v) => userpassword.password == v)
+                    break;
+                case name === 'email':
+                    validate(e.target, (v) => /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(v))
+                    break;
+                case name === 'phone':
+                    validate(e.target, (v) => /^(?:(?:\+|00)86)?1[3-9]\d{9}$/.test(v))
+                    break;
+                case name === 'age':
+                    validate(e.target, (v) => v >= 18 && v <= 80)
+                    break;
+            }
+        })
+        function validate(e, cb) {
+            const name = e.name;
+            const sp_add = document.getElementById(`${name}_msg_add`);
+            const sp_edit = document.getElementById(`${name}_msg_edit`);
+            const res = cb(e.value);
+            if (!res) {
+                sp_add != undefined ? sp_edit.style.display = 'block' : '';
+                sp_edit != undefined ? sp_edit.style.display = 'block' : '';
+            } else {
+                sp_add != undefined ? sp_edit.style.display = 'none' : '';
+                sp_edit != undefined ? sp_edit.style.display = 'none' : '';
+            }
+            return res;
+        }
+        
+    </script>
+</body>
+
+</html>

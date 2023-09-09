@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/departmentList.css">
+  <link rel="stylesheet" href="../css/fontawesome-free-6.4.2-web/css/all.min.css">
+  <title>部门管理</title>
+</head>
+
+<body>
+  <div class="alert alert-danger jg" id="jg" role="alert">
+
+  </div>
+  <div class="modal_box_add" id="modal_box_add">
+    <div class="addform">
+      <h5>添加部门</h5>
+      <span data-action="add_close" class="add_close">X</span>
+      <form action="" name="addform">
+        <div class="mb-3 row d1">
+          <label for="departments" class="col-sm-3 col-form-label">部门:</label>
+          <select style="width: 255px;margin-left: 11px;" class="form-select form-select-sm"
+            aria-label="Default select example" id="departments" name="pid">
+            <option selected value="">请选择部门</option>
+          </select>
+        </div>
+        <div class="mb-3 row d1">
+          <label for="label" class="col-sm-3 col-form-label">部门名称:</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="label" name="label">
+          </div>
+        </div>
+        <div class="mb-3 row d1">
+          <label for="sort" class="col-sm-3 col-form-label">排序:</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="sort" name="sort">
+          </div>
+        </div>
+        <div class="d1 d2">
+          <button data-action="add_form" class="btn btn-primary btn-sm" type="submit">提交</button>
+          <button data-action="add_close" class="btn btn-primary btn-sm" type="submit">关闭</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal_box_add" id="modal_box_edit">
+    <div class="editform">
+      <h5>编辑部门</h5>
+      <span data-action="edit_close" class="add_close">X</span>
+      <form action="" name="editform">
+        <input type="hidden" name="id">
+        <div class="mb-3 row d1">
+          <label for="departments" class="col-sm-3 col-form-label">部门:</label>
+          <select style="width: 255px;margin-left: 11px;" class="form-select form-select-sm"
+            aria-label="Default select example" id="departments_edit" name="pid">
+            <option selected value="">请选择部门</option>
+          </select>
+        </div>
+        <div class="mb-3 row d1">
+          <label for="label" class="col-sm-3 col-form-label">部门名称:</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="label_edit" name="label">
+          </div>
+        </div>
+        <div class="mb-3 row d1">
+          <label for="sort" class="col-sm-3 col-form-label">排序:</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="sort_edit" name="sort">
+          </div>
+        </div>
+        <div class="d1 d2">
+          <button data-action="edit_form" class="btn btn-primary btn-sm" type="submit">提交</button>
+          <button data-action="edit_close" class="btn btn-primary btn-sm" type="submit">关闭</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <h1>部门树状图</h1>
+    <button type="button" class="btn btn-success" data-action="add">添加部门</button>
+    <div id="list">
+
+    </div>
+  </div>
+</body>
+<script type="module">
+  import on from '../js/on.js';
+  import confirm from '../js/confirm.js';
+  import PocketBase from '../js/pocketbase.es.js';
+
+  const pb = new PocketBase('http://127.0.0.1:8090');
+
+  async function departmentList() {
+    try {
+      const resultList = await pb.collection('departments').getList();
+      return resultList;
+    } catch (error) {
+      console.dir(error);
+    }
+  }
+  const list = await departmentList();
+
+  function rendering(list) {
+    list.items.sort((a, b) => a.sort > b.sort ? 1 : -1);
+    document.getElementById('list').innerHTML = render(list);
+    document.getElementById('list').children[0].classList.add('tree');
+  }
+  rendering(list);
+  function render(arr, id = '') {
+    let strList = '';
+    strList += '<ul>'
+    strList += arr.items.reduce((str, val) => {
+      if (val.pid === id) {
+        str += `<li>${val.label} 
+          <button type="button" class="btn btn-dark" data-action="del" data-id=${val.id}>删除</button> 
+          <button type="button" class="btn btn-primary" data-action="edit" data-id='${val.id}' data-pid='${val.pid}' data-label='${val.label}' data-sort='${val.sort}'>编辑</button>
+          ${render(arr, val.id)}
+          </li>`
+      }
+      return str;
+    }, '');
+    strList += '</ul>'
+    return strList;
+  }
+  /* ----------------警式框----------------- */
+  function msgWarn(msg) {
+    document.getElementById('jg').style.display = 'block';
+    document.getElementById('jg').innerHTML = msg;
+  }
+  function cancellationWarn() {
+    document.getElementById('jg').style.display = 'none';
+    document.getElementById('jg').innerHTML = '';
+  }
+
+  /* ----------------事件操作----------------- */
+  on('click', {
+    //删除部门
+    async del() {
+      if (this.parentElement.children[2].children.length !== 0) {
+        confirm({ title: '删除部门', center: '该部门下还有子部门无法删除!' }).then(() => { }).catch(() => { })
+      } else {
+        confirm({ title: '删除部门', center: '是否删除该部门!' }).then(async () => {
+          await pb.collection('departments').delete(this.dataset.id);
+          this.parentElement.remove();
+        }).catch(() => {
+          msgWarn('删除失败');
+        })
+      }
+    },
+    // 展开添加
+    async add() {
+      document.getElementById('modal_box_add').style.display = 'block';
+      const addform = document.addform;
+      addform.sort.value = '';
+      addform.label.value = '';
+      try {
+        const departments = await pb.collection('departments').getList();
+        const select = document.getElementById('departments');
+        select.innerHTML = `<option selected value="">顶级部门</option>`
+        // select.innerHTML = ``;
+        const str = (departments.items).reduce((str, val) => {
+          str += `<option value="${val.id}">${val.label}</option>`
+          return str
+        }, '')
+        select.innerHTML += str;
+      } catch (error) {
+        msgWarn('批量删除失败');
+      }
+    },
+    // 关闭添加
+    add_close(e) {
+      e.preventDefault();
+      document.getElementById('modal_box_add').style.display = 'none';
+    },
+    // 添加
+    async add_form(e) {
+      e.preventDefault();
+      const addform = document.addform;
+      const fd = new FormData(addform);
+      try {
+        const record = await pb.collection('departments').create(fd);
+        const list = await departmentList();
+        rendering(list);
+        document.getElementById('modal_box_add').style.display = 'none';
+      } catch (error) {
+        console.dir(error);
+      }
+    },
+    // 展开编辑部门
+    async edit() {
+      document.getElementById('modal_box_edit').style.display = 'block';
+      try {
+        const departments = await pb.collection('departments').getList();
+        const select = document.getElementById('departments_edit');
+        select.innerHTML = `<option value="" selected>顶级部门</option>`;
+        const str = (departments.items).reduce((str, val) => {
+          if (this.dataset.pid == val.id) {
+            str += `<option value="${val.id}" selected>${val.label}</option>`
+          } else {
+            str += `<option value="${val.id}">${val.label}</option>`
+          }
+          return str
+        }, '')
+        select.innerHTML += str;
+        const editform = document.editform;
+        editform.label.value = this.dataset.label;
+        editform.sort.value = this.dataset.sort;
+        editform.label.value = this.dataset.label;
+        editform.id.value = this.dataset.id;
+      } catch (error) {
+        msgWarn('批量删除失败');
+      }
+    },
+    // 关闭编辑
+    edit_close(e) {
+      e.preventDefault();
+      document.getElementById('modal_box_edit').style.display = 'none';
+    },
+    // 提交编辑
+    async edit_form(e) {
+      e.preventDefault();
+      const editform = document.editform;
+      const fd = new FormData(editform);
+      try {
+        const record = await pb.collection('departments').update(editform.id.value, fd);
+        const list = await departmentList();
+        rendering(list);
+        document.getElementById('modal_box_edit').style.display = 'none';
+      } catch (error) {
+        console.dir(error);
+      }
+    }
+  })
+</script>
+
+</html>
