@@ -6,42 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        li{
-            border-left: solid;
-            border-bottom: solid;
+        /* 隐藏复选框 */
+        .accordion input[type="checkbox"] {
+            display: none;
+        }
+
+        /* 初始状态下，内容区域是隐藏的 */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        /* 点击标签时，展开内容 */
+        .accordion input[type="checkbox"]:checked+.accordion-label+.accordion-content {
+            max-height: 200px;
+            /* 根据需要设置合适的最大高度 */
         }
     </style>
 </head>
 
 <body>
-    <ul>
-        <li>
-            <span>1</span>
-            <ul>
-                <li><span>1.1</span></li>
-            </ul>
-        </li>
-        <li>
-            <span>2</span>
-            <ul>
-                <li>
-                    <span>2.1</span>
-                    <ul>
-                        <li>2.1.1</li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <span>3</span>
-            <ul>
-                <li><span>3.1</span></li>
-            </ul>
-        </li>
-        <li>
-            <span>4</span>
-        </li>
-    </ul>
+    <div class="accordion">
+        <input type="checkbox" id="section1">
+        <label for="section1" class="accordion-label">Section 1</label>
+        <div class="accordion-content">
+            <p>This is the content of Section 1.</p>
+        </div>
+
+        <input type="checkbox" id="section2">
+        <label for="section2" class="accordion-label">Section 2</label>
+        <div class="accordion-content">
+            <p>This is the content of Section 2.</p>
+        </div>
+    </div>
+
 </body>
 
 </html>

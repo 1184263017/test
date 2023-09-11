@@ -113,7 +113,7 @@
     strList += '<ul>'
     strList += arr.items.reduce((str, val) => {
       if (val.pid === id) {
-        str += `<li>${val.label} 
+        str += `<li data-action='open'>${val.label} 
           <button type="button" class="btn btn-dark" data-action="del" data-id=${val.id}>删除</button> 
           <button type="button" class="btn btn-primary" data-action="edit" data-id='${val.id}' data-pid='${val.pid}' data-label='${val.label}' data-sort='${val.sort}'>编辑</button>
           ${render(arr, val.id)}
@@ -231,6 +231,11 @@
       } catch (error) {
         console.dir(error);
       }
+    },
+    open(){
+      // this.classList.toggle('open');
+      this.children[2].classList.toggle('open');
+      // console.log(this.children);
     }
   })
 </script>

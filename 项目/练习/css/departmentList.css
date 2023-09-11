@@ -27,6 +27,8 @@
 #list ul {
   padding-top: 10px;
   box-sizing: border-box;
+  transition: all 1s;
+  max-height: 300px;
 }
 #list > ul > li button {
   width: 60px;
@@ -133,4 +135,9 @@
 .fileImg span:hover {
   background-color: #999;
   color: white;
+}
+
+.open {
+  max-height: 0px !important;
+  overflow: hidden;
 }/*# sourceMappingURL=departmentList.css.map */

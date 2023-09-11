@@ -433,6 +433,10 @@
                     // 更新预览图
                     var reader = new FileReader();
                     reader.onload = function (e) {
+                        console.log(this);
+                        console.log(this.result);
+                        console.log(selectedFile);
+                        console.log(reader);
                         previewImage.src = this.result;
                         previewImage.style.display = 'block';
                         document.getElementById('cha').style.display = 'block';
@@ -499,7 +503,6 @@
             }
             return res;
         }
-        
     </script>
 </body>
 
