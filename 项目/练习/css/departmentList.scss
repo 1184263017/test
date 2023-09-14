@@ -24,7 +24,7 @@
           padding-top: 10px;
           box-sizing: border-box;
           transition: all 1s;
-          max-height: 300px;
+          // max-height: 300px;
           // height: 100%;
         }
         >ul{
@@ -138,7 +138,7 @@
 }
 
 .open{
-  max-height: 0px !important;
-  // height: 0 !important;
+  // max-height: 0px !important;
+  height: 0 !important;
   overflow: hidden;
 }

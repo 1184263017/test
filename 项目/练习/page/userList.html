@@ -35,49 +35,49 @@
                 <li>
                     <input data-action="optional_table" class="table_head" type="checkbox" checked name="username"
                         id="xz_username" value="账户">
-                    <label data-action="optional_table" data-name="username" data-value="账户" for="xz_username"
+                    <label data-name="username" data-value="账户" for="xz_username"
                         data-id="xz_username">账户</label>
                 </li>
                 <li>
                     <input data-action="optional_table" class="table_head" type="checkbox" checked name="name"
                         id="xz_name" value="姓名">
-                    <label data-action="optional_table" data-name="name" data-value="姓名" for="xz_name"
+                    <label data-name="name" data-value="姓名" for="xz_name"
                         data-id="xz_name">姓名</label>
                 </li>
                 <li>
                     <input data-action="optional_table" class="table_head" type="checkbox" checked name="avatar"
                         id="xz_avatar" value="头像">
-                    <label data-action="optional_table" data-name="avatar" data-value="头像" for="xz_avatar"
+                    <label data-name="avatar" data-value="头像" for="xz_avatar"
                         data-id="xz_avatar">头像</label>
                 </li>
                 <li>
                     <input data-action="optional_table" class="table_head" type="checkbox" checked name="department"
                         id="xz_department" value="部门">
-                    <label data-action="optional_table" data-name="department" data-value="部门" for="xz_department"
+                    <label data-name="department" data-value="部门" for="xz_department"
                         data-id="xz_department">部门</label>
                 </li>
                 <li>
                     <input data-action="optional_table" class="table_head" type="checkbox" checked checked name="age"
                         id="xz_age" value="年龄">
-                    <label data-action="optional_table" data-name="age" data-value="年龄" for="xz_age"
+                    <label data-name="age" data-value="年龄" for="xz_age"
                         data-id="xz_age">年龄</label>
                 </li>
                 <li>
                     <input data-action="optional_table" class="table_head" type="checkbox" checked name="gender"
                         id="xz_gender" value="性别">
-                    <label data-action="optional_table" data-name="gender" data-value="性别" for="xz_gender"
+                    <label data-name="gender" data-value="性别" for="xz_gender"
                         data-id="xz_gender">性别</label>
                 </li>
                 <li>
                     <input data-action="optional_table" class="table_head" type="checkbox" checked name="email"
                         id="xz_email" value="邮箱">
-                    <label data-action="optional_table" data-name="email" data-value="邮箱" for="xz_email"
+                    <label data-name="email" data-value="邮箱" for="xz_email"
                         data-id="xz_email">邮箱</label>
                 </li>
                 <li>
                     <input data-action="optional_table" class="table_head" type="checkbox" checked name="phone"
                         id="xz_phone" value="电话">
-                    <label data-action="optional_table" data-name="phone" data-value="电话" for="xz_phone"
+                    <label data-name="phone" data-value="电话" for="xz_phone"
                         data-id="xz_phone">电话</label>
                 </li>
             </ul>
@@ -293,6 +293,7 @@
             let users;
             try {
                 users = await pb.collection('users').getList(page, perPage, {
+                    sort: '-created',
                     expand: 'department',
                     filter: `username ~ "${where}" || phone ~ "${where}" || name ~ "${where}"`,
                 });
@@ -695,12 +696,8 @@
             },
             // 切换表头
             async optional_table(e) {
-                if (Object.keys(table).length == 1 && (this.checked == false || !document.getElementById(this.dataset.id).checked == false)) {
+                if (Object.keys(table).length == 1 && (this.checked == false)) {
                     e.preventDefault();
-                    // msgWarn('至少保留一个选项');
-                    // setTimeout(() => {
-                    //     cancellationWarn();
-                    // }, 1500);
                     return false;
                 }
                 let name;
@@ -710,12 +707,6 @@
                     name = this.name;
                     value = this.value;
                     check = this.checked;
-                } else {
-                    e.preventDefault();
-                    name = this.dataset.name;
-                    value = this.dataset.value;
-                    check = !document.getElementById(this.dataset.id).checked;
-                    document.getElementById(this.dataset.id).checked = check;
                 }
                 if (check) {
                     table[name] = value;
@@ -732,9 +723,10 @@
                 } else {
                     delete table[name];
                 }
+                
                 const users = await userList();
                 render(users)
-                // console.log(table);
+                console.log(table);
             }
         })
 
@@ -823,11 +815,11 @@
             const sp_edit = document.getElementById(`${name}_msg_edit`);
             const res = cb(e.value);
             if (!res) {
-                sp_add.style.display = 'block';
-                sp_edit.style.display = 'block';
+                sp_add != undefined ? sp_add.style.display = 'block' : '';
+                sp_edit != undefined ? sp_edit.style.display = 'block' : '';
             } else {
-                sp_add.style.display = 'none';
-                sp_edit.style.display = 'none';
+                sp_add != undefined ? sp_add.style.display = 'none' : '';
+                sp_edit != undefined ? sp_edit.style.display = 'none' : '';
             }
             return res;
         }

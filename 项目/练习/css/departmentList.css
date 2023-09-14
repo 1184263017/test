@@ -28,7 +28,6 @@
   padding-top: 10px;
   box-sizing: border-box;
   transition: all 1s;
-  max-height: 300px;
 }
 #list > ul > li button {
   width: 60px;
@@ -138,6 +137,6 @@
 }
 
 .open {
-  max-height: 0px !important;
+  height: 0 !important;
   overflow: hidden;
 }/*# sourceMappingURL=departmentList.css.map */

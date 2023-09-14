@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 10rem;
+            height: 10rem;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+        (function () {
+            /* 页面加载获取页面宽度 */
+            let setFont = function () {
+                // 因为要定义变量可能和别的变量冲突，造成污染，所以用自调用函数
+                let html = document.documentElement; // 获取html
+                // 获取html宽度
+                let width = html.clientWidth;
+
+                // 判断，限制最小和最大宽度（这一步可省略）
+                if (width < 1024) width = 1024
+                if (width > 1920) width = 1920
+
+                // 设置html的基准值, 1920 / 80 = 24px也就是1rem=24px
+                // let fontSize = width / 153 + 'px'  // 那么这里屏幕大小1530px,1rem=10px
+                let fontSize = width / 24 + 'px'  // 那么这里屏幕大小1920px,1rem=80px
+
+                // 设置给html
+                html.style.fontSize = fontSize;
+            }
+            setFont(); // 调用
+
+            /* 页面改变的时候需要重新设置 */
+            // 尺寸改变事件,window.onresize为当浏览器重置大小的时候执行的函数
+            window.onresize = function () {
+                setFont();
+            }
+        })()
+    </script>
+</body>
+
+</html>

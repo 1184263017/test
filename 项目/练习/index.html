@@ -151,7 +151,7 @@
                     </div>
                     <div class="breadcrumb_right_user">
                         <img class="man" src="./static/man.png" alt="" id="userimg">
-                        <span id="user_name">管理员</span>
+                        <span id="user_name" style="font-size: 12px;">管理员</span>
                         <img class="down" src="./static/arrow_down_white.png" alt="">
                         <ul>
                             <li data-action="add">
@@ -495,10 +495,10 @@
             const sp_edit = document.getElementById(`${name}_msg_edit`);
             const res = cb(e.value);
             if (!res) {
-                sp_add != undefined ? sp_edit.style.display = 'block' : '';
+                sp_add != undefined ? sp_add.style.display = 'block' : '';
                 sp_edit != undefined ? sp_edit.style.display = 'block' : '';
             } else {
-                sp_add != undefined ? sp_edit.style.display = 'none' : '';
+                sp_add != undefined ? sp_add.style.display = 'none' : '';
                 sp_edit != undefined ? sp_edit.style.display = 'none' : '';
             }
             return res;

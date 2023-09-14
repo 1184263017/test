@@ -232,11 +232,15 @@
         console.dir(error);
       }
     },
-    open(){
+    open() {
       // this.classList.toggle('open');
       this.children[2].classList.toggle('open');
       // console.log(this.children);
     }
+  })
+
+  document.querySelectorAll('ul').forEach((item) => {
+    item.style.height = item.scrollHeight + 'px';
   })
 </script>
 

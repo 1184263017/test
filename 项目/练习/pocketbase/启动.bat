@@ -1,0 +1,1 @@
+start ./pocketbase.exe serve
