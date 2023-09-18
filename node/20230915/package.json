@@ -1,0 +1,23 @@
+{
+  "name": "20230915",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1_node运行.js",
+  "scripts": {
+    "s1":"node ./1_node运行.js",
+    "s2":"node ./1_node运行.js & node ./4_os模块.js & node ./5_path模块.js",
+    "start":"node ./1_node运行.js",
+    "test":"node ./1_node运行.js",
+    "lint":"node ./1_node运行.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "md5": "^2.3.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "dayjs": "^1.11.9"
+  }
+}
