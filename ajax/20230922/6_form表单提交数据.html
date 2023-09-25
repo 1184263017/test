@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // json 和 urlencoded上传
+        {
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'http://127.0.0.1:3000/data');
+
+
+
+            xhr.responseType = 'json';
+
+            xhr.onload = function () {
+                // console.log(xhr.response);
+            }
+
+            // xhr.setRequestHeader('Content-Type','application/json')
+            // xhr.send(JSON.stringify({
+            //     username:'jack',
+            //     age:20
+            // }))
+
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+            xhr.send(`username=jack&age=20`)
+        }
+
+        // form-data上传
+        {
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'http://127.0.0.1:3000/data');
+
+            // 不需要添加也可传送
+            // xhr.setRequestHeader('Content-Type','multipart/form-data')
+            xhr.responseType = 'json';
+
+            xhr.onload = function () {
+                // console.log(xhr.response);
+            }
+
+            const fd = new FormData();
+            fd.append('username', 'jack');
+            fd.append('age', 18);
+
+
+            xhr.send(fd)
+        }
+
+        function _stringify(obj) {
+            return Object.entries(obj).reduce((str, el) => {
+                return str += `${el[0]}=${el[1]}&`
+            }, '').slice(0, -1);
+        }
+        // console.log(_stringify({ username: 'jack', age: 20 }));
+
+        function _parse(str) {
+            return str.split('&').reduce((obj, el) => {
+                let arr = el.split('=');
+                obj[arr[0]] = arr[1];
+                return obj;
+            }, {})
+        }
+        // console.log(_parse('username=jack&age=20'));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .d1{
+            width: 200px;
+            /* height: 200px; */
+            border: solid;
+        }
+        .d2{
+            width: 50px;
+            height: 50px;
+            border: solid;
+            /* float: right; */
+            /* margin-left: 500px; */
+        }
+    </style>
+</head>
+<body>
+    <div class="d1">
+        <div class="d2"></div>
+    </div>
+    
+    <script>
+        function f1(a,b,c) {
+            console.log(a);
+            console.log(b);
+            console.log(c);
+        }
+        const a = 'lili';
+        const age = 18;
+        f1`${a} is ${age} haha old`
+    </script>
+</body>
+</html>

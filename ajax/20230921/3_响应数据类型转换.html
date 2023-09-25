@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <video loop autoplay src="" id="video"></video>
+    <script>
+        /* ----------json格式返回数据----------- */
+        {
+            let xhr = new XMLHttpRequest();
+
+            // 定义请求
+            xhr.open('GET', 'http://127.0.0.1:3000/json');
+
+            // 设置响应的内容类型
+            xhr.responseType = 'json';
+            // 设置请求完成响应的操作
+            xhr.onload = function () {
+                console.log('json格式请求成功');
+                // 手动转换
+                // console.log(JSON.parse(xhr.response));
+
+                // json自动转换
+                console.log(xhr.response);
+            }
+            // 发起请求
+            xhr.send();
+        }
+
+        /* ----------document格式返回数据----------- */
+        {
+            let xhr = new XMLHttpRequest();
+
+            // 定义请求
+            xhr.open('GET', 'http://127.0.0.1:3000/xml');
+
+            // 设置响应的内容类型
+            xhr.responseType = 'document';
+            // 设置请求完成响应的操作
+            xhr.onload = function () {
+                console.log('document格式请求成功');
+                // xml获取数据
+                console.log(xhr.response);
+                console.log(xhr.response.querySelector('username').innerHTML);
+                console.log(xhr.response.querySelector('age').innerHTML);
+                console.log(xhr.response.querySelector('gender').innerHTML);
+            }
+            // 发起请求
+            xhr.send();
+        }
+
+        /* ----------文件格式返回数据----------- */
+        {
+            let xhr = new XMLHttpRequest();
+
+            // 定义请求
+            xhr.open('GET', 'http://127.0.0.1:3000/files');
+
+            // 设置响应的内容类型
+            xhr.responseType = 'blob';
+            // 设置请求完成响应的操作
+            xhr.onload = function () {
+                console.log('文件格式请求成功');
+                // 文件获取数据
+                console.log(xhr.response);
+
+                // 获取文件地址
+                const url = URL.createObjectURL(xhr.response);
+                console.log(url);
+                video.src = url;
+                // console.log();
+            }
+            // 发起请求
+            xhr.send();
+        }
+    </script>
+</body>
+
+</html>

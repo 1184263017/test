@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        {
+            // 获取数据
+            const xhr = new XMLHttpRequest();
+
+            xhr.open('GET', 'http://127.0.0.1:3000/users');
+            xhr.setRequestHeader('authorization', ' Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhhaGEiLCJpYXQiOjE2OTUzNDgyMTN9.GZfdQOD3atmmeNqTR5bh6ekTQcgBk-g1EBgWvAiNE_M')
+
+
+            xhr.responseType = 'json';
+            xhr.onload = function () {
+                if (xhr.status === 401) {
+                    console.log('请登录后操作');
+                    return;
+                }
+                console.log(xhr.response);
+                console.log(xhr.status);
+                console.log(xhr.statusText);
+                console.log(xhr.getAllResponseHeaders());
+
+                
+                // console.log(xhr.getAllResponseHeaders().split('\r\n').slice(0,-1));
+                // console.log(xhr.getAllResponseHeaders().split('\r\n').slice(0,-1));
+                
+                //  const str = JSON.parse('{"'+xhr.getAllResponseHeaders().toString().replace(/:/g,'":"').replace(/\r\n/g,'","')+'"}');
+                //  console.log('{"'+xhr.getAllResponseHeaders().toString().replace(/:/g,'":"').replace(/\r\n/g,'","')+'"}');
+                //  console.log(str);
+
+                console.log(JSON.parse('{"'+xhr.getAllResponseHeaders().split('\r\n').slice(0,-1).toString().replace(/:/g,'":"').replace(/,/g,'","')+'"}'));
+                // console.log(JSON.stringify(xhr.getAllResponseHeaders().split('\r\n').slice(0,-1).toString()));
+
+                // const arr = xhr.getAllResponseHeaders().split('\r\n').slice(0,-1).map(el=>{
+                //     return el.split(':');
+                // })
+
+                // console.log(Object.fromEntries(arr));
+
+
+            }
+
+            xhr.send();
+        }
+    </script>
+</body>
+
+</html>

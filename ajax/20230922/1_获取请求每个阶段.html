@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const xhr = new XMLHttpRequest();
+
+        // 0表示open还未调用
+        console.log(xhr.readyState); 
+
+        xhr.open('GET', 'http://127.0.0.1:3000/files');
+
+        // 1表示open已经调用
+        console.log(xhr.readyState); 
+
+
+        xhr.onreadystatechange = function(){
+            // 可以捕捉 2 3 4三个状态
+            console.log(xhr.readyState);
+        }
+
+        xhr.onload = function () {
+            // 4表示请求完成
+            console.log(xhr.readyState); 
+        }
+
+        xhr.onprogress = function (e) {
+            // console.log(e.loaded, e.total);
+            console.log((e.loaded/e.total)*100 + '%');
+
+            // 3表示响应正在被加载，会连续重复输出3，最后加载完成返回4
+            console.log(xhr.readyState); 
+        }
+
+        xhr.send();
+    </script>
+</body>
+
+</html>

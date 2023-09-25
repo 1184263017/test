@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="msgError"></p>
+    <input type="file" id="file">
+    <button onclick="update()">上传</button>
+
+    <h2>状态</h2>
+    <p id="updStatus"></p>
+    <h2>进度条:<span id="progressValue">0</span></h2>
+    <progress id="progressBar" max="1" value="0"></progress>
+    <script>
+        const file = document.getElementById('file');
+        /* 
+            上传文件验证
+        */
+        file.onchange = function () {
+            const file = this.files[0];
+            verify(file,20);
+        }
+
+        // 图片验证
+        function verify(file,siez) { 
+            if (file === undefined) {
+                msgError.innerHTML = '请选择文件';
+                return false;
+            }
+            msgError.innerHTML = '';    //清空报错提醒
+            // console.log(file);
+
+            // 允许的上传类型
+            const allowType = ['mp4','png','jpg'];
+            if (!allowType.includes(file.name.split('.')[1])) {
+                msgError.innerHTML = `文件类型只允许${allowType.join(',')}`;
+                return false;
+            }
+
+            // 限制文件大小
+            const allowSize = siez;
+            if (file.size > allowSize*1024*1024) {
+                msgError.innerHTML = `上传文件大小不能超过${allowSize}M`;
+                return false;
+            }
+
+            return true;
+        }
+
+
+        function update() {
+            // 验证图片
+            const res = verify(file.files[0],20);
+            if (!res) {
+               console.log('文件不可上传');
+               return;
+            }
+
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'http://127.0.0.1:3000/data');
+
+            // 不需要添加也可传送
+            // xhr.setRequestHeader('Content-Type','multipart/form-data')
+            xhr.responseType = 'json';
+
+            xhr.onload = function () {
+                if (xhr.status === 500) {
+                    console.log('服务器错误!');
+                    return
+                }
+                console.log(xhr.response);
+            }
+
+            const fd = new FormData();
+            fd.append('username', 'jack');
+            fd.append('age', 18);
+            fd.append('file', file.files[0]);
+            // console.log(Object.fromEntries(fd));
+
+            // 设置为0永不超时
+            xhr.timeout = 0
+            // 客户端->服务端(上传)
+            xhr.upload.onloadstart = function () {
+                updStatus.innerHTML = '上传开始';
+                console.log('上传开始');
+            }
+            // 上传过程中会一直触发,其余事件都是阶段性满足条件触发
+            xhr.upload.onprogress = function (e) {
+                console.log(e.loaded, e.total);
+                progressValue.innerHTML = (e.loaded / e.total) * 100 + '%'
+                progressBar.value = e.loaded / e.total;
+            }
+            xhr.upload.onload = function () {
+                updStatus.innerHTML = '上传成功';
+                console.log('上传成功');
+            }
+            xhr.upload.onloadend = function () {
+                updStatus.innerHTML = '上传结束';
+                console.log('上传结束');
+            }
+            xhr.upload.onerror = function () {
+                console.log('网络错误');
+            }
+            xhr.upload.ontimeout = function () {
+                console.log('上传超时');
+            }
+
+
+            xhr.send(fd)
+        }
+    </script>
+</body>
+
+</html>

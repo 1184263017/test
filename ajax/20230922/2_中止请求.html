@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="xhr.abort()">停止</button>
+    <script>
+        const xhr = new XMLHttpRequest();
+
+        xhr.open('GET', 'http://127.0.0.1:3000/files');
+
+        // 取消终止时调用
+        xhr.onabort = function(){
+            console.log(xhr.status);
+        }
+
+        xhr.onprogress = function (e) {
+            console.log((e.loaded/e.total)*100 + '%');
+        }
+
+        xhr.send();
+    </script>
+</body>
+
+</html>

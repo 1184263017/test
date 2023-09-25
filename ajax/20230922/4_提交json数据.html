@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        {
+            // 获取数据
+            const xhr = new XMLHttpRequest();
+
+            xhr.open('GET', 'http://127.0.0.1:3000/users');
+            xhr.setRequestHeader('authorization', ' Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhhaGEiLCJpYXQiOjE2OTUzNDgyMTN9.GZfdQOD3atmmeNqTR5bh6ekTQcgBk-g1EBgWvAiNE_M')
+
+
+            xhr.responseType = 'json';
+            xhr.onload = function () {
+                if (xhr.status === 401) {
+                    console.log('请登录后操作');
+                    return;
+                }
+                console.log(xhr.response);
+            }
+
+            xhr.send();
+        }
+
+
+        {
+            // 用户登录
+            const xhr = new XMLHttpRequest();
+
+            xhr.open('POST', 'http://127.0.0.1:3000/login');
+            xhr.setRequestHeader('Content-Type', 'application/json')
+
+            xhr.responseType = 'json';
+            xhr.onload = function () {
+                if (xhr.status === 401) {
+                    console.log('请登录后操作');
+                    return;
+                }
+                console.log(xhr.response);
+            }
+
+            xhr.send(
+                JSON.stringify({
+                    username: 'xixi',
+                    password: 444555,
+                })
+            );
+        }
+
+        {
+            // 添加用户
+            const xhr = new XMLHttpRequest();
+
+            xhr.open('POST', 'http://127.0.0.1:3000/users');
+            xhr.setRequestHeader('Content-Type', 'application/json')
+            xhr.setRequestHeader('authorization', ' Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhhaGEiLCJpYXQiOjE2OTUzNDgyMTN9.GZfdQOD3atmmeNqTR5bh6ekTQcgBk-g1EBgWvAiNE_M')
+
+
+            xhr.responseType = 'json';
+            xhr.onload = function () {
+                if (xhr.status === 401) {
+                    console.log('请登录后操作');
+                    return;
+                }
+                console.log(xhr.response);
+            }
+
+            xhr.send(
+                JSON.stringify({
+                    username:'haha',
+                    password:444555,
+                    phone:15895961017,
+                    email:'118@qq.com'
+                })
+            );
+        }
+    </script>
+</body>
+
+</html>

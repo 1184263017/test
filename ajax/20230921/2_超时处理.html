@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let xhr = new XMLHttpRequest();
+        // 定义请求
+        xhr.open('GET', 'http://127.0.0.1:3000/posts');
+        
+        // 设置超时操作
+        xhr.onload = function () {
+            console.log('请求成功');
+        }
+
+        // 设置超时时间
+        xhr.timeout = 4000;
+
+        // 设置超时操作
+        xhr.ontimeout = function () {
+            console.log('超时了');
+        }
+        // 发起请求
+        xhr.send();
+
+
+    </script>
+</body>
+
+</html>

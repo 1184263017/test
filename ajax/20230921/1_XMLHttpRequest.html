@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .progress {
+            border: solid;
+            padding: 3px;
+        }
+
+        .progressBar {
+            width: 0%;
+            height: 20px;
+            background-color: gray;
+            transition: all 10s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="progress">
+        <div class="progressBar" id="progressBar">
+
+        </div>
+    </div>
+    <script>
+        const jd = document.getElementById('progressBar');
+
+
+
+
+        let xhr = new XMLHttpRequest();
+        // 定义请求
+        xhr.open('GET', 'http://127.0.0.1:3000/posts');
+        // xhr.open('GET', 'http://127.0.0.1:3000/file');
+
+        // 当收到响应信息的时候执行
+        xhr.onload = function () {
+            console.log('收到响应信息');
+            // 获取响应内容
+            console.log(xhr.response);
+            // HTTP 状态码
+            console.log(xhr.status);
+            // 状态码对应的文本信息
+            console.log(xhr.statusText);
+        }
+
+        // 当网络崩溃
+        xhr.onerror = function () {
+            console.log('网络崩溃了');
+        }
+
+        // 获取当前下载的进度
+        xhr.onprogress = function (event) {
+            console.log(event.loaded, event.total);
+            console.log(event.loaded / event.total);
+            // 进度条
+            jd.style.width = (event.loaded / event.total) * 100 + "%";
+            jd.innerHTML = (event.loaded / event.total) * 100 + "%";
+        }
+
+        // 发起请求
+        xhr.send();
+
+
+    </script>
+</body>
+
+</html>

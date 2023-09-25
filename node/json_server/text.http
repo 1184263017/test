@@ -15,7 +15,7 @@ Content-Type: application/json
 
 
 ### 在header中传入authorization字段: Bearer token
-GET http://127.0.0.1:3000/users/4 HTTP/1.1
+GET http://127.0.0.1:3000/users?username_like=xixi HTTP/1.1
 authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImphY2siLCJpYXQiOjE2OTUyNjA3Mzl9.eqWZwB-og9CFjr2nGCdMxJxKN3g7nHGQZ1XwZG8h4M0
 
 
