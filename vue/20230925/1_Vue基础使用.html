@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            Vue实例(对象)->vm
+            - 属性
+            - 方法
+            - 事件，周期函数
+         */
+        const vm = new Vue({
+            // 配置项
+            // 存放数据
+            data: {
+                username: 'jack'
+            },
+            // 定义方法
+            methods: {
+                say() {
+                    console.log(this.username);
+                }
+            },
+            // 周期函数(生命周期钩子) 
+            // 对象创建前自动执行 
+            beforeCreate() {
+                console.log('beforeCreate', this.username);
+            },
+            // 对象创建完成后自动执行
+            created() {
+                console.log('created', this.username);
+            },
+            // 对象销毁前,当前的事件监听器可用
+            beforeDestroy() {
+                console.log('beforeDestroy',this.say());
+            },
+            // 对象销毁后,当前的事件监听器不可用
+            destroyed() {
+                console.log('destroyed',this.say());
+            },
+
+        });
+        // console.log(vm);
+        setTimeout(() => {
+            vm.$destroy();
+        }, 3000);
+    </script>
+</body>
+
+</html>

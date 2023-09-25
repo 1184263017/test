@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+    <script>
+        /* 
+            Vue实例(对象)->vm
+            - 属性
+            - 方法
+            - 事件，周期函数
+         */
+        const vm = new Vue({
+            // 挂载
+            el: '#app',
+            /* 
+                模版 
+                - this可以省略不写 
+                - 输出对象属性调用对象方法
+            */
+            template: '<div>{{username}}<hr>{{say()}}</div>',
+            // 存放数据
+            data: {
+                username: 'jack'
+            },
+
+            methods: {
+                say(){
+                    return this.username;
+                }
+            },
+        });
+        console.log(vm);
+    </script>
+</body>
+
+</html>
