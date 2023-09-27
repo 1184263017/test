@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+    <template id="t1">
+        <div>
+            {{fullName}}
+            <hr>
+            <button @click="setFullName">点击修改姓名</button>
+        </div>
+    </template>
+    <script>
+        const vm = new Vue({
+            // 挂载
+            el: '#app',
+            template: '#t1',
+            // 存放数据
+            data: {
+                /* 
+                    响应式属性
+                    对象属性变化->视图也会变化
+                */
+                firstName: 'li',
+                lastName: 'jack'
+            },
+            /* 
+              计算属性定义
+              会缓存数据，有改变是在更新缓存
+            */
+            computed: {
+                // 简写形式 只能使用get
+                // fullName(){
+                //     return `${this.firstName} ${this.lastName}`
+                // }
+
+                // 正常写法，需要用到set时使用
+                fullName: {
+                    get() {
+                        console.log(123);
+                        return `${this.firstName} ${this.lastName}`;
+                    },
+                    set(value) {
+                        [this.firstName, this.lastName] = value.split(' ');
+                    }
+
+                }
+            },
+            methods: {
+                setFullName() {
+                    this.fullName = 'wang liu'
+                }
+            },
+        });
+        console.log(vm);
+    </script>
+</body>
+
+</html>

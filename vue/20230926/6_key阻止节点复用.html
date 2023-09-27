@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../20230925/js/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <template id="t1">
+        <div>
+            <button @click="flag = !flag">切换</button>
+            <hr>
+            <!-- 
+                节点在创建前都是先去虚拟节点中查找是否存在,存在则复用,不存在则创建,
+                如果不设置key,那么这个虚拟节点的key默认和其他的没有设置key的节点相同,
+                所以会去复用已经创建过的虚拟节点,导致切换时的节点还是复用之前节点的值,
+                设置不相同的key阻止节点复用 
+            -->
+            <template v-if="flag">
+                邮箱<input key="1" type="text" name="email">
+            </template>
+            <template v-else>
+                姓名<input key="2" type="text" name="username">
+            </template>
+        </div>
+    </template>
+    <script>
+        /* 
+            1. 每一次dom节点的操作是需要渲染整个页面的
+            2. 解决方案是将dom存储到文档片段中，然后一次性渲染到页面
+            3. 创建dom也是比较消耗资源的
+            4. 创建虚拟节点VNode(虚拟dom),将正式dom对象简化
+            5. 给每一个VNode加上一个key值
+            6. 通过对比key,可以有效的复用节点对象
+        */
+        new Vue({
+            el: '#app',
+            template: '#t1',
+            data() {
+                return {
+                    flag: true
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

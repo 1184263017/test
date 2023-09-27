@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../20230925/js/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <template id="t1">
+        <div>
+            <!-- 
+                1. v-if 可以独立存在
+                2. v-else-if 只能写在v-if之后,中间不能有其他标签
+                3. v-else 可以写在v-if或者v-else-if之后,中间不能有其他标签
+                
+             -->
+            <!-- <p v-show="date === '5-1'" v-if="date === '5-1'">劳动节</p> -->
+            <button @click="date='5-1'">5-1</button>
+            <button @click="date='6-1'">6-1</button>
+            <button @click="date='8-1'">7-1</button>
+            <button @click="date='10-1'">10-1</button>
+            <p v-if="date === '5-1'">劳动节</p>
+            <p v-else-if="date === '6-1'">儿童节</p>
+            <p v-else-if="date === '8-1'">建军节</p>
+            <p v-else>国庆节</p>
+        </div>
+    </template>
+    <script>
+        new Vue({
+            el: '#app',
+            template: '#t1',
+            data() {
+                return {
+                    date: '6-1'
+                }
+            },
+            methods: {
+
+            },
+            computed: {
+
+            },
+            watch: {
+
+            }
+        })
+    </script>
+</body>
+
+</html>

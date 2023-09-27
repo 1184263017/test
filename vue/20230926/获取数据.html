@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../20230925/js/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+    <template id="t1">
+        <div>
+            <table>
+                <tr>
+                    <td>id</td>
+                    <td>姓名</td>
+                    <td>密码</td>
+                </tr>
+                <tr v-for="item in arr" :key="item.id">
+                    <td>{{item.id}}</td>
+                    <td>{{item.username}}</td>
+                    <td>{{item.password}}</td>
+                </tr>
+            </table>
+        </div>
+    </template>
+    <script>
+        new Vue({
+            el: '#app',
+            template: "#t1",
+            data: {
+                arr: []
+            },
+            created() {
+                const xhr = new XMLHttpRequest();
+                xhr.open('GET', 'http://127.0.0.1:3000/users');
+                xhr.responseType = 'json';
+                xhr.onload = () => {
+                    this.arr = xhr.response;
+                }
+                xhr.send()
+            },
+        })
+    </script>
+</body>
+
+</html>

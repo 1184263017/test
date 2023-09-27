@@ -110,19 +110,19 @@ router.get('/file', (req, res) => {
 
 
 // 一般不使用app创建中间件因为体积太过庞大，所以一般使用轻量级的router
-const app = express();
-app.get('/test', (req, res, next) => {
-    res.send('hahaha')
-});
+// const app = express();
+// app.get('/test', (req, res, next) => {
+//     res.send('hahaha')
+// });
 
 
-// jwt验证
-router.use(expressjwt({ //设置秘钥和加密算法
-    secret: 'wenyileidashabei',
-    algorithms: ["HS256"]
-}).unless({ //设置过滤的路径
-    path: ['/login']
-}));
+// // jwt验证
+// router.use(expressjwt({ //设置秘钥和加密算法
+//     secret: 'wenyileidashabei',
+//     algorithms: ["HS256"]
+// }).unless({ //设置过滤的路径
+//     path: ['/login']
+// }));
 
 // 验证用户输入并添加用户
 router.post('/users',

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+    <script>
+        const vm = new Vue({
+            // 挂载
+            el: '#app',
+            template: `
+                <div>
+                    <!-- 
+                        v-指令名称:参数='表达式'    
+                    -->
+                    <input v-bind:value="username">
+                    <input v-model="username">
+
+                    <!-- 
+                       v-if:判断是否展示隐藏当前标签(隐藏会删除节点)
+                       v-show:判断是否展示隐藏当前标签(隐藏保留节点)
+                    -->
+                    <hr>
+                    <p v-if=flag>v-if隐藏会删除节点</p>
+                    <p v-show=flag>v-show隐藏保留节点</p>
+
+                    <!-- 
+                       v-on(@简写):绑定事件
+                       @[event]:动态绑定事件
+                    -->
+                    <hr>
+                    <button v-on:click=say()>点击事件</button>
+                    <button @:[event]=say()>动态绑定事件</button>
+                </div>
+            `,
+            // 存放数据
+            data: {
+                /* 
+                    响应式属性
+                    对象属性变化->视图也会变化
+                */
+                username: 'jack',
+                flag:true,
+                event:'dblclick'
+            },
+            methods: {
+                say() {
+                    console.log(this.username);
+                    return this.username;
+                }
+            },
+        });
+        console.log(vm);
+
+        // document.body.ondblclick
+    </script>
+</body>
+
+</html>

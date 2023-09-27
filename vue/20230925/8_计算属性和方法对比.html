@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+    <template id="t1">
+        <div>
+            <button @click="count++">count++</button>
+            <hr>
+            {{num1}}<br>
+            {{num1}}<br>
+            {{num1}}<br>
+            {{num1}}<br>
+            <hr>
+            {{num2()}}<br>
+            {{num2()}}<br>
+            {{num2()}}<br>
+            {{num2()}}<br>
+        </div>
+    </template>
+    <script>
+        /* 
+            1.计算属性会缓存第一次计算的结果,后续调用直接读取缓存
+            适合大量运算且结果一定的场景,如果依赖项发生改变，重新计算并缓存
+            2.方法每次调用都会重新执行一次代码
+        */
+        const vm = new Vue({
+            // 挂载
+            el: '#app',
+            template: '#t1',
+            data: {
+                count: 10
+            },
+            computed: {
+                num1() {
+                    return this.count + Math.random();
+                }
+            },
+            methods: {
+                num2() {
+                    return this.count + Math.random();
+                }
+            },
+        });
+        console.log(vm);
+    </script>
+</body>
+
+</html>

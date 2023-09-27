@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+    <template id="t1">
+        <div>
+            <button @click="count++">count++</button>
+            <hr>
+            {{num1}}<br>
+            {{num1}}<br>
+            {{num1}}<br>
+            {{num1}}<br>
+
+        </div>
+    </template>
+    <script>
+        /* 
+            watch 和 computed
+            1.相同点 当依赖发生变化都会重新执行
+            2.不同点 异步代码在computed中是没有意义的,因为computed需要同步返回结果,
+              如果需要根据依赖项的变化(异步)执行相应业务逻辑的话,应该使用watch
+        */
+        const vm = new Vue({
+            // 挂载
+            el: '#app',
+            template: '#t1',
+            data: {
+                count: 10
+            },
+            computed: {
+                num1() {
+                    return this.count + Math.random();
+                }
+            },
+            watch: {
+                count(newValue, oldValue) {
+                    setTimeout(() => {
+                        console.log(newValue, oldValue);
+                    }, 500);
+                }
+            }
+        });
+        console.log(vm);
+    </script>
+</body>
+
+</html>

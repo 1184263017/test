@@ -22,8 +22,23 @@
                     <hr>
                     {{count}}
                     <hr>
-                    <!-- 取消响应特性 -->
+                    <!-- v-once:取消响应特性 -->
                     <span v-once>{{count}}</span>
+                    <hr>
+                    <!-- v-html:解析html -->
+                    <span v-html="text"></span>
+                    <hr>
+                    <!-- v-bind(:简写):可以在属性中解析变量 -->
+                    <input :type="type">  
+                    <hr>
+                    <!-- 
+                        在{{}},v-html,v-bind中:
+                        变量后可以写什么,他们就可以写什么 
+                        return后可以写什么,他们就可以写什么
+                    -->
+                    <span v-html="'xixi'+text"></span><br>
+                    <input :type="1>2?s:type"><br>
+                    {{username.length}}
                 </div>
             `,
             // 存放数据
@@ -33,7 +48,9 @@
                     对象属性变化->视图也会变化
                 */
                 username: 'jack',
-                count: 0
+                count: 0,
+                text: '<strong>hahah</strong>',
+                type: 'text',
             },
             created() {
                 setInterval(() => {

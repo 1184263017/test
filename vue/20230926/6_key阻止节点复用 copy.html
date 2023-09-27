@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../20230925/js/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <template id="t1">
+        <div>
+            <!-- 
+                v-show 不能在template上使用
+                v-show 是隐藏元素  v-if 是删除元素
+             -->
+            <button @click="flag = !flag">切换</button>
+            <p v-show="flag">v-show</p>
+            <p v-if="flag">v-if</p>
+        </div>
+    </template>
+    <script>
+        new Vue({
+            el: '#app',
+            template: '#t1',
+            data() {
+                return {
+                    flag: true
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

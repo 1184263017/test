@@ -11,7 +11,7 @@
   <script>
     const obj = {}
     Object.defineProperty(obj, 'name', {
-      // value: 'jack',
+
       get: function () {
         console.log('调用了name属性');
       },
@@ -22,9 +22,9 @@
       enumerable: true,
       // 是否可配置
       configurable: true,
+      // value: 'jack',
     })
 
-    new Proxy
   </script>
 </body>
 

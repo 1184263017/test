@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+    </div>
+    <template id="t1">
+        <div ref="box" v-show="flag">
+            <button @[event[0]]="show()">点我隐藏</button>
+            <button @[event[0]]="num1()">点我给当前的vm值*100</button>
+            <hr>
+            <input type="text" v-model="name">
+            <button @[event[0]]="changeTeacher()">点我更换老师</button>
+            <hr>
+            {{student}}
+            <hr>
+            {{name}}
+            <hr>
+            {{say()}}
+            <hr>
+            {{countNum}}
+            <hr>
+            <span v-html="'嘻嘻'+text"></span>
+        </div>
+    </template>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            template: '#t1',
+            data() {
+                return {
+                    text:'<strong>哈哈</strong>',
+                    name: 'jack',
+                    opacity: 1,
+                    num: 1,
+                    flag: true,
+                    event: ['click', 'dbclick'],
+                    student: {
+                        age: 10,
+                        username: 'jack',
+                        gender: '男',
+                        course: {
+                            coursenNme: '前端开发',
+                            teacher: '翁义磊'
+                        }
+                    }
+                }
+            },
+            methods: {
+                say() {
+                    return this.name;
+                },
+                change() {
+                    setInterval(() => {
+                        this.opacity -= 0.01
+                        this.$refs.box.style.opacity = this.opacity;
+                        if (this.opacity <= 0) {
+                            this.opacity = 1
+                        }
+                    }, 16)
+                },
+                num1() {
+                    this.countNum = this.countNum;
+                },
+                changeTeacher() {
+                    console.log(123);
+                    this.student.course.teacher = this.name;
+                },
+                show() {
+                    this.flag = !this.flag;
+                }
+            },
+            mounted() {
+                // console.log(this.$refs.box);
+                // this.change();
+            },
+            computed: {
+                // countNum() {
+                //     return this.num * 10;
+                // },
+                countNum: {
+                    get() {
+                        return this.num * 10;
+                    },
+                    set(newValue, oldValue) {
+                        this.num = newValue * 100;
+                    }
+                }
+            },
+            // 监听属性值是否发生变化
+            watch: {
+                num(newValue, oldValue) {
+                    console.log('监听器捕捉到了num变化', newValue, oldValue);
+                },
+                'student': {
+                    handler(newValue, oldValue) {
+                        console.log('监听器捕捉到了student变化', newValue, oldValue);
+                    },
+                    // 页面加载完成后监听一次
+                    immediate: true,
+                    // 深度监视对象类型属性值
+                    deep: true,
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

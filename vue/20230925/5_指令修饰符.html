@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+    <template id="t1">
+        <div>
+            <!-- 
+                事件指令修饰符,处理事件中的非业务代码
+                prevent:阻止默认行为
+            -->
+            <a v-on:click.prevent=say() href='https://www.baidu.com'>跳转</a>
+            <hr>
+            <a @click.prevent=say() href='https://www.baidu.com'>跳转</a>
+            <hr>
+            <input v-bind:value=username>
+            <hr>
+            <input :value=username>
+        </div>
+    </template>
+    <script>
+        const vm = new Vue({
+            // 挂载
+            el: '#app',
+            template: '#t1',
+            // 存放数据
+            data: {
+                /* 
+                    响应式属性
+                    对象属性变化->视图也会变化
+                */
+                username: 'jack',
+                event: 'dblclick'
+            },
+            methods: {
+                say() {
+                    alert('haha')
+                }
+            },
+        });
+        console.log(vm);
+
+        // document.body.ondblclick
+    </script>
+</body>
+
+</html>

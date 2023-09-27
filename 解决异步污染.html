@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        async function say() {
+            const res = await new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(123);
+                }, 2000);
+            })
+            return res;
+        }
+
+
+        async function method1() {
+            const res = await say();
+            return res;
+        }
+
+        async function method2() {
+            const res = await method1();
+            return res;
+        }
+
+        let promiseobj = {
+            status: 'pending',
+            value: ''
+        };
+        function init() {
+            try {
+                if (promiseobj.status == 'pending') {
+                    throw new Error('还没请求到资源')
+                }
+            } catch (error) {
+                method2().then(res => {
+                    promiseobj.status = 'fulfilled';
+                    promiseobj.value = res;
+                }).catch(e => {
+                    promiseobj.status = 'rejected';
+                    promiseobj.value = e;
+                }).finally(() => { init() });
+            }
+            if (promiseobj.status == 'pending') return;
+            console.log(promiseobj);
+        }
+        init();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../20230925/js/vue.js"></script>
+    <title>Document</title>
+    <style>
+        .a {
+            color: red;
+        }
+
+        .b {
+            border: solid;
+        }
+
+        .c {
+            font-size: 24px;
+        }
+
+        .d {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <template id="t1">
+        <div>
+            <p style="color:red;font-size: 2rem;border: solid;">haha</p>
+            <!-- 对象写法 -->
+            <p :style="{color:'red',border:'solid',fontSize:'2rem'}">haha</p>
+            <p :style="objCla">haha</p>
+            <p :style="arrCla">haha</p>
+            <button @click="objCla.color = 'skyblue'">改颜色</button>
+        </div>
+    </template>
+    <script>
+        /* 
+            1. 模版绑定变量(对象属性)
+            2. 修改变量
+            3. 记住数据是响应式的.数据(变量)变化视图就会发生变化
+        */
+        new Vue({
+            el: '#app',
+            template: '#t1',
+            data() {
+                return {
+                    objCla: { color: 'red', border: 'solid', fontSize: '2rem' },
+                    arrCla: [
+                        { color: 'red', background: 'skyblue' },
+                        { border: 'solid', fontSize: '2rem' },
+                        { textAlign: 'center' },
+                    ]
+                }
+            },
+            methods: {
+
+            },
+            computed: {
+
+            },
+            watch: {
+
+            }
+        })
+    </script>
+</body>
+
+</html>

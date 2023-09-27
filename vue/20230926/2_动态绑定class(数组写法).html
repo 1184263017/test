@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../20230925/js/vue.js"></script>
+    <title>Document</title>
+    <style>
+        .a {
+            color: red;
+        }
+
+        .b {
+            border: solid;
+        }
+
+        .c {
+            font-size: 24px;
+        }
+
+        .d {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <template id="t1">
+        <div>
+            <p class="a b c">haha</p>
+            <p :class="[flag?'a':'d', 'b', 'c',action]">haha</p>
+            <p :class="cla">haha</p>
+            <button @click="cla.splice(2,1)">del C</button>
+            <button @click="cla.push('d')">add d</button>
+        </div>
+    </template>
+    <script>
+        /* 
+            1. 模版绑定变量(对象属性)
+            2. 修改变量
+            3. 记住数据是响应式的.数据(变量)变化视图就会发生变化
+        */
+        new Vue({
+            el: '#app',
+            template: '#t1',
+            data() {
+                return {
+                    flag:false,
+                    cla: ['a', 'b', 'c'],
+                    action:'e'
+                }
+            },
+            methods: {
+
+            },
+            computed: {
+
+            },
+            watch: {
+
+            }
+        })
+    </script>
+</body>
+
+</html>
