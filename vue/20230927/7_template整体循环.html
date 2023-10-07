@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../20230925/js/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <template id="t1">
+        <div>
+            <template v-for="v in posts">
+                <h2 :key="v.id+'h2'">{{v.title}}</h2>
+                <p :key="v.id+'p'">{{v.conten}}</p>
+            </template>
+        </div>
+    </template>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            template: '#t1',
+            data() {
+                return {
+                    posts: [
+                        { id: 1, title: 'haha', conten: 'xixi' },
+                        { id: 2, title: 'haha', conten: 'xixi' },
+                        { id: 3, title: 'haha', conten: 'xixi' },
+                        { id: 4, title: 'haha', conten: 'xixi' },
+                        { id: 5, title: 'haha', conten: 'xixi' },
+                    ]
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

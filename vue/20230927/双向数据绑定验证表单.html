@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../20230925/js/vue.js"></script>
+    <title>Document</title>
+    <style>
+        .error {
+            border: red solid;
+            outline: none;
+        }
+
+        .success {
+            border: skyblue solid;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <template id="t1">
+        <div>
+            <form action="">
+                <!-- 数据的双向绑定 -->
+                <p>
+                    姓名:
+                    <input type="text" :class="{success:msgErr.username=='',error:msgErr.username!=''}" name="username"
+                        :value="form.username" @input="form.username = $event.target.value;valid('username')">
+                    <span v-show="msgErr.username != ''">{{msgErr.username}}</span>
+                </p>
+                <p>
+                    密码:
+                    <input type="text" :class="{success:msgErr.password=='',error:msgErr.password!=''}" name="password"
+                        :value="form.password" @input="form.password = $event.target.value;valid('password')">
+                    <span v-show="msgErr.password != ''">{{msgErr.password}}</span>
+                </p>
+                <p>
+                    邮箱:
+                    <input type="text" :class="{success:msgErr.email=='',error:msgErr.email!=''}" name="email"
+                        :value="form.email" @input="form.email = $event.target.value;valid('email')">
+                    <span v-show="msgErr.email != ''">{{msgErr.email}}</span>
+                </p>
+                <p>
+                    手机号:
+                    <input type="text" :class="{success:msgErr.phone=='',error:msgErr.phone!=''}" name="phone"
+                        :value="form.phone" @input="form.phone = $event.target.value;valid('phone')">
+                    <span v-show="msgErr.phone != ''">{{msgErr.phone}}</span>
+                </p>
+            </form>
+        </div>
+    </template>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            template: '#t1',
+            data() {
+                return {
+                    form: {
+                        // 数据->视图
+                        username: '',
+                        phone: '',
+                        email: '',
+                        password: '',
+                    },
+                    msgErr: {
+                        username: '',
+                        password: '',
+                        email: '',
+                        phone: '',
+                    },
+                }
+            },
+            methods: {
+                valid(valueName) {
+                    let bool = '';
+                    let msg = '';
+                    switch (valueName) {
+                        case 'username':
+                            bool = /^[\u4e00-\u9fa5]{2,18}$/.test(this.form[valueName]);
+                            msg = '用户名2-18';
+                            break;
+                        case 'phone':
+                            bool = /^(?:(?:\+|00)86)?1[3-9]\d{9}$/.test(this.form[valueName]);
+                            msg = '电话号码格式不正确';
+                            break;
+                        case 'password':
+                            bool = /^\w{6,18}$/.test(this.form[valueName]);
+                            msg = '密码6-18';
+                            break;
+                        case 'email':
+                            bool = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(this.form[valueName]);
+                            msg = '邮箱格式不正确';
+                            break;
+                        default:
+                            break;
+                    }
+                    if (bool) {
+                        this.msgErr[valueName] = '';
+                    } else {
+                        this.msgErr[valueName] = msg;
+                    }
+                }
+            },
+        })
+        
+    </script>
+</body>
+
+</html>

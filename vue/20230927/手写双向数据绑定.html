@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../20230925/js/vue.js"></script>
+    <title>Document</title>
+    <style>
+        .error {
+            border: red solid;
+            outline: none;
+        }
+
+        .success {
+            border: skyblue solid;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <template id="t1">
+        <div>
+            <form action="">
+                <!-- 数据的双向绑定 -->
+                <p>
+                    姓名:
+                    <input type="text" name="username" :value="form.username"
+                        @input="form.username = $event.target.value">
+                    <hr>
+                    form.username:{{form.username}}
+                </p>
+            </form>
+        </div>
+    </template>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            template: '#t1',
+            data() {
+                return {
+                    // flag: true
+                    form: {
+                        // 数据->视图
+                        username: 'jack'
+                    }
+                }
+            },
+            methods: {
+
+            },
+        })
+    </script>
+</body>
+
+</html>

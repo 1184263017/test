@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../20230925/js/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <template id="t1">
+        <div>
+            <!-- 
+                v-for 循环创建dom节点
+                v 局部变量,保存每次遍历的属性值,只能在标签内部使用
+                k 局部变量,保存每次遍历的属性名,只能在标签内部使用
+                i 局部变量,保存每次遍历时的索引(因为对象没有索引,这个索引是vue自动添加的),只能在标签内部使用
+             -->
+           <ul>
+            <li v-for="(v,k,i) in user" :key="k">{{v}}-{{k}}-{{i}}</li>
+           </ul>
+        </div>
+    </template>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            template: '#t1',
+            data() {
+                return {
+                    user:{
+                        username:'jack',
+                        age:20,
+                        gender:'男'
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

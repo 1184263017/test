@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../20230925/js/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <template id="t1">
+        <div>
+            <!-- 
+                $set(对象,属性名,属性值):新增对象属性,保存响应
+                $delete(对象,属性名):删除对象属性,保存响应
+                对象属性值的修改都是响应式
+             -->
+             <button @click="$set(user,'email','123456@qq.com')">$set</button>
+             <button @click="$delete(user,'email')">$delete</button>
+             <button @click="user.age = 100">update</button>
+           <ul>
+            <li v-for="(v,k,i) in user" :key="k">{{v}}-{{k}}-{{i}}</li>
+           </ul>
+        </div>
+    </template>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            template: '#t1',
+            data() {
+                return {
+                    user:{
+                        username:'jack',
+                        age:20,
+                        gender:'男'
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

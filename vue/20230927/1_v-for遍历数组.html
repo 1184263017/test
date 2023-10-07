@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../20230925/js/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <template id="t1">
+        <div>
+            <!-- 
+                v-for 循环创建dom节点
+                v 局部变量,保存每次遍历的数组元素,只能在标签内部使用
+                k 局部变量,保存每次遍历的数组索引,只能在标签内部使用
+             -->
+           <ul>
+            <li v-for="(v,k) in hobby">{{v}}-{{k}}</li>
+           </ul>
+        </div>
+    </template>
+    <script>
+        new Vue({
+            el: '#app',
+            template: '#t1',
+            data() {
+                return {
+                    hobby:['css','html']
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

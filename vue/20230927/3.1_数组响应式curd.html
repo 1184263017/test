@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../20230925/js/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <template id="t1">
+        <div>
+            <!-- 能触发响应式,直接修改原数组 -->
+            <button @click="hobby.push('javascript')">push</button>
+            <button @click="hobby.pop()">pop</button>
+            <button @click="hobby.unshift('javascript')">unshift</button>
+            <button @click="hobby.shift()">shift</button>
+            <button @click="hobby.splice(0,1,'ts')">splice</button>
+            
+            <!-- 不能触发响应式,所以整体覆盖 -->
+            <button @click="hobby=['ts','html']">['ts','html'](整体替换)</button>
+            <button @click="hobby= hobby.filter((v,k)=> k%2==0)">过滤(不触发响应式,整体替换)</button>
+            <ul>
+                <li v-for="(v,k) in hobby">{{v}}-{{k}}</li>
+            </ul>
+        </div>
+    </template>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            template: '#t1',
+            data() {
+                return {
+                    hobby: ['css', 'html', 'ts', 'js']
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

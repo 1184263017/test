@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../20230925/js/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <template id="t1">
+        <div>
+            <ul>
+                <li v-for="(v,k) in newHobby">{{v}}-{{k}}</li>
+            </ul>
+        </div>
+    </template>
+    <script>
+        [].filter
+        const vm = new Vue({
+            el: '#app',
+            template: '#t1',
+            data() {
+                return {
+                    hobby: ['css', 'html', 'ts', 'js']
+                }
+            },
+            computed: {
+                newHobby() {
+                    return this.hobby.concat('java','c++')
+                    return this.hobby.filter((v, k) => k % 2 == 0)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

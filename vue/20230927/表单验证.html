@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../20230925/js/vue.js"></script>
+    <title>Document</title>
+    <style>
+        .error {
+            border: red solid;
+            outline: none;
+        }
+
+        .success {
+            border: skyblue solid;
+            outline: none;
+        }
+
+        /* .init {
+            border: orange solid;
+            outline: none;
+        } */
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <template id="t1">
+        <div>
+            <form action="">
+                <!-- <p>
+                    姓名:<input :class="[msgErr.username?'error':'success']" type="text" name="username"
+                        @input="valid">{{msgErr.username}}
+                </p> -->
+                <p>
+                    姓名:
+                    <input :class="{'success':flag,'error':!flag}" type="text" name="username"
+                        @input="valid">{{msgErr.username}}
+                </p>
+            </form>
+        </div>
+    </template>
+    <script>
+        new Vue({
+            el: '#app',
+            template: '#t1',
+            data() {
+                return {
+                    msgErr: {
+                        username: ''
+                    },
+                    flag: true
+                }
+            },
+            methods: {
+                valid(e) {
+                    const bool = /^\w{2,18}$/.test(e.target.value);
+                    if (bool) {
+                        this.msgErr.username = '';
+                        this.flag = true;
+                    } else {
+                        this.msgErr.username = '用户名2-18位字符';
+                        this.flag = false;
+                    }
+
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

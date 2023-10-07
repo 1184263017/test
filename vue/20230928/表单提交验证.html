@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../20230925/js/vue.js"></script>
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .error {
+            border: red solid;
+            outline: none;
+        }
+
+        .success {
+            border: skyblue solid;
+            outline: none;
+        }
+
+        .form {
+            box-sizing: border-box;
+            width: 300px;
+            height: 200px;
+            border: solid transparent;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 40px;
+        }
+
+        p {
+            text-align: center;
+            margin-bottom: 7px;
+        }
+
+        span {
+            display: inline-block;
+            width: 60px;
+            text-align: left;
+        }
+
+        button {
+            margin-top: 10px;
+            width: 80px;
+            height: 30px;
+            border-radius: 10px;
+            border: solid transparent;
+            background-color: skyblue;
+            color: white;
+        }
+
+        input {
+            width: 140px;
+            height: 18px;
+            border-radius: 5px;
+        }
+
+        .msg {
+            position: absolute;
+            width: 130px;
+            height: 18px;
+            border: solid transparent;
+            background-color: rgb(212, 174, 174);
+            right: -95px;
+            color: white;
+            text-align: center;
+            /* line-height: 18px; */
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <template id="t1">
+        <div class="form">
+            <form action="">
+                <!-- 数据的双向绑定 -->
+                <p>
+                    <span>用户名:</span>
+                    <input type="text" :class="{success:msgErr.username=='',error:msgErr.username!=''}" name="username"
+                        :value="form.username" @input="form.username = $event.target.value;valid('username')">
+                    <span class="msg" v-show="msgErr.username != ''">{{msgErr.username}}</span>
+                </p>
+                <p>
+                    <span>密码:</span>
+                    <input type="text" :class="{success:msgErr.password=='',error:msgErr.password!=''}" name="password"
+                        :value="form.password" @input="form.password = $event.target.value;valid('password')">
+                    <span class="msg" v-show="msgErr.password != ''">{{msgErr.password}}</span>
+                </p>
+                <p>
+                    <span>邮箱:</span>
+                    <input type="text" :class="{success:msgErr.email=='',error:msgErr.email!=''}" name="email"
+                        :value="form.email" @input="form.email = $event.target.value;valid('email')">
+                    <span class="msg" v-show="msgErr.email != ''">{{msgErr.email}}</span>
+                </p>
+                <p>
+                    <span>手机号:</span>
+                    <input type="text" :class="{success:msgErr.phone=='',error:msgErr.phone!=''}" name="phone"
+                        :value="form.phone" @input="form.phone = $event.target.value;valid('phone')">
+                    <span class="msg" v-show="msgErr.phone != ''">{{msgErr.phone}}</span>
+                </p>
+                <p>
+                    <button @click.prevent="sub">提交</button>
+                </p>
+            </form>
+        </div>
+    </template>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            template: '#t1',
+            data() {
+                return {
+                    form: {
+                        // 数据->视图
+                        username: '',
+                        phone: '',
+                        email: '',
+                        password: '',
+                    },
+                    msgErr: {
+                        username: '',
+                        password: '',
+                        email: '',
+                        phone: '',
+                    },
+                }
+            },
+            methods: {
+                valid(valueName) {
+                    let bool = true;
+                    let msg = '';
+                    switch (valueName) {
+                        case 'username':
+                            bool = /^\w{2,18}$/.test(this.form[valueName]);
+                            msg = '用户名2-18';
+                            break;
+                        case 'phone':
+                            bool = /^(?:(?:\+|00)86)?1[3-9]\d{9}$/.test(this.form[valueName]);
+                            msg = '电话号码格式不正确';
+                            break;
+                        case 'password':
+                            bool = /^\w{6,18}$/.test(this.form[valueName]);
+                            msg = '密码6-18';
+                            break;
+                        case 'email':
+                            bool = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(this.form[valueName]);
+                            msg = '邮箱格式不正确';
+                            break;
+                        default:
+                            break;
+                    }
+                    if (bool) {
+                        this.msgErr[valueName] = '';
+                    } else {
+                        this.msgErr[valueName] = msg;
+                    }
+                    return bool;
+                },
+                sub() {
+                    let bool = [];
+                    for (const key in this.form) {
+                        bool.push(this.valid(key));
+                    }
+                    if (bool.includes(false)) return;
+                    console.log(123);
+                }
+            },
+        })
+
+    </script>
+</body>
+
+</html>

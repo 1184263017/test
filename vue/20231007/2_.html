@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../20230925/js/vue.js"></script>
+    <title>Document</title>
+    <style>
+        .a {
+            font-size: 24px;
+        }
+
+        .b {
+            color: red;
+        }
+
+        .c {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+    <template id="t1">
+        <div>
+            <p :class="styleObj">hello wolrd</p>
+            <p :class="styleArr">hahahahah</p>
+            <p v-once>{{num}} 取消响应式</p>
+            <p>{{numBig}}</p>
+            <button @click="numBig++">num++</button>
+        </div>
+    </template>
+    <script>
+        let that = ''
+        const vm = new Vue({
+            el: '#app',
+            template: '#t1',
+            data() {
+                return {
+                    styleObj: {
+                        a: true,
+                        b: true,
+                        c: true,
+                    },
+                    styleArr: ['a', 'b', 'c'],
+                    num: 0,
+                }
+            },
+            mounted() {
+                that = this;
+                console.log(this);
+            },
+            computed: {
+                numBig: {
+                    get() {
+                        return this.num;
+                    },
+                    set(value) {
+                        console.log(value);
+                        this.num = value * 10;
+                    }
+                }
+            },
+            watch: {
+                num: {
+                    handler(newValue, oldValue) {
+                        console.log('num', newValue, oldValue);
+                    },
+                    // 初始化立即执行一次
+                    immediate: true,
+                    // 深层监听,递归监听,消耗资源
+                    deep: true,
+                }
+            }
+        })
+        console.log(vm);
+    </script>
+</body>
+
+</html>
