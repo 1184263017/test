@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../20230925/js/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <template id="t1">
+        <div>
+            <!-- lazy: 等于change改变事件 -->
+            <input type="text" @input="log($event.target.value)" v-model.lazy="form.username">{{form.username}}
+            <hr>
+
+            <!-- number: 尝试输入值转为数值类型 -->
+            <input type="text" v-model.number="form.num">{{form.num}}
+            <hr>
+
+            <!-- 去除两端空格 -->
+            <input type="text" v-model.trim="form.username">{{'strta'+form.username+'end'}}
+            <input type="text" v-model="form.username">{{'strta'+form.username+'end'}}
+            <hr>
+        </div>
+    </template>
+    <script>
+        [].includes
+        const vm = new Vue({
+            el: '#app',
+            template: '#t1',
+            data() {
+                return {
+                    form: {
+                        username: 'jack',
+                        num: 100
+                    }
+                };
+            },
+            methods: {
+                log(v) {
+                    this.username = v;
+                    console.log(this.username);
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

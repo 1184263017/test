@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../20230925/js/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+    <template id="t1">
+        <div>
+            <!-- 
+                @.[event]='回调函数' // 自定义事件
+                @事件名='回调函数'
+             -->
+            <button @click="()=>{
+                let str = 'haha'
+                log(str+age)
+            }">click</button>
+
+            <!-- 
+               回调函数结构可以省略不写
+             -->
+             <button @click="
+             let str = 'haha';
+             log(str+age);">click</button>
+        </div>
+    </template>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            template: '#t1',
+            data() {
+                return {
+                    age: 10
+                }
+            },
+            methods: {
+                log(data) {
+                    console.log(data)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../20230925/js/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+    <template id="t1">
+        <div>
+            <!-- 自定义事件对象名称(使用回调函数写法) -->
+            <button @click="(e)=>{log(e)}">自定义事件对象名称</button>
+
+            <!-- 系统定义事件对象名称(简写去掉回调函数) -->
+            <button @click="log($event)">系统定义事件对象名称</button>
+            <button @click="log">系统定义事件对象名称</button>
+
+            <!-- 常用写法 @事件名= "方法名" 本质还是回调函数写法,方法中的this不能省略 -->
+            <button @click="say(1,$event)">常用写法</button>
+        </div>
+    </template>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            template: '#t1',
+            data() {
+                return {
+                    age: 10
+                }
+            },
+            methods: {
+                log(e) {
+                    console.log(e.target)
+                },
+                say(v, e) {
+                    this.log(e)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

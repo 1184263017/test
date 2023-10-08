@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../20230925/js/vue.js"></script>
+    <title>Document</title>
+    <style>
+        .div1 {
+            width: 200px;
+            height: 200px;
+            border: solid;
+        }
+
+        .div2 {
+            width: 150px;
+            height: 150px;
+            border: solid;
+        }
+
+        .div3 {
+            width: 100px;
+            height: 100px;
+            border: solid;
+        }
+
+        .div4 {
+            width: 50px;
+            height: 50px;
+            border: solid;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+    <template id="t1">
+        <div>
+            <!-- 
+                v-指令名称:指令参数.指令修饰符="表达式"
+
+                指令修饰符作用
+                1. 一般将和业务无关的逻辑封装到修饰符中
+             -->
+            <!-- prevent 阻止事件默认行为 -->
+            <a href="https://www.baidu.com" @click.prevent="log">baidu</a>
+            <hr>
+
+            <!-- capture 绑定捕获事件 -->
+            <div class="div1" @click="log('div1')" @click.capture="log('div11')">div1
+                <div class="div2" @click="log('div2')" @click.capture="log('div22')">div2
+                    <div class="div3" @click="log('div3')" @click.capture="log('div33')">div3
+                        <div class="div4" @click="log('div4')" @click.capture="log('div44')">div4
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+            <!-- stop 阻止事件冒泡 -->
+            <div class="div1" @click.stop="log('div1')">div1
+                <div class="div2" @click.stop="log('div2')">div2
+                    <div class="div3" @click.stop="log('div3')">div3
+                        <div class="div4" @click.stop="log('div4')">div4
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+            <!-- once 处理函数只执行一次 -->
+            <button @click.once="log('once')">只执行一次</button>
+            <hr>
+
+            <!-- self 只能点击自己才能执行,可以阻止冒泡执行 -->
+            <div class="div1" @click.self="log('div1')">div1
+                <div class="div2" @click.self="log('div2')">div2
+                    <div class="div3" @click.self="log('div3')">div3
+                        <div class="div4" @click.self="log('div4')">div4
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- passiv 配合滚动事件使用 -->
+            <div class="div1" @scroll.passiv="log('div1')">div1
+
+            </div>
+        </div>
+    </template>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            template: '#t1',
+            data() {
+                return {
+                    age: 10
+                }
+            },
+            methods: {
+                log(value) {
+                    // e.preventDefault();
+                    console.log(value);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

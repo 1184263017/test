@@ -86,8 +86,7 @@
     <div id="app"></div>
     <template id="t1">
         <div class="form">
-            <form action="">
-                <!-- 数据的双向绑定 -->
+            <!-- <form action="">
                 <p>
                     <span>用户名:</span>
                     <input type="text" :class="{success:msgErr.username=='',error:msgErr.username!=''}" name="username"
@@ -110,6 +109,37 @@
                     <span>手机号:</span>
                     <input type="text" :class="{success:msgErr.phone=='',error:msgErr.phone!=''}" name="phone"
                         :value="form.phone" @input="form.phone = $event.target.value;valid('phone')">
+                    <span class="msg" v-show="msgErr.phone != ''">{{msgErr.phone}}</span>
+                </p>
+                <p>
+                    <button @click.prevent="sub">提交</button>
+                </p>
+            </form> -->
+
+            <form action="">
+                <!-- 数据的双向绑定 -->
+                <p>
+                    <span>用户名:</span>
+                    <input type="text" :class="{success:msgErr.username=='',error:msgErr.username!=''}"
+                        v-model="form.username" :value="form.username" @input="valid('username')">
+                    <span class="msg" v-show="msgErr.username != ''">{{msgErr.username}}</span>
+                </p>
+                <p>
+                    <span>密码:</span>
+                    <input type="text" :class="{success:msgErr.password=='',error:msgErr.password!=''}"
+                        v-model="form.password" :value="form.password" @input="valid('password')">
+                    <span class="msg" v-show="msgErr.password != ''">{{msgErr.password}}</span>
+                </p>
+                <p>
+                    <span>邮箱:</span>
+                    <input type="text" :class="{success:msgErr.email=='',error:msgErr.email!=''}" v-model="form.email"
+                        :value="form.email" @input="valid('email')">
+                    <span class="msg" v-show="msgErr.email != ''">{{msgErr.email}}</span>
+                </p>
+                <p>
+                    <span>手机号:</span>
+                    <input type="text" :class="{success:msgErr.phone=='',error:msgErr.phone!=''}" v-model="form.phone"
+                        :value="form.phone" @input="valid('phone')">
                     <span class="msg" v-show="msgErr.phone != ''">{{msgErr.phone}}</span>
                 </p>
                 <p>

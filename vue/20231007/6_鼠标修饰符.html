@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../20230925/js/vue.js"></script>
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+    <template id="t1">
+        <div>
+            <!-- 鼠标修饰符 -->
+            <button @click.left="log('haha')">鼠标修饰符left</button>
+            <hr>
+            <button @click.right="log('haha')">鼠标修饰符right</button>
+            <hr>
+            <button @click.middle="log('haha')">鼠标修饰符middle</button>
+            <hr>
+        </div>
+    </template>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            template: '#t1',
+            data() {
+                return {
+                    age: 10
+                }
+            },
+            methods: {
+                log(value) {
+                    console.log(value);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

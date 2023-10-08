@@ -577,17 +577,17 @@
         //         console.log(new_arr);
         //     }
 
-        let john = { name: "John", surname: "Smith", id: 1 };
-        let pete = { name: "Pete", surname: "Hunt", id: 2 };
-        let mary = { name: "Mary", surname: "Key", id: 3 };
-        let users = [john, pete, mary];
+        // let john = { name: "John", surname: "Smith", id: 1 };
+        // let pete = { name: "Pete", surname: "Hunt", id: 2 };
+        // let mary = { name: "Mary", surname: "Key", id: 3 };
+        // let users = [john, pete, mary];
 
-            let usersMapped = users.map((v)=>{
-                return {
-                    fullName:v.name + v.surname,
-                    id:v.id
-                }
-            })
+        // let usersMapped = users.map((v) => {
+        //     return {
+        //         fullName: v.name + v.surname,
+        //         id: v.id
+        //     }
+        // })
 
         /*
         usersMapped = [
@@ -596,8 +596,76 @@
         { fullName: "Mary Key", id: 3 }
         ]
         */
-        console.log(usersMapped[0].id) // 1
-        console.log(usersMapped[0].fullName) // John Smith
+        // console.log(usersMapped[0].id) // 1
+        // console.log(usersMapped[0].fullName) // John Smith
+
+        // function dateFormat(obj, format) {
+        //     const year = obj.getFullYear()
+        //     const month = obj.getMonth() + 1
+        //     const day = obj.getDate()
+        //     format = format.replace(/yyyy/, year);
+        //     format = format.replace(/MM/, month);
+        //     format = format.replace(/dd/, day);
+        //     console.log(format);
+        // }
+
+        // dateFormat(new Date('2020-12-01'), 'yyyy/MM/dd') // 2020/12/01
+        // dateFormat(new Date('2020-04-01'), 'yyyy/MM/dd') // 2020/04/01
+        // dateFormat(new Date('2020-04-01'), 'yyyy年MM月dd日') // 2020年04月01日
+
+
+        // let a = 10;
+        // let b = 20;
+        // // [a,b] = [b,a]
+        // a = a + b
+        // b = a - b
+        // a = a - b
+        // console.log(a, b);
+
+
+        // const arr = [1, 2, 3, 4];
+        // function getArrSort(arr) {
+        //     let res = [];
+        //     const num = Math.floor(Math.random() * arr.length);
+        //     res.push(arr[num]);
+        //     arr.splice(num, 1);
+        //     if (arr.length > 0) {
+        //         res = res.concat(getArrSort(arr));
+        //     }
+        //     return res;
+        // }
+        // console.log(getArrSort(arr));
+
+        // const arr=[1,2,3,4,5,6,7,8,9,10];
+        // const num = arr.reduce((sum,v)=>{
+        //     return sum += v;
+        // },0)
+        // console.log(num);
+
+        // const obj = {
+        //     a:1,
+        //     b:2
+        // }
+        // const arr = Object.entries(obj);
+        // const obj1 = Object.fromEntries(arr);
+        // console.log(arr);
+        // console.log(obj1);
+
+
+        let arr = [1, [2, [3, 4, 5]]];
+
+        function flatten(arr) {
+            let res = [];
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] instanceof Array) {
+                    res = res.concat(flatten(arr[i]));
+                } else {
+                    res.push(arr[i]);
+                }
+            }
+            return res;
+        }
+        console.log(flatten(arr));// [1, 2, 3, 4，5]
     </script>
 </body>
 

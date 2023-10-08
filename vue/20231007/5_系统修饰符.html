@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../20230925/js/vue.js"></script>
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+    <template id="t1">
+        <div>
+            <!-- 系统修饰符 -->
+            <input type="text" @keydown.ctrl="log('haha')">
+            <hr>
+            <input type="text" @keydown.alt="log('haha')">
+            <hr>
+            <input type="text" @keydown.shift="log('haha')">
+            <hr>
+            <input type="text" @keydown.meta="log('haha')">
+            <hr>
+            <!-- 组合使用 -->
+            <input type="text" @keydown.ctrl.65="log('haha')">
+            <hr>
+
+            <!-- 鼠标使用系统修饰符 -->
+            <button @click.ctrl="log('haha')">鼠标修饰符ctrl</button>
+            <hr>
+            <!-- 组合使用 -->
+            <button @click.ctrl.shift.alt="log('haha')">鼠标修饰符ctrl+shift+alt</button>
+            <hr>
+
+            <!-- 精确限制系统修饰符数量必须完全匹配 -->
+            <button @click.ctrl.alt.exact="log('haha')">鼠标修饰符ctrl+alt(限制)</button>
+            <hr>
+
+
+            <button @click.ctrl.alt="log('haha')">鼠标修饰符ctrl+alt(不限制)</button>
+            <hr>
+        </div>
+    </template>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            template: '#t1',
+            data() {
+                return {
+                    age: 10
+                }
+            },
+            methods: {
+                log(value) {
+                    console.log(value);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
