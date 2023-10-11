@@ -1,4 +1,4 @@
-const bastUrl = 'http://127.0.0.1:3000';
+let bastUrl = 'http://127.0.0.1:3100';
 
 function processSearch(params) {
     const arr = Object.entries(params);
@@ -17,7 +17,10 @@ function getTodoListsApi(params = {}) {
             resolve(xhr.response)
         }
         xhr.onerror = () => {
-            reject()
+            bastUrl = prompt("出错了,可能是端口错误,请重新设置baseURL,格式：'http://127.0.0.1:3000'");
+            getTodoListsApi(params).then((data) => {
+                resolve(data);
+            });
         }
         xhr.send();
     })

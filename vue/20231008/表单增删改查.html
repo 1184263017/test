@@ -40,7 +40,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="v in lists" :key="v.id" :class="statusStyle[v.status]">
+                    <tr v-for="v in pageLsit" :key="v.id" :class="statusStyle[v.status]">
                         <td>{{v.title}}</td>
                         <td>{{status[v.status]}}</td>
                         <td>
@@ -57,6 +57,22 @@
                     </tr>
                 </tbody>
             </table>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item" @click="upOrDown(1)">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item" v-for="v of count" :key="v" @click="page(v)"><a class="page-link"
+                            href="#">{{v}}</a></li>
+                    <li class="page-item" @click="upOrDown(2)">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </template>
     <script type="module">
@@ -95,12 +111,30 @@
                     statusStyle: { 1: 'table-warning', 2: 'table-primary', 3: 'table-success' },
                     status: { 1: '未完成', 2: '进行中', 3: '已完成' },
                     lists: [],
+                    pageLsit: [],
                     title: '',
-                    activeStatus: 0
+                    activeStatus: 0,
+                    count: 1,
+                    page_v: 1,
+                    limit: 4
                 }
             },
             async created() {
                 this.lists = await getTodoListsApi();
+            },
+            watch: {
+                // lists() {
+                //     // this.pageLsit = ;
+                //     this.count = Math.ceil(this.lists.length / 2);
+                //     console.log(count);
+                // }
+                lists: {
+                    handler(newValue, oldValue) {
+                        this.pageLsit = this.lists.slice(0, this.limit);
+                        this.count = Math.ceil(this.lists.length / this.limit);
+                    },
+                    immediate: true,
+                }
             },
             methods: {
                 // 添加
@@ -138,6 +172,22 @@
                         return
                     }
                     this.lists = await getTodoListsApi({ status });
+                },
+                //分页
+                page(page) {
+                    this.page_v = page;
+                    this.pageLsit = this.lists.slice((page - 1) * 2, (page - 1) * 2 + this.limit);
+                },
+                //上一页下一页
+                upOrDown(type) {
+                    let page = 0;
+                    if (type == 2) {
+                        page = this.page_v + 1 > this.count ? this.count : this.page_v + 1;
+                    } else {
+                        page = this.page_v - 1 < 1 ? 1 : this.page_v - 1;
+                    }
+                    this.page_v = page;
+                    this.pageLsit = this.lists.slice((page - 1) * 2, (page - 1) * 2 + this.limit);
                 }
             },
         })

@@ -57,20 +57,20 @@
                 'info.age': {
                     // 获取新旧值并进行操作
                     handler(newValue, oldValue) {
-                        console.log('info.age',newValue, oldValue);
+                        console.log('info.age', newValue, oldValue);
                     },
                     // 初始化立即执行一次
-                    immediate:true,
+                    immediate: true,
                 },
                 'info': {
                     // 获取新旧值并进行操作
                     handler(newValue, oldValue) {
-                        console.log('info',newValue, oldValue);
+                        console.log('info', newValue, oldValue);
                     },
                     // 初始化立即执行一次
-                    immediate:true,
+                    immediate: true,
                     // 深层监听,递归监听,消耗资源
-                    deep:true,
+                    deep: true,
                 }
             }
         });
