@@ -1,38 +1,30 @@
 <template>
   <div>
     <h1>App</h1>
-    <!-- <Home :title="title" @sendTitle="say"></Home> -->
-    <!-- <Home :title="title" @sendTitle="(data)=>{
-      title = data
-    }"></Home> -->
-    <!-- <Home :title="title" @sendTitle="title=$event"></Home> -->
-    <Home v-model="title">
-      <ul>
-        <li>1</li>
-        <li>2</li>
-      </ul>
-    </Home>
-    {{ title }}
+    <TsCard>
+      <b>this is ts card</b>
+      <p>{{ content }}</p>
+    </TsCard>
+    <TsCard></TsCard>
   </div>
 </template>
 
 <script>
-import Home from "./components/Home.vue";
+import TsCard from "./components/TsCard.vue";
 export default {
-  components: { Home },
-  name: "App",
-
+  name: "WorkspaceJsonApp",
+  components: {
+    TsCard,
+  },
   data() {
     return {
-      title: "118@qq.com",
+      content: "this is content App",
     };
   },
-  methods: {
-    say(value) {
-      console.log(value);
-      this.title = value;
-    },
-  },
+
+  mounted() {},
+
+  methods: {},
 };
 </script>
 

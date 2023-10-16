@@ -119,6 +119,105 @@ npm run serve
 
 > 组件(函数,类)思想是一样的,封装代码,提高代码的可复用性,组件可以封装以下业务代码:html、js、css,主要是用来封装ui界面,**界面组件化**
 
+### 组件全局注册
+
+```js
+import Vue from 'vue';
+import App from './App.vue';
+import TsHome from './components/TsHome'
+import TsCard from './components/ts-card'
+
+// 驼峰命名
+Vue.component('TsHome',TsHome)
+// 短横线命名
+Vue.component('ts-card',TsCard)
+
+new Vue({
+  render: (h) => {
+    return h(App)
+  }
+}).$mount('#app')
+```
+
+### 组件局部注册
+
+1. 全局注册的组件可以在所有 `.vue` 文件中调用
+1. 局部注册的组件在哪里注册就在哪里使用
+
+> **全局:** 定义公共组件
+
+> **局部:** 对某一个组件内容进行切割,可能这个组件只适合当前文件调用
+
+#### 组件命名
+
+驼峰法命名(建议使用)
+1. `.vue` 文件的命名,多单词,首字母大写 `AbcAbc` 大驼峰法命名
+2. 注册组件名和vue文件名保持一致,`Vue.component('abc',abc)`
+
+短横线命名
+1. `.vue` 文件的命名,多单词,多个单词使用短横线分割
+2. 注册组件名和vue文件名保持一致,`Vue.component('a-bc',abc)`
+
+调用方式
+1. 驼峰法命名,支持驼峰法组件标签调用,也支持短横线组件标签调用
+2. 短横线命名,只支持短横线标签调用
+
+### Prop 组件属性
+
+#### 大小写
+1. 组件内部定义props 选项：小驼峰命名
+2. 调用组件标签传递属性参数：短横线
+
+### Prop 类型
+
+1. props 定义方式1 `属性名:类型构造函数`,如果类型不符合,抛出一个警告级错误,不影响程序运行
+```js
+props: {
+    count: Number,
+    username: String,
+    isAdmin: Boolean,
+    info: Object,
+    hobbys: Array,
+    cb: Function,
+  },
+```
+2.  props 定义方式2(多类型) `属性名:[类型构造函数1,类型构造函数2]`,类型只需符合多类型中的任意一个,否则抛出一个警告级错误,不影响程序运行
+```js
+ props: {
+    count: [Number, String],
+  },
+```
+
+3.  props 定义方式3(对象写法) `属性名:{type:单类型|多类型,required:必填}`
+- type  单类型|多类型(null|undefined表示不限制数据类型)
+- required  true/false 必填项
+- default 设定默认值,如果没有此属性,那么就使用默认值
+- validator 属性值是一个函数,函数参数就是当前传入的属性值,如果返回true通过,否则失败
+```js
+  props: {
+    username: {
+      type: String,   // 类型
+      required: true, // 必填
+      default:'timo', // 默认值
+    },
+    phone: {
+      type: String,
+      // 设置属性值验证
+      validator: (value) => {
+        // value 传入的参数值
+        // return true // 通过
+        // return false // 失败
+        return /^(?:(?:\+|00)86)?1[3-9]\d{9}$/.test(value);
+      },
+    },
+  }
+```
+
+属性参数值的写法
+
+1. 属性参数的值比较复杂,建议定义成变量
+2. 属性参数的个数很多,建议使用 `v-bind` 简写
+
 ## 组件实例配置项
 
 ### data,methods,computed,watch
@@ -174,6 +273,29 @@ function 组件名(参数1,参数2,...){
 1. 获取 Pay 事件绑定对象,this 保存了组件自己
 2. this.$emit(事件名称,数据)方法触发事件
 
+
+### 事件名
+
+1. 多单词:小驼峰,短横线
+
+### 自定义组件的 v-model
+
+1. 默认要求: 绑定属性必须是value,自定义事件必须是input
+2. 如果自定义(修改)默认属性和事件名称,必须使用model选项做映射说明
+```js
+export default {
+  name: "TsButton",
+  props: ["valueAbc"],
+  model:{
+    prop:'valueAbc',
+    event:'inputAbc',
+  },
+  data() {
+    return {};
+  },
+};
+```
+
 ### ref
 
 获取vue中所有的节点对象(组件节点和DOM节点)
@@ -198,22 +320,51 @@ function 组件名(参数1,参数2,...){
 2. 父组件调用子组件,绑定子组件事件 input(随意命名)
 3. 基于子组件input控件的input事件,触发子组件@input事件
 
+### 将原生事件绑定到组件
+
+1. 事件使用 `native` 修饰符,将事件渗透到组件的根标签
+2. 组件内的DOM节点可以通过冒泡触发事件,执行事件处理函数
+3. `native` 修饰的事件,最好是一个可冒泡的事件
+
+### sync 语法糖实现数据双向绑定
+
+1. 父->子 属性传参
+2. 子->父 自定义事件
+3. 子->父的时候,如果绑定自定义事件使用的是 `@update:属性名` ,此时可以省略事件绑定不写,在属性传参时使用语法糖 `属性.sync=`
+
+v-bind 配合使用:
+1. 组件传递多个属性,可以将多个属性映射定义成一个对象
+2. 使用 `v-bind='对象名'` 传递属性
+3. 如果需要双向数据绑定,可以使用 `v-bind.sync='对象名'`
+
+
+
 ### 语法糖v-model
 
 如果子组件自定义属性名是value,自定义事件名是@input,此时可以使用语法糖 v-model
 
-### 插槽
+## 插槽
 
-#### slot 插槽
+### slot 插槽
 
 是vue系统内置组件,直接使用
 
-#### slot 特点
+### slot 特点
 
 注册标签名 `<slot>` ,但缺少模版 `<template>` 内容
 
-#### slot 一些理解
+### slot 一些理解
 
 1. 是子组件的一个特殊属性
 2. 他可以接收复杂的大量的HTML格式的字符串
 3. 通过组件标签对`<x></x>`内写内容,给插槽传递数据(插槽的内容分发)
+
+### 编译作用域
+
+变量在那个文件中那么就在那个文件中编译
+
+### 后备内容
+
+1. 好比函数参数的默认值
+2. 如果没有分发内容.默认展示后备内容
+
