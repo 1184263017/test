@@ -1,17 +1,17 @@
 <template>
   <div>
-    <h2>TsCard</h2>
-    <slot>hello TsCard</slot>
+    <h2>Card</h2>
+    <button @click="count++">{{ count }}</button>
   </div>
 </template>
 
 <script>
 export default {
-  name: "WorkspaceJsonTsCard",
+  name: "Card",
 
   data() {
     return {
-        content:'this is content Ts'
+      count: 10,
     };
   },
 

@@ -16,7 +16,7 @@
 
         const handler = {
             get(target, property) {
-                console.log(`Getting ${property}`,property,target);
+                console.log(`Getting ${property}`, property, target);
                 return target[property];
             },
             set(target, property, value) {

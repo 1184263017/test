@@ -29,11 +29,21 @@
         //     console.log(data);
         // })
 
-        Promise.resolve(1)
-            .then(Promise.resolve(3).then(console.log).then(console.log))
-            .then(console.log)
-            .then(Promise.resolve(2).then(console.log).then(console.log))
-            .then(console.log)
+        // Promise.resolve(1)
+        //     .then(Promise.resolve(3).then(console.log).then(console.log))
+        //     .then(console.log)
+        //     .then(Promise.resolve(2).then(console.log).then(console.log))
+        //     .then(console.log)
+
+
+        const obj = {
+            a: 1,
+            b: 2
+        }
+
+        let { a, b } = obj;
+
+        console.log(a, b);
     </script>
 </body>
 

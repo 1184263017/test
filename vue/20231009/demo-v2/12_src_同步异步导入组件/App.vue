@@ -1,8 +1,8 @@
 <template>
   <div>
     <h1>App</h1>
-    <div v-css>hello div</div>
-    <p v-css>hello p</p>
+    <UsersA></UsersA>
+    <!-- <UsersTable></UsersTable> -->
   </div>
 </template>
 
@@ -20,11 +20,5 @@ export default {
 };
 </script>
 
-
 <style lang="scss" scoped>
-div {
-  padding: 10px;
-  margin: 10px;
-  border: solid;
-}
 </style>

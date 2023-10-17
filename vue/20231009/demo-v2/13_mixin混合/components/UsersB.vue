@@ -1,14 +1,14 @@
 <template>
   <div>
-    <h1>App</h1>
-    <div v-css>hello div</div>
-    <p v-css>hello p</p>
+    <h2>UsersB</h2>
+    {{ count }}
+    <button @click="count++">count++</button>
   </div>
 </template>
 
 <script>
 export default {
-  name: "WorkspaceJsonApp",
+  name: "WorkspaceJsonUsersA",
 
   data() {
     return {};
@@ -20,11 +20,5 @@ export default {
 };
 </script>
 
-
 <style lang="scss" scoped>
-div {
-  padding: 10px;
-  margin: 10px;
-  border: solid;
-}
 </style>
