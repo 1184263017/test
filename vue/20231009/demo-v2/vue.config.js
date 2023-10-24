@@ -12,10 +12,13 @@ module.exports = defineConfig({
       directory: path.join(__dirname, 'public'),
     },
     // 路由钩子
-    onBeforeSetupMiddleware({app}) {
+    onBeforeSetupMiddleware({
+      app
+    }) {
       app.get('/users', function (req, res) {
         res.send('1111')
       });
     }
-  }
+  },
+  publicPath: './',
 })

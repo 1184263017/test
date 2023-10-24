@@ -8,42 +8,49 @@
 </head>
 
 <body>
+    <input type="file" id="file">
     <script>
-        // const p = Promise.resolve(1);
-        // // console.log(p);
-        // const p1 = p.then(2)
-        // const p2 = p1.then(Promise.resolve(3))
-        // const p3 = p2.then(console.log)0.
-
-        // console.log(p, '1');
-        // console.log(p1, '2');
-        // console.log(p2, '3');
-        // console.log(p3, '4');
-
-        // console.log(p1 === p2);
-        // new Promise((resolve, reject) => {
-        //     reject(22)
-        // }).then((data) => {
-        //     // console.log(data);
-        // }, (data) => {
-        //     console.log(data);
-        // })
-
-        // Promise.resolve(1)
-        //     .then(Promise.resolve(3).then(console.log).then(console.log))
-        //     .then(console.log)
-        //     .then(Promise.resolve(2).then(console.log).then(console.log))
-        //     .then(console.log)
-
-
-        const obj = {
-            a: 1,
-            b: 2
+        const file = document.getElementById('file');
+        file.onchange = function (e) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                console.log(123);
+                console.log(this.result);
+            };
+            console.log(reader);
+            console.dir(e.target.files);
         }
 
-        let { a, b } = obj;
+        // setTimeout(function f1() {
+        //     console.log(123);
+        //     setTimeout(f1, 1000);
+        // }, 1000);
 
-        console.log(a, b);
+        // function add(a, b, c) {
+        //     return a + b + c;
+        // }
+
+        // function fun(callback) {
+
+        // }
+        // fun(add)(1)(2)(3);
+        // fun(add)(1, 2)(3);
+
+
+        function say(num) {
+            let count = 0;
+            count += num;
+            function f(num) {
+                count += num;
+                return f;
+            }
+            f.valueOf = function () {
+                return count;
+            }
+            return f;
+        }
+
+        console.log(+say(1)(2)(3)(3));
     </script>
 </body>
 

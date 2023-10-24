@@ -2,11 +2,12 @@
   <div>
     <h1>App</h1>
     <ul>
-      <li v-for="v in routes" :key="v.name">
-        <router-link :to="{ name: v.name }">{{ v.meta.name }}</router-link>
+      <li>
+        <router-link :to="'/user/a'">UserA</router-link>
       </li>
     </ul>
     <router-view></router-view>
+    <UserA></UserA>
   </div>
 </template>
 
@@ -24,13 +25,7 @@ export default {
   mounted() {},
 
   methods: {},
-  computed: {
-    routes() {
-      return this.$router.options.routes.filter(
-        (el) => el.meta.hidden === false
-      );
-    },
-  },
+
   watch: {
     // $route(newV, oldV) {
     //   console.log(newV, oldV);
@@ -46,10 +41,14 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 div {
   padding: 10px;
   margin: 10px;
   border: solid;
+}
+a {
+  cursor: pointer;
+  text-decoration: none;
 }
 </style>

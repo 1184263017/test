@@ -467,4 +467,139 @@ v-bind 配合使用:
 - 指令组成: `v-指令名称:指令参数.指令修饰符="表达式"`
 - 指令作用: 操作DOM
 
+#### 全局自定义指令
 
+指令钩子函数
+
+- bind 绑定指令
+- unbind 解绑指令(dom或者组件被销毁)
+```js
+  Vue.directive('css', {
+    bind(el,binding) {
+      // 当指令被绑定到dom/组件的时候执行
+      console.log(el,binding);
+      el.style[binding.arg] = binding.value;
+      if (binding.modifiers.b) {
+        el.style.fontWeight = 'bold';
+      }
+      if (binding.modifiers.i) {
+        el.style.fontStyle = 'italic';
+      }
+    },
+    unbind() {
+      // 当dom/组件销毁的时候执行
+      console.log('销毁了哦');
+    },
+  })
+```
+
+指令构造函数参数
+
+- el: 指令所在的 dom节点
+- bingding: 指令选项参数
+  - arg(参数)   `el.style[binding.arg] = 'red'`
+  - value(表达式) `el.style[binding.arg] = binding.value;`
+  - modifiers(修饰符)
+  ```js
+    // <p v-css:backgroundColor.b.i="'skyblue'">hello p</p>
+    if (binding.modifiers.b) {
+      el.style.fontWeight = 'bold';
+    }
+    if (binding.modifiers.i) {
+      el.style.fontStyle = 'italic';
+    }
+  ```
+- vnode: 虚拟dom节点,可以通过 `vnode.context` 获取vue this对象
+
+#### 注册局部指令
+
+```js
+  directives: {
+    d1: {
+      bind(el, binding, vnode) {
+        el.style.color = 'red'
+      },
+      unbind(el, binding, vnode) {},
+    }
+  },
+```
+1. 指令参数语法和全局是一样的
+2. 只能在定义处使用
+
+#### 指令的周期函数
+
+- bind(绑定)
+- inerted
+- update(更新)
+- unbind(销毁)
+
+> 简写:如果指令对象中只有一个inserted周期函数,可以指令对象简写为一个函数
+
+## 过滤器(v3已经删除)
+
+- 语法1: `表达式 | 过滤器` 本质上就是函数,将管道符 `|` 左侧表达式计算结果作为参数交给右侧函数,最后输出的值为函数的返回值
+- 语法2: `表达式 | 过滤器(参数1,...)`  `过滤器(参数1,参数2,...)` 将依次传递给过滤器函数的第2,3,4...位置的参数,第一个参数永远都是管道符左侧表达式计算结果
+- 语法3: `表达式 | 过滤器(参数1,...) | 过滤器(参数1,...) | ...`  多过滤器执行方式,前一个过滤器计算结果传递给下一个过滤器,最终的计算结果是最后一个过滤器返回值
+
+### 全局过滤器
+
+- 定义一次就可以在所有的vue文件中使用
+- 全局方法定义: `Vue.filter('过滤器名称',函数)`
+```js
+Vue.filter('abc', v => 'abc' + v)
+```
+
+### 局部过滤器
+
+- 在哪里定义在哪里使用,其他vue文件用不了
+- 配置项定义: `{filter:{过滤器名称:函数}}`
+```js
+  filters: {
+    fGender(v) {
+      return v == 1 ? "男" : "女";
+    },
+  },
+```
+
+## 开发插件(插件机制)
+
+针对Vue模块化做的一个约定
+
+- 全局组件    `Vue.component()`
+- 全局指令    `Vue.directive()`
+- 全局过滤器  `Vue.filter()`
+
+约定的内容
+
+1. 所有的 Vue 全局代码,都封装到 `对想.install` 方法中
+2. `对想.install=(参数1,参数2){}` 有两个参数
+    - 参数1(必填): 必须是 `Vue` 对象
+    - 参数2(可选): 额外参数
+3. 调用方法 `Vue.use(参数1，参数2)` 自动的给 `实参1.install(Vue,实参2)` 传入Vue对象
+    - 实参1(必填): 对象引用
+    - 实参2(可选): 额外参数
+4. 将对象模块化
+
+### 发布自己的npm包
+
+1. `npm init -y`
+2. 设置package.json中的 `"main": "index.js",`
+3. 登录 `npm login` 打开给的网址进行验证登录
+4. 发布 `npm publish` 
+5. 取消 `npm unpublish 包名 --force ` 24小时之内可以撤销发布的包
+
+
+### 开发模式下如何使用包
+
+1. 进入到包目录
+2. `npm link` 创建一个全局链接
+3. 进入项目目录
+4. 执行`npm link name名称`
+5. 解除链接 `npm unlink name名称`
+
+如果报403错误处理方法
+
+1. `npm whoami` 查看当前登录账户名是否登录
+2. `npm config get registry` 检查仓库是否被设成了淘宝镜像库
+3. `npm config set registry=http://registry.npmjs.org` 如果是镜像被改变,需要改回来
+4. 如果上述步骤完成还是不行,修改package.json中的name名称
