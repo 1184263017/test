@@ -25,14 +25,13 @@
     </div>
     
     <script>
-        function f1(a,b,c) {
-            console.log(a);
-            console.log(b);
-            console.log(c);
+        const obj  = {
+            a:1,
+            // b:{
+            //     name:1
+            // }
         }
-        const a = 'lili';
-        const age = 18;
-        f1`${a} is ${age} haha old`
+        console.log(obj.b?.name);
     </script>
 </body>
 </html>
