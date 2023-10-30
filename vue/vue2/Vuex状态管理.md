@@ -122,10 +122,10 @@ add(参数1)
 
 ### 模块的局部状态
 
-所有的模块 getters,actions,mutations 只能访问模块中的状态
+1. 所有的模块 getters,actions,mutations 只能访问模块中的状态
 2. getters第三个参数可以访问root下的state,第四个参数可以访问root下的getters(rootState, rootGetters)
 3. actions > store.rootState属性可以访问root下的state
-1. actions > store.rootGetters属性可以访问root下的getters
+4. actions > store.rootGetters属性可以访问root下的getters
 
 
 ## Vuex 辅助函数
@@ -168,3 +168,14 @@ add(参数1)
 - root->actions 语法 mapActions({计算属性名:'actions属性名'})
 - 模块->actions 语法 mapActions('模块路径',{计算属性名:'actions'})
 - 简写 `{计算属性名:'actions属性名'}` 如果计算属性名和actions属性名一致,可以简写`['actions属性名']`
+
+
+## 严格模式
+
+1. `strict:true` 开发模式下使用
+2. `strict:true` 生产环境下使用 `npm run build` 时修改为false
+
+### process.env.NODE_ENV 环境变量
+
+1. 记录当前程序运行的环境
+2. production(生成环境) development(开发环境)

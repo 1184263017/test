@@ -2,21 +2,19 @@
   <div>
     <h1>App</h1>
     <Vuex></Vuex>
-    <Jx></Jx>
   </div>
 </template>
 
 <script>
 export default {
   name: "WorkspaceJsonApp",
-
+  components: {
+    Vuex: () => import("./components/Vuex.vue"),
+  },
   data() {
     return {};
   },
-  components: {
-    Vuex: () => import("./components/Vuex.vue"),
-    Jx: () => import("./components/Jx.vue"),
-  },
+
   mounted() {},
 
   methods: {},
