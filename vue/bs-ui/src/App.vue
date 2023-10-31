@@ -1,7 +1,7 @@
 <template>
   <div>
-    <!-- <h1>App</h1> -->
-    <BsButton @click="say" type="success" size="sm" :disabled="false" :outline="true"
+    <router-view></router-view>
+    <!--     <BsButton @click="say" type="success" size="sm" :disabled="false" :outline="true"
       >提交</BsButton
     >
     <hr />
@@ -44,15 +44,15 @@
           <td>{{ v.t4 }}</td>
         </tr>
       </template>
-    </BsTable>
+    </BsTable> -->
   </div>
 </template>
 
 <script>
-import BsButton from './bu-ui/BsButton.vue';
-import BsCard from './bu-ui/BsCard.vue';
-import BsCardGroup from './bu-ui/BsCardGroup.vue';
-import BsTable from './bu-ui/BsTable.vue';
+// import BsButton from './bu-ui/BsButton.vue';
+// import BsCard from './bu-ui/BsCard.vue';
+// import BsCardGroup from './bu-ui/BsCardGroup.vue';
+// import BsTable from './bu-ui/BsTable.vue';
 
 export default {
   name: 'App',
@@ -92,12 +92,12 @@ export default {
       theadData: ['标题1', '标题2', '标题3', '标题4'],
     };
   },
-  components: {
-    BsButton,
-    BsCard,
-    BsCardGroup,
-    BsTable,
-  },
+  // components: {
+  //   BsButton,
+  //   BsCard,
+  //   BsCardGroup,
+  //   BsTable,
+  // },
   methods: {
     say(e) {
       console.log(123, e);
