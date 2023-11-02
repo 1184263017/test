@@ -1,10 +1,22 @@
 import Vue from "vue";
 import App from './App.vue';
-import store from './store'
 
+// 小型 vuex
+Vue.prototype.eventBus = new Vue({
+    data() {
+        return {
+            title: 'hello eventbus',
+            count: 10,
+        }
+    },
+    methods: {
+        say() {
+            console.log(123);
+        }
+    }
+})
 new Vue({
     render: (h) => h(App),
-    store
 }).$mount('#app')
 
 console.log(process.env.NODE_ENV);

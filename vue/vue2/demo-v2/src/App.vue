@@ -1,7 +1,15 @@
 <template>
   <div>
     <h1>App</h1>
-    <Vuex></Vuex>
+    <div>
+      <h2>eventBus</h2>
+      {{ eventBus.title }}
+      <hr>
+      <button @click="eventBus.count++">{{ eventBus.count }}</button>
+      <button @click="eventBus.say()">say</button>
+    </div>
+    <TsHome ref="tsHome"></TsHome>
+    <button @click="log">TSHOME</button>
   </div>
 </template>
 
@@ -9,7 +17,7 @@
 export default {
   name: "WorkspaceJsonApp",
   components: {
-    Vuex: () => import("./components/Vuex.vue"),
+    TsHome: () => import("./components/TsHome.vue"),
   },
   data() {
     return {};
@@ -17,7 +25,14 @@ export default {
 
   mounted() {},
 
-  methods: {},
+  methods: {
+    log(){
+      const tsHome = this.$refs.tsHome;
+      console.log(tsHome);
+      console.log(tsHome.title);
+      console.log(tsHome.add(1,2));
+    }
+  },
 };
 </script>
 
