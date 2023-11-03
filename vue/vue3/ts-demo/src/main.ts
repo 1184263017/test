@@ -1,24 +1,32 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+let str = '100';
+console.log(str.split(' '));
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+let num: number = 10;
+num = 10;
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+let a: string = '45';
+a = 'sad'
+
+function say(): void {
+  console.log(123);
+}
+
+let arr1: number[] = [1, 2, 3, 4];
+let arr2: Array<string> = ['a', 'c'];
+let arr3: [number, string, string?] = [1, 'a', 's']
+let arr4: object[] = [{}, {}]
+let arr5: Array<object> = [{}, {}]
+
+
+function f1(a: string = 'a', b?: number): number {
+  console.log(a, b);
+  return 1;
+}
+
+f1('1');
+
+
+interface objNew {
+  name: string,
+  age: number
+}
