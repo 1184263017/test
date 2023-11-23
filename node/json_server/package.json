@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "mock": "json-server -w db.json -H 127.0.0.1 -s ./public -r ./routes.json -m ./middlewares.js"
+    "mock": "json-server -w db.json -H 127.0.0.1 -p 3001 -s ./public -r ./routes.json -m ./middlewares.js"
   },
   "keywords": [],
   "author": "",

@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .d1{
+        .d1 {
             width: 200px;
             /* height: 200px; */
             border: solid;
         }
-        .d2{
+
+        .d2 {
             width: 50px;
             height: 50px;
             border: solid;
@@ -19,19 +21,40 @@
         }
     </style>
 </head>
+
 <body>
     <div class="d1">
         <div class="d2"></div>
+
     </div>
-    
+
+    <div id="box1">
+        <button onclick="add(event)">+</button>
+        <button onclick="del(event)">-</button>
+        <label for="">选择</label>
+        <select name="" id="">
+            <option value="">1</option>
+            <option value="">2</option>
+            <option value="">3</option>
+        </select>
+    </div>
+
     <script>
-        const obj  = {
-            a:1,
-            // b:{
-            //     name:1
-            // }
+        const jia = document.getElementById('jia');
+        const jian = document.getElementById('jian');
+        const cloneNode = () => document.getElementById('box1').cloneNode(true);
+        const add = (e) => {
+            e.target.parentNode.parentNode.appendChild(cloneNode());
         }
-        console.log(obj.b?.name);
+        const del = (e) => {
+            e.target.parentNode.remove()
+        }
+
+        (function (x) {
+            delete x;
+            alert(x)
+        })(1 + 5)
     </script>
 </body>
+
 </html>
